@@ -181,7 +181,30 @@ def resolve_active_profiles(
     lang = lang_override or ("java" if ext == ".java" else "python")
     if lang == "python":
         return PYTHON_PROFILE
-    from _code_health.profiles_java import JAVA_PROFILE, SPRING_BOOT_FRAMEWORK
+
     if framework_override == "none":
         return LanguageProfile(name="java", file_extensions=(".java",), frameworks=[])
-    return JAVA_PROFILE
+
+    from _code_health.profiles_java import JAVA_PROFILE, SPRING_BOOT_FRAMEWORK
+    if framework_override == "spring-boot":
+        return JAVA_PROFILE
+
+    is_spring = False
+    try:
+        text = file_path.read_text(encoding="utf-8", errors="replace")
+        if "org.springframework" in text or "@SpringBootApplication" in text:
+            is_spring = True
+    except OSError:
+        pass
+
+    if not is_spring:
+        for bfile in ("pom.xml", "build.gradle", "build.gradle.kts"):
+            target = repo_root / bfile
+            if target.is_file():
+                content = target.read_text(encoding="utf-8", errors="replace")
+                if "spring-boot" in content or "org.springframework" in content:
+                    is_spring = True
+                    break
+
+    frameworks = [SPRING_BOOT_FRAMEWORK] if is_spring else []
+    return LanguageProfile(name="java", file_extensions=(".java",), frameworks=frameworks)

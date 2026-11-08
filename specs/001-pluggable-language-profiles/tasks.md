@@ -97,18 +97,18 @@ description: "Task list for Pluggable Language & Framework Profiles (Java & Spri
 
 > Write these tests FIRST in `tests/unit/test_java_spring_health.py`. Verify they FAIL before implementation.
 
-- [ ] T020 [P] [TDD] [US3] Unit tests for `@Autowired` field injection detection (-8.0 pts Clean Code)
-- [ ] T021 [P] [TDD] [US3] Unit tests for `@RestController` directly injecting `@Repository` / `EntityManager` (-20.0 pts SRP)
-- [ ] T022 [P] [TDD] [US3] Unit tests for `@Transactional` on `@RestController` or `private` methods (-15.0 to -20.0 pts)
-- [ ] T023 [P] [TDD] [US3] Unit tests for string-concatenated SQL queries in `JdbcTemplate` / `EntityManager` (-40.0 pts Security)
-- [ ] T024 [P] [TDD] [US3] Unit tests for web entrypoint parameter limit relaxation ($\le 6$ parameters for `@GetMapping`, `@PostMapping`, etc.)
+- [x] T020 [P] [TDD] [US3] Unit tests for `@Autowired` field injection detection (-8.0 pts Clean Code)
+- [x] T021 [P] [TDD] [US3] Unit tests for `@RestController` directly injecting `@Repository` / `EntityManager` (-20.0 pts SRP)
+- [x] T022 [P] [TDD] [US3] Unit tests for `@Transactional` on `@RestController` or `private` methods (-15.0 to -20.0 pts)
+- [x] T023 [P] [TDD] [US3] Unit tests for string-concatenated SQL queries in `JdbcTemplate` / `EntityManager` (-40.0 pts Security)
+- [x] T024 [P] [TDD] [US3] Unit tests for web entrypoint parameter limit relaxation ($\le 6$ parameters for `@GetMapping`, `@PostMapping`, etc.)
 
 ### Implementation for User Story 3
 
-- [ ] T025 [P] [US3] Implement `SPRING_BOOT_FRAMEWORK` profile in `scripts/_code_health/profiles.py` with concern mappings, stereotype definitions, and LCOM4 exemptions (`@Entity`, `@Data`, `@Configuration`)
-- [ ] T026 [US3] Implement Spring Boot architectural rule evaluators in `scripts/_code_health/profiles.py` for field injection, layering, transaction boundaries, and query concatenation
-- [ ] T027 [US3] Implement workspace auto-detection of Spring Boot in `resolve_active_profiles()` inspecting `pom.xml`, `build.gradle`, or source imports (`org.springframework.*`)
-- [ ] T028 [US3] [REVIEW] **Checkpoint**: User Story 3 fully functional. Verify clean Spring Boot service scores Grade A and anti-patterns receive exact line-numbered deductions.
+- [x] T025 [P] [US3] Implement `SPRING_BOOT_FRAMEWORK` profile in `scripts/_code_health/profiles.py` with concern mappings, stereotype definitions, and LCOM4 exemptions (`@Entity`, `@Data`, `@Configuration`)
+- [x] T026 [US3] Implement Spring Boot architectural rule evaluators in `scripts/_code_health/profiles.py` for field injection, layering, transaction boundaries, and query concatenation
+- [x] T027 [US3] Implement workspace auto-detection of Spring Boot in `resolve_active_profiles()` inspecting `pom.xml`, `build.gradle`, or source imports (`org.springframework.*`)
+- [x] T028 [US3] [REVIEW] **Checkpoint**: User Story 3 fully functional. Verify clean Spring Boot service scores Grade A and anti-patterns receive exact line-numbered deductions.
 
 ---
 

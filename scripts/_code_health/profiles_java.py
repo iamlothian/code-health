@@ -63,6 +63,10 @@ class SpringBootFrameworkProfile(FrameworkProfile):
             penalties.append(
                 RulePenalty("srp", 15.0, "SRP (Spring): @Transactional should not be placed on web controllers (-15.0 pts)", func.lineno)
             )
+        if has_tx and "private" in func.modifiers:
+            penalties.append(
+                RulePenalty("srp", 15.0, "SRP (Spring): @Transactional on private method has no effect in Spring proxy (-15.0 pts)", func.lineno)
+            )
         for call in func.calls:
             if any(kw in call.name for kw in ("query", "update", "execute", "createQuery", "createNativeQuery")) and call.has_string_concat:
                 penalties.append(

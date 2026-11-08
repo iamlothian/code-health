@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "extensions": {
+    "superspec": {
+      "version": "1.0.2",
+      "source": "local",
+      "manifest_hash": "sha256:5eb99bb29c97d98dd8a3fe9a1cf9590628d316227f723c437b347f497b13e0b2",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "agy": [
+          "speckit.superspec.status",
+          "speckit.superspec.brainstorm",
+          "speckit.superspec.tasks",
+          "speckit.superspec.execute",
+          "speckit.superspec.review"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-11-08T20:22:47.799169+00:00"
+    }
+  }
+}

@@ -85,6 +85,7 @@ class IRFunction:
     except_handlers: list[IRExceptHandler]
     is_test: bool
     annotations: list[IRAnnotation] = field(default_factory=list)
+    modifiers: list[str] = field(default_factory=list)
     has_docstring: bool = True
 
 

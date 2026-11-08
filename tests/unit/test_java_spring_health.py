@@ -172,3 +172,136 @@ def test_pure_python_unaffected_when_java_parser_missing(tmp_path: Path, monkeyp
     assert rc == 0
 
 
+def test_spring_boot_antipatterns_detected_with_exact_penalties(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from _code_health.java_parser import parse_java_file
+    from _code_health.ir_scorer import UniversalIRScorer
+    from _code_health.profiles_java import JAVA_PROFILE
+
+    code = '''
+package com.example.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+@RestController
+public class BadOrderController {
+    @Autowired
+    private OrderRepository orderRepository;
+
+    @Transactional
+    @GetMapping("/orders")
+    public List<Order> listOrders(String filter) {
+        String sql = "SELECT * FROM orders WHERE status = '" + filter + "'";
+        return jdbcTemplate.query(sql);
+    }
+}
+'''
+    f = tmp_path / "BadOrderController.java"
+    f.write_text(code, encoding="utf-8")
+
+    ir_mod = parse_java_file(f, "BadOrderController.java", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), JAVA_PROFILE)
+    cls = ir_mod.classes[0]
+    rep = scorer.score_class(cls, "BadOrderController.java", is_test=False)
+
+    findings = rep.findings + [f for m in rep.methods for f in m.findings]
+    assert any("field injection detected on 'orderRepository'" in f for f in findings)
+    assert any("directly injects orderRepository" in f for f in findings)
+    assert any("@Transactional should not be placed on web controllers" in f for f in findings)
+    assert any("potential SQL/JPQL injection" in f for f in findings)
+    assert rep.scores.srp < 85.0
+    assert rep.scores.security < 70.0
+
+
+def test_spring_boot_web_entrypoint_relaxes_parameter_count(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from _code_health.java_parser import parse_java_file
+    from _code_health.ir_scorer import UniversalIRScorer
+    from _code_health.profiles_java import JAVA_PROFILE
+
+    code = '''
+package com.example.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@RestController
+public class SearchController {
+    /**
+     * Search endpoint with 5 parameters.
+     */
+    @PostMapping("/search")
+    public String search(String q, int page, int size, String sort, boolean active) {
+        return q;
+    }
+}
+'''
+    f = tmp_path / "SearchController.java"
+    f.write_text(code, encoding="utf-8")
+
+    ir_mod = parse_java_file(f, "SearchController.java", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), JAVA_PROFILE)
+    cls = ir_mod.classes[0]
+    m_rep = scorer.score_function(cls.methods[0], "SearchController.java", is_test=False, parent=cls)
+    assert not any("params=" in f for f in m_rep.findings)
+    assert m_rep.scores.size == 100.0
+
+
+def test_spring_boot_workspace_auto_detection(tmp_path: Path) -> None:
+    from _code_health.profiles import resolve_active_profiles
+
+    # 1. Detected from file content
+    f1 = tmp_path / "App.java"
+    f1.write_text("import org.springframework.boot.SpringApplication;\npublic class App {}", encoding="utf-8")
+    p1 = resolve_active_profiles(tmp_path, f1)
+    assert any(fw.name == "spring-boot" for fw in p1.frameworks)
+
+    # 2. Detected from pom.xml
+    pom = tmp_path / "pom.xml"
+    pom.write_text("<project><artifactId>spring-boot-starter-web</artifactId></project>", encoding="utf-8")
+    f2 = tmp_path / "Plain.java"
+    f2.write_text("public class Plain {}", encoding="utf-8")
+    p2 = resolve_active_profiles(tmp_path, f2)
+    assert any(fw.name == "spring-boot" for fw in p2.frameworks)
+
+    # 3. Explicit override --framework none
+    p3 = resolve_active_profiles(tmp_path, f2, framework_override="none")
+    assert not any(fw.name == "spring-boot" for fw in p3.frameworks)
+
+
+def test_spring_boot_transactional_on_private_method_penalized(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from _code_health.java_parser import parse_java_file
+    from _code_health.ir_scorer import UniversalIRScorer
+    from _code_health.profiles_java import JAVA_PROFILE
+
+    code = '''
+package com.example.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class OrderService {
+    @Transactional
+    private void internalProcess() {
+        // do work
+    }
+}
+'''
+    f = tmp_path / "OrderService.java"
+    f.write_text(code, encoding="utf-8")
+
+    ir_mod = parse_java_file(f, "OrderService.java", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), JAVA_PROFILE)
+    cls = ir_mod.classes[0]
+    m_rep = scorer.score_function(cls.methods[0], "OrderService.java", is_test=False, parent=cls)
+    assert any("@Transactional on private method has no effect" in f for f in m_rep.findings)
+    assert m_rep.scores.srp <= 85.0
+
+
+
+

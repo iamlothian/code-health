@@ -1,0 +1,11 @@
+feature: 001-pluggable-language-profiles
+created: 2026-11-08
+current_phase: execute
+phases:
+  constitution: { status: done, updated: 2026-11-08 }
+  specify:      { status: done, updated: 2026-11-08 }
+  brainstorm:   { status: done, updated: 2026-11-08, sessions: 1 }
+  plan:         { status: done, updated: 2026-11-08 }
+  tasks:        { status: done, updated: 2026-11-08 }
+  execute:      { status: pending }
+  review:       { status: pending }

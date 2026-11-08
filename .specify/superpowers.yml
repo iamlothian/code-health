@@ -1,0 +1,21 @@
+# .specify/superpowers.yml
+last_checked: 2026-11-08T15:23:00-05:00
+skills:
+  brainstorming:
+    detected: true
+    path: C:/Users/Matt/.gemini/config/plugins/superpowers/skills/brainstorming/SKILL.md
+  writing-plans:
+    detected: true
+    path: C:/Users/Matt/.gemini/config/plugins/superpowers/skills/writing-plans/SKILL.md
+  executing-plans:
+    detected: true
+    path: C:/Users/Matt/.gemini/config/plugins/superpowers/skills/executing-plans/SKILL.md
+  subagent-driven-development:
+    detected: true
+    path: C:/Users/Matt/.gemini/config/plugins/superpowers/skills/subagent-driven-development/SKILL.md
+  test-driven-development:
+    detected: true
+    path: C:/Users/Matt/.gemini/config/plugins/superpowers/skills/test-driven-development/SKILL.md
+  requesting-code-review:
+    detected: true
+    path: C:/Users/Matt/.gemini/config/plugins/superpowers/skills/requesting-code-review/SKILL.md

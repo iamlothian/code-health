@@ -60,6 +60,19 @@ def _parse_annotations(node: Any, source_bytes: bytes) -> list[IRAnnotation]:
     return decs
 
 
+def _parse_modifiers(node: Any, source_bytes: bytes) -> list[str]:
+    modifiers = _find_first_child(node, "modifiers")
+    if not modifiers:
+        return []
+    mods: list[str] = []
+    for c in modifiers.children:
+        if c.type not in {"annotation", "marker_annotation"}:
+            text = _get_node_text(c, source_bytes).strip()
+            if text:
+                mods.append(text)
+    return mods
+
+
 def _has_doc_comment(node: Any, lines: list[str]) -> bool:
     start_line = node.start_point[0]
     for idx in range(max(0, start_line - 3), start_line):
@@ -102,6 +115,7 @@ class _MethodCSTVisitor:
         self.calls: list[IRCall] = []
         self.accessed_fields: set[str] = set()
         self.called_methods: set[str] = set()
+        self.concat_vars: set[str] = set()
         self.except_handlers: list[IRExceptHandler] = []
 
     def scan(self, body_node: Any, depth: int = 0) -> None:
@@ -123,6 +137,8 @@ class _MethodCSTVisitor:
             self._visit_switch(node, depth)
         elif t == "try_statement":
             self._visit_try(node, depth)
+        elif t == "variable_declarator":
+            self._record_var_decl(node)
         elif t == "method_invocation":
             self._record_call(node)
         elif t == "identifier":
@@ -158,12 +174,21 @@ class _MethodCSTVisitor:
             is_empty = not block or len(block.children) <= 2
             self.except_handlers.append(IRExceptHandler(p_text, is_empty, is_broad, catch.start_point[0] + 1))
 
+    def _record_var_decl(self, node: Any) -> None:
+        val = node.child_by_field_name("value")
+        if val and ("+" in _get_node_text(val, self.bytes) or "concat" in _get_node_text(val, self.bytes)):
+            name_node = node.child_by_field_name("name")
+            if name_node:
+                self.concat_vars.add(_get_node_text(name_node, self.bytes))
+
     def _record_call(self, node: Any) -> None:
-        name_node = _find_first_child(node, "identifier")
+        name_node = node.child_by_field_name("name") or _find_first_child(node, "identifier")
         call_name = _get_node_text(name_node, self.bytes) if name_node else ""
         obj_node = node.child_by_field_name("object")
         full_call = f"{_get_node_text(obj_node, self.bytes)}.{call_name}" if obj_node else call_name
-        has_concat = "+" in _get_node_text(node, self.bytes)
+        args_node = node.child_by_field_name("arguments")
+        args_text = _get_node_text(args_node, self.bytes) if args_node else ""
+        has_concat = "+" in args_text or any(v in args_text for v in self.concat_vars)
         self.calls.append(IRCall(full_call, full_call, node.start_point[0] + 1, has_concat))
         self.called_methods.add(call_name)
 
@@ -261,6 +286,7 @@ class JavaClassExtractor:
             except_handlers=v.except_handlers,
             is_test=is_test,
             annotations=decs,
+            modifiers=_parse_modifiers(m_node, self.bytes),
             has_docstring=_has_doc_comment(m_node, self.lines),
         )
 
