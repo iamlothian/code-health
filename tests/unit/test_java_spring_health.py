@@ -303,7 +303,7 @@ public class OrderService {
     assert m_rep.scores.srp <= 85.0
 
 
-def test_java_test_assertion_recognition_junit_assertj_mockmvc(tmp_path: Path) -> None:
+def test_java_test_assertion_recognition_junit_and_assertj(tmp_path: Path) -> None:
     pytest.importorskip("tree_sitter_java")
     from _code_health.java_parser import parse_java_file
     from _code_health.ir_scorer import UniversalIRScorer
@@ -315,10 +315,8 @@ package com.example.service;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.springframework.test.web.servlet.MockMvc;
 
 public class OrderServiceTest {
-
     @Test
     void testWithAssertEquals() {
         assertEquals(1, 1);
@@ -328,7 +326,35 @@ public class OrderServiceTest {
     void testWithAssertThat() {
         assertThat("hello").isEqualTo("hello");
     }
+}
+'''
+    f = tmp_path / "OrderServiceTest.java"
+    f.write_text(code, encoding="utf-8")
 
+    ir_mod = parse_java_file(f, "src/test/java/OrderServiceTest.java", is_test=True)
+    scorer = UniversalIRScorer(RubricConfig(), JAVA_PROFILE)
+    cls = ir_mod.classes[0]
+    methods = {m.name: scorer.score_function(m, "src/test/java/OrderServiceTest.java", is_test=True, parent=cls) for m in cls.methods}
+
+    assert not any("0 assertions" in f for f in methods["testWithAssertEquals"].findings)
+    assert methods["testWithAssertEquals"].scores.clean == 100.0
+    assert not any("0 assertions" in f for f in methods["testWithAssertThat"].findings)
+    assert methods["testWithAssertThat"].scores.clean == 100.0
+
+
+def test_java_test_assertion_mockmvc_and_empty_test_penalized(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from _code_health.java_parser import parse_java_file
+    from _code_health.ir_scorer import UniversalIRScorer
+    from _code_health.profiles_java import JAVA_PROFILE
+
+    code = '''
+package com.example.service;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.test.web.servlet.MockMvc;
+
+public class ControllerTest {
     @Test
     void testWithMockMvc(MockMvc mockMvc) throws Exception {
         mockMvc.perform(get("/orders")).andExpect(status().isOk());
@@ -344,33 +370,19 @@ public class OrderServiceTest {
     }
 }
 '''
-    f = tmp_path / "OrderServiceTest.java"
+    f = tmp_path / "ControllerTest.java"
     f.write_text(code, encoding="utf-8")
 
-    ir_mod = parse_java_file(f, "src/test/java/OrderServiceTest.java", is_test=True)
+    ir_mod = parse_java_file(f, "src/test/java/ControllerTest.java", is_test=True)
     scorer = UniversalIRScorer(RubricConfig(), JAVA_PROFILE)
     cls = ir_mod.classes[0]
+    methods = {m.name: scorer.score_function(m, "src/test/java/ControllerTest.java", is_test=True, parent=cls) for m in cls.methods}
 
-    methods_by_name = {m.name: scorer.score_function(m, "src/test/java/OrderServiceTest.java", is_test=True, parent=cls) for m in cls.methods}
-
-    # testWithAssertEquals should have no assertion penalty
-    assert not any("0 assertions" in f for f in methods_by_name["testWithAssertEquals"].findings)
-    assert methods_by_name["testWithAssertEquals"].scores.clean == 100.0
-
-    # testWithAssertThat should recognize assertThat
-    assert not any("0 assertions" in f for f in methods_by_name["testWithAssertThat"].findings)
-    assert methods_by_name["testWithAssertThat"].scores.clean == 100.0
-
-    # testWithMockMvc should recognize andExpect
-    assert not any("0 assertions" in f for f in methods_by_name["testWithMockMvc"].findings)
-    assert methods_by_name["testWithMockMvc"].scores.clean == 100.0
-
-    # testWithNoAssertions must be penalized for 0 assertions
-    assert any("test has 0 assertions" in f for f in methods_by_name["testWithNoAssertions"].findings)
-    assert methods_by_name["testWithNoAssertions"].scores.clean < 100.0
-
-    # helper method should NOT be penalized for 0 assertions
-    assert not any("test has 0 assertions" in f for f in methods_by_name["helperMethodWithoutAssertions"].findings)
+    assert not any("0 assertions" in f for f in methods["testWithMockMvc"].findings)
+    assert methods["testWithMockMvc"].scores.clean == 100.0
+    assert any("test has 0 assertions" in f for f in methods["testWithNoAssertions"].findings)
+    assert methods["testWithNoAssertions"].scores.clean < 100.0
+    assert not any("test has 0 assertions" in f for f in methods["helperMethodWithoutAssertions"].findings)
 
 
 def test_java_fail_under_gate_cli_exit_code(tmp_path: Path) -> None:

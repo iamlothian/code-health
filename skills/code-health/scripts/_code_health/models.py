@@ -214,6 +214,7 @@ STDLIB_TRIVIAL_CALLS = {
 EXEMPT_LCOM_BASES = {
     "BaseModel", "Exception", "RuntimeError", "ValueError", "Enum", "StrEnum", "IntEnum",
     "TypedDict", "NamedTuple", "TyperGroup", "TyperCommand", "Protocol",
+    "FrameworkProfile", "LanguageProfile",
 }
 IGNORED_SCAN_DIRS = {
     ".git", ".venv", "venv", "node_modules", "__pycache__", ".pytest_cache",

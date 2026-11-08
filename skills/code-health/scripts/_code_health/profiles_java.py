@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from _code_health.ir_models import IRClass, IRFunction, RulePenalty
-from _code_health.profiles import FrameworkProfile, LanguageProfile
+from _code_health.ir_models import FrameworkProfile, IRClass, IRFunction, LanguageProfile, RulePenalty
 
 SPRING_CONCERN_MAP = {
     "ResponseEntity": "http_transport",
@@ -42,6 +41,7 @@ class SpringBootFrameworkProfile(FrameworkProfile):
         )
 
     def evaluate_class(self, cls: IRClass) -> list[RulePenalty]:
+        """Evaluate class-level Spring Boot architectural rules (field injection, layering)."""
         penalties: list[RulePenalty] = []
         is_controller = any(a.name in {"RestController", "Controller"} for a in cls.annotations)
         for f in cls.fields:
@@ -56,6 +56,7 @@ class SpringBootFrameworkProfile(FrameworkProfile):
         return penalties
 
     def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
+        """Evaluate method-level Spring Boot rules (transaction boundaries, SQL concatenation)."""
         penalties: list[RulePenalty] = []
         has_tx = any(a.name == "Transactional" for a in func.annotations)
         is_ctrl = parent and any(a.name in {"RestController", "Controller"} for a in parent.annotations)
@@ -67,14 +68,16 @@ class SpringBootFrameworkProfile(FrameworkProfile):
             penalties.append(
                 RulePenalty("srp", 15.0, "SRP (Spring): @Transactional on private method has no effect in Spring proxy (-15.0 pts)", func.lineno)
             )
+        sql_keywords = ("query", "update", "execute", "createQuery", "createNativeQuery")
         for call in func.calls:
-            if any(kw in call.name for kw in ("query", "update", "execute", "createQuery", "createNativeQuery")) and call.has_string_concat:
+            if any(kw in call.name for kw in sql_keywords) and call.has_string_concat:
                 penalties.append(
                     RulePenalty("security", 40.0, f"Security (Spring): potential SQL/JPQL injection in {call.name} via string concatenation (-40.0 pts)", call.lineno)
                 )
         return penalties
 
     def is_test_assert_call(self, call_name: str) -> bool:
+        """Recognize Spring MockMvc, AssertJ, and JUnit 5 assertions."""
         short = call_name.split(".")[-1]
         return short in {"assertEquals", "assertTrue", "assertFalse", "assertNotNull", "assertNull", "assertThrows", "assertAll", "assertThat", "verify", "andExpect"}
 

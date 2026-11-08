@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from _code_health.models import CONCERN_EXACT_MAP, CONCERN_SHORT_MAP, ENTRYPOINT_DECORATORS
+
 
 @dataclass(frozen=True)
 class RulePenalty:
@@ -142,3 +144,71 @@ class MissingNativeParserError(RuntimeError):
             f"  • uv (project):   uv pip install 'tree-sitter>=0.23.0' '{missing_packages[-1]}>=0.23.0'\n"
             f"  • pip:            pip install {pkgs_str}\n"
         )
+
+
+@dataclass
+class FrameworkProfile:
+    """Layered architectural rules and concern mappings for a specific framework."""
+
+    name: str
+    target_language: str
+    concern_map: dict[str, str] = field(default_factory=dict)
+    entrypoint_annotations: set[str] = field(default_factory=set)
+    lcom4_exempt_annotations: set[str] = field(default_factory=set)
+
+    def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
+        """Evaluate architectural rule violations for a function or method."""
+        return []
+
+    def evaluate_class(self, cls: IRClass) -> list[RulePenalty]:
+        """Evaluate architectural rule violations for a class or record."""
+        return []
+
+    def is_test_assert_call(self, call_name: str) -> bool:
+        """Determine if a function/method call represents an assertion."""
+        return False
+
+
+@dataclass
+class LanguageProfile:
+    """Configuration and rule hooks for a target programming language."""
+
+    name: str
+    file_extensions: tuple[str, ...]
+    frameworks: list[FrameworkProfile] = field(default_factory=list)
+
+    def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
+        """Evaluate framework and language penalties on a function or method."""
+        penalties: list[RulePenalty] = []
+        for fw in self.frameworks:
+            penalties.extend(fw.evaluate_function(func, parent))
+        return penalties
+
+    def evaluate_class(self, cls: IRClass) -> list[RulePenalty]:
+        """Evaluate framework and language penalties on a class or record."""
+        penalties: list[RulePenalty] = []
+        for fw in self.frameworks:
+            penalties.extend(fw.evaluate_class(cls))
+        return penalties
+
+    def map_concern(self, cname: str) -> str | None:
+        """Map a function/call name to an operational concern category."""
+        for fw in self.frameworks:
+            c = fw.concern_map.get(cname) or fw.concern_map.get(cname.split(".")[-1])
+            if c:
+                return c
+        return CONCERN_EXACT_MAP.get(cname) or CONCERN_SHORT_MAP.get(cname.split(".")[-1])
+
+    def is_entrypoint_func(self, func: IRFunction) -> bool:
+        """Check if function is an entrypoint (web, CLI, scheduled job)."""
+        names = {a.name.split(".")[-1] for a in func.annotations}
+        fw_entrypoints = {ep for fw in self.frameworks for ep in fw.entrypoint_annotations}
+        return bool(names & (ENTRYPOINT_DECORATORS | fw_entrypoints))
+
+    def is_test_assert_call(self, cname: str) -> bool:
+        """Determine if a call name matches a test assertion idiom."""
+        for fw in self.frameworks:
+            if fw.is_test_assert_call(cname):
+                return True
+        return cname in {"pytest.raises", "pytest.warns", "pytest.fail"} or cname.split(".")[-1].startswith("assert")
+

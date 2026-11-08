@@ -1,22 +1,19 @@
-"""Universal 5-dimension code health scorer operating on language-neutral IR."""
+"""Universal 5-Dimension Scorer operating over language-neutral IR models."""
 
 from __future__ import annotations
 
-from typing import Any, Protocol
+from typing import Protocol
 
 from _code_health.ir_models import (
     IRClass,
     IRFunction,
-    IRModule,
     RulePenalty,
 )
 from _code_health.models import (
     ClassReport,
     DimensionScores,
-    FileReport,
     FunctionReport,
     RubricConfig,
-    clamp_score,
     penalty_item,
 )
 
@@ -27,19 +24,105 @@ class BaseProfileProtocol(Protocol):
     name: str
 
     def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
+        """Evaluate architectural rule violations for a function or method."""
         ...
 
     def evaluate_class(self, cls: IRClass) -> list[RulePenalty]:
+        """Evaluate architectural rule violations for a class or record."""
         ...
 
     def map_concern(self, call_name: str) -> str | None:
+        """Map a function/call name to an operational concern category."""
         ...
 
     def is_entrypoint_func(self, func: IRFunction) -> bool:
+        """Check if function is an entrypoint."""
         ...
 
     def is_test_assert_call(self, call_name: str) -> bool:
+        """Determine if a function/method call represents an assertion."""
         ...
+
+
+def _apply_ir_penalties(
+    scores: tuple[float, float, float, float, float], penalties: list[RulePenalty]
+) -> tuple[float, float, float, float, float]:
+    dims = {"srp": 0, "size": 1, "complexity": 2, "clean": 3, "security": 4}
+    adj = list(scores)
+    for p in penalties:
+        idx = dims.get(p.dimension)
+        if idx is not None:
+            adj[idx] -= p.penalty_points
+    return (adj[0], adj[1], adj[2], adj[3], adj[4])
+
+
+def _blend_ir_class_methods(
+    raw: tuple[float, float, float, float], methods: list[FunctionReport]
+) -> tuple[float, float, float, float, float]:
+    if not methods:
+        return (*raw, 100.0)
+    n = len(methods)
+    return (
+        0.6 * raw[0] + 0.4 * (sum(m.scores.srp for m in methods) / n),
+        0.6 * raw[1] + 0.4 * (sum(m.scores.size for m in methods) / n),
+        0.6 * raw[2] + 0.4 * (sum(m.scores.complexity for m in methods) / n),
+        0.6 * raw[3] + 0.4 * (sum(m.scores.clean for m in methods) / n),
+        min(m.scores.security for m in methods),
+    )
+
+
+def _score_test_clean_ir(func: IRFunction, profile: BaseProfileProtocol) -> tuple[float, list[str]]:
+    is_test_method = (
+        func.name.startswith("test")
+        or func.name.startswith("should")
+        or any(a.name in {"Test", "ParameterizedTest", "RepeatedTest"} for a in func.annotations)
+    )
+    if not is_test_method:
+        return 0.0, []
+    asserts = sum(1 for c in func.calls if profile.is_test_assert_call(c.name))
+    p0, f0 = penalty_item(int(asserts == 0), 30.0, "Clean (Test): test has 0 assertions")
+    p_many, f_many = penalty_item(asserts - 8, 3.0, f"Clean (Test): {asserts} assertions in single test (>8)", cap=30.0)
+    return p0 + p_many, f0 + f_many
+
+
+def _score_source_clean_ir(func: IRFunction) -> tuple[float, list[str]]:
+    findings: list[str] = []
+    pen = 0.0
+    if not func.has_docstring and not func.name.startswith("_"):
+        p_doc = 5.0 if func.loc <= 10 else 10.0
+        pen += p_doc
+        findings.append(f"Clean: missing public docstring (-{p_doc:.1f} pts)")
+    untyped = [p.name for p in func.params if p.type_annotation is None and p.name not in {"self", "cls"}]
+    if untyped:
+        p_un = min(25.0, len(untyped) * 5.0)
+        pen += p_un
+        findings.append(f"Clean: {len(untyped)} untyped param(s) ({', '.join(untyped[:3])}) (-{p_un:.1f} pts)")
+    if func.return_type is None and not func.name.startswith("__"):
+        pen += 10.0
+        findings.append("Clean: missing return type annotation (-10.0 pts)")
+    return pen, findings
+
+
+def _check_ir_exceptions(handlers: list) -> tuple[float, list[str]]:
+    pen = 0.0
+    findings: list[str] = []
+    for h in handlers:
+        if h.is_broad and h.is_empty:
+            pen += 10.0
+            findings.append(f"Clean: swallowed broad except Exception at L{h.lineno} (-10.0 pts)")
+    return pen, findings
+
+
+def _score_security_ir(func: IRFunction, is_test: bool) -> tuple[float, list[str]]:
+    if is_test:
+        return 100.0, []
+    findings: list[str] = []
+    pen = 0.0
+    for call in func.calls:
+        if call.name in {"eval", "exec", "pickle.loads", "pickle.load"}:
+            pen += 40.0
+            findings.append(f"Security: unsafe {call.name}() at L{call.lineno} (-40.0 pts)")
+    return 100.0 - pen, findings
 
 
 class UniversalIRScorer:
@@ -53,22 +136,23 @@ class UniversalIRScorer:
         self, func: IRFunction, file_path: str, is_test: bool, parent: IRClass | None = None
     ) -> FunctionReport:
         """Evaluate an IRFunction into a FunctionReport."""
+        concerns = sorted({c for call in func.calls if (c := self.profile.map_concern(call.name))})
+        ext_calls = len({c.name for c in func.calls if not self.profile.map_concern(c.name)})
         is_entry = self.profile.is_entrypoint_func(func)
-        concerns, ext_calls = self._detect_concerns(func)
-        penalties = self.profile.evaluate_function(func, parent)
 
         s_srp, f_srp = self._score_srp(func, concerns, ext_calls, is_entry, is_test)
         s_size, f_size = self._score_size(func, is_entry, is_test)
         s_comp, f_comp = self._score_complexity(func)
-        s_clean, f_clean = self._score_clean(func, is_test)
-        s_sec, f_sec = self._score_security(func, is_test)
+        p_cln, f_cln = _score_test_clean_ir(func, self.profile) if is_test else _score_source_clean_ir(func)
+        p_ex, f_ex = _check_ir_exceptions(func.except_handlers)
+        s_clean = 100.0 - p_cln - p_ex
+        s_sec, f_sec = _score_security_ir(func, is_test)
 
-        s_srp, s_size, s_comp, s_clean, s_sec = self._apply_penalties(
-            (s_srp, s_size, s_comp, s_clean, s_sec), penalties
-        )
-        extra_f = [p.finding for p in penalties]
+        penalties = self.profile.evaluate_function(func, parent)
+        raw_scores = (s_srp, s_size, s_comp, s_clean, s_sec)
+        final_scores = _apply_ir_penalties(raw_scores, penalties)
+        rule_findings = [p.finding for p in penalties]
 
-        scores = DimensionScores.from_raw((s_srp, s_size, s_comp, s_clean, s_sec), self.cfg)
         return FunctionReport(
             name=func.name,
             qualname=func.qualname,
@@ -84,31 +168,37 @@ class UniversalIRScorer:
             concerns=concerns,
             external_calls_count=ext_calls,
             is_test=is_test,
-            scores=scores,
-            findings=f_srp + f_size + f_comp + f_clean + f_sec + extra_f,
+            scores=DimensionScores.from_raw(final_scores, self.cfg),
+            findings=f_srp + f_size + f_comp + f_cln + f_ex + f_sec + rule_findings,
         )
 
     def score_class(self, cls: IRClass, file_path: str, is_test: bool) -> ClassReport:
-        """Evaluate an IRClass into a ClassReport."""
+        """Evaluate an IRClass into a ClassReport blending structure and method scores."""
         methods = [self.score_function(m, file_path, is_test, cls) for m in cls.methods]
         m_cnt = len(cls.methods)
         a_cnt = len(cls.fields)
         total_cc = sum(m.cyclomatic_complexity for m in methods)
 
         p_lcom, f_lcom = penalty_item((cls.lcom4 - 1) * int(m_cnt > 2), 15.0, f"SRP: LCOM4={cls.lcom4} disconnected method groups")
-        p_mth, f_mth = penalty_item(m_cnt - self.cfg.max_ideal_class_methods, 4.0, f"SRP: methods={m_cnt} (>{self.cfg.max_ideal_class_methods})")
-        p_atr, f_atr = penalty_item(a_cnt - self.cfg.max_ideal_class_attrs, 4.0, f"SRP: self attributes={a_cnt} (>{self.cfg.max_ideal_class_attrs})")
+        p_mc, f_mc = penalty_item(m_cnt - self.cfg.max_ideal_class_methods, 4.0, f"SRP: methods={m_cnt} (>{self.cfg.max_ideal_class_methods})")
+        p_fc, f_fc = penalty_item(a_cnt - self.cfg.max_ideal_class_attrs, 4.0, f"SRP: self attributes={a_cnt} (>{self.cfg.max_ideal_class_attrs})")
+        s_srp = 100.0 - p_lcom - p_mc - p_fc
+
         p_loc, f_loc = penalty_item(cls.loc - self.cfg.max_ideal_class_loc, 0.4, f"Size: class LOC={cls.loc} (>{self.cfg.max_ideal_class_loc})")
+        s_size = 100.0 - p_loc
+
         p_cc, f_cc = penalty_item(total_cc - self.cfg.max_ideal_class_cc, 1.5, f"Complexity: total class CC={total_cc} (>{self.cfg.max_ideal_class_cc})")
+        s_comp = 100.0 - p_cc
+
         p_doc, f_doc = penalty_item(int(not is_test and not cls.has_docstring), 15.0, "Clean: missing class docstring")
+        s_clean = 100.0 - p_doc
 
-        class_pens = self.profile.evaluate_class(cls)
-        extra_srp = sum(p.penalty_points for p in class_pens if p.dimension == "srp")
-        extra_clean = sum(p.penalty_points for p in class_pens if p.dimension == "clean")
-        extra_f = [p.finding for p in class_pens]
+        raw_struct = (s_srp, s_size, s_comp, s_clean)
+        blended = _blend_ir_class_methods(raw_struct, methods)
+        penalties = self.profile.evaluate_class(cls)
+        final_scores = _apply_ir_penalties(blended, penalties)
+        rule_findings = [p.finding for p in penalties]
 
-        raw = (100.0 - p_lcom - p_mth - p_atr - extra_srp, 100.0 - p_loc, 100.0 - p_cc, 100.0 - p_doc - extra_clean)
-        blended = self._blend_class_methods(raw, methods)
         return ClassReport(
             name=cls.name,
             file_path=file_path,
@@ -119,30 +209,20 @@ class UniversalIRScorer:
             attrs_count=a_cnt,
             lcom4=cls.lcom4,
             total_cc=total_cc,
-            scores=DimensionScores.from_raw(blended, self.cfg),
-            findings=f_lcom + f_mth + f_atr + f_loc + f_cc + f_doc + extra_f,
+            scores=DimensionScores.from_raw(final_scores, self.cfg),
+            findings=f_lcom + f_mc + f_fc + f_loc + f_cc + f_doc + rule_findings,
             methods=methods,
         )
-
-    def _detect_concerns(self, func: IRFunction) -> tuple[list[str], int]:
-        c_set: set[str] = set()
-        for call in func.calls:
-            c = self.profile.map_concern(call.name)
-            if c:
-                c_set.add(c)
-        ext_calls = sum(1 for call in func.calls if not call.name.startswith(("self.", "this.", "cls.")))
-        return sorted(c_set), ext_calls
 
     def _score_srp(
         self, func: IRFunction, concerns: list[str], ext_calls: int, is_entry: bool, is_test: bool
     ) -> tuple[float, list[str]]:
         if is_test:
             return 100.0, []
-        p_con, f_con = penalty_item(len(concerns) - self.cfg.max_ideal_concerns, 12.0, f"SRP: mixes {len(concerns)} concerns ({', '.join(concerns)})")
+        p_c, f_c = penalty_item(len(concerns) - self.cfg.max_ideal_concerns, 12.0, f"SRP: mixes {len(concerns)} concerns ({', '.join(concerns)})")
         p_ext, f_ext = penalty_item(ext_calls - self.cfg.max_ideal_external_calls, 3.0, f"SRP: high external call fan-out={ext_calls} (>{self.cfg.max_ideal_external_calls})", cap=36.0)
-        bool_defs = 0 if is_entry else sum(1 for p in func.params if p.has_default and p.type_annotation in {"bool", "boolean"})
-        p_bool, f_bool = penalty_item(bool_defs, 6.0, f"SRP: {bool_defs} bool default flag parameter(s)")
-        return 100.0 - p_con - p_ext - p_bool, f_con + f_ext + f_bool
+        p_bool, f_bool = penalty_item(0 if is_entry else sum(1 for p in func.params if p.has_default and p.type_annotation == "bool"), 6.0, "SRP: boolean flag parameter with default value")
+        return 100.0 - p_c - p_ext - p_bool, f_c + f_ext + f_bool
 
     def _score_size(self, func: IRFunction, is_entry: bool, is_test: bool) -> tuple[float, list[str]]:
         ideal = self.cfg.max_ideal_func_loc_test if is_test else self.cfg.max_ideal_func_loc_src
@@ -163,85 +243,3 @@ class UniversalIRScorer:
         p_cog, f_cog = penalty_item(func.cognitive_complexity - self.cfg.max_ideal_cogc, 2.5, f"Complexity: cognitive={func.cognitive_complexity} (>{self.cfg.max_ideal_cogc})")
         p_ret, f_ret = penalty_item(func.returns_count - self.cfg.max_ideal_returns, 4.0, f"Complexity: returns={func.returns_count} (>{self.cfg.max_ideal_returns})")
         return 100.0 - p_cc - p_cog - p_ret, f_cc + f_cog + f_ret
-
-    def _score_clean(self, func: IRFunction, is_test: bool) -> tuple[float, list[str]]:
-        findings: list[str] = []
-        pen = 0.0
-        if is_test:
-            is_test_method = (
-                func.name.startswith("test")
-                or func.name.startswith("should")
-                or any(a.name in {"Test", "ParameterizedTest", "RepeatedTest"} for a in func.annotations)
-            )
-            if is_test_method:
-                asserts = sum(1 for c in func.calls if self.profile.is_test_assert_call(c.name))
-                p0, f0 = penalty_item(int(asserts == 0), 30.0, "Clean (Test): test has 0 assertions")
-                p_many, f_many = penalty_item(asserts - 8, 3.0, f"Clean (Test): {asserts} assertions in single test (>8)", cap=30.0)
-                pen += p0 + p_many
-                findings.extend(f0 + f_many)
-        else:
-            if not func.has_docstring and not func.name.startswith("_"):
-                p_doc = 5.0 if func.loc <= 10 else 10.0
-                pen += p_doc
-                findings.append(f"Clean: missing public docstring (-{p_doc:.1f} pts)")
-            untyped = [p.name for p in func.params if p.type_annotation is None and p.name not in {"self", "cls"}]
-            if untyped:
-                p_un = min(25.0, len(untyped) * 5.0)
-                pen += p_un
-                findings.append(f"Clean: {len(untyped)} untyped param(s) ({', '.join(untyped[:3])}) (-{p_un:.1f} pts)")
-            if func.return_type is None and not func.name.startswith("__"):
-                pen += 10.0
-                findings.append("Clean: missing return type annotation (-10.0 pts)")
-
-        for h in func.except_handlers:
-            if h.is_broad and h.is_empty:
-                pen += 10.0
-                findings.append(f"Clean: swallowed broad except Exception at L{h.lineno} (-10.0 pts)")
-        return 100.0 - pen, findings
-
-    def _score_security(self, func: IRFunction, is_test: bool) -> tuple[float, list[str]]:
-        if is_test:
-            return 100.0, []
-        findings: list[str] = []
-        pen = 0.0
-        for call in func.calls:
-            if call.name in {"eval", "exec", "pickle.loads", "pickle.load"}:
-                pen += 40.0
-                findings.append(f"Security: unsafe {call.name}() at L{call.lineno} (-40.0 pts)")
-        return 100.0 - pen, findings
-
-    def _apply_penalties(
-        self, scores: tuple[float, float, float, float, float], penalties: list[RulePenalty]
-    ) -> tuple[float, float, float, float, float]:
-        srp, size, comp, clean, sec = scores
-        for p in penalties:
-            if p.dimension == "srp":
-                srp -= p.penalty_points
-            elif p.dimension == "size":
-                size -= p.penalty_points
-            elif p.dimension == "complexity":
-                comp -= p.penalty_points
-            elif p.dimension == "clean":
-                clean -= p.penalty_points
-            elif p.dimension == "security":
-                sec -= p.penalty_points
-        return (srp, size, comp, clean, sec)
-
-    def _blend_class_methods(
-        self, raw: tuple[float, float, float, float], methods: list[FunctionReport]
-    ) -> tuple[float, float, float, float, float]:
-        if not methods:
-            return (*raw, 100.0)
-        n = len(methods)
-        srp = sum(m.scores.srp for m in methods) / n
-        size = sum(m.scores.size for m in methods) / n
-        comp = sum(m.scores.complexity for m in methods) / n
-        clean = sum(m.scores.clean for m in methods) / n
-        sec = min(m.scores.security for m in methods)
-        return (
-            0.6 * raw[0] + 0.4 * srp,
-            0.6 * raw[1] + 0.4 * size,
-            0.6 * raw[2] + 0.4 * comp,
-            0.6 * raw[3] + 0.4 * clean,
-            sec,
-        )
