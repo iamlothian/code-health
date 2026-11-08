@@ -77,14 +77,14 @@ description: "Task list for Pluggable Language & Framework Profiles (Java & Spri
 
 > Write these tests FIRST in `tests/unit/test_java_spring_health.py`. Verify they FAIL before implementation.
 
-- [ ] T015 [P] [TDD] [US2] Write unit tests mocking missing `tree_sitter_java`, verifying `MissingNativeParserError` is raised and CLI returns exit code 2 with installation commands
-- [ ] T016 [P] [TDD] [US2] Write unit tests verifying purely Python files never trigger the missing Java parser warning
+- [x] T015 [P] [TDD] [US2] Write unit tests mocking missing `tree_sitter_java`, verifying `MissingNativeParserError` is raised and CLI returns exit code 2 with installation commands
+- [x] T016 [P] [TDD] [US2] Write unit tests verifying purely Python files never trigger the missing Java parser warning
 
 ### Implementation for User Story 2
 
-- [ ] T017 [US2] Implement parser guard `check_java_dependencies()` in `scripts/_code_health/java_parser.py` raising `MissingNativeParserError` with formatted commands when `tree-sitter` or `tree-sitter-java` is missing
-- [ ] T018 [US2] Update `main()` and output rendering in `scripts/code_health.py` to catch `MissingNativeParserError`, write warning banner to stderr/console, emit structured JSON under `--format json`, and exit with code `2`
-- [ ] T019 [US2] [REVIEW] **Checkpoint**: User Story 2 verified. Missing grammar dependencies cleanly halt with actionable commands without crashing or breaking Python analysis.
+- [x] T017 [US2] Implement parser guard `check_java_dependencies()` in `scripts/_code_health/java_parser.py` raising `MissingNativeParserError` with formatted commands when `tree-sitter` or `tree-sitter-java` is missing
+- [x] T018 [US2] Update `main()` and output rendering in `scripts/code_health.py` to catch `MissingNativeParserError`, write warning banner to stderr/console, emit structured JSON under `--format json`, and exit with code `2`
+- [x] T019 [US2] [REVIEW] **Checkpoint**: User Story 2 verified. Missing grammar dependencies cleanly halt with actionable commands without crashing or breaking Python analysis.
 
 ---
 

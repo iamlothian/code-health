@@ -124,3 +124,51 @@ def test_cli_mixed_python_and_java_project(tmp_path: Path, capsys: pytest.Captur
     assert "Greeter.java" in out
     assert "Score:" in out
 
+
+def test_missing_java_dependencies_halts_with_exit_code_2(tmp_path: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch) -> None:
+    import json
+    from code_health import main
+    import _code_health.java_parser as jp
+
+    def fake_check():
+        from _code_health.ir_models import MissingNativeParserError
+        raise MissingNativeParserError("java", ["tree-sitter", "tree-sitter-java"])
+
+    monkeypatch.setattr(jp, "check_java_dependencies", fake_check)
+
+    f = tmp_path / "MyClass.java"
+    f.write_text("public class MyClass {}", encoding="utf-8")
+
+    # 1. Console mode exit code 2
+    rc = main([str(f), "--no-git"])
+    captured = capsys.readouterr()
+    assert rc == 2
+    err_text = captured.err or captured.out
+    assert "Native Java AST parser ('tree-sitter-java') is not installed" in err_text
+    assert "uv run --with tree-sitter" in err_text
+
+    # 2. JSON mode exit code 2 with structured error payload
+    rc_json = main([str(f), "--format", "json", "--no-git"])
+    out_json = capsys.readouterr().out
+    assert rc_json == 2
+    data = json.loads(out_json)
+    assert data["status"] == "missing_native_parser"
+    assert "tree-sitter-java" in data["missing_packages"]
+
+
+def test_pure_python_unaffected_when_java_parser_missing(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    from code_health import main
+    import _code_health.java_parser as jp
+
+    def fake_check():
+        from _code_health.ir_models import MissingNativeParserError
+        raise MissingNativeParserError("java", ["tree-sitter", "tree-sitter-java"])
+
+    monkeypatch.setattr(jp, "check_java_dependencies", fake_check)
+
+    py_file = tmp_path / "app.py"
+    py_file.write_text('"""App."""\ndef run() -> int:\n    return 1\n', encoding="utf-8")
+    rc = main([str(py_file), "--no-git"])
+    assert rc == 0
+
+

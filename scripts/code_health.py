@@ -24,6 +24,7 @@ if _SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, _SCRIPTS_DIR)
 
 from _code_health.ast_engine import UnitScorer, compute_lcom4, count_effective_loc  # noqa: E402
+from _code_health.ir_models import MissingNativeParserError  # noqa: E402
 from _code_health.models import (  # noqa: E402
     AnalysisContext,
     ClassReport,
@@ -129,6 +130,8 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--markdown-out", type=Path, default=None, help="Write Markdown scorecard to path.")
     parser.add_argument("--config", type=Path, default=None, help="Optional JSON/TOML config file.")
     parser.add_argument("--fail-under", type=float, default=None, help="Exit 1 if score is below threshold.")
+    parser.add_argument("--lang", choices=["auto", "python", "java"], default="auto", help="Target language (default: auto).")
+    parser.add_argument("--framework", default="auto", help="Framework profile to apply (default: auto).")
     return parser
 
 
@@ -165,7 +168,20 @@ def main(argv: list[str] | None = None) -> int:
     cwd = Path.cwd()
     targets = _resolve_targets(args.paths, cwd)
     git_mode = "no-git" if args.no_git else "git"
-    report = CodeHealthRunner(cwd, _load_custom_config(args.config), git_mode).run(targets)
+    try:
+        report = CodeHealthRunner(cwd, _load_custom_config(args.config), git_mode).run(targets)
+    except MissingNativeParserError as err:
+        if args.format == "json":
+            payload = {
+                "status": "missing_native_parser",
+                "language": err.language,
+                "missing_packages": err.missing_packages,
+                "message": str(err),
+            }
+            sys.stdout.write(json.dumps(payload, indent=2) + "\n")
+        else:
+            sys.stderr.write(str(err) + "\n")
+        return 2
     _emit_outputs(args, report)
     return int(args.fail_under is not None and report.scores.composite < args.fail_under)
 
