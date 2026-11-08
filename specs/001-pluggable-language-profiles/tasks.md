@@ -136,12 +136,12 @@ description: "Task list for Pluggable Language & Framework Profiles (Java & Spri
 
 **Purpose**: Agent skill authoring, documentation, and quality verification
 
-- [ ] T034 [P] Create generic agent skill at `skills/code-health/SKILL.md` with auto-detection instructions, missing parser protocol, and playbook links
-- [ ] T035 [P] Create Spring Boot refactoring playbook at `skills/code-health/references/java-spring-playbook.md`
-- [ ] T036 [P] Update `skills/code-health/references/scoring-rubric.md` documenting Java metrics and Spring Boot rules
-- [ ] T037 Sync updated `scripts/` engine into `skills/code-health/scripts/` and `skills/python-code-health/scripts/`
-- [ ] T038 Run full test suite: `uv run pytest tests/unit/`
-- [ ] T039 [REVIEW] Run dogfooding self-health check: `uv run python scripts/code_health.py scripts tests --fail-under 90.0 --no-git` verifying Grade A ($\ge 90.0$) across all codebase files
+- [x] T034 [P] Create generic agent skill at `skills/code-health/SKILL.md` with auto-detection instructions, missing parser protocol, and playbook links
+- [x] T035 [P] Create Spring Boot refactoring playbook at `skills/code-health/references/java-spring-playbook.md`
+- [x] T036 [P] Update `skills/code-health/references/scoring-rubric.md` documenting Java metrics and Spring Boot rules
+- [x] T037 Sync updated `scripts/` engine into `skills/code-health/scripts/` and `skills/python-code-health/scripts/`
+- [x] T038 Run full test suite: `uv run pytest tests/unit/`
+- [x] T039 [REVIEW] Run dogfooding self-health check: `uv run python scripts/code_health.py scripts tests --fail-under 90.0 --no-git` verifying Grade A ($\ge 90.0$) across all codebase files
 
 ---
 
