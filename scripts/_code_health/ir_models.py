@@ -129,6 +129,11 @@ class MissingNativeParserError(RuntimeError):
     def __init__(self, language: str, missing_packages: list[str]) -> None:
         self.language = language
         self.missing_packages = missing_packages
+        self.install_commands = {
+            "uv_ephemeral": f"uv run --with {missing_packages[0]} --with {missing_packages[-1]} python scripts/code_health.py",
+            "uv_project": f"uv pip install '{missing_packages[0]}>=0.23.0' '{missing_packages[-1]}>=0.23.0'",
+            "pip": f"pip install 'py-code-health[{language}]'",
+        }
         pkgs_str = " ".join(missing_packages)
         super().__init__(
             f"[WARNING] Native {language.title()} AST parser ('{missing_packages[-1]}') is not installed.\n"

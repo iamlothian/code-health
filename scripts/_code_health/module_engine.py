@@ -139,11 +139,21 @@ def _detect_duplicate_blocks(tree: ast.Module) -> int:
 class ModuleAnalyzer:
     """Evaluates a Python module/file across AST units, duplicate blocks, imports, and git churn."""
 
-    def __init__(self, repo_root: Path, internal_packages: set[str], config: RubricConfig, git_stats: dict[str, GitFileStats] | None) -> None:
+    def __init__(
+        self,
+        repo_root: Path,
+        internal_packages: set[str],
+        config: RubricConfig,
+        git_stats: dict[str, GitFileStats] | None,
+        lang_override: str | None = None,
+        framework_override: str | None = None,
+    ) -> None:
         self.repo_root = repo_root.resolve()
         self.internal_packages = internal_packages
         self.cfg = config
         self.git_stats = git_stats
+        self.lang_override = lang_override
+        self.framework_override = framework_override
 
     def analyze(self, file_path: Path) -> FileReport:
         """Analyze a single Python or Java file and return its FileReport."""
@@ -177,7 +187,9 @@ class ModuleAnalyzer:
         from _code_health.profiles import resolve_active_profiles
 
         ir_mod = parse_java_file(resolved, rel_path, is_test)
-        profile = resolve_active_profiles(self.repo_root, resolved)
+        profile = resolve_active_profiles(
+            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
+        )
         scorer = UniversalIRScorer(self.cfg, profile)
 
         classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]

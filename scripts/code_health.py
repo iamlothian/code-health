@@ -168,14 +168,23 @@ def main(argv: list[str] | None = None) -> int:
     cwd = Path.cwd()
     targets = _resolve_targets(args.paths, cwd)
     git_mode = "no-git" if args.no_git else "git"
+    lang = None if args.lang == "auto" else args.lang
+    framework = None if args.framework == "auto" else args.framework
     try:
-        report = CodeHealthRunner(cwd, _load_custom_config(args.config), git_mode).run(targets)
+        report = CodeHealthRunner(
+            cwd,
+            _load_custom_config(args.config),
+            git_mode,
+            lang_override=lang,
+            framework_override=framework,
+        ).run(targets)
     except MissingNativeParserError as err:
         if args.format == "json":
             payload = {
                 "status": "missing_native_parser",
                 "language": err.language,
                 "missing_packages": err.missing_packages,
+                "install_commands": getattr(err, "install_commands", {}),
                 "message": str(err),
             }
             sys.stdout.write(json.dumps(payload, indent=2) + "\n")

@@ -121,14 +121,14 @@ description: "Task list for Pluggable Language & Framework Profiles (Java & Spri
 
 > Write these tests FIRST in `tests/unit/test_java_spring_health.py`. Verify they FAIL before implementation.
 
-- [ ] T029 [P] [TDD] [US4] Write unit tests for Java test assertion recognition (`@Test`, `assertEquals`, `assertThat`, MockMvc `.andExpect()`)
-- [ ] T030 [P] [TDD] [US4] Write unit tests verifying `--fail-under` gate exits with code 1 when composite score is below threshold on Java projects
+- [x] T029 [P] [TDD] [US4] Write unit tests for Java test assertion recognition (`@Test`, `assertEquals`, `assertThat`, MockMvc `.andExpect()`)
+- [x] T030 [P] [TDD] [US4] Write unit tests verifying `--fail-under` gate exits with code 1 when composite score is below threshold on Java projects
 
 ### Implementation for User Story 4
 
-- [ ] T031 [US4] Implement Java test assertion detector in `scripts/_code_health/java_parser.py` and `profiles.py`
-- [ ] T032 [US4] Add `--lang` and `--framework` CLI argument overrides in `scripts/code_health.py`
-- [ ] T033 [US4] [REVIEW] **Checkpoint**: User Story 4 verified. Quality gates and test suites work seamlessly across Python and Java.
+- [x] T031 [US4] Implement Java test assertion detector in `scripts/_code_health/java_parser.py` and `profiles.py`
+- [x] T032 [US4] Add `--lang` and `--framework` CLI argument overrides in `scripts/code_health.py`
+- [x] T033 [US4] [REVIEW] **Checkpoint**: User Story 4 verified. Quality gates and test suites work seamlessly across Python and Java.
 
 ---
 

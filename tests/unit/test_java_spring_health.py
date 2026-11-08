@@ -303,5 +303,133 @@ public class OrderService {
     assert m_rep.scores.srp <= 85.0
 
 
+def test_java_test_assertion_recognition_junit_assertj_mockmvc(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from _code_health.java_parser import parse_java_file
+    from _code_health.ir_scorer import UniversalIRScorer
+    from _code_health.profiles_java import JAVA_PROFILE
+
+    code = '''
+package com.example.service;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+import org.springframework.test.web.servlet.MockMvc;
+
+public class OrderServiceTest {
+
+    @Test
+    void testWithAssertEquals() {
+        assertEquals(1, 1);
+    }
+
+    @Test
+    void testWithAssertThat() {
+        assertThat("hello").isEqualTo("hello");
+    }
+
+    @Test
+    void testWithMockMvc(MockMvc mockMvc) throws Exception {
+        mockMvc.perform(get("/orders")).andExpect(status().isOk());
+    }
+
+    @Test
+    void testWithNoAssertions() {
+        int x = 1 + 1;
+    }
+
+    void helperMethodWithoutAssertions() {
+        int y = 2 + 2;
+    }
+}
+'''
+    f = tmp_path / "OrderServiceTest.java"
+    f.write_text(code, encoding="utf-8")
+
+    ir_mod = parse_java_file(f, "src/test/java/OrderServiceTest.java", is_test=True)
+    scorer = UniversalIRScorer(RubricConfig(), JAVA_PROFILE)
+    cls = ir_mod.classes[0]
+
+    methods_by_name = {m.name: scorer.score_function(m, "src/test/java/OrderServiceTest.java", is_test=True, parent=cls) for m in cls.methods}
+
+    # testWithAssertEquals should have no assertion penalty
+    assert not any("0 assertions" in f for f in methods_by_name["testWithAssertEquals"].findings)
+    assert methods_by_name["testWithAssertEquals"].scores.clean == 100.0
+
+    # testWithAssertThat should recognize assertThat
+    assert not any("0 assertions" in f for f in methods_by_name["testWithAssertThat"].findings)
+    assert methods_by_name["testWithAssertThat"].scores.clean == 100.0
+
+    # testWithMockMvc should recognize andExpect
+    assert not any("0 assertions" in f for f in methods_by_name["testWithMockMvc"].findings)
+    assert methods_by_name["testWithMockMvc"].scores.clean == 100.0
+
+    # testWithNoAssertions must be penalized for 0 assertions
+    assert any("test has 0 assertions" in f for f in methods_by_name["testWithNoAssertions"].findings)
+    assert methods_by_name["testWithNoAssertions"].scores.clean < 100.0
+
+    # helper method should NOT be penalized for 0 assertions
+    assert not any("test has 0 assertions" in f for f in methods_by_name["helperMethodWithoutAssertions"].findings)
+
+
+def test_java_fail_under_gate_cli_exit_code(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from code_health import main
+
+    code = '''
+package com.example.service;
+
+public class SampleService {
+    public String greet(String name) {
+        return "Hello " + name;
+    }
+}
+'''
+    f = tmp_path / "SampleService.java"
+    f.write_text(code, encoding="utf-8")
+
+    # When fail-under is impossibly high (99.9), CLI returns exit code 1
+    rc_fail = main([str(f), "--fail-under", "99.9", "--no-git"])
+    assert rc_fail == 1
+
+    # When fail-under is reasonable (50.0), CLI returns exit code 0
+    rc_pass = main([str(f), "--fail-under", "50.0", "--no-git"])
+    assert rc_pass == 0
+
+
+def test_cli_lang_and_framework_overrides(tmp_path: Path) -> None:
+    pytest.importorskip("tree_sitter_java")
+    from code_health import main
+    import io
+    from contextlib import redirect_stdout
+    import json
+
+    py_file = tmp_path / "app.py"
+    py_file.write_text("def hello() -> str:\n    '''Doc.'''\n    return 'hello'\n", encoding="utf-8")
+
+    java_file = tmp_path / "App.java"
+    java_file.write_text("public class App {\n    /** Greet. */\n    public String greet() { return \"hi\"; }\n}\n", encoding="utf-8")
+
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        rc = main([str(tmp_path), "--lang", "python", "--format", "json", "--no-git"])
+    assert rc == 0
+    data = json.loads(buf.getvalue())
+    scanned_files = [f["file_path"] for f in data["files"]]
+    assert any(f.endswith(".py") for f in scanned_files)
+    assert not any(f.endswith(".java") for f in scanned_files)
+
+    buf2 = io.StringIO()
+    with redirect_stdout(buf2):
+        rc2 = main([str(tmp_path), "--lang", "java", "--framework", "none", "--format", "json", "--no-git"])
+    assert rc2 == 0
+    data2 = json.loads(buf2.getvalue())
+    scanned_files2 = [f["file_path"] for f in data2["files"]]
+    assert any(f.endswith(".java") for f in scanned_files2)
+    assert not any(f.endswith(".py") for f in scanned_files2)
+
+
+
 
 

@@ -168,11 +168,17 @@ class UniversalIRScorer:
         findings: list[str] = []
         pen = 0.0
         if is_test:
-            asserts = sum(1 for c in func.calls if self.profile.is_test_assert_call(c.name))
-            p0, f0 = penalty_item(int(asserts == 0), 30.0, "Clean (Test): test has 0 assertions")
-            p_many, f_many = penalty_item(asserts - 8, 3.0, f"Clean (Test): {asserts} assertions in single test (>8)", cap=30.0)
-            pen += p0 + p_many
-            findings.extend(f0 + f_many)
+            is_test_method = (
+                func.name.startswith("test")
+                or func.name.startswith("should")
+                or any(a.name in {"Test", "ParameterizedTest", "RepeatedTest"} for a in func.annotations)
+            )
+            if is_test_method:
+                asserts = sum(1 for c in func.calls if self.profile.is_test_assert_call(c.name))
+                p0, f0 = penalty_item(int(asserts == 0), 30.0, "Clean (Test): test has 0 assertions")
+                p_many, f_many = penalty_item(asserts - 8, 3.0, f"Clean (Test): {asserts} assertions in single test (>8)", cap=30.0)
+                pen += p0 + p_many
+                findings.extend(f0 + f_many)
         else:
             if not func.has_docstring and not func.name.startswith("_"):
                 p_doc = 5.0 if func.loc <= 10 else 10.0

@@ -140,23 +140,39 @@ class ScorecardFormatter:
 class CodeHealthRunner:
     """Orchestrates file discovery, package inference, and codebase health aggregation."""
 
-    def __init__(self, repo_root: Path | None = None, config: RubricConfig | None = None, git_mode: str = "git") -> None:
+    def __init__(
+        self,
+        repo_root: Path | None = None,
+        config: RubricConfig | None = None,
+        git_mode: str = "git",
+        lang_override: str | None = None,
+        framework_override: str | None = None,
+    ) -> None:
         self.repo_root = (repo_root or Path.cwd()).resolve()
         self.cfg = config or RubricConfig()
         self.use_git = git_mode != "no-git"
+        self.lang_override = lang_override
+        self.framework_override = framework_override
 
     def run(self, paths: list[Path]) -> CodebaseHealthReport:
-        """Discover and analyze all Python files under paths."""
+        """Discover and analyze all Python and Java files under paths."""
         py_files = self._discover_files(paths)
         pkgs = self._infer_packages(py_files)
         git_stats = collect_git_stats(self.repo_root) if self.use_git else None
-        analyzer = ModuleAnalyzer(self.repo_root, pkgs, self.cfg, git_stats)
+        analyzer = ModuleAnalyzer(
+            self.repo_root, pkgs, self.cfg, git_stats, self.lang_override, self.framework_override
+        )
         reports = sorted((analyzer.analyze(f) for f in py_files), key=lambda r: (r.scores.composite, r.file_path))
         return self._build_report(paths, reports)
 
     def _discover_files(self, target_paths: list[Path]) -> list[Path]:
         resolved = [p.resolve() for p in target_paths]
-        valid_exts = {".py", ".java"}
+        if self.lang_override == "python":
+            valid_exts = {".py"}
+        elif self.lang_override == "java":
+            valid_exts = {".java"}
+        else:
+            valid_exts = {".py", ".java"}
         direct = {r for r in resolved if r.is_file() and r.suffix.lower() in valid_exts}
         walked = {
             c.resolve() for r in resolved if r.is_dir()
