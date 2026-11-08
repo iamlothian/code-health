@@ -54,17 +54,17 @@ description: "Task list for Pluggable Language & Framework Profiles (Java & Spri
 
 > Write these tests FIRST in `tests/unit/test_java_spring_health.py`. Verify they FAIL before implementation.
 
-- [ ] T007 [P] [TDD] [US1] Write unit tests for multi-language file discovery, package inference, and Java CST parsing into IR
-- [ ] T008 [P] [TDD] [US1] Write unit tests for Java LCOM4 class cohesion resolving explicit `this.field` and implicit declared field references
+- [x] T007 [P] [TDD] [US1] Write unit tests for multi-language file discovery, package inference, and Java CST parsing into IR
+- [x] T008 [P] [TDD] [US1] Write unit tests for Java LCOM4 class cohesion resolving explicit `this.field` and implicit declared field references
 
 ### Implementation for User Story 1
 
-- [ ] T009 [P] [US1] Update `is_test_file_path` and `_GitLogAccumulator` in `scripts/_code_health/module_engine.py` to recognize Java test naming conventions (`src/test/java/`, `*Test.java`, `*Tests.java`, `*IT.java`) and track `.java` Git history
-- [ ] T010 [P] [US1] Update `CodeHealthRunner._discover_files` and `_infer_packages` in `scripts/_code_health/reporting.py` to discover `.java` files and detect Java package namespaces
-- [ ] T011 [US1] Implement native Tree-Sitter Java parser in `scripts/_code_health/java_parser.py` converting Java classes, methods, records, annotations, and field accesses into `IRModule`
-- [ ] T012 [US1] Implement Java Language Profile in `scripts/_code_health/profiles.py` with Java metric rules (LOC, CC, CogC, Javadoc hygiene, and LCOM4 exemptions for records/enums)
-- [ ] T013 [US1] Wire Java file dispatch into `ModuleAnalyzer.analyze()` in `scripts/_code_health/module_engine.py` using `java_parser.py` and `ir_scorer.py`
-- [ ] T014 [US1] [REVIEW] **Checkpoint**: User Story 1 fully functional. Verify single-file, multi-file, and mixed Python/Java scans run and pass.
+- [x] T009 [P] [US1] Update `is_test_file_path` and `_GitLogAccumulator` in `scripts/_code_health/module_engine.py` to recognize Java test naming conventions (`src/test/java/`, `*Test.java`, `*Tests.java`, `*IT.java`) and track `.java` Git history
+- [x] T010 [P] [US1] Update `CodeHealthRunner._discover_files` and `_infer_packages` in `scripts/_code_health/reporting.py` to discover `.java` files and detect Java package namespaces
+- [x] T011 [US1] Implement native Tree-Sitter Java parser in `scripts/_code_health/java_parser.py` converting Java classes, methods, records, annotations, and field accesses into `IRModule`
+- [x] T012 [US1] Implement Java Language Profile in `scripts/_code_health/profiles.py` with Java metric rules (LOC, CC, CogC, Javadoc hygiene, and LCOM4 exemptions for records/enums)
+- [x] T013 [US1] Wire Java file dispatch into `ModuleAnalyzer.analyze()` in `scripts/_code_health/module_engine.py` using `java_parser.py` and `ir_scorer.py`
+- [x] T014 [US1] [REVIEW] **Checkpoint**: User Story 1 fully functional. Verify single-file, multi-file, and mixed Python/Java scans run and pass.
 
 ---
 

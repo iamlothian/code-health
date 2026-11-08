@@ -56,13 +56,13 @@ class _GitLogAccumulator:
         header = lines[0].split("|", 2) + ["", ""]
         feat_inc = int(header[2].lower().startswith("feat"))
         files = [ln.replace("\\", "/") for ln in lines[1:]]
-        py_files = [f for f in files if f.endswith(".py")]
-        for f in py_files:
+        source_files = [f for f in files if f.endswith((".py", ".java"))]
+        for f in source_files:
             self.commits[f] += 1
             self.feats[f] += feat_inc
             self.authors.setdefault(f, header[1])
             self.radii[f].append(len(files))
-            for peer in set(py_files) - {f}:
+            for peer in set(source_files) - {f}:
                 self.cochanges[f][peer] += 1
 
     def to_stats(self) -> dict[str, GitFileStats]:
@@ -80,7 +80,9 @@ def is_test_file_path(rel_path: str) -> bool:
     """Determine generically if a relative POSIX path is a test file."""
     parts = rel_path.replace("\\", "/").split("/")
     fname = parts[-1]
-    return bool({"tests", "test"} & set(parts)) or fname.startswith("test_") or fname.endswith("_test.py") or fname == "conftest.py"
+    is_py = fname.startswith("test_") or fname.endswith("_test.py") or fname == "conftest.py"
+    is_java = fname.endswith(("Test.java", "Tests.java", "IT.java"))
+    return bool({"tests", "test"} & set(parts)) or is_py or is_java
 
 
 def collect_git_stats(repo_root: Path) -> dict[str, GitFileStats]:
@@ -144,14 +146,18 @@ class ModuleAnalyzer:
         self.git_stats = git_stats
 
     def analyze(self, file_path: Path) -> FileReport:
-        """Analyze a single Python file and return its FileReport."""
+        """Analyze a single Python or Java file and return its FileReport."""
         resolved = file_path.resolve()
         rel_path = resolved.relative_to(self.repo_root).as_posix() if resolved.is_relative_to(self.repo_root) else resolved.name
         is_test = is_test_file_path(rel_path)
+        gstat = self.git_stats.get(rel_path) if self.git_stats else None
+
+        if resolved.suffix.lower() == ".java":
+            return self._analyze_java(resolved, rel_path, is_test, gstat)
+
         raw_text = resolved.read_text(encoding="utf-8", errors="replace")
         lines = raw_text.splitlines()
         tree = ast.parse(raw_text, filename=rel_path)
-        gstat = self.git_stats.get(rel_path) if self.git_stats else None
 
         if self._is_empty_init(resolved.name, tree, lines):
             return FileReport(rel_path, is_test, 0, [], 0, 0, gstat, DimensionScores.from_raw((100, 100, 100, 100, 100), self.cfg))
@@ -164,6 +170,26 @@ class ModuleAnalyzer:
         mod_scores, findings = self._score_module(m_info)
         scores = self._blend_scores(mod_scores, classes, functions)
         return FileReport(rel_path, is_test, loc, int_imports, dup_blocks, mid_imports, gstat, scores, findings, classes, functions)
+
+    def _analyze_java(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
+        from _code_health.ir_scorer import UniversalIRScorer
+        from _code_health.java_parser import parse_java_file
+        from _code_health.profiles import resolve_active_profiles
+
+        ir_mod = parse_java_file(resolved, rel_path, is_test)
+        profile = resolve_active_profiles(self.repo_root, resolved)
+        scorer = UniversalIRScorer(self.cfg, profile)
+
+        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
+        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
+
+        srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
+        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
+        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
+
+        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
+        scores = self._blend_scores(mod_scores, classes, functions)
+        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
 
     def _analyze_units(
         self, tree: ast.Module, lines: list[str], rel_path: str, is_test: bool

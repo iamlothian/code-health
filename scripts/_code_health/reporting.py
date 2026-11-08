@@ -156,9 +156,11 @@ class CodeHealthRunner:
 
     def _discover_files(self, target_paths: list[Path]) -> list[Path]:
         resolved = [p.resolve() for p in target_paths]
-        direct = {r for r in resolved if r.is_file() and r.suffix == ".py"}
+        valid_exts = {".py", ".java"}
+        direct = {r for r in resolved if r.is_file() and r.suffix.lower() in valid_exts}
         walked = {
-            c.resolve() for r in resolved if r.is_dir() for c in r.rglob("*.py")
+            c.resolve() for r in resolved if r.is_dir()
+            for ext in valid_exts for c in r.rglob(f"*{ext}")
             if not (IGNORED_SCAN_DIRS & set(c.parts))
         }
         return sorted(direct | walked, key=lambda x: x.as_posix())
