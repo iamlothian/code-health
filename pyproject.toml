@@ -10,6 +10,10 @@ dependencies = []
 dev = [
     "pytest>=8.0.0",
 ]
+java = [
+    "tree-sitter>=0.23.0",
+    "tree-sitter-java>=0.23.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
