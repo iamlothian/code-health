@@ -37,11 +37,11 @@ description: "Task list for Pluggable Language & Framework Profiles (Java & Spri
 
 **CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T002 [P] [TDD] Define language-neutral IR dataclasses in `scripts/_code_health/ir_models.py` (`IRAnnotation`, `IRParam`, `IRCall`, `IRExceptHandler`, `IRField`, `IRFunction`, `IRClass`, `IRModule`, `MissingNativeParserError`, `RulePenalty`)
-- [ ] T003 [P] [TDD] Implement Universal 5-Dimension Scorer in `scripts/_code_health/ir_scorer.py` evaluating SRP, Size, Complexity, Clean Code, and Security on IR objects
-- [ ] T004 [P] Implement `LanguageProfile` and `FrameworkProfile` registry & protocols in `scripts/_code_health/profiles.py`
-- [ ] T005 [TDD] Implement Python AST-to-IR adapter in `scripts/_code_health/profiles.py` and verify identical scoring parity against legacy Python tests
-- [ ] T006 [REVIEW] **Checkpoint**: Foundational IR models, scorer, and Python profile adapter pass unit tests. Get approval before starting User Stories.
+- [x] T002 [P] [TDD] Define language-neutral IR dataclasses in `scripts/_code_health/ir_models.py` (`IRAnnotation`, `IRParam`, `IRCall`, `IRExceptHandler`, `IRField`, `IRFunction`, `IRClass`, `IRModule`, `MissingNativeParserError`, `RulePenalty`)
+- [x] T003 [P] [TDD] Implement Universal 5-Dimension Scorer in `scripts/_code_health/ir_scorer.py` evaluating SRP, Size, Complexity, Clean Code, and Security on IR objects
+- [x] T004 [P] Implement `LanguageProfile` and `FrameworkProfile` registry & protocols in `scripts/_code_health/profiles.py`
+- [x] T005 [TDD] Implement Python AST-to-IR adapter in `scripts/_code_health/profiles.py` and verify identical scoring parity against legacy Python tests
+- [x] T006 [REVIEW] **Checkpoint**: Foundational IR models, scorer, and Python profile adapter pass unit tests. Get approval before starting User Stories.
 
 ---
 

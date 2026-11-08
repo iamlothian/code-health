@@ -1,0 +1,139 @@
+"""Unit tests for Unified Intermediate Representation (IR) and Universal Scorer."""
+
+from __future__ import annotations
+
+import ast
+from pathlib import Path
+import sys
+
+_SCRIPTS_DIR = str(Path(__file__).resolve().parents[2] / "scripts")
+if _SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, _SCRIPTS_DIR)
+
+import pytest
+from _code_health.ir_models import (
+    IRAnnotation,
+    IRCall,
+    IRClass,
+    IRExceptHandler,
+    IRField,
+    IRFunction,
+    IRModule,
+    IRParam,
+    MissingNativeParserError,
+    RulePenalty,
+)
+from _code_health.ir_scorer import UniversalIRScorer
+from _code_health.models import RubricConfig
+from _code_health.profiles import PYTHON_PROFILE, resolve_active_profiles
+
+
+def test_ir_module_creation_and_attributes() -> None:
+    func = IRFunction(
+        name="do_work",
+        qualname="Worker.do_work",
+        lineno=10,
+        end_lineno=25,
+        loc=15,
+        params=[IRParam("item", "str", False, [])],
+        return_type="bool",
+        max_nesting=1,
+        cyclomatic_complexity=2,
+        cognitive_complexity=1,
+        returns_count=1,
+        calls=[IRCall("print", "print", 12)],
+        accessed_fields=["logger"],
+        except_handlers=[],
+        is_test=False,
+    )
+    cls = IRClass(
+        name="Worker",
+        qualname="Worker",
+        lineno=5,
+        end_lineno=30,
+        loc=25,
+        annotations=[],
+        base_types=[],
+        fields=[IRField("logger", "Logger", [], 6)],
+        methods=[func],
+        lcom4=1,
+    )
+    mod = IRModule(
+        file_path="src/worker.py",
+        language="python",
+        is_test=False,
+        loc=35,
+        imports=["logging"],
+        classes=[cls],
+        functions=[],
+        parser_backend="native",
+    )
+    assert mod.file_path == "src/worker.py"
+    assert mod.classes[0].methods[0].name == "do_work"
+    assert mod.classes[0].fields[0].name == "logger"
+
+
+def test_missing_native_parser_error_formatting() -> None:
+    err = MissingNativeParserError(
+        language="java",
+        missing_packages=["tree-sitter", "tree-sitter-java"],
+    )
+    msg = str(err)
+    assert "tree-sitter-java" in msg
+    assert "uv run --with tree-sitter" in msg
+    assert "pip install" in msg
+
+
+def test_universal_ir_scorer_scores_clean_ir_function_grade_a() -> None:
+    func = IRFunction(
+        name="add",
+        qualname="add",
+        lineno=1,
+        end_lineno=5,
+        loc=4,
+        params=[IRParam("a", "int", False, []), IRParam("b", "int", False, [])],
+        return_type="int",
+        max_nesting=0,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=1,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+    )
+    scorer = UniversalIRScorer(RubricConfig(), PYTHON_PROFILE)
+    rep = scorer.score_function(func, "src/math.py", is_test=False)
+    assert rep.scores.grade == "A"
+    assert rep.scores.composite >= 95.0
+    assert rep.findings == []
+
+
+def test_python_ast_to_ir_adapter_matches_legacy_ast_engine() -> None:
+    from _code_health.ast_engine import UnitScorer
+    from _code_health.models import AnalysisContext
+    from _code_health.profiles import python_ast_to_ir_module
+
+    source = '''
+def greet(name: str) -> str:
+    """Return greeting."""
+    if not name:
+        return "Hello World"
+    return f"Hello {name}"
+'''
+    tree = ast.parse(source)
+    ctx = AnalysisContext(source.splitlines(), "src/greet.py", is_test=False, config=RubricConfig())
+    legacy_scorer = UnitScorer(ctx)
+    legacy_rep = legacy_scorer.analyze_function(tree.body[0])
+
+    ir_mod = python_ast_to_ir_module(tree, source.splitlines(), "src/greet.py", is_test=False)
+    assert len(ir_mod.functions) == 1
+    ir_func = ir_mod.functions[0]
+    assert ir_func.loc == legacy_rep.loc
+    assert ir_func.cyclomatic_complexity == legacy_rep.cyclomatic_complexity
+    assert ir_func.cognitive_complexity == legacy_rep.cognitive_complexity
+
+    ir_scorer = UniversalIRScorer(RubricConfig(), PYTHON_PROFILE)
+    ir_rep = ir_scorer.score_function(ir_func, "src/greet.py", is_test=False)
+    assert ir_rep.scores.composite == legacy_rep.scores.composite
+    assert ir_rep.scores.grade == legacy_rep.scores.grade
