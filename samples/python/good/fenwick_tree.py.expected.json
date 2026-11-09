@@ -1,0 +1,39 @@
+{
+  "id": "python_oop_srp_good",
+  "pair_id": "python_oop_cohesion_and_size",
+  "scenario_title": "2. Binary Tree Data Structure OOP Design (TheAlgorithms/Python binary_tree/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/fenwick_tree.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (data_structures/binary_tree/fenwick_tree.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/fenwick_tree.py",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 202,
+    "classes_count": 1,
+    "functions_count": 11,
+    "scores": {
+      "srp": 96.0,
+      "size": 100.0,
+      "complexity": 96.6,
+      "clean": 85.1,
+      "security": 100.0,
+      "composite": 95.9,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+      "[Class FenwickTree] SRP: methods=11 (>10) (-4.0 pts)",
+      "[Class FenwickTree] Complexity: total class CC=27 (>25) (-3.0 pts)",
+      "[Method FenwickTree.next_] Clean: missing public docstring (-5.0 pts)",
+      "[Method FenwickTree.prev] Clean: missing public docstring (-5.0 pts)",
+      "[Method FenwickTree.rank_query] Complexity: CC=6 (>5) (-4.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 11\nDimensions -> SRP: 96.0 | Size: 100.0 | Complexity: 96.6 | Clean: 85.1 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/fenwick_tree.py            src     202    -  96.0 100.0  96.6  85.1 100.0   95.9   A\n    - Clean: missing module docstring (-10.0 pts)\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/fenwick_tree.py:4 FenwickTree    194   11     1   27   98.0   A\n    - SRP: methods=11 (>10) (-4.0 pts)\n    - Complexity: total class CC=27 (>25) (-3.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/fenwick_tree.py:73 FenwickTree.n    2   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/good/fenwick_tree.py:77 FenwickTree.p    2   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/good/fenwick_tree.py:198 FenwickTree.   14   6    6   1   2   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/python/good/fenwick_tree.py:11 FenwickTree._    8   4    5   2   1  100.0   A\nsamples/python/good/fenwick_tree.py:28 FenwickTree.i    7   3    3   1   2  100.0   A\nsamples/python/good/fenwick_tree.py:53 FenwickTree.g    7   3    3   0   2  100.0   A\nsamples/python/good/fenwick_tree.py:80 FenwickTree.a    7   3    2   2   1  100.0   A\nsamples/python/good/fenwick_tree.py:107 FenwickTree.    2   1    0   2   0  100.0   A\nsamples/python/good/fenwick_tree.py:129 FenwickTree.    9   3    2   1   1  100.0   A\nsamples/python/good/fenwick_tree.py:156 FenwickTree.    2   1    0   2   0  100.0   A\nsamples/python/good/fenwick_tree.py:178 FenwickTree.    2   1    0   1   0  100.0   A\n"
+  }
+}

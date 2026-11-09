@@ -1,0 +1,49 @@
+{
+  "id": "java_cohesion_bad",
+  "pair_id": "java_class_cohesion",
+  "scenario_title": "3. Linked List Data Structure Cohesion & Method Count (TheAlgorithms/Java lists/, ~250 LOC)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/SinglyLinkedList.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/SinglyLinkedList.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/SinglyLinkedList.java",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 281,
+    "classes_count": 1,
+    "functions_count": 27,
+    "scores": {
+      "srp": 15.7,
+      "size": 66.7,
+      "complexity": 50.2,
+      "clean": 98.9,
+      "security": 100.0,
+      "composite": 20.7,
+      "grade": "F"
+    },
+    "required_findings": [
+      "SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+      "SRP: methods=27 (>10) (-68.0 pts)",
+      "Size: class LOC=281 (>200) (-32.4 pts)",
+      "Complexity: total class CC=58 (>25) (-49.5 pts)"
+    ],
+    "all_findings": [
+      "[Class SinglyLinkedList] SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+      "[Class SinglyLinkedList] SRP: methods=27 (>10) (-68.0 pts)",
+      "[Class SinglyLinkedList] Size: class LOC=281 (>200) (-32.4 pts)",
+      "[Class SinglyLinkedList] Complexity: total class CC=58 (>25) (-49.5 pts)",
+      "[Method SinglyLinkedList.swapNodes] Size: LOC=33 (>25) (-12.0 pts)",
+      "[Method SinglyLinkedList.swapNodes] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Method SinglyLinkedList.toString] Clean: missing public docstring (-5.0 pts)",
+      "[Method SinglyLinkedList.deleteDuplicates] Clean: missing public docstring (-10.0 pts)",
+      "[Method SinglyLinkedList.print] Clean: missing public docstring (-10.0 pts)",
+      "[Method SinglyLinkedList.main] SRP: high external call fan-out=19 (>6) (-36.0 pts)",
+      "[Method SinglyLinkedList.main] Size: LOC=34 (>25) (-13.5 pts)",
+      "[Method SinglyLinkedList.iterator] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 20.7/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 27\nDimensions -> SRP: 15.7 | Size: 66.7 | Complexity: 50.2 | Clean: 98.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SinglyLinkedList.java         src     281    -  15.7  66.7  50.2  98.9 100.0   20.7   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SinglyLinkedList.java:10 SinglyLi   281   27     2   58   20.7   F\n    - SRP: LCOM4=2 disconnected method groups (-15.0 pts)\n    - SRP: methods=27 (>10) (-68.0 pts)\n    - Size: class LOC=281 (>200) (-32.4 pts)\n    - Complexity: total class CC=58 (>25) (-49.5 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SinglyLinkedList.java:402 SinglyLin   34   2    1   1   0   69.0   D\n    - SRP: high external call fan-out=19 (>6) (-36.0 pts)\n    - Size: LOC=34 (>25) (-13.5 pts)\nsamples/java/bad/SinglyLinkedList.java:81 SinglyLink   33   7    6   2   1   95.4   A\n    - Size: LOC=33 (>25) (-12.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\nsamples/java/bad/SinglyLinkedList.java:251 SinglyLin   15   4    3   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/SinglyLinkedList.java:275 SinglyLin   11   3    2   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/SinglyLinkedList.java:242 SinglyLin    8   2    1   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SinglyLinkedList.java:449 SinglyLin    4   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SinglyLinkedList.java:25 SinglyLink    4   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:36 SinglyLink    4   1    0   2   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:46 SinglyLink   12   3    2   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:64 SinglyLink   12   3    2   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:129 SinglyLin   15   3    2   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:152 SinglyLin   10   2    1   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:169 SinglyLin    8   2    1   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:183 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:192 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:201 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:209 SinglyLin    3   1    0   1   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:218 SinglyLin    7   2    1   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:233 SinglyLin    8   3    2   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:292 SinglyLin    3   1    0   1   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:301 SinglyLin    3   1    0   1   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:311 SinglyLin   22   4    3   2   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:340 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:347 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:354 SinglyLin   14   3    2   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:377 SinglyLin    8   2    1   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:393 SinglyLin    5   2    1   3   1  100.0   A\n"
+  }
+}

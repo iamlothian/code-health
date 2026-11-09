@@ -1,0 +1,45 @@
+{
+  "id": "python_complexity_bad",
+  "pair_id": "python_algorithmic_complexity",
+  "scenario_title": "1. Shortest-Path Graph Algorithm Complexity & Decomposition (TheAlgorithms/Python graphs/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/a_star.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (graphs/a_star.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/graphs/a_star.py",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 118,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 14.0,
+      "complexity": 10.5,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 15.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "Size: LOC=63 (>25) (-70.0 pts)",
+      "Size: params=5 (>4) (-6.0 pts)",
+      "Size: nesting depth=4 (>3) (-10.0 pts)",
+      "Complexity: CC=16 (>5) (-62.0 pts)",
+      "Complexity: cognitive=19 (>8) (-27.5 pts)"
+    ],
+    "all_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "[Func search] Size: LOC=63 (>25) (-70.0 pts)",
+      "[Func search] Size: params=5 (>4) (-6.0 pts)",
+      "[Func search] Size: nesting depth=4 (>3) (-10.0 pts)",
+      "[Func search] Complexity: CC=16 (>5) (-62.0 pts)",
+      "[Func search] Complexity: cognitive=19 (>8) (-27.5 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 15.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 14.0 | Complexity: 10.5 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/a_star.py                   src     118    - 100.0  14.0  10.5  90.0 100.0   15.5   F\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/a_star.py:12 search                 63  16   19   5   4   15.5   F\n    - Size: LOC=63 (>25) (-70.0 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=16 (>5) (-62.0 pts)\n    - Complexity: cognitive=19 (>8) (-27.5 pts)\n"
+  }
+}

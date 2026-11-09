@@ -249,12 +249,9 @@ class ModuleAnalyzer:
         if not units:
             return DimensionScores.from_raw((mod_scores[0], mod_scores[1], 100.0, mod_scores[2], 100.0), self.cfg)
         total_w = sum(w for w, _ in units)
-        u_srp = sum(w * s.srp for w, s in units) / total_w
-        u_size = sum(w * s.size for w, s in units) / total_w
+        u_srp = sum(w * s.srp for w, s in units) / total_w - (100.0 - mod_scores[0])
+        u_size = sum(w * s.size for w, s in units) / total_w - (100.0 - mod_scores[1])
         u_comp = sum(w * s.complexity for w, s in units) / total_w
-        u_clean = sum(w * s.clean for w, s in units) / total_w
+        u_clean = sum(w * s.clean for w, s in units) / total_w - (100.0 - mod_scores[2])
         u_sec = min(s.security for _, s in units)
-        return DimensionScores.from_raw(
-            (0.5 * mod_scores[0] + 0.5 * u_srp, 0.5 * mod_scores[1] + 0.5 * u_size, u_comp, 0.5 * mod_scores[2] + 0.5 * u_clean, u_sec),
-            self.cfg,
-        )
+        return DimensionScores.from_raw((u_srp, u_size, u_comp, u_clean, u_sec), self.cfg)

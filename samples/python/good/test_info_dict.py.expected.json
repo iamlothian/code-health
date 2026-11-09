@@ -1,0 +1,31 @@
+{
+  "id": "python_test_hygiene_good",
+  "pair_id": "python_test_hygiene",
+  "scenario_title": "4. CLI Command & Option Test Suite Hygiene (pallets/click tests/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/test_info_dict.py",
+  "is_test": true,
+  "source_dataset": "pallets/click (tests/test_info_dict.py)",
+  "source_url": "https://github.com/pallets/click/blob/main/tests/test_info_dict.py",
+  "license": "BSD-3-Clause",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 322,
+    "classes_count": 0,
+    "functions_count": 8,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_info_dict.py          test    322    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_info_dict.py:212 test_param    3   1    0   2   0  100.0   A\nsamples/python/good/test_info_dict.py:253 test_comma    4   1    0   2   0  100.0   A\nsamples/python/good/test_info_dict.py:259 test_conte   11   1    0   0   0  100.0   A\nsamples/python/good/test_info_dict.py:272 test_param    4   1    0   0   0  100.0   A\nsamples/python/good/test_info_dict.py:300 test_param    2   1    0   3   0  100.0   A\nsamples/python/good/test_info_dict.py:321 test_param    3   1    0   4   0  100.0   A\nsamples/python/good/test_info_dict.py:327 test_argum    5   1    0   0   0  100.0   A\nsamples/python/good/test_info_dict.py:334 test_comma   11   2    0   0   0  100.0   A\n"
+  }
+}

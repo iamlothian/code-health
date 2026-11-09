@@ -1,0 +1,40 @@
+{
+  "id": "python_security_bad",
+  "pair_id": "python_security_hygiene",
+  "scenario_title": "3. Serialization & I/O Security Hygiene (PyCQA/bandit examples/, 19 LOC)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/yaml_load.py",
+  "is_test": false,
+  "source_dataset": "PyCQA/bandit (examples/yaml_load.py)",
+  "source_url": "https://github.com/PyCQA/bandit/blob/main/examples/yaml_load.py",
+  "license": "Apache-2.0",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 19,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 75.0,
+      "security": 60.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Security: unsafe yaml.load() without SafeLoader at L9 (-40.0 pts)"
+    ],
+    "all_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "[Func test_yaml_load] Clean: missing return type annotation (-10.0 pts)",
+      "[Func test_yaml_load] Clean: missing public docstring (-5.0 pts)",
+      "[Func test_yaml_load] Security: unsafe yaml.load() without SafeLoader at L9 (-40.0 pts)",
+      "[Func test_json_load] Clean: missing return type annotation (-10.0 pts)",
+      "[Func test_json_load] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 60.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/yaml_load.py                src      19    - 100.0 100.0 100.0  75.0  60.0   65.0   D\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/yaml_load.py:7 test_yaml_load        8   2    1   0   1   65.0   D\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Security: unsafe yaml.load() without SafeLoader at L9 (-40.0 pts)\nsamples/python/bad/yaml_load.py:18 test_json_load       2   1    0   0   0   97.8   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

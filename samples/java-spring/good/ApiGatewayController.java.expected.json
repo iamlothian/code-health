@@ -1,0 +1,38 @@
+{
+  "id": "java_spring_layering_good",
+  "pair_id": "java_spring_layering",
+  "scenario_title": "1. Multi-Endpoint PetClinic REST Controller Layering (spring-petclinic-microservices, ~44 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/ApiGatewayController.java",
+  "is_test": false,
+  "source_dataset": "spring-petclinic/spring-petclinic-microservices (boundary/web/ApiGatewayController.java)",
+  "source_url": "https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+  "license": "Apache-2.0",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 40,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 94.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 92.5,
+      "security": 100.0,
+      "composite": 97.1,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Method ApiGatewayController.getOwnerDetails] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Method ApiGatewayController.getOwnerDetails] Clean: missing public docstring (-10.0 pts)",
+      "[Method ApiGatewayController.addVisitsToOwner] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Method ApiGatewayController.addVisitsToOwner] Clean: missing public docstring (-10.0 pts)",
+      "[Method ApiGatewayController.emptyVisitsForPets] Clean: missing public docstring (-5.0 pts)",
+      "[Method ApiGatewayController.ApiGatewayController] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.1/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 94.0 | Size: 100.0 | Complexity: 100.0 | Clean: 92.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/ApiGatewayController.java src      40    -  94.0 100.0 100.0  92.5 100.0   97.1   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/ApiGatewayController.java    40    4     1    4   97.1   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/ApiGatewayController.java:5   12   1    0   1   0   94.9   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/good/ApiGatewayController.java:6   11   1    0   1   0   94.9   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/good/ApiGatewayController.java:4    7   1    0   3   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/ApiGatewayController.java:8    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

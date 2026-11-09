@@ -1,0 +1,33 @@
+{
+  "id": "java_spring_test_good",
+  "pair_id": "java_spring_test_hygiene",
+  "scenario_title": "3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/PetControllerTests.java",
+  "is_test": true,
+  "source_dataset": "spring-projects/spring-petclinic (owner/PetControllerTests.java)",
+  "source_url": "https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java",
+  "license": "Apache-2.0",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 193,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 92.0,
+      "security": 100.0,
+      "composite": 98.8,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class PetControllerTests] Clean (Spring): @Autowired field injection detected on 'mockMvc' (-8.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.8/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 92.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/PetControllerTests.java test    193    - 100.0 100.0 100.0  92.0 100.0   98.8   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/PetControllerTests.java:5   193    5     1    5   98.8   A\n    - Clean (Spring): @Autowired field injection detected on 'mockMvc' (-8.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/PetControllerTests.java:70    17   1    0   0   0  100.0   A\nsamples/java-spring/good/PetControllerTests.java:89     7   1    0   0   0  100.0   A\nsamples/java-spring/good/PetControllerTests.java:97     9   1    0   0   0  100.0   A\nsamples/java-spring/good/PetControllerTests.java:191    9   1    0   0   0  100.0   A\nsamples/java-spring/good/PetControllerTests.java:201    8   1    0   0   0  100.0   A\n"
+  }
+}

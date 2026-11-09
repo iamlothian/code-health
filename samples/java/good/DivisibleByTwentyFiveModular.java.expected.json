@@ -1,0 +1,40 @@
+{
+  "id": "java_complexity_good",
+  "pair_id": "java_method_complexity",
+  "scenario_title": "2. Method Complexity & Control Flow (Same Problem: Codeforces 1575D)",
+  "language": "java",
+  "framework": "none",
+  "quality": "good",
+  "file_path": "samples/java/good/DivisibleByTwentyFiveModular.java",
+  "is_test": false,
+  "source_dataset": "DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #46)",
+  "source_url": "https://huggingface.co/datasets/deepmind/code_contests",
+  "license": "CC-BY-4.0",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 79,
+    "classes_count": 1,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 96.5,
+      "complexity": 93.3,
+      "clean": 76.7,
+      "security": 100.0,
+      "composite": 94.3,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class Solution] Clean: missing class docstring (-15.0 pts)",
+      "[Method Solution.f] Size: LOC=28 (>25) (-4.5 pts)",
+      "[Method Solution.f] Size: params=5 (>4) (-6.0 pts)",
+      "[Method Solution.f] Complexity: CC=9 (>5) (-16.0 pts)",
+      "[Method Solution.f] Complexity: returns=4 (>3) (-4.0 pts)",
+      "[Method Solution.f] Clean: missing public docstring (-10.0 pts)",
+      "[Method Solution.solve] Clean: missing public docstring (-10.0 pts)",
+      "[Method Solution.main] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 94.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 96.5 | Complexity: 93.3 | Clean: 76.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveModular.java src      79    - 100.0  96.5  93.3  76.7 100.0   94.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveModular.jav    79    3     1   14   94.3   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveModular.java:   28   9    8   5   1   91.9   A\n    - Size: LOC=28 (>25) (-4.5 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/good/DivisibleByTwentyFiveModular.java:   16   4    3   2   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/good/DivisibleByTwentyFiveModular.java:    8   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

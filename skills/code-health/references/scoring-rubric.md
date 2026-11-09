@@ -17,7 +17,12 @@ This document defines the mathematical models, metric thresholds, penalty weight
 
 Every analyzed unit (function, class, file, or codebase) is evaluated across 5 weighted dimensions clamped to $[0.0, 100.0]$:
 
-$$\text{Composite Score} = 0.30 \cdot S_{\text{SRP}} + 0.25 \cdot S_{\text{Size}} + 0.20 \cdot S_{\text{Complexity}} + 0.15 \cdot S_{\text{Clean}} + 0.10 \cdot S_{\text{Security}}$$
+$$\text{Weighted Score} = 0.30 \cdot S_{\text{SRP}} + 0.25 \cdot S_{\text{Size}} + 0.20 \cdot S_{\text{Complexity}} + 0.15 \cdot S_{\text{Clean}} + 0.10 \cdot S_{\text{Security}}$$
+
+**Worst-Dimension Ceiling (No Masking Critical Smells):**
+If any single dimension drops below `75.0` ($S_{\min} < 75.0$), the composite score is capped so a severe architectural, complexity, or security defect cannot be masked into an overall Grade A or B:
+
+$$\text{Composite Score} = \begin{cases} \min(\text{Weighted Score},\; S_{\min} + 5.0,\; 79.5) & \text{if } S_{\min} < 75.0 \\ \text{Weighted Score} & \text{otherwise} \end{cases}$$
 
 | Dimension | Weight | Primary Focus |
 | :--- | :---: | :--- |

@@ -63,10 +63,10 @@ def _blend_ir_class_methods(
         return (*raw, 100.0)
     n = len(methods)
     return (
-        0.6 * raw[0] + 0.4 * (sum(m.scores.srp for m in methods) / n),
-        0.6 * raw[1] + 0.4 * (sum(m.scores.size for m in methods) / n),
-        0.6 * raw[2] + 0.4 * (sum(m.scores.complexity for m in methods) / n),
-        0.6 * raw[3] + 0.4 * (sum(m.scores.clean for m in methods) / n),
+        sum(m.scores.srp for m in methods) / n - (100.0 - raw[0]),
+        sum(m.scores.size for m in methods) / n - (100.0 - raw[1]),
+        sum(m.scores.complexity for m in methods) / n - (100.0 - raw[2]),
+        sum(m.scores.clean for m in methods) / n - (100.0 - raw[3]),
         min(m.scores.security for m in methods),
     )
 

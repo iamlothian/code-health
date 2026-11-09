@@ -1,0 +1,40 @@
+{
+  "id": "java_spring_test_bad",
+  "pair_id": "java_spring_test_hygiene",
+  "scenario_title": "3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/OwnerControllerTests.java",
+  "is_test": true,
+  "source_dataset": "spring-projects/spring-petclinic (owner/OwnerControllerTests.java)",
+  "source_url": "https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java",
+  "license": "Apache-2.0",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 224,
+    "classes_count": 1,
+    "functions_count": 20,
+    "scores": {
+      "srp": 60.0,
+      "size": 90.4,
+      "complexity": 100.0,
+      "clean": 91.8,
+      "security": 100.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "SRP: methods=20 (>10) (-40.0 pts)",
+      "Size: class LOC=224 (>200) (-9.6 pts)",
+      "Clean (Spring): @Autowired field injection detected on 'mockMvc' (-8.0 pts)"
+    ],
+    "all_findings": [
+      "[Class OwnerControllerTests] SRP: methods=20 (>10) (-40.0 pts)",
+      "[Class OwnerControllerTests] Size: class LOC=224 (>200) (-9.6 pts)",
+      "[Class OwnerControllerTests] Clean (Spring): @Autowired field injection detected on 'mockMvc' (-8.0 pts)",
+      "[Method OwnerControllerTests.showOwner] Clean (Test): 9 assertions in single test (>8) (-3.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 20\nDimensions -> SRP: 60.0 | Size: 90.4 | Complexity: 100.0 | Clean: 91.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/OwnerControllerTests.java test    224    -  60.0  90.4 100.0  91.8 100.0   65.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/OwnerControllerTests.java:   224   20     1   22   65.0   D\n    - SRP: methods=20 (>10) (-40.0 pts)\n    - Size: class LOC=224 (>200) (-9.6 pts)\n    - Clean (Spring): @Autowired field injection detected on 'mockMvc' (-8.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/OwnerControllerTests.java:28   14   1    0   0   0   99.5   A\n    - Clean (Test): 9 assertions in single test (>8) (-3.0 pts)\nsamples/java-spring/bad/OwnerControllerTests.java:73   18   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:92   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:10    7   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:11   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:12   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:13   14   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:15   14   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:16    7   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:17    6   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:18    8   2    1   0   1  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:19    8   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:19   11   2    1   0   1  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:21    9   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:22   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:23   12   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:25   11   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:26    6   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:26   13   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:29   16   1    0   0   0  100.0   A\n"
+  }
+}

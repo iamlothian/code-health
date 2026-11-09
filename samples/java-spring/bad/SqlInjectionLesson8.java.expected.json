@@ -1,0 +1,48 @@
+{
+  "id": "java_spring_security_bad",
+  "pair_id": "java_spring_security",
+  "scenario_title": "2. JDBC SQL Query Endpoint: Parameterized vs String Concatenation (OWASP WebGoat sqlinjection/)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/SqlInjectionLesson8.java",
+  "is_test": false,
+  "source_dataset": "OWASP WebGoat (sqlinjection/introduction/SqlInjectionLesson8.java)",
+  "source_url": "https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+  "license": "GPL-2.0",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 104,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 90.4,
+      "size": 94.0,
+      "complexity": 97.6,
+      "clean": 77.0,
+      "security": 60.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Security (Spring): potential SQL/JPQL injection in statement.executeQuery via string concatenation (-40.0 pts)"
+    ],
+    "all_findings": [
+      "[Class SqlInjectionLesson8] Clean: missing class docstring (-15.0 pts)",
+      "[Method SqlInjectionLesson8.completed] Clean: missing public docstring (-5.0 pts)",
+      "[Method SqlInjectionLesson8.injectableQueryConfidentiality] SRP: high external call fan-out=25 (>6) (-36.0 pts)",
+      "[Method SqlInjectionLesson8.injectableQueryConfidentiality] Size: LOC=44 (>25) (-28.5 pts)",
+      "[Method SqlInjectionLesson8.injectableQueryConfidentiality] Complexity: returns=6 (>3) (-12.0 pts)",
+      "[Method SqlInjectionLesson8.injectableQueryConfidentiality] Clean: missing public docstring (-10.0 pts)",
+      "[Method SqlInjectionLesson8.injectableQueryConfidentiality] Security (Spring): potential SQL/JPQL injection in statement.executeQuery via string concatenation (-40.0 pts)",
+      "[Method SqlInjectionLesson8.generateTable] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method SqlInjectionLesson8.generateTable] Size: LOC=26 (>25) (-1.5 pts)",
+      "[Method SqlInjectionLesson8.generateTable] Clean: missing public docstring (-10.0 pts)",
+      "[Method SqlInjectionLesson8.log] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method SqlInjectionLesson8.log] Clean: missing public docstring (-10.0 pts)",
+      "[Method SqlInjectionLesson8.log] Security (Spring): potential SQL/JPQL injection in statement.executeUpdate via string concatenation (-40.0 pts)",
+      "[Method SqlInjectionLesson8.SqlInjectionLesson8] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 90.4 | Size: 94.0 | Complexity: 97.6 | Clean: 77.0 | Security: 60.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/SqlInjectionLesson8.java src     104    -  90.4  94.0  97.6  77.0  60.0   65.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/SqlInjectionLesson8.java:2   104    5     1   14   65.0   D\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/SqlInjectionLesson8.java:47    44   5    4   2   1   65.0   D\n    - SRP: high external call fan-out=25 (>6) (-36.0 pts)\n    - Size: LOC=44 (>25) (-28.5 pts)\n    - Complexity: returns=6 (>3) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Spring): potential SQL/JPQL injection in statement.executeQuery via string concatenation (-40.0 pts)\nsamples/java-spring/bad/SqlInjectionLesson8.java:131   14   2    1   2   0   65.0   D\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Spring): potential SQL/JPQL injection in statement.executeUpdate via string concatenation (-40.0 pts)\nsamples/java-spring/bad/SqlInjectionLesson8.java:100   26   5    4   1   1   96.3   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Size: LOC=26 (>25) (-1.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/bad/SqlInjectionLesson8.java:37     3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/bad/SqlInjectionLesson8.java:41     5   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}
