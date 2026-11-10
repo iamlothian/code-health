@@ -51,17 +51,17 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 > Write these tests FIRST in `tests/unit/test_typescript_health.py`. Verify they FAIL before implementation.
 
-- [ ] T006 [P] [TDD] [US1] Write unit tests in `tests/unit/test_typescript_health.py` for TypeScript file discovery (`.ts`, `.tsx`, `.mts`, `.cts`), ambient declaration skip (`*.d.ts`), minified asset skip (`*.min.ts` and lines > 1,000 chars), and CLI `--lang typescript` / `--lang ts` flag handling
-- [ ] T007 [P] [TDD] [US1] Write unit tests in `tests/unit/test_typescript_health.py` for Tree-Sitter TypeScript/TSX parsing of classes, methods, function declarations, named arrow functions, TSX components, constructor parameter properties, and pure contracts (interfaces/type aliases) into `IRModule` with hierarchical qualnames
+- [x] T006 [P] [TDD] [US1] Write unit tests in `tests/unit/test_typescript_health.py` for TypeScript file discovery (`.ts`, `.tsx`, `.mts`, `.cts`), ambient declaration skip (`*.d.ts`), minified asset skip (`*.min.ts` and lines > 1,000 chars), and CLI `--lang typescript` / `--lang ts` flag handling
+- [x] T007 [P] [TDD] [US1] Write unit tests in `tests/unit/test_typescript_health.py` for Tree-Sitter TypeScript/TSX parsing of classes, methods, function declarations, named arrow functions, TSX components, constructor parameter properties, and pure contracts (interfaces/type aliases) into `IRModule` with hierarchical qualnames
 
 ### Implementation for User Story 1
 
-- [ ] T008 [P] [US1] Update `is_test_file_path` and `_GitLogAccumulator` in `scripts/_code_health/module_engine.py` to recognize TypeScript test conventions (`*.test.ts`, `*.spec.ts`, `*.test.tsx`, `*.spec.tsx`, etc.) and track `.ts`, `.tsx`, `.mts`, `.cts` Git churn
-- [ ] T009 [P] [US1] Update `CodeHealthRunner._discover_files` in `scripts/_code_health/reporting.py` to discover `.ts`, `.tsx`, `.mts`, `.cts` files, filter ignored directories, and automatically skip ambient declaration files (`*.d.ts`) and minified assets (`*.min.ts`)
-- [ ] T010 [US1] Implement Tree-Sitter TypeScript & TSX parser in `scripts/_code_health/ts_parser.py` converting TS/TSX classes, methods, function declarations, named arrow functions, and constructor parameter properties into `IRModule`, absorbing inline callbacks and treating interfaces/types as non-behavioral contracts
-- [ ] T011 [US1] Implement `TypeScriptLanguageProfile` in `scripts/_code_health/profiles_ts.py` and register `TYPESCRIPT_PROFILE` in `scripts/_code_health/profiles.py`
-- [ ] T012 [US1] Wire TypeScript file dispatch into `ModuleAnalyzer.analyze()` in `scripts/_code_health/module_engine.py` using `ts_parser.py` and `ir_scorer.py`
-- [ ] T013 [US1] Update `_build_arg_parser()` and `main()` in `scripts/code_health.py` to add `"typescript"` and `"ts"` choices to `--lang`
+- [x] T008 [P] [US1] Update `is_test_file_path` and `_GitLogAccumulator` in `scripts/_code_health/module_engine.py` to recognize TypeScript test conventions (`*.test.ts`, `*.spec.ts`, `*.test.tsx`, `*.spec.tsx`, etc.) and track `.ts`, `.tsx`, `.mts`, `.cts` Git churn
+- [x] T009 [P] [US1] Update `CodeHealthRunner._discover_files` in `scripts/_code_health/reporting.py` to discover `.ts`, `.tsx`, `.mts`, `.cts` files, filter ignored directories, and automatically skip ambient declaration files (`*.d.ts`) and minified assets (`*.min.ts`)
+- [x] T010 [US1] Implement Tree-Sitter TypeScript & TSX parser in `scripts/_code_health/ts_parser.py` converting TS/TSX classes, methods, function declarations, named arrow functions, and constructor parameter properties into `IRModule`, absorbing inline callbacks and treating interfaces/types as non-behavioral contracts
+- [x] T011 [US1] Implement `TypeScriptLanguageProfile` in `scripts/_code_health/profiles_ts.py` and register `TYPESCRIPT_PROFILE` in `scripts/_code_health/profiles.py`
+- [x] T012 [US1] Wire TypeScript file dispatch into `ModuleAnalyzer.analyze()` in `scripts/_code_health/module_engine.py` using `ts_parser.py` and `ir_scorer.py`
+- [x] T013 [US1] Update `_build_arg_parser()` and `main()` in `scripts/code_health.py` to add `"typescript"` and `"ts"` choices to `--lang`
 - [ ] T014 [US1] [REVIEW] **Checkpoint**: User Story 1 MVP fully functional. Verify single-file, multi-file, and mixed polyglot directory scans produce accurate scorecards.
 
 ---

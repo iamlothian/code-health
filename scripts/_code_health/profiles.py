@@ -28,6 +28,7 @@ from _code_health.ir_models import (
 )
 from _code_health.profiles_java import JAVA_PROFILE, SPRING_BOOT_FRAMEWORK
 from _code_health.profiles_js import JAVASCRIPT_PROFILE
+from _code_health.profiles_ts import TYPESCRIPT_PROFILE
 
 PYTHON_PROFILE = LanguageProfile(name="python", file_extensions=(".py",))
 
@@ -130,6 +131,8 @@ def resolve_active_profiles(
 ) -> LanguageProfile:
     """Resolve active LanguageProfile and attached FrameworkProfiles for a given file."""
     ext = file_path.suffix.lower()
+    if lang_override in {"typescript", "ts"} or (lang_override is None and ext in {".ts", ".tsx", ".mts", ".cts"}):
+        return TYPESCRIPT_PROFILE
     if lang_override in {"javascript", "js"} or (lang_override is None and ext in {".js", ".mjs", ".cjs"}):
         return JAVASCRIPT_PROFILE
     lang = lang_override or ("java" if ext == ".java" else "python")

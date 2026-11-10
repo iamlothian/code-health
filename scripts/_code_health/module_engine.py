@@ -56,7 +56,11 @@ class _GitLogAccumulator:
         header = lines[0].split("|", 2) + ["", ""]
         feat_inc = int(header[2].lower().startswith("feat"))
         files = [ln.replace("\\", "/") for ln in lines[1:]]
-        source_files = [f for f in files if f.endswith((".py", ".java", ".js", ".mjs", ".cjs"))]
+        source_files = [
+            f for f in files
+            if f.endswith((".py", ".java", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"))
+            and not f.endswith((".d.ts", ".d.mts", ".d.cts"))
+        ]
         for f in source_files:
             self.commits[f] += 1
             self.feats[f] += feat_inc
@@ -86,8 +90,12 @@ def is_test_file_path(rel_path: str) -> bool:
         fname.endswith((".test.js", ".spec.js", "_test.js", ".test.mjs", ".spec.mjs", ".test.cjs", ".spec.cjs"))
         or (fname.startswith("test_") and fname.endswith((".js", ".mjs", ".cjs")))
     )
+    is_ts = (
+        fname.endswith((".test.ts", ".spec.ts", "_test.ts", ".test.tsx", ".spec.tsx", "_test.tsx", ".test.mts", ".spec.mts", ".test.cts", ".spec.cts"))
+        or (fname.startswith("test_") and fname.endswith((".ts", ".tsx", ".mts", ".cts")))
+    )
     is_test_dir = bool({"tests", "test", "__tests__"} & set(parts))
-    return is_test_dir or is_py or is_java or is_js
+    return is_test_dir or is_py or is_java or is_js or is_ts
 
 
 def collect_git_stats(repo_root: Path) -> dict[str, GitFileStats]:
@@ -171,6 +179,8 @@ class ModuleAnalyzer:
             return self._analyze_java(resolved, rel_path, is_test, gstat)
         if resolved.suffix.lower() in {".js", ".mjs", ".cjs"}:
             return self._analyze_javascript(resolved, rel_path, is_test, gstat)
+        if resolved.suffix.lower() in {".ts", ".tsx", ".mts", ".cts"}:
+            return self._analyze_typescript(resolved, rel_path, is_test, gstat)
 
         raw_text = resolved.read_text(encoding="utf-8", errors="replace")
         lines = raw_text.splitlines()
@@ -216,6 +226,28 @@ class ModuleAnalyzer:
         from _code_health.profiles import resolve_active_profiles
 
         ir_mod = parse_javascript_file(resolved, rel_path, is_test)
+        profile = resolve_active_profiles(
+            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
+        )
+        scorer = UniversalIRScorer(self.cfg, profile)
+
+        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
+        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
+
+        srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
+        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
+        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
+
+        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
+        scores = self._blend_scores(mod_scores, classes, functions)
+        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
+
+    def _analyze_typescript(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
+        from _code_health.ir_scorer import UniversalIRScorer
+        from _code_health.profiles import resolve_active_profiles
+        from _code_health.ts_parser import parse_typescript_file
+
+        ir_mod = parse_typescript_file(resolved, rel_path, is_test)
         profile = resolve_active_profiles(
             self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
         )

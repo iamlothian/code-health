@@ -204,8 +204,10 @@ class CodeHealthRunner:
             valid_exts = {".java"}
         elif self.lang_override in {"javascript", "js"}:
             valid_exts = {".js", ".mjs", ".cjs"}
+        elif self.lang_override in {"typescript", "ts"}:
+            valid_exts = {".ts", ".tsx", ".mts", ".cts"}
         else:
-            valid_exts = {".py", ".java", ".js", ".mjs", ".cjs"}
+            valid_exts = {".py", ".java", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}
         direct = {r for r in resolved if r.is_file() and r.suffix.lower() in valid_exts}
         walked = {
             c.resolve() for r in resolved if r.is_dir()

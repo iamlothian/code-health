@@ -73,7 +73,7 @@ def _blend_ir_class_methods(
 
 def _count_ir_asserts(func: IRFunction, profile: BaseProfileProtocol) -> int:
     matched = [c for c in func.calls if profile.is_test_assert_call(c.name)]
-    if profile.name == "javascript":
+    if profile.name in {"javascript", "typescript"}:
         matchers_at_line = {c.lineno for c in matched if c.name.split(".")[-1] != "expect"}
         matched = [c for c in matched if c.name.split(".")[-1] != "expect" or c.lineno not in matchers_at_line]
     return len(matched)
@@ -154,9 +154,9 @@ class UniversalIRScorer:
         s_size, f_size = self._score_size(func, is_entry, is_test)
         s_comp, f_comp = self._score_complexity(func)
         p_cln, f_cln = _score_test_clean_ir(func, self.profile) if is_test else _score_source_clean_ir(func, self.profile)
-        p_ex, f_ex = (0.0, []) if self.profile.name == "javascript" else _check_ir_exceptions(func.except_handlers)
+        p_ex, f_ex = (0.0, []) if self.profile.name in {"javascript", "typescript"} else _check_ir_exceptions(func.except_handlers)
         s_clean = 100.0 - p_cln - p_ex
-        s_sec, f_sec = (100.0, []) if self.profile.name == "javascript" else _score_security_ir(func, is_test)
+        s_sec, f_sec = (100.0, []) if self.profile.name in {"javascript", "typescript"} else _score_security_ir(func, is_test)
 
         penalties = self.profile.evaluate_function(func, parent)
         raw_scores = (s_srp, s_size, s_comp, s_clean, s_sec)
