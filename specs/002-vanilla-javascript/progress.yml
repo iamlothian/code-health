@@ -1,0 +1,10 @@
+feature: 002-vanilla-javascript
+created: 2026-11-09
+current_phase: execute
+phases:
+  specify:      { status: done, updated: 2026-11-09 }
+  brainstorm:   { status: done, updated: 2026-11-09, sessions: 1 }
+  plan:         { status: done, updated: 2026-11-09 }
+  tasks:        { status: done, updated: 2026-11-09 }
+  execute:      { status: in_progress, updated: 2026-11-09 }
+  review:       { status: pending }

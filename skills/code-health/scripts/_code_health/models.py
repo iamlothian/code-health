@@ -72,11 +72,19 @@ class DimensionScores:
 
     @classmethod
     def from_raw(cls, raw: tuple[float, float, float, float, float], config: RubricConfig) -> DimensionScores:
-        """Create clamped DimensionScores from (srp, size, complexity, clean, security)."""
+        """Create clamped DimensionScores from (srp, size, complexity, clean, security) with worst-dimension ceiling."""
         s_srp, s_size, s_comp, s_clean, s_sec = (clamp_score(v) for v in raw)
-        comp = clamp_score(
-            config.weight_srp * s_srp + config.weight_size * s_size + config.weight_complexity * s_comp + config.weight_clean * s_clean + config.weight_security * s_sec
+        weighted = (
+            config.weight_srp * s_srp
+            + config.weight_size * s_size
+            + config.weight_complexity * s_comp
+            + config.weight_clean * s_clean
+            + config.weight_security * s_sec
         )
+        min_dim = min(s_srp, s_size, s_comp, s_clean, s_sec)
+        if min_dim < 75.0:
+            weighted = min(weighted, min_dim + 5.0, 79.5)
+        comp = clamp_score(weighted)
         return cls(s_srp, s_size, s_comp, s_clean, s_sec, comp, score_to_grade(comp))
 
 
@@ -219,5 +227,6 @@ EXEMPT_LCOM_BASES = {
 IGNORED_SCAN_DIRS = {
     ".git", ".venv", "venv", "node_modules", "__pycache__", ".pytest_cache",
     ".mypy_cache", ".ruff_cache", "build", "dist", ".superpowers", ".agents", ".specify",
+    ".next", ".nuxt",
 }
 GRADE_ORDER = {"A": 5, "B": 4, "C": 3, "D": 2, "F": 1}

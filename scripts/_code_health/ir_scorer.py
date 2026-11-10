@@ -71,6 +71,14 @@ def _blend_ir_class_methods(
     )
 
 
+def _count_ir_asserts(func: IRFunction, profile: BaseProfileProtocol) -> int:
+    matched = [c for c in func.calls if profile.is_test_assert_call(c.name)]
+    if profile.name == "javascript":
+        matchers_at_line = {c.lineno for c in matched if c.name.split(".")[-1] != "expect"}
+        matched = [c for c in matched if c.name.split(".")[-1] != "expect" or c.lineno not in matchers_at_line]
+    return len(matched)
+
+
 def _score_test_clean_ir(func: IRFunction, profile: BaseProfileProtocol) -> tuple[float, list[str]]:
     is_test_method = (
         func.name.startswith("test")
@@ -79,19 +87,21 @@ def _score_test_clean_ir(func: IRFunction, profile: BaseProfileProtocol) -> tupl
     )
     if not is_test_method:
         return 0.0, []
-    asserts = sum(1 for c in func.calls if profile.is_test_assert_call(c.name))
+    asserts = _count_ir_asserts(func, profile)
     p0, f0 = penalty_item(int(asserts == 0), 30.0, "Clean (Test): test has 0 assertions")
     p_many, f_many = penalty_item(asserts - 8, 3.0, f"Clean (Test): {asserts} assertions in single test (>8)", cap=30.0)
     return p0 + p_many, f0 + f_many
 
 
-def _score_source_clean_ir(func: IRFunction) -> tuple[float, list[str]]:
+def _score_source_clean_ir(func: IRFunction, profile: BaseProfileProtocol | None = None) -> tuple[float, list[str]]:
     findings: list[str] = []
     pen = 0.0
     if not func.has_docstring and not func.name.startswith("_"):
         p_doc = 5.0 if func.loc <= 10 else 10.0
         pen += p_doc
         findings.append(f"Clean: missing public docstring (-{p_doc:.1f} pts)")
+    if profile and profile.name == "javascript":
+        return pen, findings
     untyped = [p.name for p in func.params if p.type_annotation is None and p.name not in {"self", "cls"}]
     if untyped:
         p_un = min(25.0, len(untyped) * 5.0)
@@ -143,10 +153,10 @@ class UniversalIRScorer:
         s_srp, f_srp = self._score_srp(func, concerns, ext_calls, is_entry, is_test)
         s_size, f_size = self._score_size(func, is_entry, is_test)
         s_comp, f_comp = self._score_complexity(func)
-        p_cln, f_cln = _score_test_clean_ir(func, self.profile) if is_test else _score_source_clean_ir(func)
-        p_ex, f_ex = _check_ir_exceptions(func.except_handlers)
+        p_cln, f_cln = _score_test_clean_ir(func, self.profile) if is_test else _score_source_clean_ir(func, self.profile)
+        p_ex, f_ex = (0.0, []) if self.profile.name == "javascript" else _check_ir_exceptions(func.except_handlers)
         s_clean = 100.0 - p_cln - p_ex
-        s_sec, f_sec = _score_security_ir(func, is_test)
+        s_sec, f_sec = (100.0, []) if self.profile.name == "javascript" else _score_security_ir(func, is_test)
 
         penalties = self.profile.evaluate_function(func, parent)
         raw_scores = (s_srp, s_size, s_comp, s_clean, s_sec)

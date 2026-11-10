@@ -8,8 +8,8 @@ This document defines the mathematical models, metric thresholds, penalty weight
 
 - **Deterministic & Reproducible:** Every function/method, class, and module receives a score from `0.0` to `100.0` and a letter grade calculated purely from AST / CST structure, line tokens, and Git history. Scores never vary across identical code states.
 - **Actionable Penalty Findings:** Every deducted point generates a descriptive finding string with line numbers and penalty values (e.g. `LOC=45 (>25) (-30.0 pts)`), showing agents and engineers exactly what to refactor.
-- **Language & Framework-Aware:** Native AST parsing for Python (`ast`) and Tree-Sitter CST parsing for Java (`tree-sitter-java`), layered with framework profiles (Spring Boot, Python CLI/MCP).
-- **Mandatory Native Parser Gate:** Java analysis requires `tree-sitter-java` with zero fallback parsing to guarantee 100% precision. Missing dependencies halt with exit code 2 and explicit copy-paste installation commands.
+- **Language & Framework-Aware:** Native AST parsing for Python (`ast`), and Tree-Sitter CST parsing for Java (`tree-sitter-java`) and Vanilla JavaScript (`tree-sitter-javascript`), layered with framework profiles (Spring Boot, Python CLI/MCP).
+- **Mandatory Native Parser Gate:** Java and JavaScript analysis require their respective native Tree-Sitter parsers (`tree-sitter-java` and `tree-sitter-javascript`) with zero fallback parsing to guarantee 100% precision. Missing dependencies halt with exit code 2 and explicit copy-paste installation commands.
 
 ---
 
@@ -121,24 +121,30 @@ Starts at `100.0` in each dimension and applies deductions.
 
 ### 3.4 Clean Code & Maintainability ($S_{\text{Clean}}$, 15%)
 
-1. **Type Annotations (Python Source):**
-   - Missing return type annotation: **-10.0 pts**.
-   - Untyped parameter (excluding `self`/`cls`): **-5.0 pts** each (capped at -25.0 pts).
+1. **Type Annotations & Defaults:**
+   - **Python Source:** Missing return type annotation: **-10.0 pts**; untyped parameter (excluding `self`/`cls`): **-5.0 pts** each (capped at -25.0 pts).
+   - **JavaScript Source:** Parameter defaults (`param = default`) and JSDoc `@param {type}` satisfy type reasoning with zero penalty. Untyped, un-defaulted parameters in non-test functions incur **-2.0 pts** each (capped at -10.0 pts).
 
-2. **Docstring & Javadoc Presence (Source Code):**
-   - Missing docstring or Javadoc on public method:
+2. **Clean Code Smells (Vanilla JavaScript):**
+   - Legacy `var` declarations: Deduct **-3.0 pts** each (capped at -15.0 pts). Prefer `const` or `let`.
+   - Loose equality comparisons (`==` / `!=`): Deduct **-2.0 pts** each (capped at -10.0 pts). Triggers implicit type coercion; prefer `===` / `!==`.
+   - Empty `catch` blocks: Deduct **-10.0 pts** per occurrence. Swallows exceptions silently.
+   - `debugger;` statements: Deduct **-10.0 pts** per occurrence. Leftover debugging breakpoint in production code.
+
+3. **Docstring, JSDoc & Javadoc Presence (Source Code):**
+   - Missing docstring, JSDoc block, or Javadoc on public method:
      - Methods $\le 10$ LOC: **-5.0 pts**.
      - Methods $> 10$ LOC: **-10.0 pts**.
 
-3. **Exception Handling Hygiene:**
+4. **Exception Handling Hygiene:**
    - Bare `except:` in Python: Deduct **-25.0 pts**.
-   - Swallowed broad `except Exception:` / `catch (Exception e)` with empty body: Deduct **-10.0 pts** per occurrence.
+   - Swallowed broad `except Exception:` / `catch (Exception e)` / empty JS `catch` with empty body: Deduct **-10.0 pts** per occurrence.
 
-4. **Dependency Injection Hygiene (Spring Boot):**
+5. **Dependency Injection Hygiene (Spring Boot):**
    - Field injection using `@Autowired` or `@Inject`: Deduct **-8.0 pts** per injected field. Use constructor injection instead.
 
-5. **Test Quality Signals (Test Methods Only):**
-   - Test method (`test_*`, `@Test`, `@ParameterizedTest`, `@RepeatedTest`) with `0` assertions: Deduct **-30.0 pts**.
+6. **Test Quality Signals (Test Methods Only):**
+   - Test method (`test_*`, `@Test`, `@ParameterizedTest`, BDD `it`/`test`) with `0` assertions: Deduct **-30.0 pts**.
    - Test method with $> 8$ assertions: Deduct **-3.0 pts** per assertion over 8 (capped at -30.0 pts).
    - *Recognized assertion idioms:*
      - Python: `assert`, `pytest.raises`, `pytest.warns`, `pytest.fail`, `self.assert*`.
@@ -146,6 +152,7 @@ Starts at `100.0` in each dimension and applies deductions.
      - AssertJ: `assertThat`, `assertThatThrownBy`.
      - Spring / MockMvc: `.andExpect(...)`, `.andExpectAll(...)`.
      - Mockito: `verify(...)`.
+     - JavaScript: `assert`, `assertEquals`, `strictEqual`, `deepStrictEqual`, `ok`, `expect`, `should`, `toBe`, `toEqual`, `toStrictEqual`, `toThrow`, `toBeTruthy`, `toBeFalsy`, `toHaveLength`, `equal`.
 
 ---
 
@@ -155,14 +162,20 @@ Starts at `100.0` in each dimension and applies deductions.
 1. **SQL / JPQL String Concatenation (Java & Python):**
    - Passing concatenated strings into database query methods (`jdbcTemplate.query`, `entityManager.createQuery`, `createNativeQuery`, etc.): Deduct **-40.0 pts**. Use parameterized queries (`?`, `:namedParam`).
 
-2. **Unsafe Execution & Deserialization (Python):**
-   - Calls to `eval()`, `exec()`, `pickle.loads()`: Deduct **-40.0 pts**.
-   - Subprocess calls with `shell=True`: Deduct **-40.0 pts**.
+2. **Unsafe Execution & Deserialization (Python & JavaScript):**
+   - Python: Calls to `eval()`, `exec()`, `pickle.loads()`: Deduct **-40.0 pts**.
+   - JavaScript: Calls to `eval()` or `new Function()`: Deduct **-40.0 pts**.
+   - JavaScript: String argument to `setTimeout` or `setInterval` triggering dynamic evaluation: Deduct **-20.0 pts**.
+   - Python: Subprocess calls with `shell=True`: Deduct **-40.0 pts**.
 
-3. **Subprocess Argument Safety:**
+3. **Prototype Pollution & Scope Security (JavaScript):**
+   - Direct prototype mutation via `__proto__` or `Object.setPrototypeOf`: Deduct **-25.0 pts**.
+   - `with` statement obscuring lexical scope: Deduct **-30.0 pts**.
+
+4. **Subprocess Argument Safety:**
    - Passing subprocess commands as raw concatenated strings instead of argument lists: Deduct **-15.0 pts**.
 
-4. **Path Boundary Confinement:**
+5. **Path Boundary Confinement:**
    - Unconfined file writes or deletes without `.resolve()` / `.is_relative_to()`: Deduct **-15.0 pts**.
 
 ---

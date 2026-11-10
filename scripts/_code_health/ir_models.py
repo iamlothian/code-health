@@ -55,6 +55,7 @@ class IRCall:
     callee_symbol: str = ""
     lineno: int = 1
     has_string_concat: bool = False
+    has_string_arg: bool = False
 
 
 @dataclass(frozen=True)
@@ -89,6 +90,13 @@ class IRFunction:
     annotations: list[IRAnnotation] = field(default_factory=list)
     modifiers: list[str] = field(default_factory=list)
     has_docstring: bool = True
+
+    # JavaScript-specific rule tracking (backward-compatible defaults)
+    var_declarations_count: int = 0
+    loose_comparisons_count: int = 0
+    has_proto_mutation: bool = False
+    has_with_statement: bool = False
+    has_debugger_statement: bool = False
 
 
 @dataclass
@@ -211,4 +219,3 @@ class LanguageProfile:
             if fw.is_test_assert_call(cname):
                 return True
         return cname in {"pytest.raises", "pytest.warns", "pytest.fail"} or cname.split(".")[-1].startswith("assert")
-

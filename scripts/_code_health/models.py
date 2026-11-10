@@ -227,5 +227,6 @@ EXEMPT_LCOM_BASES = {
 IGNORED_SCAN_DIRS = {
     ".git", ".venv", "venv", "node_modules", "__pycache__", ".pytest_cache",
     ".mypy_cache", ".ruff_cache", "build", "dist", ".superpowers", ".agents", ".specify",
+    ".next", ".nuxt",
 }
 GRADE_ORDER = {"A": 5, "B": 4, "C": 3, "D": 2, "F": 1}

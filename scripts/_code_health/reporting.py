@@ -18,6 +18,24 @@ from _code_health.models import (
 from _code_health.module_engine import ModuleAnalyzer, collect_git_stats
 
 
+def _is_minified_or_bundled(path: Path) -> bool:
+    """Return True if path is a minified or bundled JavaScript file."""
+    name = path.name.lower()
+    if name.endswith((".min.js", ".min.mjs", ".min.cjs")):
+        return True
+    if path.suffix.lower() in {".js", ".mjs", ".cjs"}:
+        try:
+            with path.open("r", encoding="utf-8", errors="replace") as f:
+                for idx, line in enumerate(f):
+                    if idx >= 50:
+                        break
+                    if len(line) > 1000:
+                        return True
+        except OSError:
+            pass
+    return False
+
+
 class ScorecardFormatter:
     """Formats CodebaseHealthReport into console or Markdown output."""
 
@@ -155,7 +173,7 @@ class CodeHealthRunner:
         self.framework_override = framework_override
 
     def run(self, paths: list[Path]) -> CodebaseHealthReport:
-        """Discover and analyze all Python and Java files under paths."""
+        """Discover and analyze all Python, Java, and JavaScript files under paths."""
         py_files = self._discover_files(paths)
         pkgs = self._infer_packages(py_files)
         git_stats = collect_git_stats(self.repo_root) if self.use_git else None
@@ -171,15 +189,19 @@ class CodeHealthRunner:
             valid_exts = {".py"}
         elif self.lang_override == "java":
             valid_exts = {".java"}
+        elif self.lang_override in {"javascript", "js"}:
+            valid_exts = {".js", ".mjs", ".cjs"}
         else:
-            valid_exts = {".py", ".java"}
+            valid_exts = {".py", ".java", ".js", ".mjs", ".cjs"}
         direct = {r for r in resolved if r.is_file() and r.suffix.lower() in valid_exts}
         walked = {
             c.resolve() for r in resolved if r.is_dir()
             for ext in valid_exts for c in r.rglob(f"*{ext}")
             if not (IGNORED_SCAN_DIRS & set(c.parts))
         }
-        return sorted(direct | walked, key=lambda x: x.as_posix())
+        all_candidates = direct | walked
+        filtered = {f for f in all_candidates if not _is_minified_or_bundled(f)}
+        return sorted(filtered, key=lambda x: x.as_posix())
 
     def _infer_packages(self, py_files: list[Path]) -> set[str]:
         pkgs = {f.parent.name for f in py_files if f.name == "__init__.py"}

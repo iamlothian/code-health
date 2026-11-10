@@ -137,3 +137,59 @@ def greet(name: str) -> str:
     ir_rep = ir_scorer.score_function(ir_func, "src/greet.py", is_test=False)
     assert ir_rep.scores.composite == legacy_rep.scores.composite
     assert ir_rep.scores.grade == legacy_rep.scores.grade
+
+
+def test_ir_function_javascript_rule_fields_and_defaults() -> None:
+    func = IRFunction(
+        name="calculate",
+        qualname="calculate",
+        lineno=1,
+        end_lineno=5,
+        loc=4,
+        params=[],
+        return_type=None,
+        max_nesting=1,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=1,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+    )
+    # Check default values
+    assert func.var_declarations_count == 0
+    assert func.loose_comparisons_count == 0
+    assert func.has_proto_mutation is False
+    assert func.has_with_statement is False
+    assert func.has_debugger_statement is False
+
+    # Check customized values
+    js_func = IRFunction(
+        name="legacy",
+        qualname="legacy",
+        lineno=1,
+        end_lineno=10,
+        loc=8,
+        params=[],
+        return_type=None,
+        max_nesting=1,
+        cyclomatic_complexity=2,
+        cognitive_complexity=1,
+        returns_count=1,
+        calls=[IRCall("setTimeout", "setTimeout", 5, has_string_arg=True)],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+        var_declarations_count=2,
+        loose_comparisons_count=1,
+        has_proto_mutation=True,
+        has_with_statement=True,
+        has_debugger_statement=True,
+    )
+    assert js_func.var_declarations_count == 2
+    assert js_func.loose_comparisons_count == 1
+    assert js_func.has_proto_mutation is True
+    assert js_func.has_with_statement is True
+    assert js_func.has_debugger_statement is True
+    assert js_func.calls[0].has_string_arg is True

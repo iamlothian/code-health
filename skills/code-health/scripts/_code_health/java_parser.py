@@ -249,20 +249,20 @@ class JavaClassExtractor:
         """Extract method reports and calculate LCOM4 connected components."""
         body = _find_first_child(self.node, "class_body") or self.node
         m_nodes = _find_children(body, "method_declaration") + _find_children(body, "constructor_declaration")
-        methods: list[IRFunction] = []
+        methods = [self._build_function(m, is_test) for m in m_nodes]
+        all_names = {m.name for m in methods}
         m_tokens: dict[str, set[str]] = {}
 
-        for m in m_nodes:
-            fn = self._build_function(m, is_test)
-            methods.append(fn)
-            if not fn.name.startswith("<"):
-                tokens = {f"a:{a}" for a in fn.accessed_fields} | {f"m:{m_name}" for m_name in fn.accessed_fields} | {f"m:{fn.name}"}
+        for fn in methods:
+            if fn.name != self.name and not fn.name.startswith("<"):
+                called = {c.name.split(".")[-1] for c in fn.calls} & all_names
+                tokens = {f"a:{a}" for a in fn.accessed_fields} | {f"m:{c}" for c in called} | {f"m:{fn.name}"}
                 m_tokens[fn.name] = tokens
 
         is_exempt = self.node.type in {"record_declaration", "enum_declaration"} or bool(
             {a.name for a in _parse_annotations(self.node, self.bytes)} & EXEMPT_JAVA_ANNOTATIONS
         )
-        lcom4 = 1 if is_exempt or len(methods) <= 2 else _compute_java_lcom4(m_tokens)
+        lcom4 = 1 if is_exempt or is_test or len(m_tokens) <= 2 else _compute_java_lcom4(m_tokens)
         return methods, lcom4
 
     def _build_function(self, m_node: Any, is_test: bool) -> IRFunction:
