@@ -1,0 +1,31 @@
+{
+  "id": "javascript_trie_clean",
+  "pair_id": "javascript_trie_srp",
+  "scenario_title": "3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples\\javascript\\trie_clean.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 42,
+    "classes_count": 2,
+    "functions_count": 0,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 2 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_clean.js               src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_clean.js:4 TrieNode            6    1     1    1  100.0   A\nsamples/javascript/trie_clean.js:17 Trie              35    4     1   10  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_clean.js:8 TrieNode.construc    4   1    0   0   0  100.0   A\nsamples/javascript/trie_clean.js:21 Trie.constructor    3   1    0   0   0  100.0   A\nsamples/javascript/trie_clean.js:30 Trie.insert        10   3    3   1   2  100.0   A\nsamples/javascript/trie_clean.js:47 Trie.search        10   3    3   1   2  100.0   A\nsamples/javascript/trie_clean.js:64 Trie.startsWith    10   3    3   1   2  100.0   A\n"
+  }
+}
