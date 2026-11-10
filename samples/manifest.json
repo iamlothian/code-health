@@ -912,6 +912,325 @@
         ],
         "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 20\nDimensions -> SRP: 60.0 | Size: 90.4 | Complexity: 100.0 | Clean: 91.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/OwnerControllerTests.java test    224    -  60.0  90.4 100.0  91.8 100.0   65.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/OwnerControllerTests.java:   224   20     1   22   65.0   D\n    - SRP: methods=20 (>10) (-40.0 pts)\n    - Size: class LOC=224 (>200) (-9.6 pts)\n    - Clean (Spring): @Autowired field injection detected on 'mockMvc' (-8.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/OwnerControllerTests.java:28   14   1    0   0   0   99.5   A\n    - Clean (Test): 9 assertions in single test (>8) (-3.0 pts)\nsamples/java-spring/bad/OwnerControllerTests.java:73   18   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:92   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:10    7   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:11   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:12   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:13   14   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:15   14   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:16    7   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:17    6   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:18    8   2    1   0   1  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:19    8   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:19   11   2    1   0   1  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:21    9   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:22   10   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:23   12   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:25   11   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:26    6   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:26   13   1    0   0   0  100.0   A\nsamples/java-spring/bad/OwnerControllerTests.java:29   16   1    0   0   0  100.0   A\n"
       }
+    },
+    {
+      "id": "javascript_clean_math_service",
+      "pair_id": "javascript_service_quality",
+      "scenario_title": "1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/clean_math_service.js",
+      "is_test": false,
+      "source_dataset": "Custom JavaScript Benchmark",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 21,
+        "classes_count": 1,
+        "functions_count": 5,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/clean_math_service.js       src      21    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/clean_math_service.js:4 MathSer    20    5     1    6  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/clean_math_service.js:5 MathServi    3   1    0   1   0  100.0   A\nsamples/javascript/clean_math_service.js:14 MathServ    3   1    0   2   0  100.0   A\nsamples/javascript/clean_math_service.js:23 MathServ    3   1    0   2   0  100.0   A\nsamples/javascript/clean_math_service.js:32 MathServ    3   1    0   2   0  100.0   A\nsamples/javascript/clean_math_service.js:41 MathServ    6   2    1   2   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_smelly_legacy_script",
+      "pair_id": "javascript_service_quality",
+      "scenario_title": "1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/smelly_legacy_script.js",
+      "is_test": false,
+      "source_dataset": "Custom JavaScript Benchmark",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 19,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 53.0,
+          "security": 0.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "legacy 'var' declaration",
+          "loose equality comparison",
+          "empty catch block",
+          "dynamic code execution via eval"
+        ],
+        "all_findings": [
+          "[Func processUserData] Clean: missing public docstring (-10.0 pts)",
+          "[Func processUserData] Clean: 3 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-9.0 pts)",
+          "[Func processUserData] Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)",
+          "[Func processUserData] Clean: empty catch block swallows exception (-10.0 pts)",
+          "[Func processUserData] Clean: debugger statement detected (-10.0 pts)",
+          "[Func processUserData] Clean: 2 unannotated parameter(s) without default values (input, role) (-4.0 pts)",
+          "[Func processUserData] Security: dynamic code execution via eval (-40.0 pts)",
+          "[Func processUserData] Security: dynamic code execution via new Function (-40.0 pts)",
+          "[Func processUserData] Security: string argument to setTimeout causes implicit code evaluation (-20.0 pts)",
+          "[Func processUserData] Security: 'with' statement obscures lexical scope and risks prototype pollution (-30.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 53.0 | Security: 0.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/smelly_legacy_script.js     src      19    - 100.0 100.0 100.0  53.0   0.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/smelly_legacy_script.js:3 process   18   4    5   2   3    5.0   F\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 3 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-9.0 pts)\n    - Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\n    - Clean: debugger statement detected (-10.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (input, role) (-4.0 pts)\n    - Security: dynamic code execution via eval (-40.0 pts)\n    - Security: dynamic code execution via new Function (-40.0 pts)\n    - Security: string argument to setTimeout causes implicit code evaluation (-20.0 pts)\n    - Security: 'with' statement obscures lexical scope and risks prototype pollution (-30.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_dijkstra_clean",
+      "pair_id": "javascript_graph_complexity",
+      "scenario_title": "2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples\\javascript\\dijkstra_clean.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Graphs/Dijkstra.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 41,
+        "classes_count": 0,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/dijkstra_clean.js           src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/dijkstra_clean.js:8 initDistances    8   2    1   2   1  100.0   A\nsamples/javascript/dijkstra_clean.js:24 minDistanceN   12   4    3   2   2  100.0   A\nsamples/javascript/dijkstra_clean.js:45 relaxNeighbo    8   3    3   3   2  100.0   A\nsamples/javascript/dijkstra_clean.js:61 dijkstra       12   2    1   2   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_dijkstra_branchy",
+      "pair_id": "javascript_graph_complexity",
+      "scenario_title": "2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples\\javascript\\dijkstra_branchy.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Graphs/Dijkstra.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 79,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 0.0,
+          "complexity": 0.0,
+          "clean": 55.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=29",
+          "Complexity: cognitive=73",
+          "Size: nesting depth=8"
+        ],
+        "all_findings": [
+          "[Func dijkstra] Size: LOC=78 (>25) (-100.0 pts)",
+          "[Func dijkstra] Size: params=7 (>4) (-18.0 pts)",
+          "[Func dijkstra] Size: nesting depth=8 (>3) (-50.0 pts)",
+          "[Func dijkstra] Complexity: CC=29 (>5) (-100.0 pts)",
+          "[Func dijkstra] Complexity: cognitive=73 (>8) (-100.0 pts)",
+          "[Func dijkstra] Clean: missing public docstring (-10.0 pts)",
+          "[Func dijkstra] Clean: 14 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-15.0 pts)",
+          "[Func dijkstra] Clean: 19 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-10.0 pts)",
+          "[Func dijkstra] Clean: 7 unannotated parameter(s) without default values (graph, startNode, destNode) (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 0.0 | Clean: 55.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/dijkstra_branchy.js         src      79    - 100.0   0.0   0.0  55.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/dijkstra_branchy.js:1 dijkstra      78  29   73   7   8    5.0   F\n    - Size: LOC=78 (>25) (-100.0 pts)\n    - Size: params=7 (>4) (-18.0 pts)\n    - Size: nesting depth=8 (>3) (-50.0 pts)\n    - Complexity: CC=29 (>5) (-100.0 pts)\n    - Complexity: cognitive=73 (>8) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 14 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-15.0 pts)\n    - Clean: 19 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-10.0 pts)\n    - Clean: 7 unannotated parameter(s) without default values (graph, startNode, destNode) (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_trie_clean",
+      "pair_id": "javascript_trie_srp",
+      "scenario_title": "3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples\\javascript\\trie_clean.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 42,
+        "classes_count": 2,
+        "functions_count": 0,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 2 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_clean.js               src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_clean.js:4 TrieNode            6    1     1    1  100.0   A\nsamples/javascript/trie_clean.js:17 Trie              35    4     1   10  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_clean.js:8 TrieNode.construc    4   1    0   0   0  100.0   A\nsamples/javascript/trie_clean.js:21 Trie.constructor    3   1    0   0   0  100.0   A\nsamples/javascript/trie_clean.js:30 Trie.insert        10   3    3   1   2  100.0   A\nsamples/javascript/trie_clean.js:47 Trie.search        10   3    3   1   2  100.0   A\nsamples/javascript/trie_clean.js:64 Trie.startsWith    10   3    3   1   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_trie_god_class",
+      "pair_id": "javascript_trie_srp",
+      "scenario_title": "3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples\\javascript\\trie_god_class.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 92,
+        "classes_count": 1,
+        "functions_count": 0,
+        "scores": {
+          "srp": 0.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 78.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "SRP: LCOM4=6 disconnected method groups",
+          "SRP: methods=16 (>10)"
+        ],
+        "all_findings": [
+          "[Class TrieGodClass] SRP: LCOM4=6 disconnected method groups (-75.0 pts)",
+          "[Class TrieGodClass] SRP: methods=16 (>10) (-24.0 pts)",
+          "[Class TrieGodClass] SRP: self attributes=8 (>7) (-4.0 pts)",
+          "[Class TrieGodClass] Clean: missing class docstring (-15.0 pts)",
+          "[Method TrieGodClass.constructor] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.insert] Clean: missing public docstring (-10.0 pts)",
+          "[Method TrieGodClass.insert] Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)",
+          "[Method TrieGodClass.search] Clean: missing public docstring (-10.0 pts)",
+          "[Method TrieGodClass.search] Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)",
+          "[Method TrieGodClass.setExportPath] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.setExportPath] Clean: 1 unannotated parameter(s) without default values (path) (-2.0 pts)",
+          "[Method TrieGodClass.setDelimiter] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.setDelimiter] Clean: 1 unannotated parameter(s) without default values (delim) (-2.0 pts)",
+          "[Method TrieGodClass.dumpToJson] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.exportToCsv] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.exportToCsv] Clean: 1 unannotated parameter(s) without default values (records) (-2.0 pts)",
+          "[Method TrieGodClass.logOperation] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.logOperation] Clean: 1 unannotated parameter(s) without default values (msg) (-2.0 pts)",
+          "[Method TrieGodClass.dumpLogBuffer] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.clearLogs] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.recordLatency] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.recordLatency] Clean: 1 unannotated parameter(s) without default values (ms) (-2.0 pts)",
+          "[Method TrieGodClass.getAverageLatency] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.evictCache] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.evictCache] Clean: 1 unannotated parameter(s) without default values (key) (-2.0 pts)",
+          "[Method TrieGodClass.addStopWord] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.addStopWord] Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)",
+          "[Method TrieGodClass.isStopWord] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.isStopWord] Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)",
+          "[Method TrieGodClass.filterText] Clean: missing public docstring (-5.0 pts)",
+          "[Method TrieGodClass.filterText] Clean: 1 unannotated parameter(s) without default values (tokens) (-2.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 16\nDimensions -> SRP: 0.0 | Size: 100.0 | Complexity: 100.0 | Clean: 78.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_god_class.js           src      92    -   0.0 100.0 100.0  78.0 100.0    5.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_god_class.js:1 TrieGodClas    91   16     6   25    5.0   F\n    - SRP: LCOM4=6 disconnected method groups (-75.0 pts)\n    - SRP: methods=16 (>10) (-24.0 pts)\n    - SRP: self attributes=8 (>7) (-4.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/trie_god_class.js:13 TrieGodClass   11   3    3   1   2   98.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)\nsamples/javascript/trie_god_class.js:25 TrieGodClass   11   3    3   1   2   98.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)\nsamples/javascript/trie_god_class.js:37 TrieGodClass    3   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (path) (-2.0 pts)\nsamples/javascript/trie_god_class.js:41 TrieGodClass    3   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (delim) (-2.0 pts)\nsamples/javascript/trie_god_class.js:49 TrieGodClass    7   2    1   1   1   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (records) (-2.0 pts)\nsamples/javascript/trie_god_class.js:57 TrieGodClass    4   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (msg) (-2.0 pts)\nsamples/javascript/trie_god_class.js:70 TrieGodClass    3   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (ms) (-2.0 pts)\nsamples/javascript/trie_god_class.js:85 TrieGodClass    3   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (key) (-2.0 pts)\nsamples/javascript/trie_god_class.js:89 TrieGodClass    3   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)\nsamples/javascript/trie_god_class.js:93 TrieGodClass    3   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)\nsamples/javascript/trie_god_class.js:97 TrieGodClass    9   3    3   1   2   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (tokens) (-2.0 pts)\nsamples/javascript/trie_god_class.js:2 TrieGodClass.   10   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/javascript/trie_god_class.js:45 TrieGodClass    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/javascript/trie_god_class.js:62 TrieGodClass    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/javascript/trie_god_class.js:66 TrieGodClass    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/javascript/trie_god_class.js:74 TrieGodClass   10   3    2   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_test_hygiene_good",
+      "pair_id": "javascript_test_hygiene",
+      "scenario_title": "4. BDD Algorithmic Test Suite Hygiene & Assertion Density",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples\\javascript\\graph_algorithms.test.js",
+      "is_test": true,
+      "source_dataset": "TheAlgorithms/JavaScript (test suites)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 33,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/graph_algorithms.test.js    test     33    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/graph_algorithms.test.js:4 test:    11   1    0   0   0  100.0   A\nsamples/javascript/graph_algorithms.test.js:16 test:   10   1    0   0   0  100.0   A\nsamples/javascript/graph_algorithms.test.js:27 test:    9   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_test_hygiene_bad",
+      "pair_id": "javascript_test_hygiene",
+      "scenario_title": "4. BDD Algorithmic Test Suite Hygiene & Assertion Density",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples\\javascript\\graph_algorithms_bad.test.js",
+      "is_test": true,
+      "source_dataset": "TheAlgorithms/JavaScript (test suites)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 41,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 70.0,
+          "security": 100.0,
+          "composite": 75.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "assertions in single test",
+          "test has 0 assertions"
+        ],
+        "all_findings": [
+          "[Func test: exhaustive multi-graph validation with excessive assertions] Clean (Test): 19 assertions in single test (>8) (-30.0 pts)",
+          "[Func test: placeholder test without assertions] Clean (Test): test has 0 assertions (-30.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/graph_algorithms_bad.test.js test     41    - 100.0 100.0 100.0  70.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/graph_algorithms_bad.test.js:4 te   35   1    0   0   0   75.0   C\n    - Clean (Test): 19 assertions in single test (>8) (-30.0 pts)\nsamples/javascript/graph_algorithms_bad.test.js:46 t    3   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\n"
+      }
     }
   ]
 }

@@ -71,7 +71,7 @@ def test_samples_manifest_and_catalog_exist() -> None:
     assert _MANIFEST_PATH.is_file()
     assert catalog_path.is_file()
     samples = _load_manifest_samples()
-    assert len(samples) == 20
+    assert len(samples) == 28
     catalog_text = catalog_path.read_text(encoding="utf-8")
     assert "# Multi-Language Code Health Scorecard Baselines" in catalog_text
 
