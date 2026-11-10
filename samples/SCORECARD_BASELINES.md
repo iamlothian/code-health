@@ -1,8 +1,8 @@
 # Multi-Language Code Health Scorecard Baselines
 
-This catalog provides functionally comparable, human-inspectable **Good** and **Bad** code samples across every supported language and framework profile (**Python**, **Java**, and **Java Spring Boot**).
+This catalog provides functionally comparable, human-inspectable **Good** and **Bad** code samples across every supported language and framework profile (**Python**, **Java**, **Java Spring Boot**, and **Vanilla JavaScript**).
 
-Each scenario pairs a **Good** and **Bad** file solving the **same problem or performing comparable domain functionality** from public competitive programming datasets ([`deepmind/code_contests`](https://huggingface.co/datasets/deepmind/code_contests)) and established open-source benchmarks ([`TheAlgorithms/Python`](https://github.com/TheAlgorithms/Python), [`TheAlgorithms/Java`](https://github.com/TheAlgorithms/Java), [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic), [`spring-petclinic-microservices`](https://github.com/spring-petclinic/spring-petclinic-microservices), [`OWASP WebGoat`](https://github.com/WebGoat/WebGoat), [`PyCQA/bandit`](https://github.com/PyCQA/bandit), and [`pallets/click`](https://github.com/pallets/click)).
+Each scenario pairs a **Good** and **Bad** file solving the **same problem or performing comparable domain functionality** from public competitive programming datasets ([`deepmind/code_contests`](https://huggingface.co/datasets/deepmind/code_contests)) and established open-source benchmarks ([`TheAlgorithms/Python`](https://github.com/TheAlgorithms/Python), [`TheAlgorithms/Java`](https://github.com/TheAlgorithms/Java), [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic), [`spring-petclinic-microservices`](https://github.com/spring-petclinic/spring-petclinic-microservices), [`OWASP WebGoat`](https://github.com/WebGoat/WebGoat), [`PyCQA/bandit`](https://github.com/PyCQA/bandit), [`pallets/click`](https://github.com/pallets/click), and [MDN Web Docs JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)).
 
 Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar file and is continuously verified by `tests/unit/test_language_scorecard_samples.py`.
 
@@ -32,6 +32,14 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `java (spring-boot)` | 2. JDBC SQL Query Endpoint: Parameterized vs String Concatenation (OWASP WebGoat sqlinjection/) | **BAD** | [`java-spring/bad/SqlInjectionLesson8.java`](java-spring/bad/SqlInjectionLesson8.java) | [OWASP WebGoat (sqlinjection/introduction/SqlInjectionLesson8.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java) | 104 | 90.4 | 94.0 | 97.6 | 77.0 | 60.0 | **65.0** | **D** |
 | `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **GOOD** | [`java-spring/good/PetControllerTests.java`](java-spring/good/PetControllerTests.java) | [spring-projects/spring-petclinic (owner/PetControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java) | 193 | 100.0 | 100.0 | 100.0 | 92.0 | 100.0 | **98.8** | **A** |
 | `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **BAD** | [`java-spring/bad/OwnerControllerTests.java`](java-spring/bad/OwnerControllerTests.java) | [spring-projects/spring-petclinic (owner/OwnerControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java) | 224 | 60.0 | 90.4 | 100.0 | 91.8 | 100.0 | **65.0** | **D** |
+| `javascript (none)` | 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script | **GOOD** | [`javascript/clean_math_service.js`](javascript/clean_math_service.js) | [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | 21 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script | **BAD** | [`javascript/smelly_legacy_script.js`](javascript/smelly_legacy_script.js) | [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | 19 | 100.0 | 100.0 | 100.0 | 53.0 | 0.0 | **5.0** | **F** |
+| `javascript (none)` | 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow | **GOOD** | [`javascript/dijkstra_clean.js`](javascript/dijkstra_clean.js) | [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) | 41 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow | **BAD** | [`javascript/dijkstra_branchy.js`](javascript/dijkstra_branchy.js) | [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) | 79 | 100.0 | 0.0 | 0.0 | 55.0 | 100.0 | **5.0** | **F** |
+| `javascript (none)` | 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size | **GOOD** | [`javascript/trie_clean.js`](javascript/trie_clean.js) | [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) | 42 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size | **BAD** | [`javascript/trie_god_class.js`](javascript/trie_god_class.js) | [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) | 92 | 0.0 | 100.0 | 100.0 | 78.0 | 100.0 | **5.0** | **F** |
+| `javascript (none)` | 4. BDD Algorithmic Test Suite Hygiene & Assertion Density | **GOOD** | [`javascript/graph_algorithms.test.js`](javascript/graph_algorithms.test.js) | [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) | 33 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 4. BDD Algorithmic Test Suite Hygiene & Assertion Density | **BAD** | [`javascript/graph_algorithms_bad.test.js`](javascript/graph_algorithms_bad.test.js) | [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) | 41 | 100.0 | 100.0 | 100.0 | 70.0 | 100.0 | **75.0** | **C** |
 
 ---
 
@@ -1037,3 +1045,290 @@ samples/java-spring/bad/OwnerControllerTests.java:26   13   1    0   0   0  100.
 samples/java-spring/bad/OwnerControllerTests.java:29   16   1    0   0   0  100.0   A
 ```
 
+---
+
+### JAVASCRIPT (`--lang javascript`) — 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script
+
+#### Good Baseline: [`javascript/clean_math_service.js`](javascript/clean_math_service.js) ([sidecar JSON](javascript/clean_math_service.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/clean_math_service.js       src      21    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/clean_math_service.js:4 MathSer    20    5     1    6  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/clean_math_service.js:5 MathServi    3   1    0   1   0  100.0   A
+samples/javascript/clean_math_service.js:14 MathServ    3   1    0   2   0  100.0   A
+samples/javascript/clean_math_service.js:23 MathServ    3   1    0   2   0  100.0   A
+samples/javascript/clean_math_service.js:32 MathServ    3   1    0   2   0  100.0   A
+samples/javascript/clean_math_service.js:41 MathServ    6   2    1   2   1  100.0   A
+```
+
+#### Bad Baseline: [`javascript/smelly_legacy_script.js`](javascript/smelly_legacy_script.js) ([sidecar JSON](javascript/smelly_legacy_script.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 53.0` | `Security: 0.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 53.0 | Security: 0.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/smelly_legacy_script.js     src      19    - 100.0 100.0 100.0  53.0   0.0    5.0   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/smelly_legacy_script.js:3 process   18   4    5   2   3    5.0   F
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: 3 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-9.0 pts)
+    - Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)
+    - Clean: empty catch block swallows exception (-10.0 pts)
+    - Clean: debugger statement detected (-10.0 pts)
+    - Clean: 2 unannotated parameter(s) without default values (input, role) (-4.0 pts)
+    - Security: dynamic code execution via eval (-40.0 pts)
+    - Security: dynamic code execution via new Function (-40.0 pts)
+    - Security: string argument to setTimeout causes implicit code evaluation (-20.0 pts)
+    - Security: 'with' statement obscures lexical scope and risks prototype pollution (-30.0 pts)
+```
+---
+
+### JAVASCRIPT (`--lang javascript`) — 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow
+
+#### Good Baseline: [`javascript/dijkstra_clean.js`](javascript/dijkstra_clean.js) ([sidecar JSON](javascript/dijkstra_clean.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/dijkstra_clean.js           src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/dijkstra_clean.js:8 initDistances    8   2    1   2   1  100.0   A
+samples/javascript/dijkstra_clean.js:24 minDistanceN   12   4    3   2   2  100.0   A
+samples/javascript/dijkstra_clean.js:45 relaxNeighbo    8   3    3   3   2  100.0   A
+samples/javascript/dijkstra_clean.js:61 dijkstra       12   2    1   2   1  100.0   A
+```
+
+#### Bad Baseline: [`javascript/dijkstra_branchy.js`](javascript/dijkstra_branchy.js) ([sidecar JSON](javascript/dijkstra_branchy.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 55.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 0.0 | Clean: 55.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/dijkstra_branchy.js         src      79    - 100.0   0.0   0.0  55.0 100.0    5.0   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/dijkstra_branchy.js:1 dijkstra      78  29   73   7   8    5.0   F
+    - Size: LOC=78 (>25) (-100.0 pts)
+    - Size: params=7 (>4) (-18.0 pts)
+    - Size: nesting depth=8 (>3) (-50.0 pts)
+    - Complexity: CC=29 (>5) (-100.0 pts)
+    - Complexity: cognitive=73 (>8) (-100.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: 14 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-15.0 pts)
+    - Clean: 19 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-10.0 pts)
+    - Clean: 7 unannotated parameter(s) without default values (graph, startNode, destNode) (-10.0 pts)
+```
+
+---
+
+### JAVASCRIPT (`--lang javascript`) — 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size
+
+#### Good Baseline: [`javascript/trie_clean.js`](javascript/trie_clean.js) ([sidecar JSON](javascript/trie_clean.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 2 | Functions/Methods: 5
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/trie_clean.js               src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/trie_clean.js:4 TrieNode            6    1     1    1  100.0   A
+samples/javascript/trie_clean.js:17 Trie              35    4     1   10  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/trie_clean.js:8 TrieNode.construc    4   1    0   0   0  100.0   A
+samples/javascript/trie_clean.js:21 Trie.constructor    3   1    0   0   0  100.0   A
+samples/javascript/trie_clean.js:30 Trie.insert        10   3    3   1   2  100.0   A
+samples/javascript/trie_clean.js:47 Trie.search        10   3    3   1   2  100.0   A
+samples/javascript/trie_clean.js:64 Trie.startsWith    10   3    3   1   2  100.0   A
+```
+
+#### Bad Baseline: [`javascript/trie_god_class.js`](javascript/trie_god_class.js) ([sidecar JSON](javascript/trie_god_class.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 0.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 78.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 16
+Dimensions -> SRP: 0.0 | Size: 100.0 | Complexity: 100.0 | Clean: 78.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/trie_god_class.js           src      92    -   0.0 100.0 100.0  78.0 100.0    5.0   F
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/trie_god_class.js:1 TrieGodClas    91   16     6   25    5.0   F
+    - SRP: LCOM4=6 disconnected method groups (-75.0 pts)
+    - SRP: methods=16 (>10) (-24.0 pts)
+    - SRP: self attributes=8 (>7) (-4.0 pts)
+    - Clean: missing class docstring (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/trie_god_class.js:13 TrieGodClass   11   3    3   1   2   98.2   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
+samples/javascript/trie_god_class.js:25 TrieGodClass   11   3    3   1   2   98.2   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
+samples/javascript/trie_god_class.js:37 TrieGodClass    3   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (path) (-2.0 pts)
+samples/javascript/trie_god_class.js:41 TrieGodClass    3   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (delim) (-2.0 pts)
+samples/javascript/trie_god_class.js:49 TrieGodClass    7   2    1   1   1   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (records) (-2.0 pts)
+samples/javascript/trie_god_class.js:57 TrieGodClass    4   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (msg) (-2.0 pts)
+samples/javascript/trie_god_class.js:70 TrieGodClass    3   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (ms) (-2.0 pts)
+samples/javascript/trie_god_class.js:85 TrieGodClass    3   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (key) (-2.0 pts)
+samples/javascript/trie_god_class.js:89 TrieGodClass    3   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
+samples/javascript/trie_god_class.js:93 TrieGodClass    3   1    0   1   0   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
+samples/javascript/trie_god_class.js:97 TrieGodClass    9   3    3   1   2   99.0   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: 1 unannotated parameter(s) without default values (tokens) (-2.0 pts)
+samples/javascript/trie_god_class.js:2 TrieGodClass.   10   1    0   0   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+samples/javascript/trie_god_class.js:45 TrieGodClass    3   1    0   0   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+samples/javascript/trie_god_class.js:62 TrieGodClass    3   1    0   0   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+samples/javascript/trie_god_class.js:66 TrieGodClass    3   1    0   0   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+samples/javascript/trie_god_class.js:74 TrieGodClass   10   3    2   0   1   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+```
+
+---
+
+### JAVASCRIPT (`--lang javascript`) — 4. BDD Algorithmic Test Suite Hygiene & Assertion Density
+
+#### Good Baseline: [`javascript/graph_algorithms.test.js`](javascript/graph_algorithms.test.js) ([sidecar JSON](javascript/graph_algorithms.test.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 3
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/graph_algorithms.test.js    test     33    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/graph_algorithms.test.js:4 test:    11   1    0   0   0  100.0   A
+samples/javascript/graph_algorithms.test.js:16 test:   10   1    0   0   0  100.0   A
+samples/javascript/graph_algorithms.test.js:27 test:    9   1    0   0   0  100.0   A
+```
+
+#### Bad Baseline: [`javascript/graph_algorithms_bad.test.js`](javascript/graph_algorithms_bad.test.js) ([sidecar JSON](javascript/graph_algorithms_bad.test.js.expected.json))
+
+- **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) (`MIT`)
+- **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 70.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/graph_algorithms_bad.test.js test     41    - 100.0 100.0 100.0  70.0 100.0   75.0   C
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/javascript/graph_algorithms_bad.test.js:4 te   35   1    0   0   0   75.0   C
+    - Clean (Test): 19 assertions in single test (>8) (-30.0 pts)
+samples/javascript/graph_algorithms_bad.test.js:46 t    3   1    0   0   0   75.0   C
+    - Clean (Test): test has 0 assertions (-30.0 pts)
+```
