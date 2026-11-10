@@ -19,11 +19,24 @@ from _code_health.module_engine import ModuleAnalyzer, collect_git_stats
 
 
 def _is_minified_or_bundled(path: Path) -> bool:
-    """Return True if path is a minified or bundled JavaScript file."""
+    """Return True if path is a minified bundle or ambient declaration file."""
     name = path.name.lower()
-    if name.endswith((".min.js", ".min.mjs", ".min.cjs")):
+    if name.endswith(
+        (
+            ".d.ts",
+            ".d.mts",
+            ".d.cts",
+            ".min.js",
+            ".min.mjs",
+            ".min.cjs",
+            ".min.ts",
+            ".min.tsx",
+            ".min.mts",
+            ".min.cts",
+        )
+    ):
         return True
-    if path.suffix.lower() in {".js", ".mjs", ".cjs"}:
+    if path.suffix.lower() in {".js", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}:
         try:
             with path.open("r", encoding="utf-8", errors="replace") as f:
                 for idx, line in enumerate(f):

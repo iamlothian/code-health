@@ -98,6 +98,11 @@ class IRFunction:
     has_with_statement: bool = False
     has_debugger_statement: bool = False
 
+    # TypeScript-specific rule tracking (backward-compatible defaults)
+    explicit_any_count: int = 0
+    ts_ignore_count: int = 0
+    non_null_assertion_count: int = 0
+
 
 @dataclass
 class IRClass:

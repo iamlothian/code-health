@@ -25,8 +25,8 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 **Purpose**: Project dependency configuration and scan exclusion directories
 
-- [ ] T001 Update `pyproject.toml` to add optional dependency group `[project.optional-dependencies] typescript = ["tree-sitter>=0.23.0", "tree-sitter-typescript>=0.23.0"]` and sync dependencies
-- [ ] T002 [P] Update `scripts/_code_health/reporting.py` and `scripts/_code_health/models.py` to ensure declaration files (`*.d.ts`, `*.d.mts`, `*.d.cts`) and minified TypeScript files (`*.min.ts`) are excluded from file discovery
+- [x] T001 Update `pyproject.toml` to add optional dependency group `[project.optional-dependencies] typescript = ["tree-sitter>=0.23.0", "tree-sitter-typescript>=0.23.0"]` and sync dependencies
+- [x] T002 [P] Update `scripts/_code_health/reporting.py` and `scripts/_code_health/models.py` to ensure declaration files (`*.d.ts`, `*.d.mts`, `*.d.cts`) and minified TypeScript files (`*.min.ts`) are excluded from file discovery
 
 ---
 
@@ -36,9 +36,9 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 **CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T003 [P] [TDD] Extend `IRFunction` in `scripts/_code_health/ir_models.py` with backward-compatible fields: `explicit_any_count: int = 0`, `ts_ignore_count: int = 0`, `non_null_assertion_count: int = 0`
-- [ ] T004 [P] [TDD] Update tests in `tests/unit/test_ir_foundation.py` to verify `IRFunction` additions maintain 100% backward compatibility with Python, Java, and JavaScript models
-- [ ] T005 [REVIEW] **Checkpoint**: Foundational IR model extensions verified with existing tests passing. Confirm ready for User Stories.
+- [x] T003 [P] [TDD] Extend `IRFunction` in `scripts/_code_health/ir_models.py` with backward-compatible fields: `explicit_any_count: int = 0`, `ts_ignore_count: int = 0`, `non_null_assertion_count: int = 0`
+- [x] T004 [P] [TDD] Update tests in `tests/unit/test_ir_foundation.py` to verify `IRFunction` additions maintain 100% backward compatibility with Python, Java, and JavaScript models
+- [x] T005 [REVIEW] **Checkpoint**: Foundational IR model extensions verified with existing tests passing. Confirm ready for User Stories.
 
 ---
 

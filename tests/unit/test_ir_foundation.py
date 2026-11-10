@@ -193,3 +193,53 @@ def test_ir_function_javascript_rule_fields_and_defaults() -> None:
     assert js_func.has_with_statement is True
     assert js_func.has_debugger_statement is True
     assert js_func.calls[0].has_string_arg is True
+
+
+def test_ir_function_typescript_rule_fields_and_defaults() -> None:
+    func = IRFunction(
+        name="processData",
+        qualname="processData",
+        lineno=1,
+        end_lineno=5,
+        loc=4,
+        params=[],
+        return_type=None,
+        max_nesting=1,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=1,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+    )
+    # Check default values
+    assert func.explicit_any_count == 0
+    assert func.ts_ignore_count == 0
+    assert func.non_null_assertion_count == 0
+
+    # Check customized values
+    ts_func = IRFunction(
+        name="escapeHatch",
+        qualname="escapeHatch",
+        lineno=1,
+        end_lineno=10,
+        loc=8,
+        params=[],
+        return_type=None,
+        max_nesting=1,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=1,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+        explicit_any_count=3,
+        ts_ignore_count=1,
+        non_null_assertion_count=2,
+    )
+    assert ts_func.explicit_any_count == 3
+    assert ts_func.ts_ignore_count == 1
+    assert ts_func.non_null_assertion_count == 2
+
