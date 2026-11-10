@@ -1,0 +1,47 @@
+{
+  "id": "javascript_smelly_legacy_script",
+  "pair_id": "javascript_service_quality",
+  "scenario_title": "1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/smelly_legacy_script.js",
+  "is_test": false,
+  "source_dataset": "Custom JavaScript Benchmark",
+  "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 19,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 53.0,
+      "security": 0.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "legacy 'var' declaration",
+      "loose equality comparison",
+      "empty catch block",
+      "dynamic code execution via eval"
+    ],
+    "all_findings": [
+      "[Func processUserData] Clean: missing public docstring (-10.0 pts)",
+      "[Func processUserData] Clean: 3 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-9.0 pts)",
+      "[Func processUserData] Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)",
+      "[Func processUserData] Clean: empty catch block swallows exception (-10.0 pts)",
+      "[Func processUserData] Clean: debugger statement detected (-10.0 pts)",
+      "[Func processUserData] Clean: 2 unannotated parameter(s) without default values (input, role) (-4.0 pts)",
+      "[Func processUserData] Security: dynamic code execution via eval (-40.0 pts)",
+      "[Func processUserData] Security: dynamic code execution via new Function (-40.0 pts)",
+      "[Func processUserData] Security: string argument to setTimeout causes implicit code evaluation (-20.0 pts)",
+      "[Func processUserData] Security: 'with' statement obscures lexical scope and risks prototype pollution (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 53.0 | Security: 0.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/smelly_legacy_script.js     src      19    - 100.0 100.0 100.0  53.0   0.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/smelly_legacy_script.js:3 process   18   4    5   2   3    5.0   F\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 3 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-9.0 pts)\n    - Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\n    - Clean: debugger statement detected (-10.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (input, role) (-4.0 pts)\n    - Security: dynamic code execution via eval (-40.0 pts)\n    - Security: dynamic code execution via new Function (-40.0 pts)\n    - Security: string argument to setTimeout causes implicit code evaluation (-20.0 pts)\n    - Security: 'with' statement obscures lexical scope and risks prototype pollution (-30.0 pts)\n"
+  }
+}

@@ -5,7 +5,7 @@
   "language": "javascript",
   "framework": "auto",
   "quality": "bad",
-  "file_path": "samples\\javascript\\graph_algorithms_bad.test.js",
+  "file_path": "samples/javascript/graph_algorithms_bad.test.js",
   "is_test": true,
   "source_dataset": "TheAlgorithms/JavaScript (test suites)",
   "source_url": "https://github.com/TheAlgorithms/JavaScript",

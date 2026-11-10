@@ -5,7 +5,7 @@
   "language": "javascript",
   "framework": "auto",
   "quality": "bad",
-  "file_path": "samples\\javascript\\trie_god_class.js",
+  "file_path": "samples/javascript/trie_god_class.js",
   "is_test": false,
   "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)",
   "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js",
