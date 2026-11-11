@@ -465,3 +465,123 @@ def test_ts_ecmascript_hygiene_var_loose_eq_catch_debugger(tmp_path: Path) -> No
     assert any("empty catch block" in f for f in rep.findings)
     assert any("debugger statement" in f for f in rep.findings)
 
+
+def test_ts_security_eval_new_function_and_string_timers(tmp_path: Path) -> None:
+    code = """
+    /** Uses eval (-40.0 pts). */
+    function runEval(expr: string): unknown {
+        return eval(expr);
+    }
+
+    /** Uses new Function (-40.0 pts). */
+    function runNewFunc(body: string): unknown {
+        const fn = new Function(body);
+        return fn();
+    }
+
+    /** Uses timer string argument (-20.0 pts) vs safe callback (100.0). */
+    function scheduleString(x: string): void {
+        setTimeout(`console.log(${x})`, 10);
+    }
+
+    /** Safe callback timer. */
+    function scheduleSafe(): void {
+        globalThis.setTimeout(() => console.log("ok"), 10);
+    }
+    """
+    ts_file = tmp_path / "dyn_sec.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "dyn_sec.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    r_eval = scorer.score_function(mod.functions[0], "dyn_sec.ts", is_test=False)
+    assert r_eval.scores.security == 60.0
+
+    r_fn = scorer.score_function(mod.functions[1], "dyn_sec.ts", is_test=False)
+    assert r_fn.scores.security == 60.0
+
+    r_tm = scorer.score_function(mod.functions[2], "dyn_sec.ts", is_test=False)
+    assert r_tm.scores.security == 80.0
+    assert any("implicit code evaluation" in f for f in r_tm.findings)
+
+    r_safe = scorer.score_function(mod.functions[3], "dyn_sec.ts", is_test=False)
+    assert r_safe.scores.security == 100.0
+
+
+def test_ts_security_proto_mutation_and_with_statement(tmp_path: Path) -> None:
+    code = """
+    /** Mutates nested __proto__ property (-25.0 pts). */
+    function polluteProto(obj: Record<string, unknown>): void {
+        (obj as any).__proto__.isAdmin = true;
+    }
+
+    /** Calls Object.setPrototypeOf (-25.0 pts). */
+    function swapProto(target: object, proto: object): void {
+        Object.setPrototypeOf(target, proto);
+    }
+
+    /** Uses with statement (-30.0 pts). */
+    function useWith(ctx: Record<string, number>): number {
+        with (ctx) {
+            return 1;
+        }
+    }
+    """
+    ts_file = tmp_path / "proto_with.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "proto_with.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    r_p1 = scorer.score_function(mod.functions[0], "proto_with.ts", is_test=False)
+    assert r_p1.scores.security == 75.0
+    assert any("__proto__" in f for f in r_p1.findings)
+
+    r_p2 = scorer.score_function(mod.functions[1], "proto_with.ts", is_test=False)
+    assert r_p2.scores.security == 75.0
+
+    r_w = scorer.score_function(mod.functions[2], "proto_with.ts", is_test=False)
+    assert r_w.scores.security == 70.0
+    assert any("'with' statement" in f for f in r_w.findings)
+
+
+def test_ts_security_sql_query_injection_and_safe_queries(tmp_path: Path) -> None:
+    code = """
+    /** Unsafe single-quote concatenation (-40.0 pts). */
+    function sqliSingleConcat(db: { query: Function }, id: string): unknown {
+        return db.query('SELECT * FROM users WHERE id = ' + id);
+    }
+
+    /** Unsafe template literal interpolation (-40.0 pts). */
+    function sqliPrismaUnsafe(prisma: { $queryRawUnsafe: Function }, name: string): unknown {
+        return prisma.$queryRawUnsafe(`SELECT * FROM users WHERE name = '${name}'`);
+    }
+
+    /** Safe parameterized query with arithmetic expression must score 100.0 Security. */
+    function safeParamQuery(db: { query: Function }, a: number, b: number): unknown {
+        return db.query("SELECT * FROM items WHERE price > $1", [a + b]);
+    }
+
+    /** Safe Prisma tagged template must score 100.0 Security. */
+    function safePrismaTagged(prisma: { $queryRaw: any }, id: string): unknown {
+        return prisma.$queryRaw`SELECT * FROM users WHERE id = ${id}`;
+    }
+    """
+    ts_file = tmp_path / "sqli.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "sqli.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    r1 = scorer.score_function(mod.functions[0], "sqli.ts", is_test=False)
+    assert r1.scores.security == 60.0
+    assert any("SQL/query injection" in f for f in r1.findings)
+
+    r2 = scorer.score_function(mod.functions[1], "sqli.ts", is_test=False)
+    assert r2.scores.security == 60.0
+    assert any("$queryRawUnsafe" in f for f in r2.findings)
+
+    r3 = scorer.score_function(mod.functions[2], "sqli.ts", is_test=False)
+    assert r3.scores.security == 100.0
+
+    r4 = scorer.score_function(mod.functions[3], "sqli.ts", is_test=False)
+    assert r4.scores.security == 100.0
+

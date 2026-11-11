@@ -80,6 +80,17 @@ class _TSSmells:
                 self.types.ts_ignore_count += 1
                 self.types.ignore_lines.add(idx + 1)
 
+    def _has_str_leaf(self, node: Any) -> bool:
+        return node.type in {"string", "template_string"} or any(self._has_str_leaf(c) for c in node.children)
+
+    def is_unsafe_query_arg(self, arg: Any) -> bool:
+        """Check whether an argument uses string concatenation or template interpolation."""
+        if arg.type == "template_string":
+            return any(c.type == "template_substitution" for c in arg.children)
+        if arg.type == "binary_expression" and any(c.type == "+" for c in arg.children):
+            return self._has_str_leaf(arg)
+        return False
+
 
 def _scan_type_escape(node: Any, bytes_: bytes, types: _TSTypeSmells) -> None:
     """Record occurrences of explicit any, ts-ignore, or non-null assertions."""
@@ -107,8 +118,7 @@ def _scan_syntax_smell(node: Any, bytes_: bytes, smells: _TSSmells) -> None:
     elif t == "binary_expression":
         smells.loose_eq += sum(c.type in {"==", "!="} for c in node.children)
     elif t == "assignment_expression" and node.children:
-        txt = _get_node_text(node.children[0], bytes_)
-        if txt == "__proto__" or txt.endswith(".__proto__"):
+        if "__proto__" in _get_node_text(node.children[0], bytes_):
             smells.has_proto = True
     else:
         _scan_type_escape(node, bytes_, smells.types)
@@ -155,14 +165,11 @@ class _TSVisitor:
     def _record_call(self, node: Any) -> None:
         c_name = _get_node_text(node.children[0], self.bytes) if node.children else ""
         args = _find_first_child(node, "arguments")
-        has_concat, has_str_arg = False, False
-        if args:
-            args_text = _get_node_text(args, self.bytes)
-            has_concat = ("+" in args_text and '"' in args_text) or ("`" in args_text and "${" in args_text)
-            first = next((c for c in args.children if c.type not in {"(", ")", ","}), None)
-            has_str_arg = bool(first and first.type in {"string", "template_string"})
+        first = next((c for c in args.children if c.type not in {"(", ")", ","}), None) if args else None
+        has_concat = bool(first and self.smells.is_unsafe_query_arg(first))
+        has_str_arg = bool(first and (first.type in {"string", "template_string"} or has_concat))
         self.calls.append(IRCall(c_name, c_name, node.start_point[0] + 1, has_concat, has_str_arg))
-        if c_name.endswith(".setPrototypeOf"):
+        if c_name.endswith(".setPrototypeOf") or c_name == "setPrototypeOf":
             self.smells.has_proto = True
 
     def _dispatch_expressions(self, node: Any) -> None:

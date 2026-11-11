@@ -103,7 +103,7 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 - [x] T023 [US3] In `scripts/_code_health/ts_parser.py`, extract parameter types, return types, `any` occurrences, `@ts-ignore`/`@ts-nocheck` comments, `!` non-null assertions, and boolean defaults into `IRFunction`
 - [x] T024 [US3] In `scripts/_code_health/profiles_ts.py` and `scripts/_code_health/ir_scorer.py`, implement rule deductions for strict typing, escape hatches (`any`, `@ts-ignore`, `!`), boolean default flags, and ECMAScript hygiene
-- [ ] T025 [US3] [REVIEW] **Checkpoint**: User Story 3 verified. Strict typing and escape hatch detection calculate exact penalties and pass unit tests.
+- [x] T025 [US3] [REVIEW] **Checkpoint**: User Story 3 verified. Strict typing and escape hatch detection calculate exact penalties and pass unit tests.
 
 ---
 
@@ -116,13 +116,13 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 > Write these tests FIRST in `tests/unit/test_typescript_health.py`. Verify they FAIL before implementation.
 
-- [ ] T026 [P] [TDD] [US4] Write unit tests in `tests/unit/test_typescript_health.py` verifying `eval(...)` and `new Function(...)` deduct `-40.0 pts`, string timers deduct `-20.0 pts`, direct `__proto__` mutations deduct `-25.0 pts`, and `with` deducts `-30.0 pts` under Security
-- [ ] T027 [P] [TDD] [US4] Write unit tests in `tests/unit/test_typescript_health.py` verifying database/ORM query calls (`query`, `execute`, `raw`, `$queryRawUnsafe`, `$executeRawUnsafe`) with string concatenation or template literal interpolation deduct `-40.0 pts` under Security
+- [x] T026 [P] [TDD] [US4] Write unit tests in `tests/unit/test_typescript_health.py` verifying `eval(...)` and `new Function(...)` deduct `-40.0 pts`, string timers deduct `-20.0 pts`, direct `__proto__` mutations deduct `-25.0 pts`, and `with` deducts `-30.0 pts` under Security
+- [x] T027 [P] [TDD] [US4] Write unit tests in `tests/unit/test_typescript_health.py` verifying database/ORM query calls (`query`, `execute`, `raw`, `$queryRawUnsafe`, `$executeRawUnsafe`) with string concatenation or template literal interpolation deduct `-40.0 pts` under Security
 
 ### Implementation for User Story 4
 
-- [ ] T028 [US4] In `scripts/_code_health/ts_parser.py`, detect calls to `eval`, `new Function`, string arguments in timers, `__proto__` assignments, `with_statement`, and SQL/query string concatenation/template interpolation
-- [ ] T029 [US4] In `scripts/_code_health/profiles_ts.py`, implement Security deductions in `evaluate_function` for all security and query injection constructs
+- [x] T028 [US4] In `scripts/_code_health/ts_parser.py`, detect calls to `eval`, `new Function`, string arguments in timers, `__proto__` assignments, `with_statement`, and SQL/query string concatenation/template interpolation
+- [x] T029 [US4] In `scripts/_code_health/profiles_ts.py`, implement Security deductions in `evaluate_function` for all security and query injection constructs
 - [ ] T030 [US4] [REVIEW] **Checkpoint**: User Story 4 verified. All security smells and query injection patterns trigger exact findings and deductions without false positives.
 
 ---

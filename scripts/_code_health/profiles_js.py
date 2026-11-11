@@ -69,8 +69,11 @@ class JavaScriptLanguageProfile(LanguageProfile):
 
     def _eval_dynamic_sinks(self, func: IRFunction) -> list[RulePenalty]:
         penalties: list[RulePenalty] = []
-        eval_names = {"eval", "Function", "new Function", "window.eval", "global.eval"}
-        timers = {"setTimeout", "setInterval", "window.setTimeout", "window.setInterval"}
+        eval_names = {"eval", "Function", "new Function", "window.eval", "global.eval", "globalThis.eval"}
+        timers = {
+            "setTimeout", "setInterval", "window.setTimeout", "window.setInterval",
+            "global.setTimeout", "global.setInterval", "globalThis.setTimeout", "globalThis.setInterval",
+        }
         for c in func.calls:
             if c.name in eval_names or c.name.endswith(".eval"):
                 penalties.append(
