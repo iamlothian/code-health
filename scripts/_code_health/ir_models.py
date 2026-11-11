@@ -137,6 +137,7 @@ class IRModule:
     duplicate_blocks: int = 0
     mid_file_imports: int = 0
     ts_ignore_count: int = 0
+    syntax_errors: list[int] = field(default_factory=list)
 
 
 class MissingNativeParserError(RuntimeError):

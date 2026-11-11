@@ -1,4 +1,4 @@
-"""TypeScript type-escape and ECMAScript syntax smell detectors."""
+"""TypeScript type-escape, syntax error, and ECMAScript smell detectors."""
 
 from __future__ import annotations
 
@@ -33,17 +33,18 @@ class _TSSmells:
         """Scan a CST node for language smells and type escape hatches."""
         _scan_syntax_smell(node, bytes_, self)
 
-    def _walk_escapes(self, node: Any, bytes_: bytes) -> None:
+    def walk_escapes(self, node: Any, bytes_: bytes) -> None:
+        """Recursively count explicit any, @ts-ignore, and non-null escapes in a subtree."""
         _scan_type_escape(node, bytes_, self.types)
         for c in node.children:
-            self._walk_escapes(c, bytes_)
+            self.walk_escapes(c, bytes_)
 
     def scan_header(self, fn_node: Any, body: Any, bytes_: bytes, lines: list[str]) -> None:
         """Scan signature types and preceding comment directives for a function."""
         if body and body != fn_node:
             for c in fn_node.children:
-                if c.type in {"formal_parameters", "type_annotation"}:
-                    self._walk_escapes(c, bytes_)
+                if c.type in {"formal_parameters", "type_parameters", "type_annotation"}:
+                    self.walk_escapes(c, bytes_)
         for idx in range(fn_node.start_point[0] - 1, max(-1, fn_node.start_point[0] - 6), -1):
             s = lines[idx].strip()
             if s and not (s.startswith(("//", "/*", "*")) or s.endswith("*/")):
@@ -94,3 +95,35 @@ def _scan_syntax_smell(node: Any, bytes_: bytes, smells: _TSSmells) -> None:
             smells.has_proto = True
     else:
         _scan_type_escape(node, bytes_, smells.types)
+
+
+def collect_syntax_errors(root: Any) -> list[int]:
+    """Collect sorted 1-based line numbers for all CST error/missing nodes."""
+    if not root.has_error:
+        return []
+    lines: list[int] = []
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if n.is_error or n.is_missing or n.type == "ERROR":
+            lines.append(n.start_point[0] + 1)
+        else:
+            stack.extend(reversed(n.children))
+    return sorted(set(lines)) or [1]
+
+
+def count_unclaimed_ts_ignores(root: Any, bytes_: bytes, claimed: set[int]) -> int:
+    """Count @ts-ignore/@ts-nocheck comments anywhere in the CST outside claimed functions."""
+    lines: set[int] = set()
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if n.type == "comment":
+            ln = n.start_point[0] + 1
+            if ln not in claimed:
+                txt = _get_node_text(n, bytes_)
+                if "@ts-ignore" in txt or "@ts-nocheck" in txt:
+                    lines.add(ln)
+        else:
+            stack.extend(n.children)
+    return len(lines)

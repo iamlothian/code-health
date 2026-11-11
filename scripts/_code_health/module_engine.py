@@ -5,6 +5,7 @@ from __future__ import annotations
 import ast
 from collections import defaultdict
 from dataclasses import dataclass, field
+import importlib
 from pathlib import Path
 import subprocess
 
@@ -14,6 +15,7 @@ from _code_health.ast_engine import (
     docstring_lines,
     has_exempt_base,
 )
+from _code_health.ir_scorer import UniversalIRScorer
 from _code_health.models import (
     AnalysisContext,
     ClassReport,
@@ -24,6 +26,18 @@ from _code_health.models import (
     RubricConfig,
     penalty_item,
 )
+from _code_health.profiles import resolve_active_profiles
+
+_NATIVE_PARSERS: dict[str, tuple[str, str]] = {
+    ".java": ("_code_health.java_parser", "parse_java_file"),
+    ".js": ("_code_health.js_parser", "parse_javascript_file"),
+    ".mjs": ("_code_health.js_parser", "parse_javascript_file"),
+    ".cjs": ("_code_health.js_parser", "parse_javascript_file"),
+    ".ts": ("_code_health.ts_parser", "parse_typescript_file"),
+    ".tsx": ("_code_health.ts_parser", "parse_typescript_file"),
+    ".mts": ("_code_health.ts_parser", "parse_typescript_file"),
+    ".cts": ("_code_health.ts_parser", "parse_typescript_file"),
+}
 
 
 @dataclass(frozen=True)
@@ -91,7 +105,7 @@ def is_test_file_path(rel_path: str) -> bool:
         or (fname.startswith("test_") and fname.endswith((".js", ".mjs", ".cjs")))
     )
     is_ts = (
-        fname.endswith((".test.ts", ".spec.ts", "_test.ts", ".test.tsx", ".spec.tsx", "_test.tsx", ".test.mts", ".spec.mts", ".test.cts", ".spec.cts"))
+        fname.endswith((".test.ts", ".spec.ts", "_test.ts", ".test.tsx", ".spec.tsx", "_test.tsx", ".test.mts", ".spec.mts", "_test.mts", ".test.cts", ".spec.cts", "_test.cts"))
         or (fname.startswith("test_") and fname.endswith((".ts", ".tsx", ".mts", ".cts")))
     )
     is_test_dir = bool({"tests", "test", "__tests__"} & set(parts))
@@ -175,12 +189,8 @@ class ModuleAnalyzer:
         is_test = is_test_file_path(rel_path)
         gstat = self.git_stats.get(rel_path) if self.git_stats else None
 
-        if resolved.suffix.lower() == ".java":
-            return self._analyze_java(resolved, rel_path, is_test, gstat)
-        if resolved.suffix.lower() in {".js", ".mjs", ".cjs"}:
-            return self._analyze_javascript(resolved, rel_path, is_test, gstat)
-        if resolved.suffix.lower() in {".ts", ".tsx", ".mts", ".cts"}:
-            return self._analyze_typescript(resolved, rel_path, is_test, gstat)
+        if resolved.suffix.lower() in _NATIVE_PARSERS:
+            return self._analyze_native(resolved, rel_path, is_test, gstat)
 
         raw_text = resolved.read_text(encoding="utf-8", errors="replace")
         lines = raw_text.splitlines()
@@ -198,26 +208,19 @@ class ModuleAnalyzer:
         scores = self._blend_scores(mod_scores, classes, functions)
         return FileReport(rel_path, is_test, loc, int_imports, dup_blocks, mid_imports, gstat, scores, findings, classes, functions)
 
-    def _analyze_java(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.java_parser import parse_java_file
-
-        return self._score_ir_module(parse_java_file(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
-
-    def _analyze_javascript(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.js_parser import parse_javascript_file
-
-        return self._score_ir_module(parse_javascript_file(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
-
-    def _analyze_typescript(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.ts_parser import parse_typescript_file
-
-        return self._score_ir_module(parse_typescript_file(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
+    def _analyze_native(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
+        mod_path, fn_name = _NATIVE_PARSERS[resolved.suffix.lower()]
+        parse_fn = getattr(importlib.import_module(mod_path), fn_name)
+        return self._score_ir_module(parse_fn(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
 
     def _score_ir_module(
         self, ir_mod: object, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None
     ) -> FileReport:
-        from _code_health.ir_scorer import UniversalIRScorer
-        from _code_health.profiles import resolve_active_profiles
+        syntax_errs = getattr(ir_mod, "syntax_errors", [])
+        loc = ir_mod.loc  # type: ignore[attr-defined]
+        if syntax_errs:
+            findings = [f"Syntax: parse error at L{ln}" for ln in syntax_errs]
+            return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, DimensionScores.from_raw((0.0, 0.0, 0.0, 0.0, 0.0), self.cfg), findings)
 
         profile = resolve_active_profiles(
             self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
@@ -227,7 +230,6 @@ class ModuleAnalyzer:
         functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]  # type: ignore[attr-defined]
 
         srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
-        loc = ir_mod.loc  # type: ignore[attr-defined]
         mod_loc_pen = round(max(0, min(loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, loc - self.cfg.max_mid_file_loc) * 0.25, 1)
         p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
         ts_ig = getattr(ir_mod, "ts_ignore_count", 0)
