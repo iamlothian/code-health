@@ -143,7 +143,7 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 - [x] T033 [US5] In `scripts/_code_health/ts_parser.py`, extract callbacks inside `it()` and `test()` call expressions as `IRFunction(is_test=True, name="test: " + title)`
 - [x] T034 [US5] In `scripts/_code_health/profiles_ts.py` and `scripts/_code_health/ir_scorer.py`, recognize assertion matchers and deduplicate assertion counts for TypeScript test callbacks
-- [ ] T035 [US5] [REVIEW] **Checkpoint**: User Story 5 verified. Test suites evaluate accurately without false docstring or assertion penalties.
+- [x] T035 [US5] [REVIEW] **Checkpoint**: User Story 5 verified. Test suites evaluate accurately without false docstring or assertion penalties.
 
 ---
 
@@ -151,10 +151,10 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 **Purpose**: Verification samples, self-health dogfooding, regression testing, and documentation
 
-- [ ] T036 [P] Create sample TypeScript codebases in `samples/typescript/`: `clean_math_service.ts` (target: Grade A $\ge 90.0$) and `smelly_legacy_script.ts` (target: Grade D/F)
-- [ ] T037 [P] Run `quickstart.md` validation scenarios against `samples/typescript/` and verify all expected scores and findings match
-- [ ] T038 Run self-health dogfooding check: execute `python scripts/code_health.py scripts/_code_health/ --no-git` and verify all new and modified modules maintain Grade A ($\ge 90.0$) and LOC $\le 350$
-- [ ] T039 Run full test suite across Python, Java, JavaScript, and TypeScript via `pytest tests/unit/ -v` and verify 100% pass rate
+- [x] T036 [P] Create sample TypeScript codebases in `samples/typescript/`: `clean_math_service.ts` (target: Grade A $\ge 90.0$) and `smelly_legacy_script.ts` (target: Grade D/F)
+- [x] T037 [P] Run `quickstart.md` validation scenarios against `samples/typescript/` and verify all expected scores and findings match
+- [x] T038 Run self-health dogfooding check: execute `python scripts/code_health.py scripts/_code_health/ --no-git` and verify all new and modified modules maintain Grade A ($\ge 90.0$) and LOC $\le 350$
+- [x] T039 Run full test suite across Python, Java, JavaScript, and TypeScript via `pytest tests/unit/ -v` and verify 100% pass rate
 - [ ] T040 [REVIEW] Final review against spec and constitutional principles before feature branch completion
 
 ---
