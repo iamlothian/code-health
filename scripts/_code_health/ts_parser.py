@@ -43,6 +43,7 @@ class _TSTypeSmells:
     any_count: int = 0
     ts_ignore_count: int = 0
     non_null_count: int = 0
+    ignore_lines: set[int] = field(default_factory=set)
 
 
 @dataclass
@@ -60,20 +61,38 @@ class _TSSmells:
         """Scan a CST node for language smells and type escape hatches."""
         _scan_syntax_smell(node, bytes_, self)
 
+    def _walk_escapes(self, node: Any, bytes_: bytes) -> None:
+        _scan_type_escape(node, bytes_, self.types)
+        for c in node.children:
+            self._walk_escapes(c, bytes_)
+
+    def scan_header(self, fn_node: Any, body: Any, bytes_: bytes, lines: list[str]) -> None:
+        """Scan signature types and preceding comment directives for a function."""
+        if body and body != fn_node:
+            for c in fn_node.children:
+                if c.type in {"formal_parameters", "type_annotation"}:
+                    self._walk_escapes(c, bytes_)
+        for idx in range(fn_node.start_point[0] - 1, max(-1, fn_node.start_point[0] - 6), -1):
+            s = lines[idx].strip()
+            if s and not (s.startswith(("//", "/*", "*")) or s.endswith("*/")):
+                break
+            if "@ts-ignore" in s or "@ts-nocheck" in s:
+                self.types.ts_ignore_count += 1
+                self.types.ignore_lines.add(idx + 1)
+
 
 def _scan_type_escape(node: Any, bytes_: bytes, types: _TSTypeSmells) -> None:
     """Record occurrences of explicit any, ts-ignore, or non-null assertions."""
     t = node.type
     if t == "non_null_expression":
         types.non_null_count += 1
-    elif t in {"as_expression", "type_assertion", "type_annotation"}:
-        txt = _get_node_text(node, bytes_).strip(": ")
-        if " as any" in txt or txt.startswith("<any>") or txt.endswith("any") or txt in {"any", "any[]", "Array<any>"}:
-            types.any_count += 1
+    elif t == "any":
+        types.any_count += 1
     elif t == "comment":
         txt = _get_node_text(node, bytes_)
         if "@ts-ignore" in txt or "@ts-nocheck" in txt:
             types.ts_ignore_count += 1
+            types.ignore_lines.add(node.start_point[0] + 1)
 
 
 def _scan_syntax_smell(node: Any, bytes_: bytes, smells: _TSSmells) -> None:
@@ -191,6 +210,7 @@ class _TSFuncSpec:
     qualname: str
     is_test: bool
     fields: set[str] | None = None
+    claimed_lines: set[int] | None = None
 
 
 def _parse_ts_param(c: Any, source_bytes: bytes, jsdoc: dict[str, str]) -> IRParam | None:
@@ -201,14 +221,10 @@ def _parse_ts_param(c: Any, source_bytes: bytes, jsdoc: dict[str, str]) -> IRPar
     nm = _get_node_text(id_node, source_bytes) if id_node else "arg"
     type_node = _find_first_child(c, "type_annotation")
     d_type = _get_node_text(type_node, source_bytes).strip(": ") if type_node else jsdoc.get(nm)
-    raw = _get_node_text(c, source_bytes)
-    has_def = c.type == "optional_parameter" or ("=" in raw)
-    if d_type in {"boolean", "bool"} or ("=" in raw and ("true" in raw or "false" in raw)):
-        eff_type = "bool"
-    elif not d_type and has_def:
-        eff_type = "inferred"
-    else:
-        eff_type = d_type
+    has_assign = any(ch.type == "=" for ch in c.children)
+    has_def = c.type == "optional_parameter" or has_assign
+    is_bool_lit = has_assign and any(ch.type in {"true", "false"} for ch in c.children)
+    eff_type = "bool" if (d_type in {"boolean", "bool"} or is_bool_lit) else ("inferred" if (not d_type and has_def) else d_type)
     return IRParam(nm, eff_type, has_def)
 
 
@@ -240,7 +256,10 @@ def _build_ts_ir_function(
 ) -> IRFunction:
     """Construct a complete IRFunction from TypeScript syntax node."""
     v = _TSVisitor(source_bytes, spec.fields)
+    v.smells.scan_header(node, body, source_bytes, lines)
     v.scan(body or node, 0)
+    if spec.claimed_lines is not None:
+        spec.claimed_lines.update(v.smells.types.ignore_lines)
     return IRFunction(
         name=spec.name,
         qualname=spec.qualname,
@@ -324,7 +343,7 @@ class TSClassExtractor:
                     fields[f.name] = f
         return list(fields.values())
 
-    def extract_methods(self, is_test: bool) -> tuple[list[IRFunction], int]:
+    def extract_methods(self, is_test: bool, claimed: set[int] | None = None) -> tuple[list[IRFunction], int]:
         """Extract all methods and calculate LCOM4 cohesion score."""
         body = _find_first_child(self.node, "class_body") or self.node
         methods: list[IRFunction] = []
@@ -332,12 +351,14 @@ class TSClassExtractor:
             if m.type == "method_definition":
                 prop = _find_first_child(m, "property_identifier")
                 m_name = _get_node_text(prop, self.bytes) if prop else "<method>"
-                spec = _TSFuncSpec(m_name, f"{self.name}.{m_name}", is_test, self.field_names)
+                spec = _TSFuncSpec(m_name, f"{self.name}.{m_name}", is_test, self.field_names, claimed)
                 methods.append(_build_ts_ir_function(spec, m, _find_first_child(m, "statement_block"), self.bytes, self.lines))
         return methods, _calc_js_lcom4(methods, is_test)
 
 
-def _handle_ts_test_call(call: Any, args: list[Any], bytes_: bytes, lines: list[str]) -> IRFunction | None:
+def _handle_ts_test_call(
+    call: Any, args: list[Any], bytes_: bytes, lines: list[str]
+) -> IRFunction | None:
     """Build IRFunction for an it() or test() call."""
     cb = next((a for a in args[1:] if a.type in {"arrow_function", "function_expression"}), None)
     if not cb:
@@ -373,7 +394,9 @@ def _process_ts_test_call(call: Any, funcs: list[IRFunction], bytes_: bytes, lin
         _handle_ts_suite_call(args, funcs, bytes_, lines)
 
 
-def _extract_ts_var_funcs(decl: Any, bytes_: bytes, lines: list[str], is_t: bool) -> list[IRFunction]:
+def _extract_ts_var_funcs(
+    decl: Any, bytes_: bytes, lines: list[str], is_t: bool, claimed: set[int] | None = None
+) -> list[IRFunction]:
     """Extract named arrow functions and function expressions from variable declarations."""
     id_n = _find_first_child(decl, "identifier")
     if not id_n:
@@ -381,17 +404,17 @@ def _extract_ts_var_funcs(decl: Any, bytes_: bytes, lines: list[str], is_t: bool
     v_name = _get_node_text(id_n, bytes_)
     val = _find_first_child(decl, "arrow_function") or _find_first_child(decl, "function_expression")
     if val:
-        return [_build_ts_ir_function(_TSFuncSpec(v_name, v_name, is_t), val, _find_first_child(val, "statement_block") or val, bytes_, lines)]
+        spec = _TSFuncSpec(v_name, v_name, is_t, None, claimed)
+        return [_build_ts_ir_function(spec, val, _find_first_child(val, "statement_block") or val, bytes_, lines)]
     return []
 
 
 def _extract_ts_units(
     root: Any, source_bytes: bytes, lines: list[str], is_test: bool
-) -> tuple[list[IRClass], list[IRFunction], list[str]]:
-    """Traverse CST root and extract classes, functions, and imports."""
-    classes: list[IRClass] = []
-    functions: list[IRFunction] = []
-    imports: list[str] = []
+) -> tuple[list[IRClass], list[IRFunction], list[str], int]:
+    """Traverse CST root and extract classes, functions, imports, and module directives."""
+    classes, functions, imports = [], [], []
+    claimed: set[int] = set()
 
     def dispatch(node: Any) -> None:
         t = node.type
@@ -405,15 +428,16 @@ def _extract_ts_units(
                     dispatch(c)
         elif t in {"class_declaration", "abstract_class_declaration"}:
             ext = TSClassExtractor(node, source_bytes, lines)
-            methods, lcom4 = ext.extract_methods(is_test)
+            methods, lcom4 = ext.extract_methods(is_test, claimed)
             classes.append(IRClass(ext.name, ext.name, node.start_point[0] + 1, node.end_point[0] + 1, _count_effective_js_loc(node, lines), [], [], ext.fields, methods, lcom4, _has_doc_comment(node, lines)))
         elif t in {"function_declaration", "generator_function_declaration"}:
             n = _find_first_child(node, "identifier")
             f_name = _get_node_text(n, source_bytes) if n else "anonymous"
-            functions.append(_build_ts_ir_function(_TSFuncSpec(f_name, f_name, is_test), node, _find_first_child(node, "statement_block"), source_bytes, lines))
+            spec = _TSFuncSpec(f_name, f_name, is_test, None, claimed)
+            functions.append(_build_ts_ir_function(spec, node, _find_first_child(node, "statement_block"), source_bytes, lines))
         elif t in {"lexical_declaration", "variable_declaration"}:
             for d in [c for c in node.children if c.type == "variable_declarator"]:
-                functions.extend(_extract_ts_var_funcs(d, source_bytes, lines, is_test))
+                functions.extend(_extract_ts_var_funcs(d, source_bytes, lines, is_test, claimed))
         elif t == "expression_statement":
             call = _find_first_child(node, "call_expression")
             if call:
@@ -421,7 +445,11 @@ def _extract_ts_units(
 
     for child in root.children:
         dispatch(child)
-    return classes, functions, imports
+    mod_ignores = sum(
+        1 for c in root.children
+        if c.type == "comment" and (c.start_point[0] + 1) not in claimed and ("@ts-ignore" in _get_node_text(c, source_bytes) or "@ts-nocheck" in _get_node_text(c, source_bytes))
+    )
+    return classes, functions, imports, mod_ignores
 
 
 def parse_typescript_file(file_path: Path, rel_path: str, is_test: bool) -> IRModule:
@@ -435,6 +463,6 @@ def parse_typescript_file(file_path: Path, rel_path: str, is_test: bool) -> IRMo
     parser = tree_sitter.Parser(language)
     tree = parser.parse(source_bytes)
 
-    classes, functions, imports = _extract_ts_units(tree.root_node, source_bytes, lines, is_test)
+    classes, functions, imports, mod_ignores = _extract_ts_units(tree.root_node, source_bytes, lines, is_test)
     loc = max(sum(c.loc for c in classes) + sum(f.loc for f in functions), _count_effective_js_loc(tree.root_node, lines))
-    return IRModule(rel_path, "typescript", is_test, loc, imports, classes, functions, "native", _has_doc_comment(tree.root_node, lines))
+    return IRModule(rel_path, "typescript", is_test, loc, imports, classes, functions, "native", _has_doc_comment(tree.root_node, lines), ts_ignore_count=mod_ignores)

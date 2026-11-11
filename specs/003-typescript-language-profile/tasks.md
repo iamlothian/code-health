@@ -82,7 +82,7 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 - [x] T017 [US2] Implement parser guard `check_typescript_dependencies()` in `scripts/_code_health/ts_parser.py` raising `MissingNativeParserError("typescript", ["tree-sitter", "tree-sitter-typescript"])` when packages are missing
 - [x] T018 [US2] Update `main()` in `scripts/code_health.py` to ensure `MissingNativeParserError` formatting and exit code 2 handle `"typescript"` seamlessly
-- [ ] T019 [US2] [REVIEW] **Checkpoint**: User Story 2 verified. Missing dependencies fail fast with exit code 2 and actionable guidance without affecting other languages.
+- [x] T019 [US2] [REVIEW] **Checkpoint**: User Story 2 verified. Missing dependencies fail fast with exit code 2 and actionable guidance without affecting other languages.
 
 ---
 
@@ -95,14 +95,14 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 > Write these tests FIRST in `tests/unit/test_typescript_health.py`. Verify they FAIL before implementation.
 
-- [ ] T020 [P] [TDD] [US3] Write unit tests in `tests/unit/test_typescript_health.py` verifying strict parameter typing (untyped un-defaulted params: `-5.0 pts` each, cap `-25.0 pts`), missing return types (`-10.0 pts`), and parameter defaults/optionals recognized as typed
-- [ ] T021 [P] [TDD] [US3] Write unit tests in `tests/unit/test_typescript_health.py` verifying explicit `any` (`-5.0 pts`, cap `-20.0 pts`), `@ts-ignore`/`@ts-nocheck` (`-10.0 pts`, cap `-20.0 pts`), and non-null assertion `!` (`-2.0 pts`, cap `-10.0 pts`)
-- [ ] T022 [P] [TDD] [US3] Write unit tests in `tests/unit/test_typescript_health.py` verifying boolean default flags (`flag: boolean = false`: `-6.0 pts` under SRP), legacy `var` (`-3.0 pts`), loose equality `==`/`!=` (`-2.0 pts`), empty catch blocks (`-10.0 pts`), and `debugger;` (`-10.0 pts`)
+- [x] T020 [P] [TDD] [US3] Write unit tests in `tests/unit/test_typescript_health.py` verifying strict parameter typing (untyped un-defaulted params: `-5.0 pts` each, cap `-25.0 pts`), missing return types (`-10.0 pts`), and parameter defaults/optionals recognized as typed
+- [x] T021 [P] [TDD] [US3] Write unit tests in `tests/unit/test_typescript_health.py` verifying explicit `any` (`-5.0 pts`, cap `-20.0 pts`), `@ts-ignore`/`@ts-nocheck` (`-10.0 pts`, cap `-20.0 pts`), and non-null assertion `!` (`-2.0 pts`, cap `-10.0 pts`)
+- [x] T022 [P] [TDD] [US3] Write unit tests in `tests/unit/test_typescript_health.py` verifying boolean default flags (`flag: boolean = false`: `-6.0 pts` under SRP), legacy `var` (`-3.0 pts`), loose equality `==`/`!=` (`-2.0 pts`), empty catch blocks (`-10.0 pts`), and `debugger;` (`-10.0 pts`)
 
 ### Implementation for User Story 3
 
-- [ ] T023 [US3] In `scripts/_code_health/ts_parser.py`, extract parameter types, return types, `any` occurrences, `@ts-ignore`/`@ts-nocheck` comments, `!` non-null assertions, and boolean defaults into `IRFunction`
-- [ ] T024 [US3] In `scripts/_code_health/profiles_ts.py` and `scripts/_code_health/ir_scorer.py`, implement rule deductions for strict typing, escape hatches (`any`, `@ts-ignore`, `!`), boolean default flags, and ECMAScript hygiene
+- [x] T023 [US3] In `scripts/_code_health/ts_parser.py`, extract parameter types, return types, `any` occurrences, `@ts-ignore`/`@ts-nocheck` comments, `!` non-null assertions, and boolean defaults into `IRFunction`
+- [x] T024 [US3] In `scripts/_code_health/profiles_ts.py` and `scripts/_code_health/ir_scorer.py`, implement rule deductions for strict typing, escape hatches (`any`, `@ts-ignore`, `!`), boolean default flags, and ECMAScript hygiene
 - [ ] T025 [US3] [REVIEW] **Checkpoint**: User Story 3 verified. Strict typing and escape hatch detection calculate exact penalties and pass unit tests.
 
 ---

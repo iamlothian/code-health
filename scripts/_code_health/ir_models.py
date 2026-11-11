@@ -136,6 +136,7 @@ class IRModule:
     has_docstring: bool = True
     duplicate_blocks: int = 0
     mid_file_imports: int = 0
+    ts_ignore_count: int = 0
 
 
 class MissingNativeParserError(RuntimeError):

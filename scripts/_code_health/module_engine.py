@@ -199,70 +199,45 @@ class ModuleAnalyzer:
         return FileReport(rel_path, is_test, loc, int_imports, dup_blocks, mid_imports, gstat, scores, findings, classes, functions)
 
     def _analyze_java(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.ir_scorer import UniversalIRScorer
         from _code_health.java_parser import parse_java_file
-        from _code_health.profiles import resolve_active_profiles
 
-        ir_mod = parse_java_file(resolved, rel_path, is_test)
-        profile = resolve_active_profiles(
-            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
-        )
-        scorer = UniversalIRScorer(self.cfg, profile)
-
-        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
-        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
-
-        srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
-        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
-        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
-
-        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
-        scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
+        return self._score_ir_module(parse_java_file(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
 
     def _analyze_javascript(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.ir_scorer import UniversalIRScorer
         from _code_health.js_parser import parse_javascript_file
-        from _code_health.profiles import resolve_active_profiles
 
-        ir_mod = parse_javascript_file(resolved, rel_path, is_test)
-        profile = resolve_active_profiles(
-            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
-        )
-        scorer = UniversalIRScorer(self.cfg, profile)
-
-        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
-        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
-
-        srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
-        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
-        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
-
-        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
-        scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
+        return self._score_ir_module(parse_javascript_file(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
 
     def _analyze_typescript(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.ir_scorer import UniversalIRScorer
-        from _code_health.profiles import resolve_active_profiles
         from _code_health.ts_parser import parse_typescript_file
 
-        ir_mod = parse_typescript_file(resolved, rel_path, is_test)
+        return self._score_ir_module(parse_typescript_file(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
+
+    def _score_ir_module(
+        self, ir_mod: object, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None
+    ) -> FileReport:
+        from _code_health.ir_scorer import UniversalIRScorer
+        from _code_health.profiles import resolve_active_profiles
+
         profile = resolve_active_profiles(
             self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
         )
         scorer = UniversalIRScorer(self.cfg, profile)
-
-        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
-        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
+        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]  # type: ignore[attr-defined]
+        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]  # type: ignore[attr-defined]
 
         srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
-        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
-        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
+        loc = ir_mod.loc  # type: ignore[attr-defined]
+        mod_loc_pen = round(max(0, min(loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, loc - self.cfg.max_mid_file_loc) * 0.25, 1)
+        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
+        ts_ig = getattr(ir_mod, "ts_ignore_count", 0)
+        p_ts, f_ts = penalty_item(
+            ts_ig, 10.0, f"Clean (TS): {ts_ig} '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks", cap=20.0
+        )
 
-        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
+        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0 - p_ts)
         scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
+        return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, scores, g_findings + f_loc + f_ts, classes, functions)
 
     def _analyze_units(
         self, tree: ast.Module, lines: list[str], rel_path: str, is_test: bool

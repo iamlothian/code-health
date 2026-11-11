@@ -15,8 +15,10 @@ if _SCRIPTS_DIR not in sys.path:
 import pytest  # noqa: E402
 import code_health  # noqa: E402
 import _code_health.ts_parser as ts_parser_mod  # noqa: E402
+from _code_health.ir_scorer import UniversalIRScorer  # noqa: E402
 from _code_health.models import RubricConfig  # noqa: E402
 from _code_health.module_engine import is_test_file_path  # noqa: E402
+from _code_health.profiles_ts import TYPESCRIPT_PROFILE  # noqa: E402
 from _code_health.reporting import CodeHealthRunner  # noqa: E402
 from _code_health.ts_parser import parse_typescript_file  # noqa: E402
 
@@ -266,4 +268,200 @@ def test_python_java_js_runs_never_trigger_missing_ts_parser(
     js_file = tmp_path / "app.js"
     js_file.write_text("/** Greet. */\nexport function greet(name = 'world') { return name; }\n", encoding="utf-8")
     assert code_health.main([str(js_file), "--no-git"]) == 0
+
+
+def test_ts_strict_param_and_return_typing_penalties(tmp_path: Path) -> None:
+    code = """
+    /** Compute sum with missing return and two untyped params. */
+    function sumTwo(a, b) {
+        return a + b;
+    }
+
+    /** Compute six untyped params to verify -25.0 cap. */
+    function sumSix(a, b, c, d, e, f): number {
+        return a + b + c + d + e + f;
+    }
+    """
+    ts_file = tmp_path / "strict.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "strict.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    rep2 = scorer.score_function(mod.functions[0], "strict.ts", is_test=False)
+    assert any("2 untyped param(s)" in f for f in rep2.findings)
+    assert any("missing return type annotation" in f for f in rep2.findings)
+    assert rep2.scores.clean == 80.0  # 100 - 10 (params) - 10 (return)
+
+    rep6 = scorer.score_function(mod.functions[1], "strict.ts", is_test=False)
+    assert any("6 untyped param(s)" in f for f in rep6.findings)
+    assert rep6.scores.clean == 75.0  # 100 - min(25.0, 30.0)
+
+
+def test_ts_param_defaults_optionals_and_constructor_exempt(tmp_path: Path) -> None:
+    code = """
+    /** Service class. */
+    class Greeter {
+        /** Initialize greeter. */
+        constructor(public count = 0) {}
+
+        /** Build greeting. */
+        public greet(name?: string, limit = 10): string {
+            return `${name ?? "friend"}:${limit}:${this.count}`;
+        }
+    }
+    """
+    ts_file = tmp_path / "defaults.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "defaults.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    for m in mod.classes[0].methods:
+        rep = scorer.score_function(m, "defaults.ts", is_test=False, parent=mod.classes[0])
+        assert rep.scores.clean == 100.0
+
+
+def test_ts_explicit_any_and_company_no_false_positive(tmp_path: Path) -> None:
+    code = """
+    interface Company { name: string; }
+
+    /** Uses explicit any in signature and body (5 occurrences -> cap -20). */
+    function unsafeTransform(input: any, list: Array<any>): Promise<any> {
+        const x: any = input as any;
+        return Promise.resolve(x);
+    }
+
+    /** Valid Company identifier must not trigger any false positives. */
+    function getCompany(c: Company): Company {
+        return c as Company;
+    }
+    """
+    ts_file = tmp_path / "any_test.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "any_test.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    rep_bad = scorer.score_function(mod.functions[0], "any_test.ts", is_test=False)
+    assert any("explicit 'any' type usage(s)" in f for f in rep_bad.findings)
+    assert rep_bad.scores.clean == 80.0  # 100 - min(20, 5*5)
+
+    rep_ok = scorer.score_function(mod.functions[1], "any_test.ts", is_test=False)
+    assert rep_ok.scores.clean == 100.0
+
+
+def test_ts_ignore_nocheck_and_expect_error(tmp_path: Path) -> None:
+    code = """
+    // @ts-ignore
+    function suppressed(x: number): number {
+        // @ts-nocheck
+        return x;
+    }
+
+    /** Safe ts-expect-error is not penalized. */
+    function documentedExpectError(x: number): number {
+        // @ts-expect-error testing intentional type guard
+        return x;
+    }
+    """
+    ts_file = tmp_path / "directives.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "directives.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    rep_bad = scorer.score_function(mod.functions[0], "directives.ts", is_test=False)
+    assert any("2 '@ts-ignore'/'@ts-nocheck' directive(s)" in f for f in rep_bad.findings)
+    assert any("missing public docstring" in f for f in rep_bad.findings)
+    assert rep_bad.scores.clean == 75.0  # 100 - 20 (@ts-ignore*2) - 5 (missing doc LOC<=10)
+
+    rep_ok = scorer.score_function(mod.functions[1], "directives.ts", is_test=False)
+    assert rep_ok.scores.clean == 100.0
+
+    # Module-level @ts-nocheck above imports applies -10.0 pts via CodeHealthRunner
+    mod_file = tmp_path / "mod_nocheck.ts"
+    mod_file.write_text("// @ts-nocheck\nimport { x } from './x';\n/** Add. */\nexport function add(a: number, b: number): number { return a + b; }\n", encoding="utf-8")
+    report = CodeHealthRunner(repo_root=tmp_path, git_mode="no-git").run([mod_file])
+    assert report.files[0].scores.clean == 90.0
+    assert any("1 '@ts-ignore'/'@ts-nocheck'" in f for f in report.files[0].findings)
+
+
+def test_ts_non_null_assertions_and_logical_negation(tmp_path: Path) -> None:
+    code = """
+    /** Non-null assertions with unary negation control. */
+    function deref(user?: { name?: string }, flag: boolean = false): string {
+        if (!flag && user!.name !== undefined) {
+            return user!.name!.trim();
+        }
+        return "none";
+    }
+    """
+    ts_file = tmp_path / "nonnull.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "nonnull.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    rep = scorer.score_function(mod.functions[0], "nonnull.ts", is_test=False)
+    assert mod.functions[0].non_null_assertion_count == 3
+    assert any("3 non-null assertion(s) ('!')" in f for f in rep.findings)
+    assert rep.scores.clean == 94.0  # 100 - 3 * 2.0
+
+
+def test_ts_boolean_default_flags_and_arrow_type_no_false_positive(tmp_path: Path) -> None:
+    code = """
+    /** Has typed boolean default flag (-6.0 pts SRP). */
+    function fetchTyped(id: string, verbose: boolean = false): string {
+        return verbose ? id.toUpperCase() : id;
+    }
+
+    /** Has inferred boolean default flag (-6.0 pts SRP). */
+    function fetchInferred(id: string, strict = false): string {
+        return strict ? id.trim() : id;
+    }
+
+    /** Callback returning false must NOT trigger boolean default flag. */
+    function withCallback(cb: () => false): string {
+        return String(cb());
+    }
+    """
+    ts_file = tmp_path / "flags.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "flags.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    r1 = scorer.score_function(mod.functions[0], "flags.ts", is_test=False)
+    assert r1.scores.srp == 94.0
+    assert any("boolean flag parameter" in f for f in r1.findings)
+
+    r2 = scorer.score_function(mod.functions[1], "flags.ts", is_test=False)
+    assert r2.scores.srp == 94.0
+
+    r3 = scorer.score_function(mod.functions[2], "flags.ts", is_test=False)
+    assert r3.scores.srp == 100.0
+
+
+def test_ts_ecmascript_hygiene_var_loose_eq_catch_debugger(tmp_path: Path) -> None:
+    code = """
+    /** Smelly ECMAScript constructs inside TS. */
+    function legacyBad(x: number, y: number): number {
+        var z = 1;
+        if (x == y || x != 0) {
+            debugger;
+        }
+        try {
+            return x + z;
+        } catch (err) {
+        }
+        return 0;
+    }
+    """
+    ts_file = tmp_path / "hygiene.ts"
+    ts_file.write_text(code, encoding="utf-8")
+    mod = parse_typescript_file(ts_file, "hygiene.ts", is_test=False)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+
+    rep = scorer.score_function(mod.functions[0], "hygiene.ts", is_test=False)
+    # 100 - var(3.0) - loose_eq(4.0) - debugger(10.0) - empty_catch(10.0) = 73.0
+    assert rep.scores.clean == 73.0
+    assert any("legacy 'var'" in f for f in rep.findings)
+    assert any("loose equality" in f for f in rep.findings)
+    assert any("empty catch block" in f for f in rep.findings)
+    assert any("debugger statement" in f for f in rep.findings)
 
