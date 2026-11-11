@@ -1,0 +1,31 @@
+{
+  "id": "typescript_lru_cache_clean",
+  "pair_id": "typescript_oop_cohesion",
+  "scenario_title": "3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/lru_cache_clean.ts",
+  "is_test": false,
+  "source_dataset": "Custom TypeScript Benchmark",
+  "source_url": "https://www.typescriptlang.org/docs/handbook/2/classes.html",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 70,
+    "classes_count": 1,
+    "functions_count": 9,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 9\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/lru_cache_clean.ts          src      70    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/lru_cache_clean.ts:14 LRUCache     63    9     1   14  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/lru_cache_clean.ts:21 LRUCache.co    5   2    1   1   1  100.0   A\nsamples/typescript/lru_cache_clean.ts:28 LRUCache.ge   10   2    1   1   1  100.0   A\nsamples/typescript/lru_cache_clean.ts:40 LRUCache.pu   10   3    2   2   1  100.0   A\nsamples/typescript/lru_cache_clean.ts:52 LRUCache.ha    3   1    0   1   0  100.0   A\nsamples/typescript/lru_cache_clean.ts:57 LRUCache.de    3   1    0   1   0  100.0   A\nsamples/typescript/lru_cache_clean.ts:62 LRUCache.cl    6   1    0   0   0  100.0   A\nsamples/typescript/lru_cache_clean.ts:70 LRUCache.ge    9   1    0   0   0  100.0   A\nsamples/typescript/lru_cache_clean.ts:81 LRUCache.to    4   1    0   2   0  100.0   A\nsamples/typescript/lru_cache_clean.ts:87 LRUCache.ev    7   2    1   0   1  100.0   A\n"
+  }
+}

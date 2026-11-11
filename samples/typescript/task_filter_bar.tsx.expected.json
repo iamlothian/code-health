@@ -1,0 +1,31 @@
+{
+  "id": "typescript_task_filter_bar_tsx",
+  "pair_id": "typescript_react_tsx_hygiene",
+  "scenario_title": "5. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/task_filter_bar.tsx",
+  "is_test": false,
+  "source_dataset": "Custom TypeScript/React TSX Benchmark",
+  "source_url": "https://react.dev/learn/typescript",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 75,
+    "classes_count": 0,
+    "functions_count": 4,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_filter_bar.tsx         src      75    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_filter_bar.tsx:22 filterTask   12   5    1   3   1  100.0   A\nsamples/typescript/task_filter_bar.tsx:36 summarizeT   12   3    3   1   2  100.0   A\nsamples/typescript/task_filter_bar.tsx:50 SearchInpu   17   1    0   1   0  100.0   A\nsamples/typescript/task_filter_bar.tsx:69 TaskFilter   21   1    0   1   0  100.0   A\n"
+  }
+}

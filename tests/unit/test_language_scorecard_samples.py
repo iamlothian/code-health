@@ -51,6 +51,8 @@ def _run_sample_analysis(entry: dict[str, Any]) -> tuple[Any, str]:
     """Execute CodeHealthRunner on a single sample entry and return (FileReport, console_text)."""
     if entry["language"] == "java":
         pytest.importorskip("tree_sitter_java")
+    elif entry["language"] == "typescript":
+        pytest.importorskip("tree_sitter_typescript")
     fw = None if entry["framework"] == "auto" else entry["framework"]
     runner = CodeHealthRunner(
         repo_root=_REPO_ROOT,
@@ -71,7 +73,7 @@ def test_samples_manifest_and_catalog_exist() -> None:
     assert _MANIFEST_PATH.is_file()
     assert catalog_path.is_file()
     samples = _load_manifest_samples()
-    assert len(samples) == 28
+    assert len(samples) == 42
     catalog_text = catalog_path.read_text(encoding="utf-8")
     assert "# Multi-Language Code Health Scorecard Baselines" in catalog_text
 

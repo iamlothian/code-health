@@ -1,0 +1,62 @@
+{
+  "id": "typescript_order_repository_unsafe",
+  "pair_id": "typescript_repository_security",
+  "scenario_title": "4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/order_repository_unsafe.ts",
+  "is_test": false,
+  "source_dataset": "Custom TypeScript Benchmark",
+  "source_url": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 34,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 82.6,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 53.6,
+      "security": 20.0,
+      "composite": 25.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "potential SQL/query injection in this.db.query",
+      "potential SQL/query injection in this.db.$queryRawUnsafe",
+      "dynamic code execution via eval"
+    ],
+    "all_findings": [
+      "Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+      "[Class LegacyOrderRepository] SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+      "[Class LegacyOrderRepository] Clean: missing class docstring (-15.0 pts)",
+      "[Method LegacyOrderRepository.constructor] Clean: missing public docstring (-5.0 pts)",
+      "[Method LegacyOrderRepository.constructor] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] SRP: boolean flag parameter with default value (-6.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] Clean: missing public docstring (-5.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] Clean: 2 untyped param(s) (customerId, statusFilter) (-10.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] Clean: missing return type annotation (-10.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] Clean: 1 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-3.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)",
+      "[Method LegacyOrderRepository.findCustomerOrders] Security (TS): potential SQL/query injection in this.db.query via string concatenation (-40.0 pts)",
+      "[Method LegacyOrderRepository.searchOrdersUnsafe] Clean: missing public docstring (-5.0 pts)",
+      "[Method LegacyOrderRepository.searchOrdersUnsafe] Clean (TS): 2 explicit 'any' type usage(s) defeat type safety (-10.0 pts)",
+      "[Method LegacyOrderRepository.searchOrdersUnsafe] Security (TS): potential SQL/query injection in this.db.$queryRawUnsafe via string concatenation (-40.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] SRP: boolean flag parameter with default value (-6.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Clean: missing public docstring (-10.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Clean: 2 untyped param(s) (orderId, nextStatus) (-10.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Clean: missing return type annotation (-10.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Clean: 1 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-2.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Clean: empty catch block swallows exception (-10.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Security: dynamic code execution via new Function (-40.0 pts)",
+      "[Method LegacyOrderRepository.updateStatusLegacy] Security (TS): potential SQL/query injection in this.db.execute via string concatenation (-40.0 pts)",
+      "[Method LegacyOrderRepository.evaluateDynamicFilter] Clean: missing public docstring (-5.0 pts)",
+      "[Method LegacyOrderRepository.evaluateDynamicFilter] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method LegacyOrderRepository.evaluateDynamicFilter] Security: dynamic code execution via eval (-40.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 25.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 82.6 | Size: 100.0 | Complexity: 100.0 | Clean: 53.6 | Security: 20.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/order_repository_unsafe.ts  src      34    -  82.6 100.0 100.0  53.6  20.0   25.0   F\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/order_repository_unsafe.ts:4 Le    34    5     2    9   25.0   F\n    - SRP: LCOM4=2 disconnected method groups (-15.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/order_repository_unsafe.ts:23 Leg   15   4    6   3   3   25.0   F\n    - SRP: boolean flag parameter with default value (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 2 untyped param(s) (orderId, nextStatus) (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 1 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-2.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\n    - Security: dynamic code execution via new Function (-40.0 pts)\n    - Security (TS): potential SQL/query injection in this.db.execute via string concatenation (-40.0 pts)\nsamples/typescript/order_repository_unsafe.ts:11 Leg    7   2    1   3   1   65.0   D\n    - SRP: boolean flag parameter with default value (-6.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 2 untyped param(s) (customerId, statusFilter) (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 1 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-3.0 pts)\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\n    - Security (TS): potential SQL/query injection in this.db.query via string concatenation (-40.0 pts)\nsamples/typescript/order_repository_unsafe.ts:19 Leg    3   1    0   1   0   65.0   D\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 2 explicit 'any' type usage(s) defeat type safety (-10.0 pts)\n    - Security (TS): potential SQL/query injection in this.db.$queryRawUnsafe via string concatenation (-40.0 pts)\nsamples/typescript/order_repository_unsafe.ts:40 Leg    3   1    0   2   0   65.0   D\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\n    - Security: dynamic code execution via eval (-40.0 pts)\nsamples/typescript/order_repository_unsafe.ts:7 Lega    3   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\n"
+  }
+}

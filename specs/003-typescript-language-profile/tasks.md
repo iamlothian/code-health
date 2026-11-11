@@ -155,7 +155,7 @@ description: "Phased task breakdown for TypeScript Language Profile"
 - [x] T037 [P] Run `quickstart.md` validation scenarios against `samples/typescript/` and verify all expected scores and findings match
 - [x] T038 Run self-health dogfooding check: execute `python scripts/code_health.py scripts/_code_health/ --no-git` and verify all new and modified modules maintain Grade A ($\ge 90.0$) and LOC $\le 350$
 - [x] T039 Run full test suite across Python, Java, JavaScript, and TypeScript via `pytest tests/unit/ -v` and verify 100% pass rate
-- [ ] T040 [REVIEW] Final review against spec and constitutional principles before feature branch completion
+- [x] T040 [REVIEW] Final review against spec and constitutional principles before feature branch completion
 
 ---
 
