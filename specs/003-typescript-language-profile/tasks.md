@@ -62,7 +62,7 @@ description: "Phased task breakdown for TypeScript Language Profile"
 - [x] T011 [US1] Implement `TypeScriptLanguageProfile` in `scripts/_code_health/profiles_ts.py` and register `TYPESCRIPT_PROFILE` in `scripts/_code_health/profiles.py`
 - [x] T012 [US1] Wire TypeScript file dispatch into `ModuleAnalyzer.analyze()` in `scripts/_code_health/module_engine.py` using `ts_parser.py` and `ir_scorer.py`
 - [x] T013 [US1] Update `_build_arg_parser()` and `main()` in `scripts/code_health.py` to add `"typescript"` and `"ts"` choices to `--lang`
-- [ ] T014 [US1] [REVIEW] **Checkpoint**: User Story 1 MVP fully functional. Verify single-file, multi-file, and mixed polyglot directory scans produce accurate scorecards.
+- [x] T014 [US1] [REVIEW] **Checkpoint**: User Story 1 MVP fully functional. Verify single-file, multi-file, and mixed polyglot directory scans produce accurate scorecards.
 
 ---
 
@@ -75,13 +75,13 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 > Write these tests FIRST in `tests/unit/test_typescript_health.py`. Verify they FAIL before implementation.
 
-- [ ] T015 [P] [TDD] [US2] Write unit tests in `tests/unit/test_typescript_health.py` mocking missing `tree_sitter_typescript`, verifying `MissingNativeParserError` halts with exit code 2 and outputs copy-paste installation commands in both console and JSON formats
-- [ ] T016 [P] [TDD] [US2] Write unit tests in `tests/unit/test_typescript_health.py` verifying purely Python, Java, or JavaScript runs never trigger missing TypeScript parser errors
+- [x] T015 [P] [TDD] [US2] Write unit tests in `tests/unit/test_typescript_health.py` mocking missing `tree_sitter_typescript`, verifying `MissingNativeParserError` halts with exit code 2 and outputs copy-paste installation commands in both console and JSON formats
+- [x] T016 [P] [TDD] [US2] Write unit tests in `tests/unit/test_typescript_health.py` verifying purely Python, Java, or JavaScript runs never trigger missing TypeScript parser errors
 
 ### Implementation for User Story 2
 
-- [ ] T017 [US2] Implement parser guard `check_typescript_dependencies()` in `scripts/_code_health/ts_parser.py` raising `MissingNativeParserError("typescript", ["tree-sitter", "tree-sitter-typescript"])` when packages are missing
-- [ ] T018 [US2] Update `main()` in `scripts/code_health.py` to ensure `MissingNativeParserError` formatting and exit code 2 handle `"typescript"` seamlessly
+- [x] T017 [US2] Implement parser guard `check_typescript_dependencies()` in `scripts/_code_health/ts_parser.py` raising `MissingNativeParserError("typescript", ["tree-sitter", "tree-sitter-typescript"])` when packages are missing
+- [x] T018 [US2] Update `main()` in `scripts/code_health.py` to ensure `MissingNativeParserError` formatting and exit code 2 handle `"typescript"` seamlessly
 - [ ] T019 [US2] [REVIEW] **Checkpoint**: User Story 2 verified. Missing dependencies fail fast with exit code 2 and actionable guidance without affecting other languages.
 
 ---

@@ -2,17 +2,23 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import sys
 import tempfile
+from typing import Any
 
 _SCRIPTS_DIR = str(Path(__file__).resolve().parents[2] / "scripts")
 if _SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, _SCRIPTS_DIR)
 
-import pytest
-from _code_health.models import RubricConfig
-from _code_health.module_engine import is_test_file_path
+import pytest  # noqa: E402
+import code_health  # noqa: E402
+import _code_health.ts_parser as ts_parser_mod  # noqa: E402
+from _code_health.models import RubricConfig  # noqa: E402
+from _code_health.module_engine import is_test_file_path  # noqa: E402
+from _code_health.reporting import CodeHealthRunner  # noqa: E402
+from _code_health.ts_parser import parse_typescript_file  # noqa: E402
 
 
 def test_is_test_file_path_recognizes_typescript_conventions() -> None:
@@ -34,8 +40,6 @@ def test_is_test_file_path_recognizes_typescript_conventions() -> None:
 
 
 def test_typescript_file_discovery_and_ambient_skipping() -> None:
-    from _code_health.reporting import CodeHealthRunner
-
     with tempfile.TemporaryDirectory() as tmp_dir:
         root = Path(tmp_dir)
         src_dir = root / "src"
@@ -86,8 +90,6 @@ def test_typescript_file_discovery_and_ambient_skipping() -> None:
 
 
 def test_tree_sitter_ts_parser_parses_classes_functions_and_tsx() -> None:
-    from _code_health.ts_parser import parse_typescript_file
-
     code = """
     interface UserConfig {
         id: string;
@@ -144,8 +146,6 @@ def test_tree_sitter_ts_parser_parses_classes_functions_and_tsx() -> None:
 
 
 def test_tree_sitter_tsx_parser_parses_jsx_components() -> None:
-    from _code_health.ts_parser import parse_typescript_file
-
     code = """
     export const Button = (props: { label: string }): string => {
         return <button className="btn">{props.label}</button>;
@@ -162,8 +162,6 @@ def test_tree_sitter_tsx_parser_parses_jsx_components() -> None:
 
 
 def test_tree_sitter_ts_parser_absorbs_inline_callbacks_into_parent() -> None:
-    from _code_health.ts_parser import parse_typescript_file
-
     code = """
     export function processItems(items: number[] = []): number {
         return items
@@ -183,9 +181,6 @@ def test_tree_sitter_ts_parser_absorbs_inline_callbacks_into_parent() -> None:
 
 
 def test_cli_lang_typescript_flag_and_multilang_scan(capsys: pytest.CaptureFixture[str]) -> None:
-    import json
-    import code_health
-
     with tempfile.TemporaryDirectory() as tmp_dir:
         root = Path(tmp_dir)
         src_dir = root / "src"
@@ -210,4 +205,65 @@ def test_cli_lang_typescript_flag_and_multilang_scan(capsys: pytest.CaptureFixtu
         assert data["files_count"] == 1
         assert data["files"][0]["file_path"].endswith("service.ts")
         assert data["files"][0]["scores"]["grade"] == "A"
+
+
+def test_missing_native_typescript_parser_exits_code_2_console(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str], tmp_path: Path
+) -> None:
+    monkeypatch.setitem(sys.modules, "tree_sitter_typescript", None)
+
+    ts_file = tmp_path / "app.ts"
+    ts_file.write_text("export const x: number = 1;\n", encoding="utf-8")
+
+    rc = code_health.main([str(ts_file), "--no-git"])
+    assert rc == 2
+    captured = capsys.readouterr()
+    assert "[WARNING] Native Typescript AST parser ('tree-sitter-typescript') is not installed." in captured.err
+    assert "uv run --with tree-sitter --with tree-sitter-typescript" in captured.err
+    assert "uv pip install 'tree-sitter>=0.23.0' 'tree-sitter-typescript>=0.23.0'" in captured.err
+    assert "pip install tree-sitter tree-sitter-typescript" in captured.err
+
+
+def test_missing_native_typescript_parser_exits_code_2_json(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str], tmp_path: Path
+) -> None:
+    monkeypatch.setitem(sys.modules, "tree_sitter_typescript", None)
+
+    ts_file = tmp_path / "app.ts"
+    ts_file.write_text("export const x: number = 1;\n", encoding="utf-8")
+
+    rc = code_health.main([str(ts_file), "--format", "json", "--no-git"])
+    assert rc == 2
+    captured = capsys.readouterr()
+    payload = json.loads(captured.out)
+    assert payload["status"] == "missing_native_parser"
+    assert payload["language"] == "typescript"
+    assert "tree-sitter-typescript" in payload["missing_packages"]
+    assert "uv_ephemeral" in payload["install_commands"]
+    assert "uv_project" in payload["install_commands"]
+    assert "pip" in payload["install_commands"]
+
+
+def test_python_java_js_runs_never_trigger_missing_ts_parser(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    def mock_check() -> tuple[Any, Any]:
+        raise AssertionError("TS parser should never be invoked for non-TS files!")
+
+    monkeypatch.setattr(ts_parser_mod, "check_typescript_dependencies", mock_check)
+
+    # 1. Pure Python run
+    py_file = tmp_path / "app.py"
+    py_file.write_text("def run() -> int:\n    '''Doc.'''\n    return 1\n", encoding="utf-8")
+    assert code_health.main([str(py_file), "--no-git"]) == 0
+
+    # 2. Pure Java run
+    java_file = tmp_path / "App.java"
+    java_file.write_text("public class App {\n    /** Greet. */\n    public String greet() { return \"hi\"; }\n}\n", encoding="utf-8")
+    assert code_health.main([str(java_file), "--no-git"]) == 0
+
+    # 3. Pure JavaScript run
+    js_file = tmp_path / "app.js"
+    js_file.write_text("/** Greet. */\nexport function greet(name = 'world') { return name; }\n", encoding="utf-8")
+    assert code_health.main([str(js_file), "--no-git"]) == 0
 
