@@ -388,16 +388,25 @@ def _handle_ts_suite_call(args: list[Any], funcs: list[IRFunction], bytes_: byte
             _process_ts_test_call(nested, funcs, bytes_, lines)
 
 
+_TS_TEST_CALLS = frozenset({
+    "it", "test", "it.only", "it.skip", "it.concurrent",
+    "test.only", "test.skip", "test.concurrent", "fit", "xit",
+})
+_TS_SUITE_CALLS = frozenset({
+    "describe", "describe.only", "describe.skip", "context", "suite", "fdescribe", "xdescribe",
+})
+
+
 def _process_ts_test_call(call: Any, funcs: list[IRFunction], bytes_: bytes, lines: list[str]) -> None:
     """Process Jest/Vitest/Mocha BDD test blocks."""
     name = _get_node_text(call.children[0], bytes_) if call.children else ""
     args_node = _find_first_child(call, "arguments")
     args = [c for c in args_node.children if c.type not in {"(", ")", ","}] if args_node else []
-    if name in {"it", "test"}:
+    if name in _TS_TEST_CALLS:
         fn = _handle_ts_test_call(call, args, bytes_, lines)
         if fn:
             funcs.append(fn)
-    elif name in {"describe", "context", "suite"}:
+    elif name in _TS_SUITE_CALLS:
         _handle_ts_suite_call(args, funcs, bytes_, lines)
 
 

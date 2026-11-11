@@ -123,7 +123,7 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 - [x] T028 [US4] In `scripts/_code_health/ts_parser.py`, detect calls to `eval`, `new Function`, string arguments in timers, `__proto__` assignments, `with_statement`, and SQL/query string concatenation/template interpolation
 - [x] T029 [US4] In `scripts/_code_health/profiles_ts.py`, implement Security deductions in `evaluate_function` for all security and query injection constructs
-- [ ] T030 [US4] [REVIEW] **Checkpoint**: User Story 4 verified. All security smells and query injection patterns trigger exact findings and deductions without false positives.
+- [x] T030 [US4] [REVIEW] **Checkpoint**: User Story 4 verified. All security smells and query injection patterns trigger exact findings and deductions without false positives.
 
 ---
 
@@ -136,13 +136,13 @@ description: "Phased task breakdown for TypeScript Language Profile"
 
 > Write these tests FIRST in `tests/unit/test_typescript_health.py`. Verify they FAIL before implementation.
 
-- [ ] T031 [P] [TDD] [US5] Write unit tests in `tests/unit/test_typescript_health.py` verifying test file detection (`*.test.ts`, `*.spec.ts`, `*.test.tsx`, `*.spec.tsx`, `__tests__/`) and BDD test block extraction (`it(...)`, `test(...)`) with `is_test=True` and `name="test: " + title`
-- [ ] T032 [P] [TDD] [US5] Write unit tests in `tests/unit/test_typescript_health.py` verifying assertion matcher recognition (`expect`, `assert`, `should`, `toBe`, `toEqual`) and assertion hygiene (flagging 0 assertions or >8 assertions)
+- [x] T031 [P] [TDD] [US5] Write unit tests in `tests/unit/test_typescript_health.py` verifying test file detection (`*.test.ts`, `*.spec.ts`, `*.test.tsx`, `*.spec.tsx`, `__tests__/`) and BDD test block extraction (`it(...)`, `test(...)`) with `is_test=True` and `name="test: " + title`
+- [x] T032 [P] [TDD] [US5] Write unit tests in `tests/unit/test_typescript_health.py` verifying assertion matcher recognition (`expect`, `assert`, `should`, `toBe`, `toEqual`) and assertion hygiene (flagging 0 assertions or >8 assertions)
 
 ### Implementation for User Story 5
 
-- [ ] T033 [US5] In `scripts/_code_health/ts_parser.py`, extract callbacks inside `it()` and `test()` call expressions as `IRFunction(is_test=True, name="test: " + title)`
-- [ ] T034 [US5] In `scripts/_code_health/profiles_ts.py` and `scripts/_code_health/ir_scorer.py`, recognize assertion matchers and deduplicate assertion counts for TypeScript test callbacks
+- [x] T033 [US5] In `scripts/_code_health/ts_parser.py`, extract callbacks inside `it()` and `test()` call expressions as `IRFunction(is_test=True, name="test: " + title)`
+- [x] T034 [US5] In `scripts/_code_health/profiles_ts.py` and `scripts/_code_health/ir_scorer.py`, recognize assertion matchers and deduplicate assertion counts for TypeScript test callbacks
 - [ ] T035 [US5] [REVIEW] **Checkpoint**: User Story 5 verified. Test suites evaluate accurately without false docstring or assertion penalties.
 
 ---

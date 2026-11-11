@@ -74,5 +74,18 @@ class TypeScriptLanguageProfile(JavaScriptLanguageProfile):
         penalties.extend(self._eval_ts_query_injection(func))
         return penalties
 
+    def is_test_assert_call(self, call_name: str) -> bool:
+        """Recognize Jest, Vitest, Mocha, and Testing Library assertion matchers."""
+        if super().is_test_assert_call(call_name):
+            return True
+        return call_name.split(".")[-1] in _TS_EXTRA_MATCHERS
+
+
+_TS_EXTRA_MATCHERS = frozenset({
+    "toBeDefined", "toBeUndefined", "toBeNull", "toContain", "toMatch",
+    "toMatchObject", "toHaveBeenCalled", "toHaveBeenCalledWith",
+    "toHaveBeenCalledTimes", "toHaveProperty", "toBeInstanceOf",
+    "toBeGreaterThan", "toBeLessThan", "toBeInTheDocument",
+})
 
 TYPESCRIPT_PROFILE = TypeScriptLanguageProfile()

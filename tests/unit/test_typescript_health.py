@@ -585,3 +585,63 @@ def test_ts_security_sql_query_injection_and_safe_queries(tmp_path: Path) -> Non
     r4 = scorer.score_function(mod.functions[3], "sqli.ts", is_test=False)
     assert r4.scores.security == 100.0
 
+
+def test_ts_test_file_paths_and_bdd_blocks(tmp_path: Path) -> None:
+    for p in ["a.test.ts", "a.spec.ts", "Button.test.tsx", "Modal.spec.tsx", "src/__tests__/util.ts"]:
+        assert is_test_file_path(p) is True
+    assert is_test_file_path("src/service.ts") is False
+
+    tsx_test = tmp_path / "Button.test.tsx"
+    tsx_test.write_text(
+        """describe('Button', () => {
+  it('renders label', () => { expect(1).toBe(1); });
+  describe.only('variants', () => {
+    it.only('handles click', () => { expect('a').toContain('a'); });
+    test.skip('is disabled', () => { expect(true).toBeTruthy(); });
+  });
+});
+""",
+        encoding="utf-8",
+    )
+    mod = parse_typescript_file(tsx_test, str(tsx_test), is_test=True)
+    assert [f.name for f in mod.functions] == [
+        "test: renders label",
+        "test: handles click",
+        "test: is disabled",
+    ]
+    assert all(f.is_test for f in mod.functions)
+
+
+def test_ts_assertion_matchers_recognized() -> None:
+    for matcher in ("expect", "assert", "should", "toBe", "toEqual", "toBeDefined", "toContain", "toBeInTheDocument"):
+        assert TYPESCRIPT_PROFILE.is_test_assert_call(matcher) is True
+
+
+def test_ts_test_assertion_hygiene_scoring(tmp_path: Path) -> None:
+    many = "\n  ".join(f"expect({i}).toBe({i});" for i in range(10))
+    test_file = tmp_path / "math.spec.ts"
+    test_file.write_text(
+        f"""it('valid assertions', () => {{
+  expect(1 + 1).toBe(2); expect('ab').toBeDefined();
+  assert.strictEqual(2, 2); obj.should.equal(2);
+}});
+test('missing assertions', () => {{
+  const x = /^[a-z]+$/.test('abc');
+}});
+it('too many assertions', () => {{
+  {many}
+}});
+""",
+        encoding="utf-8",
+    )
+    mod = parse_typescript_file(test_file, str(test_file), is_test=True)
+    scorer = UniversalIRScorer(RubricConfig(), TYPESCRIPT_PROFILE)
+    r_valid = scorer.score_function(mod.functions[0], "math.spec.ts", is_test=True)
+    r_zero = scorer.score_function(mod.functions[1], "math.spec.ts", is_test=True)
+    r_many = scorer.score_function(mod.functions[2], "math.spec.ts", is_test=True)
+    assert len(mod.functions) == 3
+    assert r_valid.scores.clean == 100.0
+    assert r_zero.scores.clean == 70.0
+    assert r_many.scores.clean == 94.0
+
+
