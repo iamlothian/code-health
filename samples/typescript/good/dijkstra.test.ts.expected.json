@@ -1,0 +1,31 @@
+{
+  "id": "typescript_dijkstra_test_clean",
+  "pair_id": "typescript_test_hygiene",
+  "scenario_title": "7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/dijkstra.test.ts",
+  "is_test": true,
+  "source_dataset": "Custom TypeScript Test Benchmark",
+  "source_url": "https://vitest.dev/",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 31,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/dijkstra.test.ts       test     31    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/dijkstra.test.ts:7 test: com   11   1    0   0   0  100.0   A\nsamples/typescript/good/dijkstra.test.ts:19 test: re   10   1    0   0   0  100.0   A\nsamples/typescript/good/dijkstra.test.ts:30 test: re    7   1    0   0   0  100.0   A\n"
+  }
+}

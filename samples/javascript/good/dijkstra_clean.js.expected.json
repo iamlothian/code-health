@@ -1,0 +1,31 @@
+{
+  "id": "javascript_dijkstra_clean",
+  "pair_id": "javascript_graph_complexity",
+  "scenario_title": "2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/dijkstra_clean.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Graphs/Dijkstra.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 41,
+    "classes_count": 0,
+    "functions_count": 4,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/dijkstra_clean.js      src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/dijkstra_clean.js:8 initDist    8   2    1   2   1  100.0   A\nsamples/javascript/good/dijkstra_clean.js:24 minDist   12   4    3   2   2  100.0   A\nsamples/javascript/good/dijkstra_clean.js:45 relaxNe    8   3    3   3   2  100.0   A\nsamples/javascript/good/dijkstra_clean.js:61 dijkstr   12   2    1   2   1  100.0   A\n"
+  }
+}

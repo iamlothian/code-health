@@ -1,0 +1,31 @@
+{
+  "id": "typescript_task_board_service_clean",
+  "pair_id": "typescript_task_board_service",
+  "scenario_title": "5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/task_board_service_clean.ts",
+  "is_test": false,
+  "source_dataset": "Custom TypeScript Benchmark",
+  "source_url": "https://www.typescriptlang.org/docs/",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 39,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/task_board_service_clean.ts src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/task_board_service_clean.ts:    5   5    1   3   1  100.0   A\nsamples/typescript/good/task_board_service_clean.ts:   10   1    0   3   0  100.0   A\nsamples/typescript/good/task_board_service_clean.ts:   12   3    3   1   2  100.0   A\n"
+  }
+}

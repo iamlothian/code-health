@@ -1,0 +1,31 @@
+{
+  "id": "javascript_clean_math_service",
+  "pair_id": "javascript_service_quality",
+  "scenario_title": "1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/clean_math_service.js",
+  "is_test": false,
+  "source_dataset": "Custom JavaScript Benchmark",
+  "source_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 21,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/clean_math_service.js  src      21    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/clean_math_service.js:4 Ma    20    5     1    6  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/clean_math_service.js:5 Math    3   1    0   1   0  100.0   A\nsamples/javascript/good/clean_math_service.js:14 Mat    3   1    0   2   0  100.0   A\nsamples/javascript/good/clean_math_service.js:23 Mat    3   1    0   2   0  100.0   A\nsamples/javascript/good/clean_math_service.js:32 Mat    3   1    0   2   0  100.0   A\nsamples/javascript/good/clean_math_service.js:41 Mat    6   2    1   2   1  100.0   A\n"
+  }
+}

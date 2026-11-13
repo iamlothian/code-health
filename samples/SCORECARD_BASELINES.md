@@ -32,28 +32,28 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `java (spring-boot)` | 2. JDBC SQL Query Endpoint: Parameterized vs String Concatenation (OWASP WebGoat sqlinjection/) | **BAD** | [`java-spring/bad/SqlInjectionLesson8.java`](java-spring/bad/SqlInjectionLesson8.java) | [OWASP WebGoat (sqlinjection/introduction/SqlInjectionLesson8.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java) | 104 | 90.4 | 94.0 | 97.6 | 77.0 | 60.0 | **65.0** | **D** |
 | `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **GOOD** | [`java-spring/good/PetControllerTests.java`](java-spring/good/PetControllerTests.java) | [spring-projects/spring-petclinic (owner/PetControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java) | 193 | 100.0 | 100.0 | 100.0 | 92.0 | 100.0 | **98.8** | **A** |
 | `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **BAD** | [`java-spring/bad/OwnerControllerTests.java`](java-spring/bad/OwnerControllerTests.java) | [spring-projects/spring-petclinic (owner/OwnerControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java) | 224 | 60.0 | 90.4 | 100.0 | 91.8 | 100.0 | **65.0** | **D** |
-| `javascript (none)` | 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script | **GOOD** | [`javascript/clean_math_service.js`](javascript/clean_math_service.js) | [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | 21 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (none)` | 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script | **BAD** | [`javascript/smelly_legacy_script.js`](javascript/smelly_legacy_script.js) | [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | 19 | 100.0 | 100.0 | 100.0 | 53.0 | 0.0 | **5.0** | **F** |
-| `javascript (none)` | 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow | **GOOD** | [`javascript/dijkstra_clean.js`](javascript/dijkstra_clean.js) | [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) | 41 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (none)` | 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow | **BAD** | [`javascript/dijkstra_branchy.js`](javascript/dijkstra_branchy.js) | [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) | 79 | 100.0 | 0.0 | 0.0 | 55.0 | 100.0 | **5.0** | **F** |
-| `javascript (none)` | 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size | **GOOD** | [`javascript/trie_clean.js`](javascript/trie_clean.js) | [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) | 42 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (none)` | 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size | **BAD** | [`javascript/trie_god_class.js`](javascript/trie_god_class.js) | [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) | 92 | 0.0 | 100.0 | 100.0 | 78.0 | 100.0 | **5.0** | **F** |
-| `javascript (none)` | 4. BDD Algorithmic Test Suite Hygiene & Assertion Density | **GOOD** | [`javascript/graph_algorithms.test.js`](javascript/graph_algorithms.test.js) | [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) | 33 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (none)` | 4. BDD Algorithmic Test Suite Hygiene & Assertion Density | **BAD** | [`javascript/graph_algorithms_bad.test.js`](javascript/graph_algorithms_bad.test.js) | [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) | 41 | 100.0 | 100.0 | 100.0 | 70.0 | 100.0 | **75.0** | **C** |
-| `typescript (auto)` | 1. Strictly Typed TypeScript Arithmetic Service vs. Legacy Escape-Hatch Script | **GOOD** | [`typescript/clean_math_service.ts`](typescript/clean_math_service.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 24 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 1. Strictly Typed TypeScript Arithmetic Service vs. Legacy Escape-Hatch Script | **BAD** | [`typescript/smelly_legacy_script.ts`](typescript/smelly_legacy_script.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 19 | 94.0 | 100.0 | 100.0 | 21.0 | 0.0 | **5.0** | **F** |
-| `typescript (auto)` | 2. Graph Shortest-Path Algorithmic Complexity (Decomposed Typed Dijkstra vs. Monolith) | **GOOD** | [`typescript/dijkstra_clean.ts`](typescript/dijkstra_clean.ts) | [Custom TypeScript Benchmark (modeled after TheAlgorithms Dijkstra)](https://github.com/TheAlgorithms/TypeScript) | 88 | 100.0 | 100.0 | 99.0 | 100.0 | 100.0 | **99.8** | **A** |
-| `typescript (auto)` | 2. Graph Shortest-Path Algorithmic Complexity (Decomposed Typed Dijkstra vs. Monolith) | **BAD** | [`typescript/dijkstra_branchy.ts`](typescript/dijkstra_branchy.ts) | [Custom TypeScript Benchmark (Legacy Branchy Shortest Path)](https://github.com/TheAlgorithms/TypeScript) | 81 | 82.0 | 0.0 | 0.0 | 8.0 | 100.0 | **5.0** | **F** |
-| `typescript (auto)` | 3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class) | **GOOD** | [`typescript/lru_cache_clean.ts`](typescript/lru_cache_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) | 70 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class) | **BAD** | [`typescript/lru_cache_god_class.ts`](typescript/lru_cache_god_class.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) | 86 | 50.0 | 100.0 | 100.0 | 65.8 | 100.0 | **55.0** | **F** |
-| `typescript (auto)` | 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation) | **GOOD** | [`typescript/order_repository_clean.ts`](typescript/order_repository_clean.ts) | [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) | 52 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation) | **BAD** | [`typescript/order_repository_unsafe.ts`](typescript/order_repository_unsafe.ts) | [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) | 34 | 82.6 | 100.0 | 100.0 | 53.6 | 20.0 | **25.0** | **F** |
-| `typescript (auto)` | 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor | **GOOD** | [`typescript/task_board_service_clean.ts`](typescript/task_board_service_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 39 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor | **BAD** | [`typescript/task_board_service_legacy.ts`](typescript/task_board_service_legacy.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 39 | 85.0 | 23.0 | 0.0 | 46.0 | 100.0 | **5.0** | **F** |
-| `typescript (auto)` | 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler | **GOOD** | [`typescript/webhook_dispatcher_clean.ts`](typescript/webhook_dispatcher_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 47 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler | **BAD** | [`typescript/webhook_dispatcher_smelly.ts`](typescript/webhook_dispatcher_smelly.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 53 | 82.0 | 29.0 | 0.0 | 45.0 | 80.0 | **5.0** | **F** |
-| `typescript (auto)` | 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety | **GOOD** | [`typescript/dijkstra.test.ts`](typescript/dijkstra.test.ts) | [Custom TypeScript Test Benchmark](https://vitest.dev/) | 31 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety | **BAD** | [`typescript/dijkstra_bad.test.ts`](typescript/dijkstra_bad.test.ts) | [Custom TypeScript Test Benchmark](https://vitest.dev/) | 28 | 100.0 | 100.0 | 100.0 | 61.8 | 100.0 | **66.8** | **D** |
+| `javascript (none)` | 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script | **GOOD** | [`javascript/good/clean_math_service.js`](javascript/good/clean_math_service.js) | [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | 21 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script | **BAD** | [`javascript/bad/smelly_legacy_script.js`](javascript/bad/smelly_legacy_script.js) | [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | 19 | 100.0 | 100.0 | 100.0 | 53.0 | 0.0 | **5.0** | **F** |
+| `javascript (none)` | 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow | **GOOD** | [`javascript/good/dijkstra_clean.js`](javascript/good/dijkstra_clean.js) | [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) | 41 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow | **BAD** | [`javascript/bad/dijkstra_branchy.js`](javascript/bad/dijkstra_branchy.js) | [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) | 79 | 100.0 | 0.0 | 0.0 | 55.0 | 100.0 | **5.0** | **F** |
+| `javascript (none)` | 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size | **GOOD** | [`javascript/good/trie_clean.js`](javascript/good/trie_clean.js) | [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) | 42 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size | **BAD** | [`javascript/bad/trie_god_class.js`](javascript/bad/trie_god_class.js) | [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) | 92 | 0.0 | 100.0 | 100.0 | 78.0 | 100.0 | **5.0** | **F** |
+| `javascript (none)` | 4. BDD Algorithmic Test Suite Hygiene & Assertion Density | **GOOD** | [`javascript/good/graph_algorithms.test.js`](javascript/good/graph_algorithms.test.js) | [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) | 33 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (none)` | 4. BDD Algorithmic Test Suite Hygiene & Assertion Density | **BAD** | [`javascript/bad/graph_algorithms_bad.test.js`](javascript/bad/graph_algorithms_bad.test.js) | [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) | 41 | 100.0 | 100.0 | 100.0 | 70.0 | 100.0 | **75.0** | **C** |
+| `typescript (auto)` | 1. Strictly Typed TypeScript Arithmetic Service vs. Legacy Escape-Hatch Script | **GOOD** | [`typescript/good/clean_math_service.ts`](typescript/good/clean_math_service.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 24 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 1. Strictly Typed TypeScript Arithmetic Service vs. Legacy Escape-Hatch Script | **BAD** | [`typescript/bad/smelly_legacy_script.ts`](typescript/bad/smelly_legacy_script.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 19 | 94.0 | 100.0 | 100.0 | 21.0 | 0.0 | **5.0** | **F** |
+| `typescript (auto)` | 2. Graph Shortest-Path Algorithmic Complexity (Decomposed Typed Dijkstra vs. Monolith) | **GOOD** | [`typescript/good/dijkstra_clean.ts`](typescript/good/dijkstra_clean.ts) | [Custom TypeScript Benchmark (modeled after TheAlgorithms Dijkstra)](https://github.com/TheAlgorithms/TypeScript) | 88 | 100.0 | 100.0 | 99.0 | 100.0 | 100.0 | **99.8** | **A** |
+| `typescript (auto)` | 2. Graph Shortest-Path Algorithmic Complexity (Decomposed Typed Dijkstra vs. Monolith) | **BAD** | [`typescript/bad/dijkstra_branchy.ts`](typescript/bad/dijkstra_branchy.ts) | [Custom TypeScript Benchmark (Legacy Branchy Shortest Path)](https://github.com/TheAlgorithms/TypeScript) | 81 | 82.0 | 0.0 | 0.0 | 8.0 | 100.0 | **5.0** | **F** |
+| `typescript (auto)` | 3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class) | **GOOD** | [`typescript/good/lru_cache_clean.ts`](typescript/good/lru_cache_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) | 70 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class) | **BAD** | [`typescript/bad/lru_cache_god_class.ts`](typescript/bad/lru_cache_god_class.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) | 86 | 50.0 | 100.0 | 100.0 | 65.8 | 100.0 | **55.0** | **F** |
+| `typescript (auto)` | 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation) | **GOOD** | [`typescript/good/order_repository_clean.ts`](typescript/good/order_repository_clean.ts) | [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) | 52 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation) | **BAD** | [`typescript/bad/order_repository_unsafe.ts`](typescript/bad/order_repository_unsafe.ts) | [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) | 34 | 82.6 | 100.0 | 100.0 | 53.6 | 20.0 | **25.0** | **F** |
+| `typescript (auto)` | 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor | **GOOD** | [`typescript/good/task_board_service_clean.ts`](typescript/good/task_board_service_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 39 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor | **BAD** | [`typescript/bad/task_board_service_legacy.ts`](typescript/bad/task_board_service_legacy.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 39 | 85.0 | 23.0 | 0.0 | 46.0 | 100.0 | **5.0** | **F** |
+| `typescript (auto)` | 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler | **GOOD** | [`typescript/good/webhook_dispatcher_clean.ts`](typescript/good/webhook_dispatcher_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 47 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler | **BAD** | [`typescript/bad/webhook_dispatcher_smelly.ts`](typescript/bad/webhook_dispatcher_smelly.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 53 | 82.0 | 29.0 | 0.0 | 45.0 | 80.0 | **5.0** | **F** |
+| `typescript (auto)` | 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety | **GOOD** | [`typescript/good/dijkstra.test.ts`](typescript/good/dijkstra.test.ts) | [Custom TypeScript Test Benchmark](https://vitest.dev/) | 31 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety | **BAD** | [`typescript/bad/dijkstra_bad.test.ts`](typescript/bad/dijkstra_bad.test.ts) | [Custom TypeScript Test Benchmark](https://vitest.dev/) | 28 | 100.0 | 100.0 | 100.0 | 61.8 | 100.0 | **66.8** | **D** |
 | `typescript (react)` | 1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board | **GOOD** | [`typescript-react/good/task_filter_bar.tsx`](typescript-react/good/task_filter_bar.tsx) | [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) | 75 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (react)` | 1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board | **BAD** | [`typescript-react/bad/task_board_legacy.tsx`](typescript-react/bad/task_board_legacy.tsx) | [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) | 51 | 79.0 | 6.5 | 0.0 | 46.0 | 100.0 | **5.0** | **F** |
 | `typescript (react)` | 2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS | **GOOD** | [`typescript-react/good/task_preview_clean.tsx`](typescript-react/good/task_preview_clean.tsx) | [Custom TypeScript/React Benchmark](https://react.dev/reference/rules/rules-of-hooks) | 42 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
@@ -1089,7 +1089,7 @@ samples/java-spring/bad/OwnerControllerTests.java:29   16   1    0   0   0  100.
 
 ### JAVASCRIPT (`--lang javascript`) — 1. Modern ECMAScript Arithmetic Service vs. Legacy Smelly Script
 
-#### Good Baseline: [`javascript/clean_math_service.js`](javascript/clean_math_service.js) ([sidecar JSON](javascript/clean_math_service.js.expected.json))
+#### Good Baseline: [`javascript/good/clean_math_service.js`](javascript/good/clean_math_service.js) ([sidecar JSON](javascript/good/clean_math_service.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1103,24 +1103,24 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/clean_math_service.js       src      21    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/clean_math_service.js  src      21    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/clean_math_service.js:4 MathSer    20    5     1    6  100.0   A
+samples/javascript/good/clean_math_service.js:4 Ma    20    5     1    6  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/clean_math_service.js:5 MathServi    3   1    0   1   0  100.0   A
-samples/javascript/clean_math_service.js:14 MathServ    3   1    0   2   0  100.0   A
-samples/javascript/clean_math_service.js:23 MathServ    3   1    0   2   0  100.0   A
-samples/javascript/clean_math_service.js:32 MathServ    3   1    0   2   0  100.0   A
-samples/javascript/clean_math_service.js:41 MathServ    6   2    1   2   1  100.0   A
+samples/javascript/good/clean_math_service.js:5 Math    3   1    0   1   0  100.0   A
+samples/javascript/good/clean_math_service.js:14 Mat    3   1    0   2   0  100.0   A
+samples/javascript/good/clean_math_service.js:23 Mat    3   1    0   2   0  100.0   A
+samples/javascript/good/clean_math_service.js:32 Mat    3   1    0   2   0  100.0   A
+samples/javascript/good/clean_math_service.js:41 Mat    6   2    1   2   1  100.0   A
 ```
 
-#### Bad Baseline: [`javascript/smelly_legacy_script.js`](javascript/smelly_legacy_script.js) ([sidecar JSON](javascript/smelly_legacy_script.js.expected.json))
+#### Bad Baseline: [`javascript/bad/smelly_legacy_script.js`](javascript/bad/smelly_legacy_script.js) ([sidecar JSON](javascript/bad/smelly_legacy_script.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom JavaScript Benchmark](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 53.0` | `Security: 0.0`
@@ -1134,12 +1134,12 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 53.0 | Secur
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/smelly_legacy_script.js     src      19    - 100.0 100.0 100.0  53.0   0.0    5.0   F
+samples/javascript/bad/smelly_legacy_script.js src      19    - 100.0 100.0 100.0  53.0   0.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/smelly_legacy_script.js:3 process   18   4    5   2   3    5.0   F
+samples/javascript/bad/smelly_legacy_script.js:3 pro   18   4    5   2   3    5.0   F
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 3 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-9.0 pts)
     - Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)
@@ -1155,7 +1155,7 @@ samples/javascript/smelly_legacy_script.js:3 process   18   4    5   2   3    5.
 
 ### JAVASCRIPT (`--lang javascript`) — 2. Graph Dijkstra Shortest Path Algorithm Complexity & Control Flow
 
-#### Good Baseline: [`javascript/dijkstra_clean.js`](javascript/dijkstra_clean.js) ([sidecar JSON](javascript/dijkstra_clean.js.expected.json))
+#### Good Baseline: [`javascript/good/dijkstra_clean.js`](javascript/good/dijkstra_clean.js) ([sidecar JSON](javascript/good/dijkstra_clean.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1169,18 +1169,18 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/dijkstra_clean.js           src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/dijkstra_clean.js      src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/dijkstra_clean.js:8 initDistances    8   2    1   2   1  100.0   A
-samples/javascript/dijkstra_clean.js:24 minDistanceN   12   4    3   2   2  100.0   A
-samples/javascript/dijkstra_clean.js:45 relaxNeighbo    8   3    3   3   2  100.0   A
-samples/javascript/dijkstra_clean.js:61 dijkstra       12   2    1   2   1  100.0   A
+samples/javascript/good/dijkstra_clean.js:8 initDist    8   2    1   2   1  100.0   A
+samples/javascript/good/dijkstra_clean.js:24 minDist   12   4    3   2   2  100.0   A
+samples/javascript/good/dijkstra_clean.js:45 relaxNe    8   3    3   3   2  100.0   A
+samples/javascript/good/dijkstra_clean.js:61 dijkstr   12   2    1   2   1  100.0   A
 ```
 
-#### Bad Baseline: [`javascript/dijkstra_branchy.js`](javascript/dijkstra_branchy.js) ([sidecar JSON](javascript/dijkstra_branchy.js.expected.json))
+#### Bad Baseline: [`javascript/bad/dijkstra_branchy.js`](javascript/bad/dijkstra_branchy.js) ([sidecar JSON](javascript/bad/dijkstra_branchy.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Graphs/Dijkstra.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Graphs/Dijkstra.js) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 55.0` | `Security: 100.0`
@@ -1194,12 +1194,12 @@ Dimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 0.0 | Clean: 55.0 | Security:
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/dijkstra_branchy.js         src      79    - 100.0   0.0   0.0  55.0 100.0    5.0   F
+samples/javascript/bad/dijkstra_branchy.js     src      79    - 100.0   0.0   0.0  55.0 100.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/dijkstra_branchy.js:1 dijkstra      78  29   73   7   8    5.0   F
+samples/javascript/bad/dijkstra_branchy.js:1 dijkstr   78  29   73   7   8    5.0   F
     - Size: LOC=78 (>25) (-100.0 pts)
     - Size: params=7 (>4) (-18.0 pts)
     - Size: nesting depth=8 (>3) (-50.0 pts)
@@ -1215,7 +1215,7 @@ samples/javascript/dijkstra_branchy.js:1 dijkstra      78  29   73   7   8    5.
 
 ### JAVASCRIPT (`--lang javascript`) — 3. Trie Prefix Tree Data Structure OOP Cohesion & Class Size
 
-#### Good Baseline: [`javascript/trie_clean.js`](javascript/trie_clean.js) ([sidecar JSON](javascript/trie_clean.js.expected.json))
+#### Good Baseline: [`javascript/good/trie_clean.js`](javascript/good/trie_clean.js) ([sidecar JSON](javascript/good/trie_clean.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1229,25 +1229,25 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/trie_clean.js               src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/trie_clean.js          src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/trie_clean.js:4 TrieNode            6    1     1    1  100.0   A
-samples/javascript/trie_clean.js:17 Trie              35    4     1   10  100.0   A
+samples/javascript/good/trie_clean.js:4 TrieNode       6    1     1    1  100.0   A
+samples/javascript/good/trie_clean.js:17 Trie         35    4     1   10  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/trie_clean.js:8 TrieNode.construc    4   1    0   0   0  100.0   A
-samples/javascript/trie_clean.js:21 Trie.constructor    3   1    0   0   0  100.0   A
-samples/javascript/trie_clean.js:30 Trie.insert        10   3    3   1   2  100.0   A
-samples/javascript/trie_clean.js:47 Trie.search        10   3    3   1   2  100.0   A
-samples/javascript/trie_clean.js:64 Trie.startsWith    10   3    3   1   2  100.0   A
+samples/javascript/good/trie_clean.js:8 TrieNode.con    4   1    0   0   0  100.0   A
+samples/javascript/good/trie_clean.js:21 Trie.constr    3   1    0   0   0  100.0   A
+samples/javascript/good/trie_clean.js:30 Trie.insert   10   3    3   1   2  100.0   A
+samples/javascript/good/trie_clean.js:47 Trie.search   10   3    3   1   2  100.0   A
+samples/javascript/good/trie_clean.js:64 Trie.starts   10   3    3   1   2  100.0   A
 ```
 
-#### Bad Baseline: [`javascript/trie_god_class.js`](javascript/trie_god_class.js) ([sidecar JSON](javascript/trie_god_class.js.expected.json))
+#### Bad Baseline: [`javascript/bad/trie_god_class.js`](javascript/bad/trie_god_class.js) ([sidecar JSON](javascript/bad/trie_god_class.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Data-Structures/Trie/Trie.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Trie/Trie.js) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 0.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 78.0` | `Security: 100.0`
@@ -1261,12 +1261,12 @@ Dimensions -> SRP: 0.0 | Size: 100.0 | Complexity: 100.0 | Clean: 78.0 | Securit
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/trie_god_class.js           src      92    -   0.0 100.0 100.0  78.0 100.0    5.0   F
+samples/javascript/bad/trie_god_class.js       src      92    -   0.0 100.0 100.0  78.0 100.0    5.0   F
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/trie_god_class.js:1 TrieGodClas    91   16     6   25    5.0   F
+samples/javascript/bad/trie_god_class.js:1 TrieGod    91   16     6   25    5.0   F
     - SRP: LCOM4=6 disconnected method groups (-75.0 pts)
     - SRP: methods=16 (>10) (-24.0 pts)
     - SRP: self attributes=8 (>7) (-4.0 pts)
@@ -1275,48 +1275,48 @@ samples/javascript/trie_god_class.js:1 TrieGodClas    91   16     6   25    5.0 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/trie_god_class.js:13 TrieGodClass   11   3    3   1   2   98.2   A
+samples/javascript/bad/trie_god_class.js:13 TrieGodC   11   3    3   1   2   98.2   A
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
-samples/javascript/trie_god_class.js:25 TrieGodClass   11   3    3   1   2   98.2   A
+samples/javascript/bad/trie_god_class.js:25 TrieGodC   11   3    3   1   2   98.2   A
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
-samples/javascript/trie_god_class.js:37 TrieGodClass    3   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:37 TrieGodC    3   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (path) (-2.0 pts)
-samples/javascript/trie_god_class.js:41 TrieGodClass    3   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:41 TrieGodC    3   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (delim) (-2.0 pts)
-samples/javascript/trie_god_class.js:49 TrieGodClass    7   2    1   1   1   99.0   A
+samples/javascript/bad/trie_god_class.js:49 TrieGodC    7   2    1   1   1   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (records) (-2.0 pts)
-samples/javascript/trie_god_class.js:57 TrieGodClass    4   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:57 TrieGodC    4   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (msg) (-2.0 pts)
-samples/javascript/trie_god_class.js:70 TrieGodClass    3   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:70 TrieGodC    3   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (ms) (-2.0 pts)
-samples/javascript/trie_god_class.js:85 TrieGodClass    3   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:85 TrieGodC    3   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (key) (-2.0 pts)
-samples/javascript/trie_god_class.js:89 TrieGodClass    3   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:89 TrieGodC    3   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
-samples/javascript/trie_god_class.js:93 TrieGodClass    3   1    0   1   0   99.0   A
+samples/javascript/bad/trie_god_class.js:93 TrieGodC    3   1    0   1   0   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (word) (-2.0 pts)
-samples/javascript/trie_god_class.js:97 TrieGodClass    9   3    3   1   2   99.0   A
+samples/javascript/bad/trie_god_class.js:97 TrieGodC    9   3    3   1   2   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 unannotated parameter(s) without default values (tokens) (-2.0 pts)
-samples/javascript/trie_god_class.js:2 TrieGodClass.   10   1    0   0   0   99.2   A
+samples/javascript/bad/trie_god_class.js:2 TrieGodCl   10   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/javascript/trie_god_class.js:45 TrieGodClass    3   1    0   0   0   99.2   A
+samples/javascript/bad/trie_god_class.js:45 TrieGodC    3   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/javascript/trie_god_class.js:62 TrieGodClass    3   1    0   0   0   99.2   A
+samples/javascript/bad/trie_god_class.js:62 TrieGodC    3   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/javascript/trie_god_class.js:66 TrieGodClass    3   1    0   0   0   99.2   A
+samples/javascript/bad/trie_god_class.js:66 TrieGodC    3   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/javascript/trie_god_class.js:74 TrieGodClass   10   3    2   0   1   99.2   A
+samples/javascript/bad/trie_god_class.js:74 TrieGodC   10   3    2   0   1   99.2   A
     - Clean: missing public docstring (-5.0 pts)
 ```
 
@@ -1324,7 +1324,7 @@ samples/javascript/trie_god_class.js:74 TrieGodClass   10   3    2   0   1   99.
 
 ### JAVASCRIPT (`--lang javascript`) — 4. BDD Algorithmic Test Suite Hygiene & Assertion Density
 
-#### Good Baseline: [`javascript/graph_algorithms.test.js`](javascript/graph_algorithms.test.js) ([sidecar JSON](javascript/graph_algorithms.test.js.expected.json))
+#### Good Baseline: [`javascript/good/graph_algorithms.test.js`](javascript/good/graph_algorithms.test.js) ([sidecar JSON](javascript/good/graph_algorithms.test.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1338,17 +1338,17 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/graph_algorithms.test.js    test     33    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/graph_algorithms.test.js test     33    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/graph_algorithms.test.js:4 test:    11   1    0   0   0  100.0   A
-samples/javascript/graph_algorithms.test.js:16 test:   10   1    0   0   0  100.0   A
-samples/javascript/graph_algorithms.test.js:27 test:    9   1    0   0   0  100.0   A
+samples/javascript/good/graph_algorithms.test.js:4 t   11   1    0   0   0  100.0   A
+samples/javascript/good/graph_algorithms.test.js:16    10   1    0   0   0  100.0   A
+samples/javascript/good/graph_algorithms.test.js:27     9   1    0   0   0  100.0   A
 ```
 
-#### Bad Baseline: [`javascript/graph_algorithms_bad.test.js`](javascript/graph_algorithms_bad.test.js) ([sidecar JSON](javascript/graph_algorithms_bad.test.js.expected.json))
+#### Bad Baseline: [`javascript/bad/graph_algorithms_bad.test.js`](javascript/bad/graph_algorithms_bad.test.js) ([sidecar JSON](javascript/bad/graph_algorithms_bad.test.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (test suites)](https://github.com/TheAlgorithms/JavaScript) (`MIT`)
 - **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 70.0` | `Security: 100.0`
@@ -1362,14 +1362,14 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Secur
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/graph_algorithms_bad.test.js test     41    - 100.0 100.0 100.0  70.0 100.0   75.0   C
+samples/javascript/bad/graph_algorithms_bad.test.js test     41    - 100.0 100.0 100.0  70.0 100.0   75.0   C
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/graph_algorithms_bad.test.js:4 te   35   1    0   0   0   75.0   C
+samples/javascript/bad/graph_algorithms_bad.test.js:   35   1    0   0   0   75.0   C
     - Clean (Test): 19 assertions in single test (>8) (-30.0 pts)
-samples/javascript/graph_algorithms_bad.test.js:46 t    3   1    0   0   0   75.0   C
+samples/javascript/bad/graph_algorithms_bad.test.js:    3   1    0   0   0   75.0   C
     - Clean (Test): test has 0 assertions (-30.0 pts)
 ```
 
@@ -1377,7 +1377,7 @@ samples/javascript/graph_algorithms_bad.test.js:46 t    3   1    0   0   0   75.
 
 ### TYPESCRIPT (`--lang typescript`) — 1. Strictly Typed TypeScript Arithmetic Service vs. Legacy Escape-Hatch Script
 
-#### Good Baseline: [`typescript/clean_math_service.ts`](typescript/clean_math_service.ts) ([sidecar JSON](typescript/clean_math_service.ts.expected.json))
+#### Good Baseline: [`typescript/good/clean_math_service.ts`](typescript/good/clean_math_service.ts) ([sidecar JSON](typescript/good/clean_math_service.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1391,25 +1391,25 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/clean_math_service.ts       src      24    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/good/clean_math_service.ts  src      24    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/clean_math_service.ts:6 Calcula    21    5     1    6  100.0   A
+samples/typescript/good/clean_math_service.ts:6 Ca    21    5     1    6  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/clean_math_service.ts:10 Calculat    3   1    0   1   0  100.0   A
-samples/typescript/clean_math_service.ts:15 Calculat    3   1    0   2   0  100.0   A
-samples/typescript/clean_math_service.ts:20 Calculat    3   1    0   2   0  100.0   A
-samples/typescript/clean_math_service.ts:25 Calculat    3   1    0   2   0  100.0   A
-samples/typescript/clean_math_service.ts:30 Calculat    6   2    1   2   1  100.0   A
-samples/typescript/clean_math_service.ts:39 formatRe    3   1    0   2   0  100.0   A
+samples/typescript/good/clean_math_service.ts:10 Cal    3   1    0   1   0  100.0   A
+samples/typescript/good/clean_math_service.ts:15 Cal    3   1    0   2   0  100.0   A
+samples/typescript/good/clean_math_service.ts:20 Cal    3   1    0   2   0  100.0   A
+samples/typescript/good/clean_math_service.ts:25 Cal    3   1    0   2   0  100.0   A
+samples/typescript/good/clean_math_service.ts:30 Cal    6   2    1   2   1  100.0   A
+samples/typescript/good/clean_math_service.ts:39 for    3   1    0   2   0  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/smelly_legacy_script.ts`](typescript/smelly_legacy_script.ts) ([sidecar JSON](typescript/smelly_legacy_script.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/smelly_legacy_script.ts`](typescript/bad/smelly_legacy_script.ts) ([sidecar JSON](typescript/bad/smelly_legacy_script.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 94.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 21.0` | `Security: 0.0`
@@ -1423,12 +1423,12 @@ Dimensions -> SRP: 94.0 | Size: 100.0 | Complexity: 100.0 | Clean: 21.0 | Securi
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/smelly_legacy_script.ts     src      19    -  94.0 100.0 100.0  21.0   0.0    5.0   F
+samples/typescript/bad/smelly_legacy_script.ts src      19    -  94.0 100.0 100.0  21.0   0.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/smelly_legacy_script.ts:4 process   19   5    6   3   3    5.0   F
+samples/typescript/bad/smelly_legacy_script.ts:4 pro   19   5    6   3   3    5.0   F
     - SRP: boolean flag parameter with default value (-6.0 pts)
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 1 untyped param(s) (rawInput) (-5.0 pts)
@@ -1452,7 +1452,7 @@ samples/typescript/smelly_legacy_script.ts:4 process   19   5    6   3   3    5.
 
 ### TYPESCRIPT (`--lang typescript`) — 2. Graph Shortest-Path Algorithmic Complexity (Decomposed Typed Dijkstra vs. Monolith)
 
-#### Good Baseline: [`typescript/dijkstra_clean.ts`](typescript/dijkstra_clean.ts) ([sidecar JSON](typescript/dijkstra_clean.ts.expected.json))
+#### Good Baseline: [`typescript/good/dijkstra_clean.ts`](typescript/good/dijkstra_clean.ts) ([sidecar JSON](typescript/good/dijkstra_clean.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark (modeled after TheAlgorithms Dijkstra)](https://github.com/TheAlgorithms/TypeScript) (`MIT`)
 - **Expected Scorecard:** `Composite 99.8/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 99.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1466,20 +1466,20 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 99.0 | Clean: 100.0 | Secur
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra_clean.ts           src      88    - 100.0 100.0  99.0 100.0 100.0   99.8   A
+samples/typescript/good/dijkstra_clean.ts      src      88    - 100.0 100.0  99.0 100.0 100.0   99.8   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra_clean.ts:87 findShortest   20   6    4   3   2   99.2   A
+samples/typescript/good/dijkstra_clean.ts:87 findSho   20   6    4   3   2   99.2   A
     - Complexity: CC=6 (>5) (-4.0 pts)
-samples/typescript/dijkstra_clean.ts:16 initializeDi   15   3    2   2   1  100.0   A
-samples/typescript/dijkstra_clean.ts:34 findNearestU   15   4    3   2   2  100.0   A
-samples/typescript/dijkstra_clean.ts:52 relaxNeighbo   19   5    5   4   2  100.0   A
-samples/typescript/dijkstra_clean.ts:73 reconstructP   12   3    1   2   1  100.0   A
+samples/typescript/good/dijkstra_clean.ts:16 initial   15   3    2   2   1  100.0   A
+samples/typescript/good/dijkstra_clean.ts:34 findNea   15   4    3   2   2  100.0   A
+samples/typescript/good/dijkstra_clean.ts:52 relaxNe   19   5    5   4   2  100.0   A
+samples/typescript/good/dijkstra_clean.ts:73 reconst   12   3    1   2   1  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/dijkstra_branchy.ts`](typescript/dijkstra_branchy.ts) ([sidecar JSON](typescript/dijkstra_branchy.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/dijkstra_branchy.ts`](typescript/bad/dijkstra_branchy.ts) ([sidecar JSON](typescript/bad/dijkstra_branchy.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark (Legacy Branchy Shortest Path)](https://github.com/TheAlgorithms/TypeScript) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 82.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 8.0` | `Security: 100.0`
@@ -1493,12 +1493,12 @@ Dimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 0.0 | Clean: 8.0 | Security: 1
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra_branchy.ts         src      81    -  82.0   0.0   0.0   8.0 100.0    5.0   F
+samples/typescript/bad/dijkstra_branchy.ts     src      81    -  82.0   0.0   0.0   8.0 100.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra_branchy.ts:4 findShortes   81  28   86   7  10    5.0   F
+samples/typescript/bad/dijkstra_branchy.ts:4 findSho   81  28   86   7  10    5.0   F
     - SRP: boolean flag parameter with default value (-18.0 pts)
     - Size: LOC=81 (>25) (-100.0 pts)
     - Size: params=7 (>4) (-18.0 pts)
@@ -1520,7 +1520,7 @@ samples/typescript/dijkstra_branchy.ts:4 findShortes   81  28   86   7  10    5.
 
 ### TYPESCRIPT (`--lang typescript`) — 3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class)
 
-#### Good Baseline: [`typescript/lru_cache_clean.ts`](typescript/lru_cache_clean.ts) ([sidecar JSON](typescript/lru_cache_clean.ts.expected.json))
+#### Good Baseline: [`typescript/good/lru_cache_clean.ts`](typescript/good/lru_cache_clean.ts) ([sidecar JSON](typescript/good/lru_cache_clean.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1534,28 +1534,28 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/lru_cache_clean.ts          src      70    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/good/lru_cache_clean.ts     src      70    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/lru_cache_clean.ts:14 LRUCache     63    9     1   14  100.0   A
+samples/typescript/good/lru_cache_clean.ts:14 LRUC    63    9     1   14  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/lru_cache_clean.ts:21 LRUCache.co    5   2    1   1   1  100.0   A
-samples/typescript/lru_cache_clean.ts:28 LRUCache.ge   10   2    1   1   1  100.0   A
-samples/typescript/lru_cache_clean.ts:40 LRUCache.pu   10   3    2   2   1  100.0   A
-samples/typescript/lru_cache_clean.ts:52 LRUCache.ha    3   1    0   1   0  100.0   A
-samples/typescript/lru_cache_clean.ts:57 LRUCache.de    3   1    0   1   0  100.0   A
-samples/typescript/lru_cache_clean.ts:62 LRUCache.cl    6   1    0   0   0  100.0   A
-samples/typescript/lru_cache_clean.ts:70 LRUCache.ge    9   1    0   0   0  100.0   A
-samples/typescript/lru_cache_clean.ts:81 LRUCache.to    4   1    0   2   0  100.0   A
-samples/typescript/lru_cache_clean.ts:87 LRUCache.ev    7   2    1   0   1  100.0   A
+samples/typescript/good/lru_cache_clean.ts:21 LRUCac    5   2    1   1   1  100.0   A
+samples/typescript/good/lru_cache_clean.ts:28 LRUCac   10   2    1   1   1  100.0   A
+samples/typescript/good/lru_cache_clean.ts:40 LRUCac   10   3    2   2   1  100.0   A
+samples/typescript/good/lru_cache_clean.ts:52 LRUCac    3   1    0   1   0  100.0   A
+samples/typescript/good/lru_cache_clean.ts:57 LRUCac    3   1    0   1   0  100.0   A
+samples/typescript/good/lru_cache_clean.ts:62 LRUCac    6   1    0   0   0  100.0   A
+samples/typescript/good/lru_cache_clean.ts:70 LRUCac    9   1    0   0   0  100.0   A
+samples/typescript/good/lru_cache_clean.ts:81 LRUCac    4   1    0   2   0  100.0   A
+samples/typescript/good/lru_cache_clean.ts:87 LRUCac    7   2    1   0   1  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/lru_cache_god_class.ts`](typescript/lru_cache_god_class.ts) ([sidecar JSON](typescript/lru_cache_god_class.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/lru_cache_god_class.ts`](typescript/bad/lru_cache_god_class.ts) ([sidecar JSON](typescript/bad/lru_cache_god_class.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) (`MIT`)
 - **Expected Scorecard:** `Composite 55.0/100 (Grade F)` — `SRP: 50.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 65.8` | `Security: 100.0`
@@ -1569,13 +1569,13 @@ Dimensions -> SRP: 50.0 | Size: 100.0 | Complexity: 100.0 | Clean: 65.8 | Securi
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/lru_cache_god_class.ts      src      86    -  50.0 100.0 100.0  65.8 100.0   55.0   F
+samples/typescript/bad/lru_cache_god_class.ts  src      86    -  50.0 100.0 100.0  65.8 100.0   55.0   F
     - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/lru_cache_god_class.ts:4 Legacy    86   15     3   20   55.0   F
+samples/typescript/bad/lru_cache_god_class.ts:4 Le    86   15     3   20   55.0   F
     - SRP: LCOM4=3 disconnected method groups (-30.0 pts)
     - SRP: methods=15 (>10) (-20.0 pts)
     - Clean: missing class docstring (-15.0 pts)
@@ -1583,48 +1583,48 @@ samples/typescript/lru_cache_god_class.ts:4 Legacy    86   15     3   20   55.0 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/lru_cache_god_class.ts:27 LegacyC   11   2    1   1   1   96.7   A
+samples/typescript/bad/lru_cache_god_class.ts:27 Leg   11   2    1   1   1   96.7   A
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 1 untyped param(s) (key) (-5.0 pts)
     - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
     - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)
-samples/typescript/lru_cache_god_class.ts:39 LegacyC   12   3    2   2   1   96.7   A
+samples/typescript/bad/lru_cache_god_class.ts:39 Leg   12   3    2   2   1   96.7   A
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 1 untyped param(s) (key) (-5.0 pts)
     - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
     - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)
-samples/typescript/lru_cache_god_class.ts:13 LegacyC    9   1    0   1   0   98.5   A
+samples/typescript/bad/lru_cache_god_class.ts:13 Leg    9   1    0   1   0   98.5   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:52 LegacyC    3   1    0   1   0   98.5   A
+samples/typescript/bad/lru_cache_god_class.ts:52 Leg    3   1    0   1   0   98.5   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 untyped param(s) (key) (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:56 LegacyC    3   1    0   1   0   98.5   A
+samples/typescript/bad/lru_cache_god_class.ts:56 Leg    3   1    0   1   0   98.5   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 untyped param(s) (key) (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:64 LegacyC    3   1    0   1   0   98.5   A
+samples/typescript/bad/lru_cache_god_class.ts:64 Leg    3   1    0   1   0   98.5   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 untyped param(s) (message) (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:89 LegacyC    3   1    0   1   0   98.5   A
+samples/typescript/bad/lru_cache_god_class.ts:89 Leg    3   1    0   1   0   98.5   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 untyped param(s) (prefix) (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:84 LegacyC    4   2    1   0   1   99.0   A
+samples/typescript/bad/lru_cache_god_class.ts:84 Leg    4   2    1   0   1   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-2.0 pts)
-samples/typescript/lru_cache_god_class.ts:93 LegacyC    7   2    1   0   1   99.0   A
+samples/typescript/bad/lru_cache_god_class.ts:93 Leg    7   2    1   0   1   99.0   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 1 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-2.0 pts)
-samples/typescript/lru_cache_god_class.ts:23 LegacyC    3   1    0   1   0   99.2   A
+samples/typescript/bad/lru_cache_god_class.ts:23 Leg    3   1    0   1   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:60 LegacyC    3   1    0   0   0   99.2   A
+samples/typescript/bad/lru_cache_god_class.ts:60 Leg    3   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:68 LegacyC    5   1    0   0   0   99.2   A
+samples/typescript/bad/lru_cache_god_class.ts:68 Leg    5   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:74 LegacyC    4   1    0   0   0   99.2   A
+samples/typescript/bad/lru_cache_god_class.ts:74 Leg    4   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:79 LegacyC    4   1    0   0   0   99.2   A
+samples/typescript/bad/lru_cache_god_class.ts:79 Leg    4   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
-samples/typescript/lru_cache_god_class.ts:101 Legacy    3   1    0   0   0   99.2   A
+samples/typescript/bad/lru_cache_god_class.ts:101 Le    3   1    0   0   0   99.2   A
     - Clean: missing public docstring (-5.0 pts)
 ```
 
@@ -1633,7 +1633,7 @@ samples/typescript/lru_cache_god_class.ts:101 Legacy    3   1    0   0   0   99.
 
 ### TYPESCRIPT (`--lang typescript`) — 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation)
 
-#### Good Baseline: [`typescript/order_repository_clean.ts`](typescript/order_repository_clean.ts) ([sidecar JSON](typescript/order_repository_clean.ts.expected.json))
+#### Good Baseline: [`typescript/good/order_repository_clean.ts`](typescript/good/order_repository_clean.ts) ([sidecar JSON](typescript/good/order_repository_clean.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1647,24 +1647,24 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/order_repository_clean.ts   src      52    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/good/order_repository_clean.ts src      52    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/order_repository_clean.ts:24 Or    29    4     1    5  100.0   A
+samples/typescript/good/order_repository_clean.ts:    29    4     1    5  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/order_repository_clean.ts:26 Orde    1   1    0   1   0  100.0   A
-samples/typescript/order_repository_clean.ts:29 Orde    7   1    0   1   0  100.0   A
-samples/typescript/order_repository_clean.ts:38 Orde   11   1    0   3   0  100.0   A
-samples/typescript/order_repository_clean.ts:51 Orde    8   2    1   2   1  100.0   A
-samples/typescript/order_repository_clean.ts:62 sumP    9   4    3   1   2  100.0   A
+samples/typescript/good/order_repository_clean.ts:26    1   1    0   1   0  100.0   A
+samples/typescript/good/order_repository_clean.ts:29    7   1    0   1   0  100.0   A
+samples/typescript/good/order_repository_clean.ts:38   11   1    0   3   0  100.0   A
+samples/typescript/good/order_repository_clean.ts:51    8   2    1   2   1  100.0   A
+samples/typescript/good/order_repository_clean.ts:62    9   4    3   1   2  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/order_repository_unsafe.ts`](typescript/order_repository_unsafe.ts) ([sidecar JSON](typescript/order_repository_unsafe.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/order_repository_unsafe.ts`](typescript/bad/order_repository_unsafe.ts) ([sidecar JSON](typescript/bad/order_repository_unsafe.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) (`MIT`)
 - **Expected Scorecard:** `Composite 25.0/100 (Grade F)` — `SRP: 82.6` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 53.6` | `Security: 20.0`
@@ -1678,20 +1678,20 @@ Dimensions -> SRP: 82.6 | Size: 100.0 | Complexity: 100.0 | Clean: 53.6 | Securi
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/order_repository_unsafe.ts  src      34    -  82.6 100.0 100.0  53.6  20.0   25.0   F
+samples/typescript/bad/order_repository_unsafe.ts src      34    -  82.6 100.0 100.0  53.6  20.0   25.0   F
     - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/order_repository_unsafe.ts:4 Le    34    5     2    9   25.0   F
+samples/typescript/bad/order_repository_unsafe.ts:    34    5     2    9   25.0   F
     - SRP: LCOM4=2 disconnected method groups (-15.0 pts)
     - Clean: missing class docstring (-15.0 pts)
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/order_repository_unsafe.ts:23 Leg   15   4    6   3   3   25.0   F
+samples/typescript/bad/order_repository_unsafe.ts:23   15   4    6   3   3   25.0   F
     - SRP: boolean flag parameter with default value (-6.0 pts)
     - Clean: missing public docstring (-10.0 pts)
     - Clean: 2 untyped param(s) (orderId, nextStatus) (-10.0 pts)
@@ -1700,7 +1700,7 @@ samples/typescript/order_repository_unsafe.ts:23 Leg   15   4    6   3   3   25.
     - Clean: empty catch block swallows exception (-10.0 pts)
     - Security: dynamic code execution via new Function (-40.0 pts)
     - Security (TS): potential SQL/query injection in this.db.execute via string concatenation (-40.0 pts)
-samples/typescript/order_repository_unsafe.ts:11 Leg    7   2    1   3   1   65.0   D
+samples/typescript/bad/order_repository_unsafe.ts:11    7   2    1   3   1   65.0   D
     - SRP: boolean flag parameter with default value (-6.0 pts)
     - Clean: missing public docstring (-5.0 pts)
     - Clean: 2 untyped param(s) (customerId, statusFilter) (-10.0 pts)
@@ -1708,15 +1708,15 @@ samples/typescript/order_repository_unsafe.ts:11 Leg    7   2    1   3   1   65.
     - Clean: 1 legacy 'var' declaration(s) detected (prefer 'const' or 'let') (-3.0 pts)
     - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)
     - Security (TS): potential SQL/query injection in this.db.query via string concatenation (-40.0 pts)
-samples/typescript/order_repository_unsafe.ts:19 Leg    3   1    0   1   0   65.0   D
+samples/typescript/bad/order_repository_unsafe.ts:19    3   1    0   1   0   65.0   D
     - Clean: missing public docstring (-5.0 pts)
     - Clean (TS): 2 explicit 'any' type usage(s) defeat type safety (-10.0 pts)
     - Security (TS): potential SQL/query injection in this.db.$queryRawUnsafe via string concatenation (-40.0 pts)
-samples/typescript/order_repository_unsafe.ts:40 Leg    3   1    0   2   0   65.0   D
+samples/typescript/bad/order_repository_unsafe.ts:40    3   1    0   2   0   65.0   D
     - Clean: missing public docstring (-5.0 pts)
     - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
     - Security: dynamic code execution via eval (-40.0 pts)
-samples/typescript/order_repository_unsafe.ts:7 Lega    3   1    0   1   0   98.5   A
+samples/typescript/bad/order_repository_unsafe.ts:7     3   1    0   1   0   98.5   A
     - Clean: missing public docstring (-5.0 pts)
     - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
 ```
@@ -1726,7 +1726,7 @@ samples/typescript/order_repository_unsafe.ts:7 Lega    3   1    0   1   0   98.
 
 ### TYPESCRIPT (`--lang typescript`) — 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor
 
-#### Good Baseline: [`typescript/task_board_service_clean.ts`](typescript/task_board_service_clean.ts) ([sidecar JSON](typescript/task_board_service_clean.ts.expected.json))
+#### Good Baseline: [`typescript/good/task_board_service_clean.ts`](typescript/good/task_board_service_clean.ts) ([sidecar JSON](typescript/good/task_board_service_clean.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1740,17 +1740,17 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_board_service_clean.ts src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/good/task_board_service_clean.ts src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_board_service_clean.ts:21 ma    5   5    1   3   1  100.0   A
-samples/typescript/task_board_service_clean.ts:28 fi   10   1    0   3   0  100.0   A
-samples/typescript/task_board_service_clean.ts:40 su   12   3    3   1   2  100.0   A
+samples/typescript/good/task_board_service_clean.ts:    5   5    1   3   1  100.0   A
+samples/typescript/good/task_board_service_clean.ts:   10   1    0   3   0  100.0   A
+samples/typescript/good/task_board_service_clean.ts:   12   3    3   1   2  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/task_board_service_legacy.ts`](typescript/task_board_service_legacy.ts) ([sidecar JSON](typescript/task_board_service_legacy.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/task_board_service_legacy.ts`](typescript/bad/task_board_service_legacy.ts) ([sidecar JSON](typescript/bad/task_board_service_legacy.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 85.0` | `Size: 23.0` | `Complexity: 0.0` | `Clean: 46.0` | `Security: 100.0`
@@ -1764,12 +1764,12 @@ Dimensions -> SRP: 85.0 | Size: 23.0 | Complexity: 0.0 | Clean: 46.0 | Security:
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_board_service_legacy.ts src      39    -  85.0  23.0   0.0  46.0 100.0    5.0   F
+samples/typescript/bad/task_board_service_legacy.ts src      39    -  85.0  23.0   0.0  46.0 100.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_board_service_legacy.ts:4 pr   39  16   38   5   8    5.0   F
+samples/typescript/bad/task_board_service_legacy.ts:   39  16   38   5   8    5.0   F
     - SRP: high external call fan-out=7 (>6) (-3.0 pts)
     - SRP: boolean flag parameter with default value (-12.0 pts)
     - Size: LOC=39 (>25) (-21.0 pts)
@@ -1788,7 +1788,7 @@ samples/typescript/task_board_service_legacy.ts:4 pr   39  16   38   5   8    5.
 
 ### TYPESCRIPT (`--lang typescript`) — 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler
 
-#### Good Baseline: [`typescript/webhook_dispatcher_clean.ts`](typescript/webhook_dispatcher_clean.ts) ([sidecar JSON](typescript/webhook_dispatcher_clean.ts.expected.json))
+#### Good Baseline: [`typescript/good/webhook_dispatcher_clean.ts`](typescript/good/webhook_dispatcher_clean.ts) ([sidecar JSON](typescript/good/webhook_dispatcher_clean.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1802,18 +1802,18 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/webhook_dispatcher_clean.ts src      47    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/good/webhook_dispatcher_clean.ts src      47    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/webhook_dispatcher_clean.ts:23 ve    6   2    0   2   0  100.0   A
-samples/typescript/webhook_dispatcher_clean.ts:33 we    7   3    1   1   1  100.0   A
-samples/typescript/webhook_dispatcher_clean.ts:42 we    7   3    1   1   1  100.0   A
-samples/typescript/webhook_dispatcher_clean.ts:52 di   12   3    2   2   1  100.0   A
+samples/typescript/good/webhook_dispatcher_clean.ts:    6   2    0   2   0  100.0   A
+samples/typescript/good/webhook_dispatcher_clean.ts:    7   3    1   1   1  100.0   A
+samples/typescript/good/webhook_dispatcher_clean.ts:    7   3    1   1   1  100.0   A
+samples/typescript/good/webhook_dispatcher_clean.ts:   12   3    2   2   1  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/webhook_dispatcher_smelly.ts`](typescript/webhook_dispatcher_smelly.ts) ([sidecar JSON](typescript/webhook_dispatcher_smelly.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/webhook_dispatcher_smelly.ts`](typescript/bad/webhook_dispatcher_smelly.ts) ([sidecar JSON](typescript/bad/webhook_dispatcher_smelly.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 82.0` | `Size: 29.0` | `Complexity: 0.0` | `Clean: 45.0` | `Security: 80.0`
@@ -1827,12 +1827,12 @@ Dimensions -> SRP: 82.0 | Size: 29.0 | Complexity: 0.0 | Clean: 45.0 | Security:
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/webhook_dispatcher_smelly.ts src      53    -  82.0  29.0   0.0  45.0  80.0    5.0   F
+samples/typescript/bad/webhook_dispatcher_smelly.ts src      53    -  82.0  29.0   0.0  45.0  80.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/webhook_dispatcher_smelly.ts:3 di   53  18   26   5   5    5.0   F
+samples/typescript/bad/webhook_dispatcher_smelly.ts:   53  18   26   5   5    5.0   F
     - SRP: boolean flag parameter with default value (-18.0 pts)
     - Size: LOC=53 (>25) (-45.0 pts)
     - Size: params=5 (>4) (-6.0 pts)
@@ -1852,7 +1852,7 @@ samples/typescript/webhook_dispatcher_smelly.ts:3 di   53  18   26   5   5    5.
 
 ### TYPESCRIPT (`--lang typescript`) — 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety
 
-#### Good Baseline: [`typescript/dijkstra.test.ts`](typescript/dijkstra.test.ts) ([sidecar JSON](typescript/dijkstra.test.ts.expected.json))
+#### Good Baseline: [`typescript/good/dijkstra.test.ts`](typescript/good/dijkstra.test.ts) ([sidecar JSON](typescript/good/dijkstra.test.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Test Benchmark](https://vitest.dev/) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
@@ -1866,17 +1866,17 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Secu
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra.test.ts            test     31    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/good/dijkstra.test.ts       test     31    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra.test.ts:7 test: computes   11   1    0   0   0  100.0   A
-samples/typescript/dijkstra.test.ts:19 test: returns   10   1    0   0   0  100.0   A
-samples/typescript/dijkstra.test.ts:30 test: rejects    7   1    0   0   0  100.0   A
+samples/typescript/good/dijkstra.test.ts:7 test: com   11   1    0   0   0  100.0   A
+samples/typescript/good/dijkstra.test.ts:19 test: re   10   1    0   0   0  100.0   A
+samples/typescript/good/dijkstra.test.ts:30 test: re    7   1    0   0   0  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/dijkstra_bad.test.ts`](typescript/dijkstra_bad.test.ts) ([sidecar JSON](typescript/dijkstra_bad.test.ts.expected.json))
+#### Bad Baseline: [`typescript/bad/dijkstra_bad.test.ts`](typescript/bad/dijkstra_bad.test.ts) ([sidecar JSON](typescript/bad/dijkstra_bad.test.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [Custom TypeScript Test Benchmark](https://vitest.dev/) (`MIT`)
 - **Expected Scorecard:** `Composite 66.8/100 (Grade D)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 61.8` | `Security: 100.0`
@@ -1890,15 +1890,15 @@ Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 61.8 | Secur
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra_bad.test.ts        test     28    - 100.0 100.0 100.0  61.8 100.0   66.8   D
+samples/typescript/bad/dijkstra_bad.test.ts    test     28    - 100.0 100.0 100.0  61.8 100.0   66.8   D
     - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/dijkstra_bad.test.ts:32 test: pla    3   1    0   0   0   75.0   C
+samples/typescript/bad/dijkstra_bad.test.ts:32 test:    3   1    0   0   0   75.0   C
     - Clean (Test): test has 0 assertions (-30.0 pts)
-samples/typescript/dijkstra_bad.test.ts:5 test: vali   22   1    0   0   0   77.0   C
+samples/typescript/bad/dijkstra_bad.test.ts:5 test:    22   1    0   0   0   77.0   C
     - Clean (Test): 10 assertions in single test (>8) (-6.0 pts)
     - Clean (TS): 5 explicit 'any' type usage(s) defeat type safety (-20.0 pts)
     - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)

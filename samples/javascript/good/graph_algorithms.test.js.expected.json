@@ -1,0 +1,31 @@
+{
+  "id": "javascript_test_hygiene_good",
+  "pair_id": "javascript_test_hygiene",
+  "scenario_title": "4. BDD Algorithmic Test Suite Hygiene & Assertion Density",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/graph_algorithms.test.js",
+  "is_test": true,
+  "source_dataset": "TheAlgorithms/JavaScript (test suites)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 33,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/graph_algorithms.test.js test     33    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/graph_algorithms.test.js:4 t   11   1    0   0   0  100.0   A\nsamples/javascript/good/graph_algorithms.test.js:16    10   1    0   0   0  100.0   A\nsamples/javascript/good/graph_algorithms.test.js:27     9   1    0   0   0  100.0   A\n"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "javascript_test_hygiene_bad",
+  "pair_id": "javascript_test_hygiene",
+  "scenario_title": "4. BDD Algorithmic Test Suite Hygiene & Assertion Density",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/graph_algorithms_bad.test.js",
+  "is_test": true,
+  "source_dataset": "TheAlgorithms/JavaScript (test suites)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 41,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 70.0,
+      "security": 100.0,
+      "composite": 75.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "assertions in single test",
+      "test has 0 assertions"
+    ],
+    "all_findings": [
+      "[Func test: exhaustive multi-graph validation with excessive assertions] Clean (Test): 19 assertions in single test (>8) (-30.0 pts)",
+      "[Func test: placeholder test without assertions] Clean (Test): test has 0 assertions (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/graph_algorithms_bad.test.js test     41    - 100.0 100.0 100.0  70.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/graph_algorithms_bad.test.js:   35   1    0   0   0   75.0   C\n    - Clean (Test): 19 assertions in single test (>8) (-30.0 pts)\nsamples/javascript/bad/graph_algorithms_bad.test.js:    3   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\n"
+  }
+}
