@@ -1,0 +1,36 @@
+{
+  "id": "typescript_nextjs_oss_login_form_bad",
+  "pair_id": "typescript_nextjs_oss_nav_vs_form",
+  "scenario_title": "2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/login_form.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/login-form.tsx)",
+  "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/login-form.tsx",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 86,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 2.5,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 7.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC="
+    ],
+    "all_findings": [
+      "[Func LoginForm] Size: LOC=74 (>25) (-97.5 pts)",
+      "[Func LoginForm] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 7.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 2.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/login_form.tsx src      86    - 100.0   2.5 100.0  90.0 100.0    7.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/login_form.tsx:15    74   3    0   0   0    7.5   F\n    - Size: LOC=74 (>25) (-97.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

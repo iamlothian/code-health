@@ -1,0 +1,36 @@
+{
+  "id": "typescript_nextjs_oss_revenue_chart_bad",
+  "pair_id": "typescript_nextjs_oss_error_vs_chart",
+  "scenario_title": "4. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/revenue_chart.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/dashboard/revenue-chart.tsx)",
+  "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/revenue-chart.tsx",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 48,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 71.5,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 76.5,
+      "grade": "C"
+    },
+    "required_findings": [
+      "Size: LOC="
+    ],
+    "all_findings": [
+      "[Func RevenueChart] Size: LOC=44 (>25) (-28.5 pts)",
+      "[Func RevenueChart] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 76.5/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 71.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/revenue_chart.tsx src      48    - 100.0  71.5 100.0  90.0 100.0   76.5   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/revenue_chart.tsx:   44   3    1   0   1   76.5   C\n    - Size: LOC=44 (>25) (-28.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

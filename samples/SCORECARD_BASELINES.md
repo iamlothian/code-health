@@ -1,6 +1,6 @@
 # Multi-Language Code Health Scorecard Baselines
 
-This catalog provides functionally comparable, human-inspectable **Good** and **Bad** code samples across every supported language and framework profile (**Python**, **Java**, **Java Spring Boot**, **Vanilla JavaScript**, and **TypeScript / TSX**).
+This catalog provides functionally comparable, human-inspectable **Good** and **Bad** code samples across every supported language and framework profile (**Python**, **Java**, **Java Spring Boot**, **Vanilla JavaScript**, **TypeScript**, **React**, **Next.js**, and **Angular**).
 
 Each scenario pairs a **Good** and **Bad** file solving the **same problem or performing comparable domain functionality** from public competitive programming datasets ([`deepmind/code_contests`](https://huggingface.co/datasets/deepmind/code_contests)) and established open-source benchmarks ([`TheAlgorithms/Python`](https://github.com/TheAlgorithms/Python), [`TheAlgorithms/Java`](https://github.com/TheAlgorithms/Java), [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic), [`spring-petclinic-microservices`](https://github.com/spring-petclinic/spring-petclinic-microservices), [`OWASP WebGoat`](https://github.com/WebGoat/WebGoat), [`PyCQA/bandit`](https://github.com/PyCQA/bandit), [`pallets/click`](https://github.com/pallets/click), and [MDN Web Docs JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)).
 
@@ -48,12 +48,38 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `typescript (auto)` | 3. OOP Cache Cohesion & Parameter Properties (Cohesive LRUCache vs. God Class) | **BAD** | [`typescript/lru_cache_god_class.ts`](typescript/lru_cache_god_class.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/handbook/2/classes.html) | 86 | 50.0 | 100.0 | 100.0 | 65.8 | 100.0 | **55.0** | **F** |
 | `typescript (auto)` | 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation) | **GOOD** | [`typescript/order_repository_clean.ts`](typescript/order_repository_clean.ts) | [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) | 52 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (auto)` | 4. Backend Repository Security & SQL Injection (Parameterized Queries vs. Unsafe Interpolation) | **BAD** | [`typescript/order_repository_unsafe.ts`](typescript/order_repository_unsafe.ts) | [Custom TypeScript Benchmark](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) | 34 | 82.6 | 100.0 | 100.0 | 53.6 | 20.0 | **25.0** | **F** |
-| `typescript (auto)` | 5. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board | **GOOD** | [`typescript/task_filter_bar.tsx`](typescript/task_filter_bar.tsx) | [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) | 75 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 5. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board | **BAD** | [`typescript/task_board_legacy.tsx`](typescript/task_board_legacy.tsx) | [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) | 51 | 79.0 | 6.5 | 0.0 | 46.0 | 100.0 | **5.0** | **F** |
+| `typescript (auto)` | 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor | **GOOD** | [`typescript/task_board_service_clean.ts`](typescript/task_board_service_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 39 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (auto)` | 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor | **BAD** | [`typescript/task_board_service_legacy.ts`](typescript/task_board_service_legacy.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 39 | 85.0 | 23.0 | 0.0 | 46.0 | 100.0 | **5.0** | **F** |
 | `typescript (auto)` | 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler | **GOOD** | [`typescript/webhook_dispatcher_clean.ts`](typescript/webhook_dispatcher_clean.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 47 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (auto)` | 6. Async Webhook Dispatcher Size & Contract Clarity vs. Oversized Monolithic Handler | **BAD** | [`typescript/webhook_dispatcher_smelly.ts`](typescript/webhook_dispatcher_smelly.ts) | [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) | 53 | 82.0 | 29.0 | 0.0 | 45.0 | 80.0 | **5.0** | **F** |
 | `typescript (auto)` | 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety | **GOOD** | [`typescript/dijkstra.test.ts`](typescript/dijkstra.test.ts) | [Custom TypeScript Test Benchmark](https://vitest.dev/) | 31 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (auto)` | 7. Jest/Vitest TypeScript BDD Test Suite Assertion Density & Type Safety | **BAD** | [`typescript/dijkstra_bad.test.ts`](typescript/dijkstra_bad.test.ts) | [Custom TypeScript Test Benchmark](https://vitest.dev/) | 28 | 100.0 | 100.0 | 100.0 | 61.8 | 100.0 | **66.8** | **D** |
+| `typescript (react)` | 1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board | **GOOD** | [`typescript-react/good/task_filter_bar.tsx`](typescript-react/good/task_filter_bar.tsx) | [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) | 75 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (react)` | 1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board | **BAD** | [`typescript-react/bad/task_board_legacy.tsx`](typescript-react/bad/task_board_legacy.tsx) | [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) | 51 | 79.0 | 6.5 | 0.0 | 46.0 | 100.0 | **5.0** | **F** |
+| `typescript (react)` | 2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS | **GOOD** | [`typescript-react/good/task_preview_clean.tsx`](typescript-react/good/task_preview_clean.tsx) | [Custom TypeScript/React Benchmark](https://react.dev/reference/rules/rules-of-hooks) | 42 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (react)` | 2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS | **BAD** | [`typescript-react/bad/task_preview_legacy.tsx`](typescript-react/bad/task_preview_legacy.tsx) | [Custom TypeScript/React Benchmark](https://react.dev/reference/rules/rules-of-hooks) | 24 | 92.0 | 100.0 | 100.0 | 67.0 | 65.0 | **70.0** | **C** |
+| `typescript (react)` | 3. React Feature Component Decomposition vs. Profile Update Form (bulletproof-react) | **GOOD** | [`typescript-react/good/delete_discussion.tsx`](typescript-react/good/delete_discussion.tsx) | [alan2207/bulletproof-react (features/discussions/components/delete-discussion.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/discussions/components/delete-discussion.tsx) | 48 | 100.0 | 79.0 | 100.0 | 90.0 | 100.0 | **93.2** | **A** |
+| `typescript (react)` | 3. React Feature Component Decomposition vs. Profile Update Form (bulletproof-react) | **BAD** | [`typescript-react/bad/update_profile.tsx`](typescript-react/bad/update_profile.tsx) | [alan2207/bulletproof-react (features/users/components/update-profile.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/users/components/update-profile.tsx) | 86 | 100.0 | 0.0 | 100.0 | 90.0 | 100.0 | **5.0** | **F** |
+| `typescript (react)` | 4. React Safe UI Link Wrapper vs. Unsanitized Markdown Preview XSS (bulletproof-react) | **GOOD** | [`typescript-react/good/link.tsx`](typescript-react/good/link.tsx) | [alan2207/bulletproof-react (components/ui/link/link.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/link/link.tsx) | 12 | 100.0 | 100.0 | 100.0 | 95.0 | 100.0 | **99.2** | **A** |
+| `typescript (react)` | 4. React Safe UI Link Wrapper vs. Unsanitized Markdown Preview XSS (bulletproof-react) | **BAD** | [`typescript-react/bad/md_preview.tsx`](typescript-react/bad/md_preview.tsx) | [alan2207/bulletproof-react (components/ui/md-preview/md-preview.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/md-preview/md-preview.tsx) | 16 | 100.0 | 100.0 | 100.0 | 95.0 | 65.0 | **70.0** | **C** |
+| `typescript (react)` | 5. React Feature View Composition vs. Large Comments List Render (bulletproof-react) | **GOOD** | [`typescript-react/good/discussion_view.tsx`](typescript-react/good/discussion_view.tsx) | [alan2207/bulletproof-react (features/discussions/components/discussion-view.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/discussions/components/discussion-view.tsx) | 45 | 100.0 | 77.5 | 100.0 | 90.0 | 100.0 | **92.9** | **A** |
+| `typescript (react)` | 5. React Feature View Composition vs. Large Comments List Render (bulletproof-react) | **BAD** | [`typescript-react/bad/comments_list.tsx`](typescript-react/bad/comments_list.tsx) | [alan2207/bulletproof-react (features/comments/components/comments-list.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/comments/components/comments-list.tsx) | 83 | 97.0 | 12.5 | 92.0 | 90.0 | 100.0 | **17.5** | **F** |
+| `typescript (nextjs)` | 1. Next.js App Router Client/Server Boundaries & DOM Security | **GOOD** | [`typescript-nextjs/good/app/dashboard_page_clean.tsx`](typescript-nextjs/good/app/dashboard_page_clean.tsx) | [Custom TypeScript/Next.js Benchmark](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns) | 24 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (nextjs)` | 1. Next.js App Router Client/Server Boundaries & DOM Security | **BAD** | [`typescript-nextjs/bad/app/dashboard_page_unsafe.tsx`](typescript-nextjs/bad/app/dashboard_page_unsafe.tsx) | [Custom TypeScript/Next.js Benchmark](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns) | 10 | 100.0 | 100.0 | 100.0 | 100.0 | 0.0 | **5.0** | **F** |
+| `typescript (nextjs)` | 2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn) | **GOOD** | [`typescript-nextjs/good/app/nav_links.tsx`](typescript-nextjs/good/app/nav_links.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/dashboard/nav-links.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/nav-links.tsx) | 43 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
+| `typescript (nextjs)` | 2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn) | **BAD** | [`typescript-nextjs/bad/app/login_form.tsx`](typescript-nextjs/bad/app/login_form.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/login-form.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/login-form.tsx) | 86 | 100.0 | 2.5 | 100.0 | 90.0 | 100.0 | **7.5** | **F** |
+| `typescript (nextjs)` | 3. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn) | **GOOD** | [`typescript-nextjs/good/app/invoices_page.tsx`](typescript-nextjs/good/app/invoices_page.tsx) | [vercel/next-learn (dashboard/final-example/app/dashboard/invoices/page.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/page.tsx) | 40 | 100.0 | 95.5 | 100.0 | 90.0 | 100.0 | **97.4** | **A** |
+| `typescript (nextjs)` | 3. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn) | **BAD** | [`typescript-nextjs/bad/app/customers_table.tsx`](typescript-nextjs/bad/app/customers_table.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx) | 118 | 100.0 | 0.0 | 100.0 | 90.0 | 100.0 | **5.0** | **F** |
+| `typescript (nextjs)` | 4. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn) | **GOOD** | [`typescript-nextjs/good/app/invoices_error.tsx`](typescript-nextjs/good/app/invoices_error.tsx) | [vercel/next-learn (dashboard/final-example/app/dashboard/invoices/error.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/error.tsx) | 26 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
+| `typescript (nextjs)` | 4. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn) | **BAD** | [`typescript-nextjs/bad/app/revenue_chart.tsx`](typescript-nextjs/bad/app/revenue_chart.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/dashboard/revenue-chart.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/revenue-chart.tsx) | 48 | 100.0 | 71.5 | 100.0 | 90.0 | 100.0 | **76.5** | **C** |
+| `typescript (angular)` | 1. Angular @Component DI Layering, RxJS Teardown & DomSanitizer Hygiene | **GOOD** | [`typescript-angular/good/orders_panel_clean.component.ts`](typescript-angular/good/orders_panel_clean.component.ts) | [Custom TypeScript/Angular Benchmark](https://angular.dev/style-guide) | 33 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `typescript (angular)` | 1. Angular @Component DI Layering, RxJS Teardown & DomSanitizer Hygiene | **BAD** | [`typescript-angular/bad/orders_panel_legacy.component.ts`](typescript-angular/bad/orders_panel_legacy.component.ts) | [Custom TypeScript/Angular Benchmark](https://angular.dev/style-guide) | 20 | 80.0 | 100.0 | 100.0 | 85.0 | 65.0 | **70.0** | **C** |
+| `typescript (angular)` | 2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak | **GOOD** | [`typescript-angular/good/header.component.ts`](typescript-angular/good/header.component.ts) | [realworld-apps/angular-realworld-example-app (src/app/core/layout/header.component.ts)](https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/layout/header.component.ts) | 16 | 100.0 | 100.0 | 100.0 | 85.0 | 100.0 | **97.8** | **A** |
+| `typescript (angular)` | 2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak | **BAD** | [`typescript-angular/bad/search_result.component.ts`](typescript-angular/bad/search_result.component.ts) | [OWASP juice-shop/juice-shop (frontend/src/app/search-result/search-result.component.ts)](https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/search-result/search-result.component.ts) | 186 | 36.1 | 96.5 | 98.1 | 68.5 | 65.0 | **41.1** | **F** |
+| `typescript (angular)` | 3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form | **GOOD** | [`typescript-angular/good/article_preview.component.ts`](typescript-angular/good/article_preview.component.ts) | [realworld-apps/angular-realworld-example-app (src/app/features/article/components/article-preview.component.ts)](https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/article-preview.component.ts) | 45 | 100.0 | 100.0 | 100.0 | 80.0 | 100.0 | **97.0** | **A** |
+| `typescript (angular)` | 3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form | **BAD** | [`typescript-angular/bad/complaint.component.ts`](typescript-angular/bad/complaint.component.ts) | [OWASP juice-shop/juice-shop (frontend/src/app/complaint/complaint.component.ts)](https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/complaint/complaint.component.ts) | 102 | 80.0 | 100.0 | 100.0 | 52.0 | 100.0 | **57.0** | **F** |
+| `typescript (angular)` | 4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board | **GOOD** | [`typescript-angular/good/favorite_button.component.ts`](typescript-angular/good/favorite_button.component.ts) | [realworld-apps/angular-realworld-example-app (src/app/features/article/components/favorite-button.component.ts)](https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/favorite-button.component.ts) | 73 | 95.5 | 98.5 | 100.0 | 80.0 | 100.0 | **95.3** | **A** |
+| `typescript (angular)` | 4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board | **BAD** | [`typescript-angular/bad/score_board.component.ts`](typescript-angular/bad/score_board.component.ts) | [OWASP juice-shop/juice-shop (frontend/src/app/score-board/score-board.component.ts)](https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/score-board.component.ts) | 217 | 29.0 | 98.6 | 79.0 | 72.9 | 65.0 | **34.0** | **F** |
 
 ---
 
@@ -1698,67 +1724,65 @@ samples/typescript/order_repository_unsafe.ts:7 Lega    3   1    0   1   0   98.
 
 ---
 
-### TYPESCRIPT (`--lang typescript`) — 5. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board
+### TYPESCRIPT (`--lang typescript`) — 5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor
 
-#### Good Baseline: [`typescript/task_filter_bar.tsx`](typescript/task_filter_bar.tsx) ([sidecar JSON](typescript/task_filter_bar.tsx.expected.json))
+#### Good Baseline: [`typescript/task_board_service_clean.ts`](typescript/task_board_service_clean.ts) ([sidecar JSON](typescript/task_board_service_clean.ts.expected.json))
 
-- **Upstream Dataset / Benchmark:** [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) (`MIT`)
+- **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
 - **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3
 Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_filter_bar.tsx         src      75    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/typescript/task_board_service_clean.ts src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_filter_bar.tsx:22 filterTask   12   5    1   3   1  100.0   A
-samples/typescript/task_filter_bar.tsx:36 summarizeT   12   3    3   1   2  100.0   A
-samples/typescript/task_filter_bar.tsx:50 SearchInpu   17   1    0   1   0  100.0   A
-samples/typescript/task_filter_bar.tsx:69 TaskFilter   21   1    0   1   0  100.0   A
+samples/typescript/task_board_service_clean.ts:21 ma    5   5    1   3   1  100.0   A
+samples/typescript/task_board_service_clean.ts:28 fi   10   1    0   3   0  100.0   A
+samples/typescript/task_board_service_clean.ts:40 su   12   3    3   1   2  100.0   A
 ```
 
-#### Bad Baseline: [`typescript/task_board_legacy.tsx`](typescript/task_board_legacy.tsx) ([sidecar JSON](typescript/task_board_legacy.tsx.expected.json))
+#### Bad Baseline: [`typescript/task_board_service_legacy.ts`](typescript/task_board_service_legacy.ts) ([sidecar JSON](typescript/task_board_service_legacy.ts.expected.json))
 
-- **Upstream Dataset / Benchmark:** [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 79.0` | `Size: 6.5` | `Complexity: 0.0` | `Clean: 46.0` | `Security: 100.0`
+- **Upstream Dataset / Benchmark:** [Custom TypeScript Benchmark](https://www.typescriptlang.org/docs/) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 85.0` | `Size: 23.0` | `Complexity: 0.0` | `Clean: 46.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 79.0 | Size: 6.5 | Complexity: 0.0 | Clean: 46.0 | Security: 100.0
+Dimensions -> SRP: 85.0 | Size: 23.0 | Complexity: 0.0 | Clean: 46.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_board_legacy.tsx       src      51    -  79.0   6.5   0.0  46.0 100.0    5.0   F
+samples/typescript/task_board_service_legacy.ts src      39    -  85.0  23.0   0.0  46.0 100.0    5.0   F
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/task_board_legacy.tsx:5 TaskBoard   50  18   40   5   8    5.0   F
-    - SRP: high external call fan-out=9 (>6) (-9.0 pts)
+samples/typescript/task_board_service_legacy.ts:4 pr   39  16   38   5   8    5.0   F
+    - SRP: high external call fan-out=7 (>6) (-3.0 pts)
     - SRP: boolean flag parameter with default value (-12.0 pts)
-    - Size: LOC=50 (>25) (-37.5 pts)
+    - Size: LOC=39 (>25) (-21.0 pts)
     - Size: params=5 (>4) (-6.0 pts)
     - Size: nesting depth=8 (>3) (-50.0 pts)
-    - Complexity: CC=18 (>5) (-76.0 pts)
-    - Complexity: cognitive=40 (>8) (-80.0 pts)
+    - Complexity: CC=16 (>5) (-62.0 pts)
+    - Complexity: cognitive=38 (>8) (-75.0 pts)
     - Clean: missing public docstring (-10.0 pts)
     - Clean: empty catch block swallows exception (-10.0 pts)
-    - Clean (TS): 6 explicit 'any' type usage(s) defeat type safety (-20.0 pts)
+    - Clean (TS): 5 explicit 'any' type usage(s) defeat type safety (-20.0 pts)
     - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)
     - Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)
 ```
-
 
 ---
 
@@ -1878,4 +1902,823 @@ samples/typescript/dijkstra_bad.test.ts:5 test: vali   22   1    0   0   0   77.
     - Clean (Test): 10 assertions in single test (>8) (-6.0 pts)
     - Clean (TS): 5 explicit 'any' type usage(s) defeat type safety (-20.0 pts)
     - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework react`) — 1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board
+
+#### Good Baseline: [`typescript-react/good/task_filter_bar.tsx`](typescript-react/good/task_filter_bar.tsx) ([sidecar JSON](typescript-react/good/task_filter_bar.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/task_filter_bar.tsx src      75    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/task_filter_bar.tsx:22   12   5    1   3   1  100.0   A
+samples/typescript-react/good/task_filter_bar.tsx:36   12   3    3   1   2  100.0   A
+samples/typescript-react/good/task_filter_bar.tsx:50   17   1    0   1   0  100.0   A
+samples/typescript-react/good/task_filter_bar.tsx:69   21   1    0   1   0  100.0   A
+```
+
+#### Bad Baseline: [`typescript-react/bad/task_board_legacy.tsx`](typescript-react/bad/task_board_legacy.tsx) ([sidecar JSON](typescript-react/bad/task_board_legacy.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/React TSX Benchmark](https://react.dev/learn/typescript) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 79.0` | `Size: 6.5` | `Complexity: 0.0` | `Clean: 46.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 79.0 | Size: 6.5 | Complexity: 0.0 | Clean: 46.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/task_board_legacy.tsx src      51    -  79.0   6.5   0.0  46.0 100.0    5.0   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/task_board_legacy.tsx:5   50  18   40   5   8    5.0   F
+    - SRP: high external call fan-out=9 (>6) (-9.0 pts)
+    - SRP: boolean flag parameter with default value (-12.0 pts)
+    - Size: LOC=50 (>25) (-37.5 pts)
+    - Size: params=5 (>4) (-6.0 pts)
+    - Size: nesting depth=8 (>3) (-50.0 pts)
+    - Complexity: CC=18 (>5) (-76.0 pts)
+    - Complexity: cognitive=40 (>8) (-80.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: empty catch block swallows exception (-10.0 pts)
+    - Clean (TS): 6 explicit 'any' type usage(s) defeat type safety (-20.0 pts)
+    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)
+    - Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework react`) — 2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS
+
+#### Good Baseline: [`typescript-react/good/task_preview_clean.tsx`](typescript-react/good/task_preview_clean.tsx) ([sidecar JSON](typescript-react/good/task_preview_clean.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/React Benchmark](https://react.dev/reference/rules/rules-of-hooks) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/task_preview_clean.tsx src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/task_preview_clean.tsx    3   2    0   2   0  100.0   A
+samples/typescript-react/good/task_preview_clean.tsx   12   1    0   1   0  100.0   A
+samples/typescript-react/good/task_preview_clean.tsx   21   1    0   1   0  100.0   A
+```
+
+#### Bad Baseline: [`typescript-react/bad/task_preview_legacy.tsx`](typescript-react/bad/task_preview_legacy.tsx) ([sidecar JSON](typescript-react/bad/task_preview_legacy.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/React Benchmark](https://react.dev/reference/rules/rules-of-hooks) (`MIT`)
+- **Expected Scorecard:** `Composite 70.0/100 (Grade C)` — `SRP: 92.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 67.0` | `Security: 65.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 92.0 | Size: 100.0 | Complexity: 100.0 | Clean: 67.0 | Security: 65.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/task_preview_legacy.tsx src      24    -  92.0 100.0 100.0  67.0  65.0   70.0   C
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/task_preview_legacy.tsx   23   2    1   1   1   70.0   C
+    - Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L24 (-35.0 pts)
+    - Clean (React): Rules of Hooks violation calling 'useEffect' in branch/loop at L9 (-25.0 pts)
+    - SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)
+    - Clean (React): array index used as JSX key at L24 (-8.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework react`) — 3. React Feature Component Decomposition vs. Profile Update Form (bulletproof-react)
+
+#### Good Baseline: [`typescript-react/good/delete_discussion.tsx`](typescript-react/good/delete_discussion.tsx) ([sidecar JSON](typescript-react/good/delete_discussion.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [alan2207/bulletproof-react (features/discussions/components/delete-discussion.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/discussions/components/delete-discussion.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 93.2/100 (Grade A)` — `SRP: 100.0` | `Size: 79.0` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 93.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 79.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/delete_discussion.tsx src      48    - 100.0  79.0 100.0  90.0 100.0   93.2   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/delete_discussion.tsx:   39   1    0   1   0   93.2   A
+    - Size: LOC=39 (>25) (-21.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+#### Bad Baseline: [`typescript-react/bad/update_profile.tsx`](typescript-react/bad/update_profile.tsx) ([sidecar JSON](typescript-react/bad/update_profile.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [alan2207/bulletproof-react (features/users/components/update-profile.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/users/components/update-profile.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/update_profile.tsx src      86    - 100.0   0.0 100.0  90.0 100.0    5.0   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/update_profile.tsx:13 U   77   5    0   0   0    5.0   F
+    - Size: LOC=77 (>25) (-100.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework react`) — 4. React Safe UI Link Wrapper vs. Unsanitized Markdown Preview XSS (bulletproof-react)
+
+#### Good Baseline: [`typescript-react/good/link.tsx`](typescript-react/good/link.tsx) ([sidecar JSON](typescript-react/good/link.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [alan2207/bulletproof-react (components/ui/link/link.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/link/link.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 99.2/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 95.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 99.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/link.tsx         src      12    - 100.0 100.0 100.0  95.0 100.0   99.2   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/link.tsx:5 Link          10   1    0   1   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+```
+
+#### Bad Baseline: [`typescript-react/bad/md_preview.tsx`](typescript-react/bad/md_preview.tsx) ([sidecar JSON](typescript-react/bad/md_preview.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [alan2207/bulletproof-react (components/ui/md-preview/md-preview.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/md-preview/md-preview.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 70.0/100 (Grade C)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 95.0` | `Security: 65.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 65.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/md_preview.tsx    src      16    - 100.0 100.0 100.0  95.0  65.0   70.0   C
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/md_preview.tsx:10 MDPre   10   1    0   1   0   70.0   C
+    - Clean: missing public docstring (-5.0 pts)
+    - Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L14 (-35.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework react`) — 5. React Feature View Composition vs. Large Comments List Render (bulletproof-react)
+
+#### Good Baseline: [`typescript-react/good/discussion_view.tsx`](typescript-react/good/discussion_view.tsx) ([sidecar JSON](typescript-react/good/discussion_view.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [alan2207/bulletproof-react (features/discussions/components/discussion-view.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/discussions/components/discussion-view.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 92.9/100 (Grade A)` — `SRP: 100.0` | `Size: 77.5` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 92.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 77.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/discussion_view.tsx src      45    - 100.0  77.5 100.0  90.0 100.0   92.9   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/good/discussion_view.tsx:8    40   4    2   1   1   92.9   A
+    - Size: LOC=40 (>25) (-22.5 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+#### Bad Baseline: [`typescript-react/bad/comments_list.tsx`](typescript-react/bad/comments_list.tsx) ([sidecar JSON](typescript-react/bad/comments_list.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [alan2207/bulletproof-react (features/comments/components/comments-list.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/comments/components/comments-list.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 17.5/100 (Grade F)` — `SRP: 97.0` | `Size: 12.5` | `Complexity: 92.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 17.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 97.0 | Size: 12.5 | Complexity: 92.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/comments_list.tsx src      83    -  97.0  12.5  92.0  90.0 100.0   17.5   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-react/bad/comments_list.tsx:19 Co   70   7    3   1   1   17.5   F
+    - SRP: high external call fan-out=7 (>6) (-3.0 pts)
+    - Size: LOC=70 (>25) (-87.5 pts)
+    - Complexity: CC=7 (>5) (-8.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework nextjs`) — 1. Next.js App Router Client/Server Boundaries & DOM Security
+
+#### Good Baseline: [`typescript-nextjs/good/app/dashboard_page_clean.tsx`](typescript-nextjs/good/app/dashboard_page_clean.tsx) ([sidecar JSON](typescript-nextjs/good/app/dashboard_page_clean.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/Next.js Benchmark](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/dashboard_page_clean.tsx src      24    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/dashboard_page_cl   17   1    0   1   0  100.0   A
+```
+
+#### Bad Baseline: [`typescript-nextjs/bad/app/dashboard_page_unsafe.tsx`](typescript-nextjs/bad/app/dashboard_page_unsafe.tsx) ([sidecar JSON](typescript-nextjs/bad/app/dashboard_page_unsafe.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/Next.js Benchmark](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 0.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 0.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/dashboard_page_unsafe.tsx src      10    - 100.0 100.0 100.0 100.0   0.0    5.0   F
+    - Security (Next.js): server-only import 'next/headers' inside 'use client' module (-30.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/dashboard_page_uns    7   2    1   1   1   35.0   F
+    - Security (Nextjs): unsafe XSS/DOM sink 'innerHTML' at L13 (-35.0 pts)
+    - Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L15 (-35.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework nextjs`) — 2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)
+
+#### Good Baseline: [`typescript-nextjs/good/app/nav_links.tsx`](typescript-nextjs/good/app/nav_links.tsx) ([sidecar JSON](typescript-nextjs/good/app/nav_links.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/ui/dashboard/nav-links.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/nav-links.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 98.5/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/nav_links.tsx src      43    - 100.0 100.0 100.0  90.0 100.0   98.5   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/nav_links.tsx:24    25   1    0   0   0   98.5   A
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+#### Bad Baseline: [`typescript-nextjs/bad/app/login_form.tsx`](typescript-nextjs/bad/app/login_form.tsx) ([sidecar JSON](typescript-nextjs/bad/app/login_form.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/ui/login-form.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/login-form.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 7.5/100 (Grade F)` — `SRP: 100.0` | `Size: 2.5` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 7.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 2.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/login_form.tsx src      86    - 100.0   2.5 100.0  90.0 100.0    7.5   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/login_form.tsx:15    74   3    0   0   0    7.5   F
+    - Size: LOC=74 (>25) (-97.5 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework nextjs`) — 3. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn)
+
+#### Good Baseline: [`typescript-nextjs/good/app/invoices_page.tsx`](typescript-nextjs/good/app/invoices_page.tsx) ([sidecar JSON](typescript-nextjs/good/app/invoices_page.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/dashboard/invoices/page.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/page.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 97.4/100 (Grade A)` — `SRP: 100.0` | `Size: 95.5` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 97.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 95.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/invoices_page.tsx src      40    - 100.0  95.5 100.0  90.0 100.0   97.4   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/invoices_page.tsx   28   3    0   1   0   97.4   A
+    - Size: LOC=28 (>25) (-4.5 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+#### Bad Baseline: [`typescript-nextjs/bad/app/customers_table.tsx`](typescript-nextjs/bad/app/customers_table.tsx) ([sidecar JSON](typescript-nextjs/bad/app/customers_table.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  90.0 100.0    5.0   F
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/customers_table.ts  114   1    0   1   0    5.0   F
+    - Size: LOC=114 (>25) (-100.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework nextjs`) — 4. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn)
+
+#### Good Baseline: [`typescript-nextjs/good/app/invoices_error.tsx`](typescript-nextjs/good/app/invoices_error.tsx) ([sidecar JSON](typescript-nextjs/good/app/invoices_error.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/dashboard/invoices/error.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/error.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 98.5/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/invoices_error.tsx src      26    - 100.0 100.0 100.0  90.0 100.0   98.5   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/good/app/invoices_error.ts   24   1    0   1   0   98.5   A
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+#### Bad Baseline: [`typescript-nextjs/bad/app/revenue_chart.tsx`](typescript-nextjs/bad/app/revenue_chart.tsx) ([sidecar JSON](typescript-nextjs/bad/app/revenue_chart.tsx.expected.json))
+
+- **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/ui/dashboard/revenue-chart.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/revenue-chart.tsx) (`MIT`)
+- **Expected Scorecard:** `Composite 76.5/100 (Grade C)` — `SRP: 100.0` | `Size: 71.5` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 76.5/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 71.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/revenue_chart.tsx src      48    - 100.0  71.5 100.0  90.0 100.0   76.5   C
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-nextjs/bad/app/revenue_chart.tsx:   44   3    1   0   1   76.5   C
+    - Size: LOC=44 (>25) (-28.5 pts)
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework angular`) — 1. Angular @Component DI Layering, RxJS Teardown & DomSanitizer Hygiene
+
+#### Good Baseline: [`typescript-angular/good/orders_panel_clean.component.ts`](typescript-angular/good/orders_panel_clean.component.ts) ([sidecar JSON](typescript-angular/good/orders_panel_clean.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/Angular Benchmark](https://angular.dev/style-guide) (`MIT`)
+- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/orders_panel_clean.component.ts src      33    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/orders_panel_clean    21    4     3    4  100.0   A
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/orders_panel_clean.c    1   1    0   1   0  100.0   A
+samples/typescript-angular/good/orders_panel_clean.c    8   1    0   0   0  100.0   A
+samples/typescript-angular/good/orders_panel_clean.c    4   1    0   1   0  100.0   A
+samples/typescript-angular/good/orders_panel_clean.c    3   1    0   1   0  100.0   A
+```
+
+#### Bad Baseline: [`typescript-angular/bad/orders_panel_legacy.component.ts`](typescript-angular/bad/orders_panel_legacy.component.ts) ([sidecar JSON](typescript-angular/bad/orders_panel_legacy.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [Custom TypeScript/Angular Benchmark](https://angular.dev/style-guide) (`MIT`)
+- **Expected Scorecard:** `Composite 70.0/100 (Grade C)` — `SRP: 80.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 85.0` | `Security: 65.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3
+Dimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 65.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/orders_panel_legacy.component.ts src      20    -  80.0 100.0 100.0  85.0  65.0   70.0   C
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/orders_panel_legacy    16    3     1    3   70.0   C
+    - SRP (Angular): @Component/@Directive injects HttpClient directly instead of a service (-20.0 pts)
+    - Clean (Angular): unmanaged .subscribe() at L19 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/orders_panel_legacy.c    3   1    0   1   0   70.0   C
+    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L26 (-35.0 pts)
+samples/typescript-angular/bad/orders_panel_legacy.c    4   1    0   2   0  100.0   A
+samples/typescript-angular/bad/orders_panel_legacy.c    5   1    0   0   0  100.0   A
+```
+
+---
+
+### TYPESCRIPT (`--framework angular`) — 2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak
+
+#### Good Baseline: [`typescript-angular/good/header.component.ts`](typescript-angular/good/header.component.ts) ([sidecar JSON](typescript-angular/good/header.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [realworld-apps/angular-realworld-example-app (src/app/core/layout/header.component.ts)](https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/layout/header.component.ts) (`MIT`)
+- **Expected Scorecard:** `Composite 97.8/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 85.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 97.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 0
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/header.component.ts src      16    - 100.0 100.0 100.0  85.0 100.0   97.8   A
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/header.component.t     5    0     1    0   97.8   A
+    - Clean: missing class docstring (-15.0 pts)
+```
+
+#### Bad Baseline: [`typescript-angular/bad/search_result.component.ts`](typescript-angular/bad/search_result.component.ts) ([sidecar JSON](typescript-angular/bad/search_result.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [OWASP juice-shop/juice-shop (frontend/src/app/search-result/search-result.component.ts)](https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/search-result/search-result.component.ts) (`MIT`)
+- **Expected Scorecard:** `Composite 41.1/100 (Grade F)` — `SRP: 36.1` | `Size: 96.5` | `Complexity: 98.1` | `Clean: 68.5` | `Security: 65.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 41.1/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 10
+Dimensions -> SRP: 36.1 | Size: 96.5 | Complexity: 98.1 | Clean: 68.5 | Security: 65.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/search_result.component.ts src     186    -  36.1  96.5  98.1  68.5  65.0   41.1   F
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/search_result.compo   160   10     3   26   41.1   F
+    - SRP: self attributes=22 (>7) (-60.0 pts)
+    - Complexity: total class CC=26 (>25) (-1.5 pts)
+    - Clean: missing class docstring (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/search_result.compone    5   2    1   1   1   70.0   C
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)
+    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
+samples/typescript-angular/bad/search_result.compone   25   4    5   0   2   70.0   C
+    - SRP: high external call fan-out=8 (>6) (-6.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)
+samples/typescript-angular/bad/search_result.compone   48   6    5   0   2   70.5   C
+    - SRP: high external call fan-out=17 (>6) (-33.0 pts)
+    - Size: LOC=48 (>25) (-34.5 pts)
+    - Complexity: CC=6 (>5) (-4.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone   14   5    4   0   1   97.0   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone   15   2    1   1   1   97.0   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone   10   2    1   0   1   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone    7   2    1   0   1   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone    6   1    0   1   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone    3   1    0   0   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/search_result.compone    3   1    0   0   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework angular`) — 3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form
+
+#### Good Baseline: [`typescript-angular/good/article_preview.component.ts`](typescript-angular/good/article_preview.component.ts) ([sidecar JSON](typescript-angular/good/article_preview.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [realworld-apps/angular-realworld-example-app (src/app/features/article/components/article-preview.component.ts)](https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/article-preview.component.ts) (`MIT`)
+- **Expected Scorecard:** `Composite 97.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 80.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/article_preview.component.ts src      45    - 100.0 100.0 100.0  80.0 100.0   97.0   A
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/article_preview.co    14    2     1    3   97.0   A
+    - Clean: missing class docstring (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/article_preview.comp    3   1    0   1   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+samples/typescript-angular/good/article_preview.comp    7   2    1   1   1   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+```
+
+#### Bad Baseline: [`typescript-angular/bad/complaint.component.ts`](typescript-angular/bad/complaint.component.ts) ([sidecar JSON](typescript-angular/bad/complaint.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [OWASP juice-shop/juice-shop (frontend/src/app/complaint/complaint.component.ts)](https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/complaint/complaint.component.ts) (`MIT`)
+- **Expected Scorecard:** `Composite 57.0/100 (Grade F)` — `SRP: 80.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 52.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 57.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5
+Dimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 52.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/complaint.component.ts src     102    -  80.0 100.0 100.0  52.0 100.0   57.0   F
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/complaint.component    80    5     1    6   57.0   F
+    - SRP: self attributes=12 (>7) (-20.0 pts)
+    - Clean: missing class docstring (-15.0 pts)
+    - Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   96.2   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
+samples/typescript-angular/bad/complaint.component.t   19   1    0   0   0   96.2   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)
+samples/typescript-angular/bad/complaint.component.t    8   2    1   0   1   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/complaint.component.t    6   1    0   0   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   98.5   A
+    - Clean: missing public docstring (-10.0 pts)
+```
+
+---
+
+### TYPESCRIPT (`--framework angular`) — 4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board
+
+#### Good Baseline: [`typescript-angular/good/favorite_button.component.ts`](typescript-angular/good/favorite_button.component.ts) ([sidecar JSON](typescript-angular/good/favorite_button.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [realworld-apps/angular-realworld-example-app (src/app/features/article/components/favorite-button.component.ts)](https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/favorite-button.component.ts) (`MIT`)
+- **Expected Scorecard:** `Composite 95.3/100 (Grade A)` — `SRP: 95.5` | `Size: 98.5` | `Complexity: 100.0` | `Clean: 80.0` | `Security: 100.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 95.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2
+Dimensions -> SRP: 95.5 | Size: 98.5 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/favorite_button.component.ts src      73    -  95.5  98.5 100.0  80.0 100.0   95.3   A
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/favorite_button.co    38    2     1    4   95.3   A
+    - Clean: missing class docstring (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/good/favorite_button.comp   27   3    2   0   1   95.0   A
+    - SRP: high external call fan-out=9 (>6) (-9.0 pts)
+    - Size: LOC=27 (>25) (-3.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+samples/typescript-angular/good/favorite_button.comp    5   1    0   3   0  100.0   A
+```
+
+#### Bad Baseline: [`typescript-angular/bad/score_board.component.ts`](typescript-angular/bad/score_board.component.ts) ([sidecar JSON](typescript-angular/bad/score_board.component.ts.expected.json))
+
+- **Upstream Dataset / Benchmark:** [OWASP juice-shop/juice-shop (frontend/src/app/score-board/score-board.component.ts)](https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/score-board.component.ts) (`MIT`)
+- **Expected Scorecard:** `Composite 34.0/100 (Grade F)` — `SRP: 29.0` | `Size: 98.6` | `Complexity: 79.0` | `Clean: 72.9` | `Security: 65.0`
+
+```text
+================================================================================================
+CODE HEALTH SCORECARD | Score: 34.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 12
+Dimensions -> SRP: 29.0 | Size: 98.6 | Complexity: 79.0 | Clean: 72.9 | Security: 65.0
+================================================================================================
+
+[FILES SCORECARD]
+File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/score_board.component.ts src     217    -  29.0  98.6  79.0  72.9  65.0   34.0   F
+
+[CLASSES SCORECARD]
+Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/score_board.compone   175   12     3   36   34.0   F
+    - SRP: methods=12 (>10) (-8.0 pts)
+    - SRP: self attributes=22 (>7) (-60.0 pts)
+    - Complexity: total class CC=36 (>25) (-16.5 pts)
+    - Clean: missing class docstring (-15.0 pts)
+
+[FUNCTIONS & METHODS SCORECARD]
+Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
+------------------------------------------------------------------------------------------------
+samples/typescript-angular/bad/score_board.component   36  12   16   0   3   51.0   F
+    - Size: LOC=36 (>25) (-16.5 pts)
+    - Complexity: CC=12 (>5) (-34.0 pts)
+    - Complexity: cognitive=16 (>8) (-20.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+samples/typescript-angular/bad/score_board.component   25   5    1   0   1   70.0   C
+    - SRP: high external call fan-out=17 (>6) (-33.0 pts)
+    - Clean: missing public docstring (-10.0 pts)
+    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)
+samples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A
+    - Clean: missing public docstring (-10.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/score_board.component    5   1    0   1   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/score_board.component    5   1    0   0   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/score_board.component    4   1    0   1   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/score_board.component    9   2    0   2   0   97.8   A
+    - Clean: missing public docstring (-5.0 pts)
+    - Clean: missing return type annotation (-10.0 pts)
+samples/typescript-angular/bad/score_board.component   10   1    0   0   0   98.3   A
+    - SRP: high external call fan-out=7 (>6) (-3.0 pts)
+    - Clean: missing public docstring (-5.0 pts)
+samples/typescript-angular/bad/score_board.component   13   4    3   0   1   98.5   A
+    - Clean: missing public docstring (-10.0 pts)
+samples/typescript-angular/bad/score_board.component    9   2    0   0   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
+samples/typescript-angular/bad/score_board.component    3   1    0   2   0   99.2   A
+    - Clean: missing public docstring (-5.0 pts)
 ```

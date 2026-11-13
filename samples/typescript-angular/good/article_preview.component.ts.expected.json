@@ -1,0 +1,35 @@
+{
+  "id": "typescript_angular_oss_article_preview_good",
+  "pair_id": "typescript_angular_oss_di_and_sub",
+  "scenario_title": "3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/article_preview.component.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/article-preview.component.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/article-preview.component.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 45,
+    "classes_count": 1,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 80.0,
+      "security": 100.0,
+      "composite": 97.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class ArticlePreviewComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Method ArticlePreviewComponent.articleInput] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlePreviewComponent.toggleFavorite] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.component.ts src      45    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.co    14    2     1    3   97.0   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.comp    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/article_preview.comp    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

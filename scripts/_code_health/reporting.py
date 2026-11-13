@@ -33,9 +33,9 @@ def _is_minified_or_bundled(path: Path) -> bool:
     if name.endswith((".d.ts", ".d.mts", ".d.cts")):
         return True
     is_min = name.endswith(
-        (".min.js", ".min.mjs", ".min.cjs", ".min.ts", ".min.tsx", ".min.mts", ".min.cts")
+        (".min.js", ".min.jsx", ".min.mjs", ".min.cjs", ".min.ts", ".min.tsx", ".min.mts", ".min.cts")
     )
-    if not is_min and path.suffix.lower() in {".js", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}:
+    if not is_min and path.suffix.lower() in {".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}:
         is_min = _has_long_minified_line(path)
     if is_min:
         sys.stderr.write(f"Skipped minified asset: {path}\n")
@@ -196,11 +196,11 @@ class CodeHealthRunner:
         elif self.lang_override == "java":
             valid_exts = {".java"}
         elif self.lang_override in {"javascript", "js"}:
-            valid_exts = {".js", ".mjs", ".cjs"}
+            valid_exts = {".js", ".jsx", ".mjs", ".cjs"}
         elif self.lang_override in {"typescript", "ts"}:
             valid_exts = {".ts", ".tsx", ".mts", ".cts"}
         else:
-            valid_exts = {".py", ".java", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}
+            valid_exts = {".py", ".java", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}
         direct = {r for r in resolved if r.is_file() and r.suffix.lower() in valid_exts}
         walked = {
             c.resolve() for r in resolved if r.is_dir()

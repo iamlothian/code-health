@@ -1,0 +1,31 @@
+{
+  "id": "typescript_react_hooks_xss_clean",
+  "pair_id": "typescript_react_hooks_and_xss",
+  "scenario_title": "2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/task_preview_clean.tsx",
+  "is_test": false,
+  "source_dataset": "Custom TypeScript/React Benchmark",
+  "source_url": "https://react.dev/reference/rules/rules-of-hooks",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 42,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/task_preview_clean.tsx src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/task_preview_clean.tsx    3   2    0   2   0  100.0   A\nsamples/typescript-react/good/task_preview_clean.tsx   12   1    0   1   0  100.0   A\nsamples/typescript-react/good/task_preview_clean.tsx   21   1    0   1   0  100.0   A\n"
+  }
+}

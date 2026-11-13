@@ -56,6 +56,7 @@ class IRCall:
     lineno: int = 1
     has_string_concat: bool = False
     has_string_arg: bool = False
+    in_branch_or_loop: bool = False
 
 
 @dataclass(frozen=True)
@@ -103,6 +104,11 @@ class IRFunction:
     ts_ignore_count: int = 0
     non_null_assertion_count: int = 0
 
+    # Generic UI / JSX / DOM syntax telemetry (backward-compatible defaults)
+    jsx_elements_count: int = 0
+    dom_write_sinks: list[tuple[str, int]] = field(default_factory=list)
+    array_index_keys: list[int] = field(default_factory=list)
+
 
 @dataclass
 class IRClass:
@@ -138,6 +144,7 @@ class IRModule:
     mid_file_imports: int = 0
     ts_ignore_count: int = 0
     syntax_errors: list[int] = field(default_factory=list)
+    directives: list[str] = field(default_factory=list)
 
 
 class MissingNativeParserError(RuntimeError):
@@ -171,6 +178,10 @@ class FrameworkProfile:
     entrypoint_annotations: set[str] = field(default_factory=set)
     lcom4_exempt_annotations: set[str] = field(default_factory=set)
 
+    def evaluate_module(self, module: IRModule) -> list[RulePenalty]:
+        """Evaluate architectural or boundary rules for a module."""
+        return []
+
     def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
         """Evaluate architectural rule violations for a function or method."""
         return []
@@ -178,6 +189,23 @@ class FrameworkProfile:
     def evaluate_class(self, cls: IRClass) -> list[RulePenalty]:
         """Evaluate architectural rule violations for a class or record."""
         return []
+
+    def extra_concerns(self, func: IRFunction) -> set[str]:
+        """Return framework-specific operational concerns derived from generic IR telemetry."""
+        return set()
+
+    def requires_explicit_return_type(self, func: IRFunction) -> bool:
+        """Return False to exempt qualifying functions (e.g. JSX components) from missing-return-type checks."""
+        return True
+
+    def requires_constructor_docstring(self, cls: IRClass | None) -> bool:
+        """Return False to exempt DI/framework constructors from missing-docstring penalties."""
+        return True
+
+    def is_lcom4_exempt(self, cls: IRClass) -> bool:
+        """Return True when a class is exempt from LCOM4 cohesion split penalties."""
+        ann_names = {a.name.split(".")[-1] for a in cls.annotations}
+        return bool(ann_names & self.lcom4_exempt_annotations)
 
     def is_test_assert_call(self, call_name: str) -> bool:
         """Determine if a function/method call represents an assertion."""
@@ -192,6 +220,13 @@ class LanguageProfile:
     file_extensions: tuple[str, ...]
     frameworks: list[FrameworkProfile] = field(default_factory=list)
 
+    def evaluate_module(self, module: IRModule) -> list[RulePenalty]:
+        """Evaluate framework penalties across the entire module."""
+        penalties: list[RulePenalty] = []
+        for fw in self.frameworks:
+            penalties.extend(fw.evaluate_module(module))
+        return penalties
+
     def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
         """Evaluate framework and language penalties on a function or method."""
         penalties: list[RulePenalty] = []
@@ -205,6 +240,25 @@ class LanguageProfile:
         for fw in self.frameworks:
             penalties.extend(fw.evaluate_class(cls))
         return penalties
+
+    def extra_concerns(self, func: IRFunction) -> set[str]:
+        """Collect non-call operational concerns contributed by attached frameworks."""
+        concerns: set[str] = set()
+        for fw in self.frameworks:
+            concerns.update(fw.extra_concerns(func))
+        return concerns
+
+    def requires_explicit_return_type(self, func: IRFunction) -> bool:
+        """Return True unless an active framework exempts this function's return annotation."""
+        return all(fw.requires_explicit_return_type(func) for fw in self.frameworks)
+
+    def requires_constructor_docstring(self, cls: IRClass | None) -> bool:
+        """Return True unless an active framework exempts constructors on cls from docstrings."""
+        return all(fw.requires_constructor_docstring(cls) for fw in self.frameworks)
+
+    def is_lcom4_exempt(self, cls: IRClass) -> bool:
+        """Return True if any active framework exempts cls from LCOM4 penalties."""
+        return any(fw.is_lcom4_exempt(cls) for fw in self.frameworks)
 
     def map_concern(self, cname: str) -> str | None:
         """Map a function/call name to an operational concern category."""

@@ -1,0 +1,33 @@
+{
+  "id": "typescript_angular_oss_header_good",
+  "pair_id": "typescript_angular_oss_xss_and_sub",
+  "scenario_title": "2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/header.component.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/core/layout/header.component.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/layout/header.component.ts",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 16,
+    "classes_count": 1,
+    "functions_count": 0,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 85.0,
+      "security": 100.0,
+      "composite": 97.8,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class HeaderComponent] Clean: missing class docstring (-15.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/header.component.ts src      16    - 100.0 100.0 100.0  85.0 100.0   97.8   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/header.component.t     5    0     1    0   97.8   A\n    - Clean: missing class docstring (-15.0 pts)\n"
+  }
+}

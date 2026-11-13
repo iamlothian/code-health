@@ -131,7 +131,11 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--config", type=Path, default=None, help="Optional JSON/TOML config file.")
     parser.add_argument("--fail-under", type=float, default=None, help="Exit 1 if score is below threshold.")
     parser.add_argument("--lang", choices=["auto", "python", "java", "javascript", "js", "typescript", "ts"], default="auto", help="Target language (default: auto).")
-    parser.add_argument("--framework", default="auto", help="Framework profile to apply (default: auto).")
+    parser.add_argument(
+        "--framework",
+        default="auto",
+        help="Framework profile override: auto, react, nextjs, angular, spring-boot, none (default: auto).",
+    )
     return parser
 
 

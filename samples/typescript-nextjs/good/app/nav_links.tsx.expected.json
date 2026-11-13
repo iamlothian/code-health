@@ -1,0 +1,33 @@
+{
+  "id": "typescript_nextjs_oss_nav_links_good",
+  "pair_id": "typescript_nextjs_oss_nav_vs_form",
+  "scenario_title": "2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "good",
+  "file_path": "samples/typescript-nextjs/good/app/nav_links.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/dashboard/nav-links.tsx)",
+  "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/nav-links.tsx",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 43,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 98.5,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func NavLinks] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/nav_links.tsx src      43    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/nav_links.tsx:24    25   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

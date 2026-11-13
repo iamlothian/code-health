@@ -1,0 +1,34 @@
+{
+  "id": "typescript_nextjs_oss_invoices_page_good",
+  "pair_id": "typescript_nextjs_oss_page_vs_table",
+  "scenario_title": "3. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "good",
+  "file_path": "samples/typescript-nextjs/good/app/invoices_page.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/next-learn (dashboard/final-example/app/dashboard/invoices/page.tsx)",
+  "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/page.tsx",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 40,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 95.5,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 97.4,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func Page] Size: LOC=28 (>25) (-4.5 pts)",
+      "[Func Page] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 95.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_page.tsx src      40    - 100.0  95.5 100.0  90.0 100.0   97.4   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_page.tsx   28   3    0   1   0   97.4   A\n    - Size: LOC=28 (>25) (-4.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

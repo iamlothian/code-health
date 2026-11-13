@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
-from _code_health.ir_models import IRClass, IRFunction, RulePenalty
+from _code_health.ir_models import FrameworkProfile, IRClass, IRFunction, LanguageProfile, RulePenalty
 from _code_health.profiles_js import JavaScriptLanguageProfile
 
 
 class TypeScriptLanguageProfile(JavaScriptLanguageProfile):
     """TypeScript language profile evaluating strict typing, escape hatches, anti-coercion, and security rules."""
 
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, frameworks: list[FrameworkProfile] | None = None) -> None:
+        super().__init__(frameworks=frameworks)
         self.name = "typescript"
         self.file_extensions = (".ts", ".tsx", ".mts", ".cts")
 
@@ -65,8 +65,8 @@ class TypeScriptLanguageProfile(JavaScriptLanguageProfile):
         return penalties
 
     def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
-        """Evaluate function-level TypeScript code health rules and penalties."""
-        penalties: list[RulePenalty] = []
+        """Evaluate function-level TypeScript and attached framework rules."""
+        penalties: list[RulePenalty] = LanguageProfile.evaluate_function(self, func, parent)
         penalties.extend(self._eval_clean_smells(func))
         penalties.extend(self._eval_ts_type_safety(func))
         penalties.extend(self._eval_dynamic_sinks(func))

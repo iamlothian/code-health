@@ -1,0 +1,36 @@
+{
+  "id": "typescript_angular_oss_favorite_button_good",
+  "pair_id": "typescript_angular_oss_score_board",
+  "scenario_title": "4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/favorite_button.component.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/favorite-button.component.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/favorite-button.component.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 73,
+    "classes_count": 1,
+    "functions_count": 2,
+    "scores": {
+      "srp": 95.5,
+      "size": 98.5,
+      "complexity": 100.0,
+      "clean": 80.0,
+      "security": 100.0,
+      "composite": 95.3,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class FavoriteButtonComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Method FavoriteButtonComponent.toggleFavorite] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+      "[Method FavoriteButtonComponent.toggleFavorite] Size: LOC=27 (>25) (-3.0 pts)",
+      "[Method FavoriteButtonComponent.toggleFavorite] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 95.5 | Size: 98.5 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.component.ts src      73    -  95.5  98.5 100.0  80.0 100.0   95.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.co    38    2     1    4   95.3   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.comp   27   3    2   0   1   95.0   A\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Size: LOC=27 (>25) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/favorite_button.comp    5   1    0   3   0  100.0   A\n"
+  }
+}

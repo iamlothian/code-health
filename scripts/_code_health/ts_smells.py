@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from _code_health.js_parser import _get_node_text
+from _code_health.ecmascript_ui import get_node_text as _get_node_text
 
 
 @dataclass

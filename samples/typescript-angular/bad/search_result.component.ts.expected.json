@@ -1,0 +1,63 @@
+{
+  "id": "typescript_angular_oss_search_result_bad",
+  "pair_id": "typescript_angular_oss_xss_and_sub",
+  "scenario_title": "2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/search_result.component.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/search-result/search-result.component.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/search-result/search-result.component.ts",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 186,
+    "classes_count": 1,
+    "functions_count": 10,
+    "scores": {
+      "srp": 36.1,
+      "size": 96.5,
+      "complexity": 98.1,
+      "clean": 68.5,
+      "security": 65.0,
+      "composite": 41.1,
+      "grade": "F"
+    },
+    "required_findings": [
+      "bypassSecurityTrustHtml"
+    ],
+    "all_findings": [
+      "[Class SearchResultComponent] SRP: self attributes=22 (>7) (-60.0 pts)",
+      "[Class SearchResultComponent] Complexity: total class CC=26 (>25) (-1.5 pts)",
+      "[Class SearchResultComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Method SearchResultComponent.ngAfterViewInit] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+      "[Method SearchResultComponent.ngAfterViewInit] Size: LOC=48 (>25) (-34.5 pts)",
+      "[Method SearchResultComponent.ngAfterViewInit] Complexity: CC=6 (>5) (-4.0 pts)",
+      "[Method SearchResultComponent.ngAfterViewInit] Clean: missing public docstring (-10.0 pts)",
+      "[Method SearchResultComponent.ngAfterViewInit] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.trustProductDescription] Clean: missing public docstring (-5.0 pts)",
+      "[Method SearchResultComponent.trustProductDescription] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.trustProductDescription] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)",
+      "[Method SearchResultComponent.trustProductDescription] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method SearchResultComponent.ngOnDestroy] Clean: missing public docstring (-10.0 pts)",
+      "[Method SearchResultComponent.ngOnDestroy] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.filterTable] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method SearchResultComponent.filterTable] Clean: missing public docstring (-10.0 pts)",
+      "[Method SearchResultComponent.filterTable] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.filterTable] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)",
+      "[Method SearchResultComponent.setupResponsivePageSize] Clean: missing public docstring (-5.0 pts)",
+      "[Method SearchResultComponent.setupResponsivePageSize] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.updatePageSize] Clean: missing public docstring (-10.0 pts)",
+      "[Method SearchResultComponent.updatePageSize] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.updatePageSizeOptions] Clean: missing public docstring (-5.0 pts)",
+      "[Method SearchResultComponent.updatePageSizeOptions] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.startHackingInstructor] Clean: missing public docstring (-5.0 pts)",
+      "[Method SearchResultComponent.startHackingInstructor] Clean: missing return type annotation (-10.0 pts)",
+      "[Method SearchResultComponent.isLoggedIn] Clean: missing public docstring (-5.0 pts)",
+      "[Method SearchResultComponent.isDeluxe] Clean: missing public docstring (-5.0 pts)",
+      "[Method SearchResultComponent.isDeluxe] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 41.1/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 10\nDimensions -> SRP: 36.1 | Size: 96.5 | Complexity: 98.1 | Clean: 68.5 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.component.ts src     186    -  36.1  96.5  98.1  68.5  65.0   41.1   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.compo   160   10     3   26   41.1   F\n    - SRP: self attributes=22 (>7) (-60.0 pts)\n    - Complexity: total class CC=26 (>25) (-1.5 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.compone    5   2    1   1   1   70.0   C\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/search_result.compone   25   4    5   0   2   70.0   C\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)\nsamples/typescript-angular/bad/search_result.compone   48   6    5   0   2   70.5   C\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Size: LOC=48 (>25) (-34.5 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   14   5    4   0   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   15   2    1   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   10   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    7   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    6   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    3   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

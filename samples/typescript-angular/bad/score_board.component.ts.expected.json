@@ -1,0 +1,62 @@
+{
+  "id": "typescript_angular_oss_score_board_bad",
+  "pair_id": "typescript_angular_oss_score_board",
+  "scenario_title": "4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/score_board.component.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/score-board/score-board.component.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/score-board.component.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 217,
+    "classes_count": 1,
+    "functions_count": 12,
+    "scores": {
+      "srp": 29.0,
+      "size": 98.6,
+      "complexity": 79.0,
+      "clean": 72.9,
+      "security": 65.0,
+      "composite": 34.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "bypassSecurityTrustHtml"
+    ],
+    "all_findings": [
+      "[Class ScoreBoardComponent] SRP: methods=12 (>10) (-8.0 pts)",
+      "[Class ScoreBoardComponent] SRP: self attributes=22 (>7) (-60.0 pts)",
+      "[Class ScoreBoardComponent] Complexity: total class CC=36 (>25) (-16.5 pts)",
+      "[Class ScoreBoardComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Method ScoreBoardComponent.ngOnInit] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method ScoreBoardComponent.ngOnInit] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.loadChallenges] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+      "[Method ScoreBoardComponent.loadChallenges] Clean: missing public docstring (-10.0 pts)",
+      "[Method ScoreBoardComponent.loadChallenges] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)",
+      "[Method ScoreBoardComponent.ngOnDestroy] Clean: missing public docstring (-10.0 pts)",
+      "[Method ScoreBoardComponent.onFilterSettingUpdate] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.onFilterSettingUpdate] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ScoreBoardComponent.onChallengeSolvedWebsocket] Clean: missing public docstring (-10.0 pts)",
+      "[Method ScoreBoardComponent.onChallengeSolvedWebsocket] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ScoreBoardComponent.onCodeChallengeSolvedWebsocket] Clean: missing public docstring (-10.0 pts)",
+      "[Method ScoreBoardComponent.onCodeChallengeSolvedWebsocket] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ScoreBoardComponent.filterAndUpdateChallenges] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.checkTagHighlight] Size: LOC=36 (>25) (-16.5 pts)",
+      "[Method ScoreBoardComponent.checkTagHighlight] Complexity: CC=12 (>5) (-34.0 pts)",
+      "[Method ScoreBoardComponent.checkTagHighlight] Complexity: cognitive=16 (>8) (-20.0 pts)",
+      "[Method ScoreBoardComponent.checkTagHighlight] Clean: missing public docstring (-10.0 pts)",
+      "[Method ScoreBoardComponent.getChallengeKey] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.reset] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.reset] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ScoreBoardComponent.repeatChallengeNotification] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.repeatChallengeNotification] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ScoreBoardComponent.unlockHint] Clean: missing public docstring (-5.0 pts)",
+      "[Method ScoreBoardComponent.unlockHint] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 34.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 12\nDimensions -> SRP: 29.0 | Size: 98.6 | Complexity: 79.0 | Clean: 72.9 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.component.ts src     217    -  29.0  98.6  79.0  72.9  65.0   34.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.compone   175   12     3   36   34.0   F\n    - SRP: methods=12 (>10) (-8.0 pts)\n    - SRP: self attributes=22 (>7) (-60.0 pts)\n    - Complexity: total class CC=36 (>25) (-16.5 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.component   36  12   16   0   3   51.0   F\n    - Size: LOC=36 (>25) (-16.5 pts)\n    - Complexity: CC=12 (>5) (-34.0 pts)\n    - Complexity: cognitive=16 (>8) (-20.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   25   5    1   0   1   70.0   C\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)\nsamples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    5   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    5   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    4   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    9   2    0   2   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   10   1    0   0   0   98.3   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/score_board.component   13   4    3   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    9   2    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/score_board.component    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

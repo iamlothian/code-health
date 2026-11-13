@@ -1,0 +1,41 @@
+{
+  "id": "typescript_react_hooks_xss_legacy",
+  "pair_id": "typescript_react_hooks_and_xss",
+  "scenario_title": "2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/task_preview_legacy.tsx",
+  "is_test": false,
+  "source_dataset": "Custom TypeScript/React Benchmark",
+  "source_url": "https://react.dev/reference/rules/rules-of-hooks",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 24,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 92.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 67.0,
+      "security": 65.0,
+      "composite": 70.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "dangerouslySetInnerHTML",
+      "Rules of Hooks",
+      "effect sprawl",
+      "array index used as JSX key"
+    ],
+    "all_findings": [
+      "[Func TaskPreviewLegacy] Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L24 (-35.0 pts)",
+      "[Func TaskPreviewLegacy] Clean (React): Rules of Hooks violation calling 'useEffect' in branch/loop at L9 (-25.0 pts)",
+      "[Func TaskPreviewLegacy] SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)",
+      "[Func TaskPreviewLegacy] Clean (React): array index used as JSX key at L24 (-8.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 92.0 | Size: 100.0 | Complexity: 100.0 | Clean: 67.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/task_preview_legacy.tsx src      24    -  92.0 100.0 100.0  67.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/task_preview_legacy.tsx   23   2    1   1   1   70.0   C\n    - Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L24 (-35.0 pts)\n    - Clean (React): Rules of Hooks violation calling 'useEffect' in branch/loop at L9 (-25.0 pts)\n    - SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)\n    - Clean (React): array index used as JSX key at L24 (-8.0 pts)\n"
+  }
+}

@@ -243,3 +243,135 @@ def test_ir_function_typescript_rule_fields_and_defaults() -> None:
     assert ts_func.ts_ignore_count == 1
     assert ts_func.non_null_assertion_count == 2
 
+
+def test_ir_ui_primitives_and_framework_hooks_defaults_and_delegation() -> None:
+    from _code_health.ir_models import FrameworkProfile, LanguageProfile
+    from _code_health.module_engine import ModuleAnalyzer
+
+    call_default = IRCall("fetch", "fetch", 4)
+    assert call_default.in_branch_or_loop is False
+    call_branch = IRCall("useState", "useState", 5, in_branch_or_loop=True)
+    assert call_branch.in_branch_or_loop is True
+
+    func = IRFunction(
+        name="UserCard",
+        qualname="UserCard",
+        lineno=1,
+        end_lineno=8,
+        loc=7,
+        params=[IRParam("props", "Props", False, [])],
+        return_type=None,
+        max_nesting=0,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=1,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+    )
+    assert func.jsx_elements_count == 0
+    assert func.dom_write_sinks == []
+    assert func.array_index_keys == []
+
+    mod = IRModule(
+        file_path="app/page.tsx",
+        language="typescript",
+        is_test=False,
+        loc=10,
+        imports=[],
+        classes=[],
+        functions=[],
+    )
+    assert mod.directives == []
+
+    class _MockUIFramework(FrameworkProfile):
+        def __init__(self) -> None:
+            super().__init__(name="mock_ui", target_language="typescript")
+
+        def evaluate_module(self, module: IRModule) -> list[RulePenalty]:
+            return [RulePenalty("security", 30.0, "Security: mock module issue", 1)]
+
+        def extra_concerns(self, fn: IRFunction) -> set[str]:
+            return {"render_ui"} if fn.jsx_elements_count > 0 else set()
+
+        def requires_explicit_return_type(self, fn: IRFunction) -> bool:
+            return fn.jsx_elements_count == 0
+
+        def requires_constructor_docstring(self, cls: IRClass | None) -> bool:
+            return cls is None
+
+        def is_lcom4_exempt(self, cls: IRClass) -> bool:
+            return True
+
+    base_fw = FrameworkProfile(name="base", target_language="typescript")
+    assert base_fw.evaluate_module(mod) == []
+    assert base_fw.extra_concerns(func) == set()
+    assert base_fw.requires_explicit_return_type(func) is True
+    assert base_fw.requires_constructor_docstring(None) is True
+    assert base_fw.is_lcom4_exempt(IRClass("C", "C", 1, 5, 4, [], [], [], [])) is False
+
+    fw = _MockUIFramework()
+    profile = LanguageProfile("typescript", (".ts", ".tsx"), frameworks=[fw])
+    jsx_fn = IRFunction(
+        name="UserCard",
+        qualname="UserCard",
+        lineno=1,
+        end_lineno=6,
+        loc=5,
+        params=[IRParam("props", "Props", False, [])],
+        return_type=None,
+        max_nesting=0,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=1,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+        jsx_elements_count=2,
+    )
+    scorer = UniversalIRScorer(RubricConfig(), profile)
+    fn_rep = scorer.score_function(jsx_fn, "src/UserCard.tsx", is_test=False)
+    assert "render_ui" in fn_rep.concerns
+    assert not any("missing return type annotation" in f for f in fn_rep.findings)
+
+    ctor = IRFunction(
+        name="constructor",
+        qualname="Widget.constructor",
+        lineno=4,
+        end_lineno=6,
+        loc=2,
+        params=[],
+        return_type="void",
+        max_nesting=0,
+        cyclomatic_complexity=1,
+        cognitive_complexity=0,
+        returns_count=0,
+        calls=[],
+        accessed_fields=[],
+        except_handlers=[],
+        is_test=False,
+        has_docstring=False,
+    )
+    cls = IRClass(
+        name="Widget",
+        qualname="Widget",
+        lineno=1,
+        end_lineno=20,
+        loc=18,
+        annotations=[],
+        base_types=[],
+        fields=[],
+        methods=[ctor, jsx_fn, func],
+        lcom4=3,
+    )
+    cls_rep = scorer.score_class(cls, "src/Widget.tsx", is_test=False)
+    assert not any("LCOM4" in f for f in cls_rep.findings)
+    assert not any("missing public docstring" in f for f in cls_rep.methods[0].findings)
+
+    analyzer = ModuleAnalyzer(Path("."), set(), RubricConfig(), None)
+    blended = analyzer._blend_scores((100.0, 100.0, 100.0, 70.0), [], [fn_rep])
+    assert blended.security == 70.0
+
+

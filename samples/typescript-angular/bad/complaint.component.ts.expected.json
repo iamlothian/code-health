@@ -1,0 +1,48 @@
+{
+  "id": "typescript_angular_oss_complaint_bad",
+  "pair_id": "typescript_angular_oss_di_and_sub",
+  "scenario_title": "3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/complaint.component.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/complaint/complaint.component.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/complaint/complaint.component.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 102,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 80.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 52.0,
+      "security": 100.0,
+      "composite": 57.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "unmanaged .subscribe()"
+    ],
+    "all_findings": [
+      "[Class ComplaintComponent] SRP: self attributes=12 (>7) (-20.0 pts)",
+      "[Class ComplaintComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Class ComplaintComponent] Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+      "[Method ComplaintComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+      "[Method ComplaintComponent.initComplaint] Clean: missing public docstring (-10.0 pts)",
+      "[Method ComplaintComponent.initComplaint] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ComplaintComponent.initComplaint] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method ComplaintComponent.save] Clean: missing public docstring (-5.0 pts)",
+      "[Method ComplaintComponent.save] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ComplaintComponent.saveComplaint] Clean: missing public docstring (-10.0 pts)",
+      "[Method ComplaintComponent.saveComplaint] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ComplaintComponent.saveComplaint] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method ComplaintComponent.resetForm] Clean: missing public docstring (-5.0 pts)",
+      "[Method ComplaintComponent.resetForm] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 57.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 52.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component.ts src     102    -  80.0 100.0 100.0  52.0 100.0   57.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component    80    5     1    6   57.0   F\n    - SRP: self attributes=12 (>7) (-20.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   96.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/complaint.component.t   19   1    0   0   0   96.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/complaint.component.t    8   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/complaint.component.t    6   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

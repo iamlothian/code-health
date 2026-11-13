@@ -1593,22 +1593,22 @@
       }
     },
     {
-      "id": "typescript_task_filter_bar_tsx",
-      "pair_id": "typescript_react_tsx_hygiene",
-      "scenario_title": "5. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board",
+      "id": "typescript_task_board_service_clean",
+      "pair_id": "typescript_task_board_service",
+      "scenario_title": "5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor",
       "language": "typescript",
       "framework": "auto",
       "quality": "good",
-      "file_path": "samples/typescript/task_filter_bar.tsx",
+      "file_path": "samples/typescript/task_board_service_clean.ts",
       "is_test": false,
-      "source_dataset": "Custom TypeScript/React TSX Benchmark",
-      "source_url": "https://react.dev/learn/typescript",
+      "source_dataset": "Custom TypeScript Benchmark",
+      "source_url": "https://www.typescriptlang.org/docs/",
       "license": "MIT",
       "target_dimension": "complexity",
       "expected": {
-        "loc": 75,
+        "loc": 39,
         "classes_count": 0,
-        "functions_count": 4,
+        "functions_count": 3,
         "scores": {
           "srp": 100.0,
           "size": 100.0,
@@ -1620,29 +1620,29 @@
         },
         "required_findings": [],
         "all_findings": [],
-        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_filter_bar.tsx         src      75    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_filter_bar.tsx:22 filterTask   12   5    1   3   1  100.0   A\nsamples/typescript/task_filter_bar.tsx:36 summarizeT   12   3    3   1   2  100.0   A\nsamples/typescript/task_filter_bar.tsx:50 SearchInpu   17   1    0   1   0  100.0   A\nsamples/typescript/task_filter_bar.tsx:69 TaskFilter   21   1    0   1   0  100.0   A\n"
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_board_service_clean.ts src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_board_service_clean.ts:21 ma    5   5    1   3   1  100.0   A\nsamples/typescript/task_board_service_clean.ts:28 fi   10   1    0   3   0  100.0   A\nsamples/typescript/task_board_service_clean.ts:40 su   12   3    3   1   2  100.0   A\n"
       }
     },
     {
-      "id": "typescript_task_board_legacy_tsx",
-      "pair_id": "typescript_react_tsx_hygiene",
-      "scenario_title": "5. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board",
+      "id": "typescript_task_board_service_legacy",
+      "pair_id": "typescript_task_board_service",
+      "scenario_title": "5. Pure TypeScript Task Board Filtering Service vs. Monolithic Legacy Processor",
       "language": "typescript",
       "framework": "auto",
       "quality": "bad",
-      "file_path": "samples/typescript/task_board_legacy.tsx",
+      "file_path": "samples/typescript/task_board_service_legacy.ts",
       "is_test": false,
-      "source_dataset": "Custom TypeScript/React TSX Benchmark",
-      "source_url": "https://react.dev/learn/typescript",
+      "source_dataset": "Custom TypeScript Benchmark",
+      "source_url": "https://www.typescriptlang.org/docs/",
       "license": "MIT",
       "target_dimension": "complexity",
       "expected": {
-        "loc": 51,
+        "loc": 39,
         "classes_count": 0,
         "functions_count": 1,
         "scores": {
-          "srp": 79.0,
-          "size": 6.5,
+          "srp": 85.0,
+          "size": 23.0,
           "complexity": 0.0,
           "clean": 46.0,
           "security": 100.0,
@@ -1656,20 +1656,20 @@
           "non-null assertion"
         ],
         "all_findings": [
-          "[Func TaskBoardLegacy] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
-          "[Func TaskBoardLegacy] SRP: boolean flag parameter with default value (-12.0 pts)",
-          "[Func TaskBoardLegacy] Size: LOC=50 (>25) (-37.5 pts)",
-          "[Func TaskBoardLegacy] Size: params=5 (>4) (-6.0 pts)",
-          "[Func TaskBoardLegacy] Size: nesting depth=8 (>3) (-50.0 pts)",
-          "[Func TaskBoardLegacy] Complexity: CC=18 (>5) (-76.0 pts)",
-          "[Func TaskBoardLegacy] Complexity: cognitive=40 (>8) (-80.0 pts)",
-          "[Func TaskBoardLegacy] Clean: missing public docstring (-10.0 pts)",
-          "[Func TaskBoardLegacy] Clean: empty catch block swallows exception (-10.0 pts)",
-          "[Func TaskBoardLegacy] Clean (TS): 6 explicit 'any' type usage(s) defeat type safety (-20.0 pts)",
-          "[Func TaskBoardLegacy] Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
-          "[Func TaskBoardLegacy] Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)"
+          "[Func processLegacyTaskBoard] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Func processLegacyTaskBoard] SRP: boolean flag parameter with default value (-12.0 pts)",
+          "[Func processLegacyTaskBoard] Size: LOC=39 (>25) (-21.0 pts)",
+          "[Func processLegacyTaskBoard] Size: params=5 (>4) (-6.0 pts)",
+          "[Func processLegacyTaskBoard] Size: nesting depth=8 (>3) (-50.0 pts)",
+          "[Func processLegacyTaskBoard] Complexity: CC=16 (>5) (-62.0 pts)",
+          "[Func processLegacyTaskBoard] Complexity: cognitive=38 (>8) (-75.0 pts)",
+          "[Func processLegacyTaskBoard] Clean: missing public docstring (-10.0 pts)",
+          "[Func processLegacyTaskBoard] Clean: empty catch block swallows exception (-10.0 pts)",
+          "[Func processLegacyTaskBoard] Clean (TS): 5 explicit 'any' type usage(s) defeat type safety (-20.0 pts)",
+          "[Func processLegacyTaskBoard] Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+          "[Func processLegacyTaskBoard] Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)"
         ],
-        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 79.0 | Size: 6.5 | Complexity: 0.0 | Clean: 46.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_board_legacy.tsx       src      51    -  79.0   6.5   0.0  46.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_board_legacy.tsx:5 TaskBoard   50  18   40   5   8    5.0   F\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - SRP: boolean flag parameter with default value (-12.0 pts)\n    - Size: LOC=50 (>25) (-37.5 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Size: nesting depth=8 (>3) (-50.0 pts)\n    - Complexity: CC=18 (>5) (-76.0 pts)\n    - Complexity: cognitive=40 (>8) (-80.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\n    - Clean (TS): 6 explicit 'any' type usage(s) defeat type safety (-20.0 pts)\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n    - Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)\n"
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 85.0 | Size: 23.0 | Complexity: 0.0 | Clean: 46.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_board_service_legacy.ts src      39    -  85.0  23.0   0.0  46.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/task_board_service_legacy.ts:4 pr   39  16   38   5   8    5.0   F\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - SRP: boolean flag parameter with default value (-12.0 pts)\n    - Size: LOC=39 (>25) (-21.0 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Size: nesting depth=8 (>3) (-50.0 pts)\n    - Complexity: CC=16 (>5) (-62.0 pts)\n    - Complexity: cognitive=38 (>8) (-75.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\n    - Clean (TS): 5 explicit 'any' type usage(s) defeat type safety (-20.0 pts)\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n    - Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)\n"
       }
     },
     {
@@ -1822,6 +1822,994 @@
           "[Func test: placeholder scenario awaiting assertions] Clean (Test): test has 0 assertions (-30.0 pts)"
         ],
         "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 66.8/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 61.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/dijkstra_bad.test.ts        test     28    - 100.0 100.0 100.0  61.8 100.0   66.8   D\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/dijkstra_bad.test.ts:32 test: pla    3   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/typescript/dijkstra_bad.test.ts:5 test: vali   22   1    0   0   0   77.0   C\n    - Clean (Test): 10 assertions in single test (>8) (-6.0 pts)\n    - Clean (TS): 5 explicit 'any' type usage(s) defeat type safety (-20.0 pts)\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_task_filter_bar_tsx",
+      "pair_id": "typescript_react_tsx_hygiene",
+      "scenario_title": "1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "good",
+      "file_path": "samples/typescript-react/good/task_filter_bar.tsx",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/React TSX Benchmark",
+      "source_url": "https://react.dev/learn/typescript",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 75,
+        "classes_count": 0,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/task_filter_bar.tsx src      75    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/task_filter_bar.tsx:22   12   5    1   3   1  100.0   A\nsamples/typescript-react/good/task_filter_bar.tsx:36   12   3    3   1   2  100.0   A\nsamples/typescript-react/good/task_filter_bar.tsx:50   17   1    0   1   0  100.0   A\nsamples/typescript-react/good/task_filter_bar.tsx:69   21   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_react_task_board_legacy_tsx",
+      "pair_id": "typescript_react_tsx_hygiene",
+      "scenario_title": "1. React 18 TSX Component Decomposition & Props Hygiene vs. Monolithic TSX Board",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "bad",
+      "file_path": "samples/typescript-react/bad/task_board_legacy.tsx",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/React TSX Benchmark",
+      "source_url": "https://react.dev/learn/typescript",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 51,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 79.0,
+          "size": 6.5,
+          "complexity": 0.0,
+          "clean": 46.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=",
+          "Size: nesting depth=",
+          "explicit 'any' type usage",
+          "non-null assertion"
+        ],
+        "all_findings": [
+          "[Func TaskBoardLegacy] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+          "[Func TaskBoardLegacy] SRP: boolean flag parameter with default value (-12.0 pts)",
+          "[Func TaskBoardLegacy] Size: LOC=50 (>25) (-37.5 pts)",
+          "[Func TaskBoardLegacy] Size: params=5 (>4) (-6.0 pts)",
+          "[Func TaskBoardLegacy] Size: nesting depth=8 (>3) (-50.0 pts)",
+          "[Func TaskBoardLegacy] Complexity: CC=18 (>5) (-76.0 pts)",
+          "[Func TaskBoardLegacy] Complexity: cognitive=40 (>8) (-80.0 pts)",
+          "[Func TaskBoardLegacy] Clean: missing public docstring (-10.0 pts)",
+          "[Func TaskBoardLegacy] Clean: empty catch block swallows exception (-10.0 pts)",
+          "[Func TaskBoardLegacy] Clean (TS): 6 explicit 'any' type usage(s) defeat type safety (-20.0 pts)",
+          "[Func TaskBoardLegacy] Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+          "[Func TaskBoardLegacy] Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 79.0 | Size: 6.5 | Complexity: 0.0 | Clean: 46.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/task_board_legacy.tsx src      51    -  79.0   6.5   0.0  46.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/task_board_legacy.tsx:5   50  18   40   5   8    5.0   F\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - SRP: boolean flag parameter with default value (-12.0 pts)\n    - Size: LOC=50 (>25) (-37.5 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Size: nesting depth=8 (>3) (-50.0 pts)\n    - Complexity: CC=18 (>5) (-76.0 pts)\n    - Complexity: cognitive=40 (>8) (-80.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\n    - Clean (TS): 6 explicit 'any' type usage(s) defeat type safety (-20.0 pts)\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n    - Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_hooks_xss_clean",
+      "pair_id": "typescript_react_hooks_and_xss",
+      "scenario_title": "2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "good",
+      "file_path": "samples/typescript-react/good/task_preview_clean.tsx",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/React Benchmark",
+      "source_url": "https://react.dev/reference/rules/rules-of-hooks",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 42,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/task_preview_clean.tsx src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/task_preview_clean.tsx    3   2    0   2   0  100.0   A\nsamples/typescript-react/good/task_preview_clean.tsx   12   1    0   1   0  100.0   A\nsamples/typescript-react/good/task_preview_clean.tsx   21   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_react_hooks_xss_legacy",
+      "pair_id": "typescript_react_hooks_and_xss",
+      "scenario_title": "2. React Hooks Hygiene & Safe JSX Rendering vs. Conditional Hooks & innerHTML XSS",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "bad",
+      "file_path": "samples/typescript-react/bad/task_preview_legacy.tsx",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/React Benchmark",
+      "source_url": "https://react.dev/reference/rules/rules-of-hooks",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 24,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 92.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 67.0,
+          "security": 65.0,
+          "composite": 70.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "dangerouslySetInnerHTML",
+          "Rules of Hooks",
+          "effect sprawl",
+          "array index used as JSX key"
+        ],
+        "all_findings": [
+          "[Func TaskPreviewLegacy] Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L24 (-35.0 pts)",
+          "[Func TaskPreviewLegacy] Clean (React): Rules of Hooks violation calling 'useEffect' in branch/loop at L9 (-25.0 pts)",
+          "[Func TaskPreviewLegacy] SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)",
+          "[Func TaskPreviewLegacy] Clean (React): array index used as JSX key at L24 (-8.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 92.0 | Size: 100.0 | Complexity: 100.0 | Clean: 67.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/task_preview_legacy.tsx src      24    -  92.0 100.0 100.0  67.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/task_preview_legacy.tsx   23   2    1   1   1   70.0   C\n    - Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L24 (-35.0 pts)\n    - Clean (React): Rules of Hooks violation calling 'useEffect' in branch/loop at L9 (-25.0 pts)\n    - SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)\n    - Clean (React): array index used as JSX key at L24 (-8.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_oss_delete_discussion_good",
+      "pair_id": "typescript_react_oss_feature_size",
+      "scenario_title": "3. React Feature Component Decomposition vs. Profile Update Form (bulletproof-react)",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "good",
+      "file_path": "samples/typescript-react/good/delete_discussion.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (features/discussions/components/delete-discussion.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/discussions/components/delete-discussion.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 48,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 79.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 93.2,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func DeleteDiscussion] Size: LOC=39 (>25) (-21.0 pts)",
+          "[Func DeleteDiscussion] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 93.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 79.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/delete_discussion.tsx src      48    - 100.0  79.0 100.0  90.0 100.0   93.2   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/delete_discussion.tsx:   39   1    0   1   0   93.2   A\n    - Size: LOC=39 (>25) (-21.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_oss_update_profile_bad",
+      "pair_id": "typescript_react_oss_feature_size",
+      "scenario_title": "3. React Feature Component Decomposition vs. Profile Update Form (bulletproof-react)",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "bad",
+      "file_path": "samples/typescript-react/bad/update_profile.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (features/users/components/update-profile.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/users/components/update-profile.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 86,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 0.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func UpdateProfile] Size: LOC=77 (>25) (-100.0 pts)",
+          "[Func UpdateProfile] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/update_profile.tsx src      86    - 100.0   0.0 100.0  90.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/update_profile.tsx:13 U   77   5    0   0   0    5.0   F\n    - Size: LOC=77 (>25) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_oss_link_good",
+      "pair_id": "typescript_react_oss_dom_security",
+      "scenario_title": "4. React Safe UI Link Wrapper vs. Unsanitized Markdown Preview XSS (bulletproof-react)",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "good",
+      "file_path": "samples/typescript-react/good/link.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (components/ui/link/link.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/link/link.tsx",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 12,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 95.0,
+          "security": 100.0,
+          "composite": 99.2,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Link] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/link.tsx         src      12    - 100.0 100.0 100.0  95.0 100.0   99.2   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/link.tsx:5 Link          10   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_oss_md_preview_bad",
+      "pair_id": "typescript_react_oss_dom_security",
+      "scenario_title": "4. React Safe UI Link Wrapper vs. Unsanitized Markdown Preview XSS (bulletproof-react)",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "bad",
+      "file_path": "samples/typescript-react/bad/md_preview.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (components/ui/md-preview/md-preview.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/md-preview/md-preview.tsx",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 16,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 95.0,
+          "security": 65.0,
+          "composite": 70.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "dangerouslySetInnerHTML"
+        ],
+        "all_findings": [
+          "[Func MDPreview] Clean: missing public docstring (-5.0 pts)",
+          "[Func MDPreview] Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L14 (-35.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/md_preview.tsx    src      16    - 100.0 100.0 100.0  95.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/md_preview.tsx:10 MDPre   10   1    0   1   0   70.0   C\n    - Clean: missing public docstring (-5.0 pts)\n    - Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L14 (-35.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_oss_discussion_view_good",
+      "pair_id": "typescript_react_oss_list_complexity",
+      "scenario_title": "5. React Feature View Composition vs. Large Comments List Render (bulletproof-react)",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "good",
+      "file_path": "samples/typescript-react/good/discussion_view.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (features/discussions/components/discussion-view.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/discussions/components/discussion-view.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 45,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 77.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 92.9,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func DiscussionView] Size: LOC=40 (>25) (-22.5 pts)",
+          "[Func DiscussionView] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 92.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 77.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/discussion_view.tsx src      45    - 100.0  77.5 100.0  90.0 100.0   92.9   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/discussion_view.tsx:8    40   4    2   1   1   92.9   A\n    - Size: LOC=40 (>25) (-22.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_react_oss_comments_list_bad",
+      "pair_id": "typescript_react_oss_list_complexity",
+      "scenario_title": "5. React Feature View Composition vs. Large Comments List Render (bulletproof-react)",
+      "language": "typescript",
+      "framework": "react",
+      "quality": "bad",
+      "file_path": "samples/typescript-react/bad/comments_list.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (features/comments/components/comments-list.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/features/comments/components/comments-list.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 83,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 97.0,
+          "size": 12.5,
+          "complexity": 92.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 17.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func CommentsList] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Func CommentsList] Size: LOC=70 (>25) (-87.5 pts)",
+          "[Func CommentsList] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Func CommentsList] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 17.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 97.0 | Size: 12.5 | Complexity: 92.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/comments_list.tsx src      83    -  97.0  12.5  92.0  90.0 100.0   17.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/comments_list.tsx:19 Co   70   7    3   1   1   17.5   F\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Size: LOC=70 (>25) (-87.5 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_app_router_clean",
+      "pair_id": "typescript_nextjs_app_router",
+      "scenario_title": "1. Next.js App Router Client/Server Boundaries & DOM Security",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/dashboard_page_clean.tsx",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/Next.js Benchmark",
+      "source_url": "https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 24,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/dashboard_page_clean.tsx src      24    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/dashboard_page_cl   17   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_app_router_unsafe",
+      "pair_id": "typescript_nextjs_app_router",
+      "scenario_title": "1. Next.js App Router Client/Server Boundaries & DOM Security",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/dashboard_page_unsafe.tsx",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/Next.js Benchmark",
+      "source_url": "https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 10,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 0.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "server-only import 'next/headers' inside 'use client' module",
+          "innerHTML",
+          "dangerouslySetInnerHTML"
+        ],
+        "all_findings": [
+          "Security (Next.js): server-only import 'next/headers' inside 'use client' module (-30.0 pts)",
+          "[Func DashboardUnsafePanel] Security (Nextjs): unsafe XSS/DOM sink 'innerHTML' at L13 (-35.0 pts)",
+          "[Func DashboardUnsafePanel] Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L15 (-35.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 0.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/dashboard_page_unsafe.tsx src      10    - 100.0 100.0 100.0 100.0   0.0    5.0   F\n    - Security (Next.js): server-only import 'next/headers' inside 'use client' module (-30.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/dashboard_page_uns    7   2    1   1   1   35.0   F\n    - Security (Nextjs): unsafe XSS/DOM sink 'innerHTML' at L13 (-35.0 pts)\n    - Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L15 (-35.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_nav_links_good",
+      "pair_id": "typescript_nextjs_oss_nav_vs_form",
+      "scenario_title": "2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/nav_links.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/dashboard/nav-links.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/nav-links.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 43,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func NavLinks] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/nav_links.tsx src      43    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/nav_links.tsx:24    25   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_login_form_bad",
+      "pair_id": "typescript_nextjs_oss_nav_vs_form",
+      "scenario_title": "2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/login_form.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/login-form.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/login-form.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 86,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 2.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 7.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func LoginForm] Size: LOC=74 (>25) (-97.5 pts)",
+          "[Func LoginForm] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 7.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 2.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/login_form.tsx src      86    - 100.0   2.5 100.0  90.0 100.0    7.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/login_form.tsx:15    74   3    0   0   0    7.5   F\n    - Size: LOC=74 (>25) (-97.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_invoices_page_good",
+      "pair_id": "typescript_nextjs_oss_page_vs_table",
+      "scenario_title": "3. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/invoices_page.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/dashboard/invoices/page.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/page.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 40,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 95.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 97.4,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Page] Size: LOC=28 (>25) (-4.5 pts)",
+          "[Func Page] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 95.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_page.tsx src      40    - 100.0  95.5 100.0  90.0 100.0   97.4   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_page.tsx   28   3    0   1   0   97.4   A\n    - Size: LOC=28 (>25) (-4.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_customers_table_bad",
+      "pair_id": "typescript_nextjs_oss_page_vs_table",
+      "scenario_title": "3. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/customers_table.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 118,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 0.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func CustomersTable] Size: LOC=114 (>25) (-100.0 pts)",
+          "[Func CustomersTable] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  90.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.ts  114   1    0   1   0    5.0   F\n    - Size: LOC=114 (>25) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_error_good",
+      "pair_id": "typescript_nextjs_oss_error_vs_chart",
+      "scenario_title": "4. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/invoices_error.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/dashboard/invoices/error.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/error.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 26,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Error] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_error.tsx src      26    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_error.ts   24   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_revenue_chart_bad",
+      "pair_id": "typescript_nextjs_oss_error_vs_chart",
+      "scenario_title": "4. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/revenue_chart.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/dashboard/revenue-chart.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/revenue-chart.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 48,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 71.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 76.5,
+          "grade": "C"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func RevenueChart] Size: LOC=44 (>25) (-28.5 pts)",
+          "[Func RevenueChart] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 76.5/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 71.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/revenue_chart.tsx src      48    - 100.0  71.5 100.0  90.0 100.0   76.5   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/revenue_chart.tsx:   44   3    1   0   1   76.5   C\n    - Size: LOC=44 (>25) (-28.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_orders_clean",
+      "pair_id": "typescript_angular_component_hygiene",
+      "scenario_title": "1. Angular @Component DI Layering, RxJS Teardown & DomSanitizer Hygiene",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/orders_panel_clean.component.ts",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/Angular Benchmark",
+      "source_url": "https://angular.dev/style-guide",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 33,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/orders_panel_clean.component.ts src      33    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/orders_panel_clean    21    4     3    4  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/orders_panel_clean.c    1   1    0   1   0  100.0   A\nsamples/typescript-angular/good/orders_panel_clean.c    8   1    0   0   0  100.0   A\nsamples/typescript-angular/good/orders_panel_clean.c    4   1    0   1   0  100.0   A\nsamples/typescript-angular/good/orders_panel_clean.c    3   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_orders_legacy",
+      "pair_id": "typescript_angular_component_hygiene",
+      "scenario_title": "1. Angular @Component DI Layering, RxJS Teardown & DomSanitizer Hygiene",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/orders_panel_legacy.component.ts",
+      "is_test": false,
+      "source_dataset": "Custom TypeScript/Angular Benchmark",
+      "source_url": "https://angular.dev/style-guide",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 20,
+        "classes_count": 1,
+        "functions_count": 3,
+        "scores": {
+          "srp": 80.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 85.0,
+          "security": 65.0,
+          "composite": 70.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "injects HttpClient directly",
+          "unmanaged .subscribe()",
+          "bypassSecurityTrustHtml"
+        ],
+        "all_findings": [
+          "[Class LegacyOrdersComponent] SRP (Angular): @Component/@Directive injects HttpClient directly instead of a service (-20.0 pts)",
+          "[Class LegacyOrdersComponent] Clean (Angular): unmanaged .subscribe() at L19 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+          "[Method LegacyOrdersComponent.renderBanner] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L26 (-35.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/orders_panel_legacy.component.ts src      20    -  80.0 100.0 100.0  85.0  65.0   70.0   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/orders_panel_legacy    16    3     1    3   70.0   C\n    - SRP (Angular): @Component/@Directive injects HttpClient directly instead of a service (-20.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L19 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/orders_panel_legacy.c    3   1    0   1   0   70.0   C\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L26 (-35.0 pts)\nsamples/typescript-angular/bad/orders_panel_legacy.c    4   1    0   2   0  100.0   A\nsamples/typescript-angular/bad/orders_panel_legacy.c    5   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_header_good",
+      "pair_id": "typescript_angular_oss_xss_and_sub",
+      "scenario_title": "2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/header.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/core/layout/header.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/layout/header.component.ts",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 16,
+        "classes_count": 1,
+        "functions_count": 0,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 85.0,
+          "security": 100.0,
+          "composite": 97.8,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class HeaderComponent] Clean: missing class docstring (-15.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/header.component.ts src      16    - 100.0 100.0 100.0  85.0 100.0   97.8   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/header.component.t     5    0     1    0   97.8   A\n    - Clean: missing class docstring (-15.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_search_result_bad",
+      "pair_id": "typescript_angular_oss_xss_and_sub",
+      "scenario_title": "2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/search_result.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/search-result/search-result.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/search-result/search-result.component.ts",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 186,
+        "classes_count": 1,
+        "functions_count": 10,
+        "scores": {
+          "srp": 36.1,
+          "size": 96.5,
+          "complexity": 98.1,
+          "clean": 68.5,
+          "security": 65.0,
+          "composite": 41.1,
+          "grade": "F"
+        },
+        "required_findings": [
+          "bypassSecurityTrustHtml"
+        ],
+        "all_findings": [
+          "[Class SearchResultComponent] SRP: self attributes=22 (>7) (-60.0 pts)",
+          "[Class SearchResultComponent] Complexity: total class CC=26 (>25) (-1.5 pts)",
+          "[Class SearchResultComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Size: LOC=48 (>25) (-34.5 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method SearchResultComponent.ngOnDestroy] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.ngOnDestroy] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.filterTable] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Method SearchResultComponent.filterTable] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.filterTable] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.filterTable] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)",
+          "[Method SearchResultComponent.setupResponsivePageSize] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.setupResponsivePageSize] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.updatePageSize] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.updatePageSize] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.updatePageSizeOptions] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.updatePageSizeOptions] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.startHackingInstructor] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.startHackingInstructor] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.isLoggedIn] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.isDeluxe] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.isDeluxe] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 41.1/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 10\nDimensions -> SRP: 36.1 | Size: 96.5 | Complexity: 98.1 | Clean: 68.5 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.component.ts src     186    -  36.1  96.5  98.1  68.5  65.0   41.1   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.compo   160   10     3   26   41.1   F\n    - SRP: self attributes=22 (>7) (-60.0 pts)\n    - Complexity: total class CC=26 (>25) (-1.5 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.compone    5   2    1   1   1   70.0   C\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/search_result.compone   25   4    5   0   2   70.0   C\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)\nsamples/typescript-angular/bad/search_result.compone   48   6    5   0   2   70.5   C\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Size: LOC=48 (>25) (-34.5 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   14   5    4   0   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   15   2    1   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   10   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    7   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    6   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    3   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_article_preview_good",
+      "pair_id": "typescript_angular_oss_di_and_sub",
+      "scenario_title": "3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/article_preview.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/article-preview.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/article-preview.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 45,
+        "classes_count": 1,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 97.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class ArticlePreviewComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method ArticlePreviewComponent.articleInput] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlePreviewComponent.toggleFavorite] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.component.ts src      45    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.co    14    2     1    3   97.0   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.comp    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/article_preview.comp    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_complaint_bad",
+      "pair_id": "typescript_angular_oss_di_and_sub",
+      "scenario_title": "3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/complaint.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/complaint/complaint.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/complaint/complaint.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 102,
+        "classes_count": 1,
+        "functions_count": 5,
+        "scores": {
+          "srp": 80.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 52.0,
+          "security": 100.0,
+          "composite": 57.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "unmanaged .subscribe()"
+        ],
+        "all_findings": [
+          "[Class ComplaintComponent] SRP: self attributes=12 (>7) (-20.0 pts)",
+          "[Class ComplaintComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Class ComplaintComponent] Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+          "[Method ComplaintComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+          "[Method ComplaintComponent.initComplaint] Clean: missing public docstring (-10.0 pts)",
+          "[Method ComplaintComponent.initComplaint] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ComplaintComponent.initComplaint] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method ComplaintComponent.save] Clean: missing public docstring (-5.0 pts)",
+          "[Method ComplaintComponent.save] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ComplaintComponent.saveComplaint] Clean: missing public docstring (-10.0 pts)",
+          "[Method ComplaintComponent.saveComplaint] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ComplaintComponent.saveComplaint] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method ComplaintComponent.resetForm] Clean: missing public docstring (-5.0 pts)",
+          "[Method ComplaintComponent.resetForm] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 57.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 52.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component.ts src     102    -  80.0 100.0 100.0  52.0 100.0   57.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component    80    5     1    6   57.0   F\n    - SRP: self attributes=12 (>7) (-20.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   96.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/complaint.component.t   19   1    0   0   0   96.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/complaint.component.t    8   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/complaint.component.t    6   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_favorite_button_good",
+      "pair_id": "typescript_angular_oss_score_board",
+      "scenario_title": "4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/favorite_button.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/favorite-button.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/favorite-button.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 73,
+        "classes_count": 1,
+        "functions_count": 2,
+        "scores": {
+          "srp": 95.5,
+          "size": 98.5,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 95.3,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class FavoriteButtonComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method FavoriteButtonComponent.toggleFavorite] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+          "[Method FavoriteButtonComponent.toggleFavorite] Size: LOC=27 (>25) (-3.0 pts)",
+          "[Method FavoriteButtonComponent.toggleFavorite] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 95.5 | Size: 98.5 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.component.ts src      73    -  95.5  98.5 100.0  80.0 100.0   95.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.co    38    2     1    4   95.3   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.comp   27   3    2   0   1   95.0   A\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Size: LOC=27 (>25) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/favorite_button.comp    5   1    0   3   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_score_board_bad",
+      "pair_id": "typescript_angular_oss_score_board",
+      "scenario_title": "4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/score_board.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/score-board/score-board.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/score-board.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 217,
+        "classes_count": 1,
+        "functions_count": 12,
+        "scores": {
+          "srp": 29.0,
+          "size": 98.6,
+          "complexity": 79.0,
+          "clean": 72.9,
+          "security": 65.0,
+          "composite": 34.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "bypassSecurityTrustHtml"
+        ],
+        "all_findings": [
+          "[Class ScoreBoardComponent] SRP: methods=12 (>10) (-8.0 pts)",
+          "[Class ScoreBoardComponent] SRP: self attributes=22 (>7) (-60.0 pts)",
+          "[Class ScoreBoardComponent] Complexity: total class CC=36 (>25) (-16.5 pts)",
+          "[Class ScoreBoardComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method ScoreBoardComponent.ngOnInit] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Method ScoreBoardComponent.ngOnInit] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.loadChallenges] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+          "[Method ScoreBoardComponent.loadChallenges] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.loadChallenges] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)",
+          "[Method ScoreBoardComponent.ngOnDestroy] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.onFilterSettingUpdate] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.onFilterSettingUpdate] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.onChallengeSolvedWebsocket] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.onChallengeSolvedWebsocket] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.onCodeChallengeSolvedWebsocket] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.onCodeChallengeSolvedWebsocket] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.filterAndUpdateChallenges] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Size: LOC=36 (>25) (-16.5 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Complexity: CC=12 (>5) (-34.0 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Complexity: cognitive=16 (>8) (-20.0 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.getChallengeKey] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.reset] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.reset] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.repeatChallengeNotification] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.repeatChallengeNotification] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.unlockHint] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.unlockHint] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 34.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 12\nDimensions -> SRP: 29.0 | Size: 98.6 | Complexity: 79.0 | Clean: 72.9 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.component.ts src     217    -  29.0  98.6  79.0  72.9  65.0   34.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.compone   175   12     3   36   34.0   F\n    - SRP: methods=12 (>10) (-8.0 pts)\n    - SRP: self attributes=22 (>7) (-60.0 pts)\n    - Complexity: total class CC=36 (>25) (-16.5 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.component   36  12   16   0   3   51.0   F\n    - Size: LOC=36 (>25) (-16.5 pts)\n    - Complexity: CC=12 (>5) (-34.0 pts)\n    - Complexity: cognitive=16 (>8) (-20.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   25   5    1   0   1   70.0   C\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)\nsamples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    5   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    5   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    4   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    9   2    0   2   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   10   1    0   0   0   98.3   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/score_board.component   13   4    3   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    9   2    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/score_board.component    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
       }
     }
   ]

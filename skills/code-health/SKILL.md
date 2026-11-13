@@ -1,11 +1,11 @@
 ---
 name: code-health
-description: Generic multi-language code health analyzer (Python, Java, Spring Boot, Vanilla JavaScript) evaluating deterministic SRP, size, complexity, clean code, and security scorecards.
+description: Generic multi-language code health analyzer (Python, Java, Spring Boot, JavaScript/JSX, TypeScript/TSX, React, Next.js, Angular) evaluating deterministic SRP, size, complexity, clean code, and security scorecards.
 ---
 
 # Deterministic Multi-Language Code Health
 
-Use this skill to inspect, grade, and iteratively refactor **Python**, **Java** (including **Spring Boot**), and **Vanilla JavaScript** (`.js`, `.mjs`, `.cjs`) code against an objective, deterministic 0–100 engineering rubric across five dimensions:
+Use this skill to inspect, grade, and iteratively refactor **Python**, **Java** (including **Spring Boot**), **JavaScript / JSX** (`.js`, `.jsx`, `.mjs`, `.cjs`), and **TypeScript / TSX** (`.ts`, `.tsx`, `.mts`, `.cts`) code (including **React**, **Next.js**, and **Angular** profiles) against an objective, deterministic 0–100 engineering rubric across five dimensions:
 1. **Single Responsibility & Cohesion (SRP) — 30%**
 2. **Size & Readability — 25%**
 3. **Complexity & Control Flow — 20%**
@@ -37,6 +37,9 @@ python <path-to-skill>/scripts/code_health.py src tests --format console
 # 5. Language or framework profile override
 python <path-to-skill>/scripts/code_health.py src --lang java --framework spring-boot --no-git
 python <path-to-skill>/scripts/code_health.py src --lang javascript --no-git
+python <path-to-skill>/scripts/code_health.py src --lang typescript --framework react --no-git
+python <path-to-skill>/scripts/code_health.py src --framework nextjs --no-git
+python <path-to-skill>/scripts/code_health.py src --framework angular --no-git
 ```
 
 > [!TIP]
@@ -53,16 +56,21 @@ The analyzer automatically detects language and framework context without requir
 - **Language Detection:** Inferred from file extensions:
   - `.py` $\to$ Python
   - `.java` $\to$ Java
-  - `.js`, `.mjs`, `.cjs` $\to$ Vanilla JavaScript (ECMAScript)
+  - `.js`, `.jsx`, `.mjs`, `.cjs` $\to$ JavaScript (ECMAScript / JSX)
+  - `.ts`, `.tsx`, `.mts`, `.cts` $\to$ TypeScript / TSX
 - **Spring Boot Framework Detection:** Automatically enabled when:
   1. File source contains `org.springframework` imports or Spring annotations (`@RestController`, `@Service`, `@SpringBootApplication`).
   2. Workspace contains `pom.xml`, `build.gradle`, or `build.gradle.kts` referencing `spring-boot` or `org.springframework`.
+- **UI Framework Detection:** Automatically enabled for JS/TS files when:
+  - **React**: `.jsx`/`.tsx` JSX syntax, `react` imports, or `react` in `package.json`.
+  - **Next.js**: `next` in `package.json`, `next/*` imports, or `'use client'`/`'use server'` directives.
+  - **Angular**: `@angular/core` in `package.json` or `@angular/*` imports on TypeScript files.
 
 ### CLI Overrides
 
 Override automatic detection when necessary:
-- `--lang {auto,python,java,javascript,js}`: Restrict discovery to a specific language.
-- `--framework {auto,spring-boot,python-cli-mcp,none}`: Force or disable framework rules (e.g., `--framework none` for vanilla Java/JS).
+- `--lang {auto,python,java,javascript,js,typescript,ts}`: Restrict discovery to a specific language.
+- `--framework {auto,spring-boot,react,nextjs,angular,python-cli-mcp,none}`: Force or disable framework rules (e.g., `--framework none` for vanilla Java/JS/TS).
 
 ---
 

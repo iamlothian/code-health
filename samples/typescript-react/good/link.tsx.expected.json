@@ -1,0 +1,33 @@
+{
+  "id": "typescript_react_oss_link_good",
+  "pair_id": "typescript_react_oss_dom_security",
+  "scenario_title": "4. React Safe UI Link Wrapper vs. Unsanitized Markdown Preview XSS (bulletproof-react)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/link.tsx",
+  "is_test": false,
+  "source_dataset": "alan2207/bulletproof-react (components/ui/link/link.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/link/link.tsx",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 12,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 95.0,
+      "security": 100.0,
+      "composite": 99.2,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func Link] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/link.tsx         src      12    - 100.0 100.0 100.0  95.0 100.0   99.2   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/link.tsx:5 Link          10   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

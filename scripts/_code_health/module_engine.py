@@ -31,6 +31,7 @@ from _code_health.profiles import resolve_active_profiles
 _NATIVE_PARSERS: dict[str, tuple[str, str]] = {
     ".java": ("_code_health.java_parser", "parse_java_file"),
     ".js": ("_code_health.js_parser", "parse_javascript_file"),
+    ".jsx": ("_code_health.js_parser", "parse_javascript_file"),
     ".mjs": ("_code_health.js_parser", "parse_javascript_file"),
     ".cjs": ("_code_health.js_parser", "parse_javascript_file"),
     ".ts": ("_code_health.ts_parser", "parse_typescript_file"),
@@ -72,7 +73,7 @@ class _GitLogAccumulator:
         files = [ln.replace("\\", "/") for ln in lines[1:]]
         source_files = [
             f for f in files
-            if f.endswith((".py", ".java", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"))
+            if f.endswith((".py", ".java", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"))
             and not f.endswith((".d.ts", ".d.mts", ".d.cts"))
         ]
         for f in source_files:
@@ -101,8 +102,12 @@ def is_test_file_path(rel_path: str) -> bool:
     is_py = fname.startswith("test_") or fname.endswith("_test.py") or fname == "conftest.py"
     is_java = fname.endswith(("Test.java", "Tests.java", "IT.java"))
     is_js = (
-        fname.endswith((".test.js", ".spec.js", "_test.js", ".test.mjs", ".spec.mjs", ".test.cjs", ".spec.cjs"))
-        or (fname.startswith("test_") and fname.endswith((".js", ".mjs", ".cjs")))
+        fname.endswith((
+            ".test.js", ".spec.js", "_test.js",
+            ".test.jsx", ".spec.jsx", "_test.jsx",
+            ".test.mjs", ".spec.mjs", ".test.cjs", ".spec.cjs",
+        ))
+        or (fname.startswith("test_") and fname.endswith((".js", ".jsx", ".mjs", ".cjs")))
     )
     is_ts = (
         fname.endswith((".test.ts", ".spec.ts", "_test.ts", ".test.tsx", ".spec.tsx", "_test.tsx", ".test.mts", ".spec.mts", "_test.mts", ".test.cts", ".spec.cts", "_test.cts"))
@@ -222,8 +227,15 @@ class ModuleAnalyzer:
             findings = [f"Syntax: parse error at L{ln}" for ln in syntax_errs]
             return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, DimensionScores.from_raw((0.0, 0.0, 0.0, 0.0, 0.0), self.cfg), findings)
 
+        unit_fns = list(getattr(ir_mod, "functions", [])) + [m for c in getattr(ir_mod, "classes", []) for m in getattr(c, "methods", [])]
         profile = resolve_active_profiles(
-            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
+            self.repo_root,
+            resolved,
+            lang_override=self.lang_override,
+            framework_override=self.framework_override,
+            imports=getattr(ir_mod, "imports", []),
+            has_jsx=any(getattr(fn, "jsx_elements_count", 0) > 0 for fn in unit_fns),
+            directives=getattr(ir_mod, "directives", []),
         )
         scorer = UniversalIRScorer(self.cfg, profile)
         classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]  # type: ignore[attr-defined]
@@ -237,9 +249,22 @@ class ModuleAnalyzer:
             ts_ig, 10.0, f"Clean (TS): {ts_ig} '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks", cap=20.0
         )
 
-        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0 - p_ts)
+        mod_penalties = profile.evaluate_module(ir_mod)
+        dim_pens = {"srp": 0.0, "size": 0.0, "clean": 0.0, "security": 0.0}
+        mod_findings: list[str] = []
+        for p in mod_penalties:
+            if p.dimension in dim_pens:
+                dim_pens[p.dimension] += p.penalty_points
+            mod_findings.append(p.finding)
+
+        mod_scores = (
+            100.0 - srp_pen - dim_pens["srp"],
+            100.0 - p_loc - dim_pens["size"],
+            100.0 - p_ts - dim_pens["clean"],
+            100.0 - dim_pens["security"],
+        )
         scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, scores, g_findings + f_loc + f_ts, classes, functions)
+        return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, scores, g_findings + f_loc + f_ts + mod_findings, classes, functions)
 
     def _analyze_units(
         self, tree: ast.Module, lines: list[str], rel_path: str, is_test: bool
@@ -281,15 +306,16 @@ class ModuleAnalyzer:
         return p1 + p2 + p3, f1 + f2 + f3
 
     def _blend_scores(
-        self, mod_scores: tuple[float, float, float], classes: list[ClassReport], functions: list[FunctionReport]
+        self, mod_scores: tuple[float, ...], classes: list[ClassReport], functions: list[FunctionReport]
     ) -> DimensionScores:
+        mod_sec = mod_scores[3] if len(mod_scores) > 3 else 100.0
         units = [(max(1, c.loc), c.scores) for c in classes] + [(max(1, f.loc), f.scores) for f in functions]
         if not units:
-            return DimensionScores.from_raw((mod_scores[0], mod_scores[1], 100.0, mod_scores[2], 100.0), self.cfg)
+            return DimensionScores.from_raw((mod_scores[0], mod_scores[1], 100.0, mod_scores[2], mod_sec), self.cfg)
         total_w = sum(w for w, _ in units)
         u_srp = sum(w * s.srp for w, s in units) / total_w - (100.0 - mod_scores[0])
         u_size = sum(w * s.size for w, s in units) / total_w - (100.0 - mod_scores[1])
         u_comp = sum(w * s.complexity for w, s in units) / total_w
         u_clean = sum(w * s.clean for w, s in units) / total_w - (100.0 - mod_scores[2])
-        u_sec = min(s.security for _, s in units)
+        u_sec = min(s.security for _, s in units) - (100.0 - mod_sec)
         return DimensionScores.from_raw((u_srp, u_size, u_comp, u_clean, u_sec), self.cfg)
