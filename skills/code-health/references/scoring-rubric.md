@@ -8,7 +8,7 @@ This document defines the mathematical models, metric thresholds, penalty weight
 
 - **Deterministic & Reproducible:** Every function/method, class, and module receives a score from `0.0` to `100.0` and a letter grade calculated purely from AST / CST structure, line tokens, and Git history. Scores never vary across identical code states.
 - **Actionable Penalty Findings:** Every deducted point generates a descriptive finding string with line numbers and penalty values (e.g. `LOC=45 (>25) (-30.0 pts)`), showing agents and engineers exactly what to refactor.
-- **Language & Framework-Aware:** Zero-dependency stdlib AST parsing for Python (`ast`), and native Tree-Sitter CST parsing for Java (`tree-sitter-java`), JavaScript / JSX (`tree-sitter-javascript`), and TypeScript / TSX (`tree-sitter-typescript`), layered with framework profiles (`spring-boot`, `react`, `nextjs`, `angular`, `python-cli-mcp`).
+- **Language & Framework-Aware:** Zero-dependency stdlib AST parsing for Python (`ast`), and native Tree-Sitter CST parsing for Java (`tree-sitter-java`), JavaScript / JSX (`tree-sitter-javascript`), and TypeScript / TSX (`tree-sitter-typescript`), layered with framework profiles (`spring-boot`, `react`, `nextjs`, `angular`).
 - **Mandatory Native Parser Gate:** Java, JavaScript, and TypeScript analysis require their respective native Tree-Sitter parsers with zero fallback parsing to guarantee 100% precision. Missing dependencies halt with exit code `2` and explicit copy-paste installation commands. Pure Python files require no external dependencies.
 
 ---
@@ -197,11 +197,11 @@ Starts at `100.0` in each dimension and applies deductions.
 
 ## 4. Class Rubric
 
-A class score blends its **class-level structural metrics (60%)** with the **mean score of its methods (40%)**:
+A class score starts from the **arithmetic mean of its methods** and subtracts all **class-level structural and framework penalty deductions**:
 
-$$\text{Class Dimension} = 0.60 \cdot S_{\text{structural}} + 0.40 \cdot \overline{S}_{\text{methods}}$$
+$$\text{Class Dimension} = \overline{S}_{\text{methods}} - \text{Penalties}_{\text{class}}$$
 
-*(Security dimension takes the minimum security score among its methods).*
+*(If a class has no methods, it uses `100.0 - Penalties_class`. Security takes the minimum security score among its methods minus any class-level framework security penalties, or `100.0` when empty.)*
 
 ### Structural Penalties:
 1. **Lack of Cohesion of Methods (LCOM4):**
@@ -228,9 +228,11 @@ The following patterns are exempt from LCOM4 cohesion penalties:
 
 ## 5. File / Module Rubric
 
-A file score blends its **module-level architecture & Git metrics (50%)** with the **LOC-weighted average of all classes and functions in the file (50%)**:
+A file score starts from the **LOC-weighted mean of all top-level classes and functions in the file** and subtracts all **module-level architectural, clean-code, framework, and Git penalty deductions**:
 
-$$\text{File Dimension} = 0.50 \cdot S_{\text{module}} + 0.50 \cdot \sum \left( \frac{\text{LOC}_u}{\text{LOC}_{\text{total}}} \cdot S_u \right)$$
+$$\text{File Dimension} = \sum \left( \frac{\text{LOC}_u}{\text{LOC}_{\text{total}}} \cdot S_u \right) - \text{Penalties}_{\text{module}}$$
+
+*(Complexity uses the LOC-weighted unit mean directly. Security takes the minimum security score across all top-level units minus module-level security penalties. Files with no classes or top-level functions fall back to `100.0 - Penalties_module`, with Complexity `100.0`.)*
 
 ### Module-Level Penalties:
 1. **Multi-Class Bloat:** More than 4 non-exempt classes in a single file: **-3.0 pts** per extra class.

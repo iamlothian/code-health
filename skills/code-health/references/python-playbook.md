@@ -1,5 +1,8 @@
 # Python Refactoring Playbook by Dimension
 
+> **Profile:** `python` · **Detection:** `.py` files (stdlib `ast`, zero external dependencies) · **Force:** `--lang python`
+> **Worked examples:** [good](../../../samples/python/good/) · [bad](../../../samples/python/bad/)
+
 This reference provides targeted refactoring patterns to resolve deterministic code health penalties in Python code.
 
 ---

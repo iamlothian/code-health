@@ -167,7 +167,7 @@ flowchart TD
 
 1. **Check Baseline:** Run `python <path-to-skill>/scripts/code_health.py path/to/file --no-git`.
 2. **Isolate Worst Offenders:** Look at the Flagged Functions table. If composite is `< 90.0`, pick the lowest scoring function, component, or class.
-3. **Apply Targeted Refactor:** Read the specific finding bullet points and apply the refactoring patterns from the playbooks below.
+3. **Apply Targeted Refactor:** Consult the [Scoring Rubric Reference](references/scoring-rubric.md) and open the matching language/framework playbook(s) under `references/` for the file's detected profile (e.g., `typescript-playbook.md` + `react-playbook.md`), then apply the refactoring pattern matching each finding bullet.
 4. **Re-check Score:** Re-run the analyzer. Verify that the score increased and findings were resolved.
 5. **Verify Tests:** Run the project test suite (e.g. `pytest`, `mvn test`, `npm test` / `vitest`) to guarantee the refactoring preserved behavior.
 
@@ -175,6 +175,16 @@ flowchart TD
 
 ## References & Playbooks
 
-- [Scoring Rubric Reference](references/scoring-rubric.md): Detailed mathematical models, metric thresholds, and penalty weights across Python, Java/Spring Boot, JavaScript/JSX, TypeScript/TSX, and UI frameworks.
-- [Python Refactoring Playbook](references/python-playbook.md): Before/after refactoring patterns for SRP concern separation, function/class size, cognitive complexity, and assertion hygiene.
-- [Spring Boot Refactoring Playbook](references/java-spring-playbook.md): Before/after refactoring patterns for `@Autowired`, controller layering, `@Transactional`, and SQL parameterization.
+- [Scoring Rubric Reference](references/scoring-rubric.md): Mathematical formulas, dimension weights, metric thresholds, and penalty rules across all supported languages and frameworks.
+
+### Language Playbooks
+- [Python Playbook](references/python-playbook.md) (`python`): Concern separation, class `LCOM4`, complexity reduction, assertion hygiene, and security/exception fixes.
+- [Java Playbook](references/java-playbook.md) (`java`): Method/class decomposition, `Javadoc` coverage, switch/stream refactoring, JUnit assertion hygiene, and JDBC/reflection safety.
+- [JavaScript Playbook](references/javascript-playbook.md) (`javascript`): JSDoc/default typing, `var`/loose-equality cleanup, `eval`/prototype/timer fixes, and Jest/Vitest/Node `assert` hygiene.
+- [TypeScript Playbook](references/typescript-playbook.md) (`typescript`): Explicit parameter/return types, avoiding `any`, empty-interface cleanup, JSDoc coverage, and strict security/test rules.
+
+### Framework Playbooks
+- [Spring Boot Playbook](references/java-spring-playbook.md) (`spring-boot`, extends Java): Constructor injection vs. `@Autowired`, controller layering, `@Transactional` scoping, and SQL parameterization.
+- [React Playbook](references/react-playbook.md) (`react`, extends JS/TS): Rules of Hooks, extracting `useEffect`/`useState` sprawl into custom hooks, stable JSX keys, and XSS sinks.
+- [Next.js Playbook](references/nextjs-playbook.md) (`nextjs`, extends React): App Router `'use client'` boundaries, eliminating server-only imports in client modules, and Server/Client leaf separation.
+- [Angular Playbook](references/angular-playbook.md) (`angular`, extends TypeScript): Service extraction from `HttpClient` in components, `DestroyRef`/`takeUntilDestroyed` subscription cleanup, `DomSanitizer` safety, and component decomposition.

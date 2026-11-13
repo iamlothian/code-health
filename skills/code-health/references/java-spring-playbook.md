@@ -1,5 +1,9 @@
 # Spring Boot Architectural Refactoring Playbook
 
+> **Profile:** `spring-boot` · **Detection:** `org.springframework` imports, `@SpringBootApplication`, or `spring-boot`/`org.springframework` in `pom.xml`/`build.gradle(.kts)` · **Force:** `--lang java --framework spring-boot` (disable with `--framework none`)
+> **Builds on:** [Java Refactoring Playbook](java-playbook.md)
+> **Worked examples:** [good](../../../samples/java-spring/good/) · [bad](../../../samples/java-spring/bad/)
+
 This reference provides targeted before/after refactoring patterns to eliminate code smells and architectural violations detected by the Java / Spring Boot health analyzer.
 
 ---
@@ -8,7 +12,7 @@ This reference provides targeted before/after refactoring patterns to eliminate 
 
 ### The Smell
 Using `@Autowired` directly on fields bypasses immutability, complicates unit testing without Reflection/Spring context, and hides circular dependency problems.
-- **Deduction:** `-8.0 pts` from Clean Code per field.
+- **Finding:** `Clean (Spring): @Autowired field injection detected on '<field>' (-8.0 pts)` per field (`@Autowired` or `@Inject`).
 
 ### Before (Smell)
 ```java
@@ -52,7 +56,7 @@ public class OrderService {
 
 ### The Smell
 Controllers directly injecting persistence entities or repositories blur architectural boundaries, skipping validation, transaction management, and business logic layers.
-- **Deduction:** `-20.0 pts` from SRP.
+- **Finding:** `SRP (Spring): @RestController directly injects <field> (-20.0 pts)`.
 
 ### Before (Smell)
 ```java
@@ -97,7 +101,9 @@ public class OrderController {
 ### The Smell
 - **Controllers:** `@Transactional` on controllers keeps database transactions open during HTTP response serialization, risking connection pool exhaustion.
 - **Private Methods:** Spring uses proxy-based AOP. Internal calls to `private` methods bypass the proxy completely, so `@Transactional` is silently ignored.
-- **Deduction:** `-15.0 pts` from SRP.
+- **Findings:**
+  - `SRP (Spring): @Transactional should not be placed on web controllers (-15.0 pts)`
+  - `SRP (Spring): @Transactional on private method has no effect in Spring proxy (-15.0 pts)`
 
 ### Before (Smell)
 ```java
@@ -134,7 +140,7 @@ public class OrderProcessingService {
 
 ### The Smell
 Concatenating variables into SQL or JPQL queries using `+` creates severe SQL injection vulnerabilities.
-- **Deduction:** `-40.0 pts` from Security.
+- **Finding:** `Security (Spring): potential SQL/JPQL injection in <call> via string concatenation (-40.0 pts)`.
 
 ### Before (Smell)
 ```java
