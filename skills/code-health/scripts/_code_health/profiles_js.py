@@ -2,17 +2,17 @@
 
 from __future__ import annotations
 
-from _code_health.ir_models import IRClass, IRFunction, LanguageProfile, RulePenalty
+from _code_health.ir_models import FrameworkProfile, IRClass, IRFunction, LanguageProfile, RulePenalty
 
 
 class JavaScriptLanguageProfile(LanguageProfile):
     """ECMAScript language profile evaluating code health, anti-coercion, and security rules."""
 
-    def __init__(self) -> None:
+    def __init__(self, frameworks: list[FrameworkProfile] | None = None) -> None:
         super().__init__(
             name="javascript",
-            file_extensions=(".js", ".mjs", ".cjs"),
-            frameworks=[],
+            file_extensions=(".js", ".jsx", ".mjs", ".cjs"),
+            frameworks=list(frameworks or []),
         )
 
     def _eval_clean_smells(self, func: IRFunction) -> list[RulePenalty]:
@@ -69,8 +69,11 @@ class JavaScriptLanguageProfile(LanguageProfile):
 
     def _eval_dynamic_sinks(self, func: IRFunction) -> list[RulePenalty]:
         penalties: list[RulePenalty] = []
-        eval_names = {"eval", "Function", "new Function", "window.eval", "global.eval"}
-        timers = {"setTimeout", "setInterval", "window.setTimeout", "window.setInterval"}
+        eval_names = {"eval", "Function", "new Function", "window.eval", "global.eval", "globalThis.eval"}
+        timers = {
+            "setTimeout", "setInterval", "window.setTimeout", "window.setInterval",
+            "global.setTimeout", "global.setInterval", "globalThis.setTimeout", "globalThis.setInterval",
+        }
         for c in func.calls:
             if c.name in eval_names or c.name.endswith(".eval"):
                 penalties.append(
@@ -100,8 +103,8 @@ class JavaScriptLanguageProfile(LanguageProfile):
         return penalties
 
     def evaluate_function(self, func: IRFunction, parent: IRClass | None) -> list[RulePenalty]:
-        """Evaluate JS function-level rules (var, loose equality, empty catch, debugger, with, timers, eval, proto)."""
-        penalties: list[RulePenalty] = []
+        """Evaluate JS and attached framework function-level rules."""
+        penalties: list[RulePenalty] = super().evaluate_function(func, parent)
         penalties.extend(self._eval_clean_smells(func))
         penalties.extend(self._eval_parameter_typing(func))
         penalties.extend(self._eval_dynamic_sinks(func))
@@ -109,8 +112,8 @@ class JavaScriptLanguageProfile(LanguageProfile):
         return penalties
 
     def evaluate_class(self, cls: IRClass) -> list[RulePenalty]:
-        """Evaluate class-level rules."""
-        return []
+        """Evaluate attached framework class-level rules."""
+        return super().evaluate_class(cls)
 
     def is_test_assert_call(self, call_name: str) -> bool:
         """Recognize standard JS test assertion matchers."""

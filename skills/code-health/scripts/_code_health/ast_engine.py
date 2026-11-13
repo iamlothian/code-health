@@ -242,16 +242,16 @@ def _check_exception_handlers(node: ast.FunctionDef | ast.AsyncFunctionDef) -> t
 def _blend_class_methods(
     raw: tuple[float, float, float, float], methods: list[FunctionReport]
 ) -> tuple[float, float, float, float, float]:
-    """Blend class structural scores (60%) with method averages (40%)."""
+    """Combine method averages with class-level structural penalty deductions."""
     if not methods:
         return (*raw, 100.0)
     n = len(methods)
-    srp = sum([m.scores.srp for m in methods]) / n
-    size = sum([m.scores.size for m in methods]) / n
-    comp = sum([m.scores.complexity for m in methods]) / n
-    clean = sum([m.scores.clean for m in methods]) / n
+    srp = sum([m.scores.srp for m in methods]) / n - (100.0 - raw[0])
+    size = sum([m.scores.size for m in methods]) / n - (100.0 - raw[1])
+    comp = sum([m.scores.complexity for m in methods]) / n - (100.0 - raw[2])
+    clean = sum([m.scores.clean for m in methods]) / n - (100.0 - raw[3])
     sec = min([m.scores.security for m in methods])
-    return (0.6 * raw[0] + 0.4 * srp, 0.6 * raw[1] + 0.4 * size, 0.6 * raw[2] + 0.4 * comp, 0.6 * raw[3] + 0.4 * clean, sec)
+    return (srp, size, comp, clean, sec)
 
 
 class UnitScorer:

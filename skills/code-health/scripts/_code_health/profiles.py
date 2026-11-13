@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import ast
+from dataclasses import dataclass
+from functools import lru_cache
+import json
 from pathlib import Path
 from typing import Any
 
@@ -27,7 +30,9 @@ from _code_health.ir_models import (
     RulePenalty,
 )
 from _code_health.profiles_java import JAVA_PROFILE, SPRING_BOOT_FRAMEWORK
-from _code_health.profiles_js import JAVASCRIPT_PROFILE
+from _code_health.profiles_js import JAVASCRIPT_PROFILE, JavaScriptLanguageProfile
+from _code_health.profiles_ts import TYPESCRIPT_PROFILE, TypeScriptLanguageProfile
+from _code_health.profiles_ui import ANGULAR_FRAMEWORK, NEXTJS_FRAMEWORK, REACT_FRAMEWORK
 
 PYTHON_PROFILE = LanguageProfile(name="python", file_extensions=(".py",))
 
@@ -125,21 +130,132 @@ def _has_spring_build_descriptor(root: Path) -> bool:
     return False
 
 
-def resolve_active_profiles(
-    repo_root: Path, file_path: Path, lang_override: str | None = None, framework_override: str | None = None
-) -> LanguageProfile:
-    """Resolve active LanguageProfile and attached FrameworkProfiles for a given file."""
-    ext = file_path.suffix.lower()
-    if lang_override in {"javascript", "js"} or (lang_override is None and ext in {".js", ".mjs", ".cjs"}):
-        return JAVASCRIPT_PROFILE
-    lang = lang_override or ("java" if ext == ".java" else "python")
-    if lang == "python":
-        return PYTHON_PROFILE
+_TS_EXTENSIONS = frozenset({".ts", ".tsx", ".mts", ".cts"})
+_JS_EXTENSIONS = frozenset({".js", ".jsx", ".mjs", ".cjs"})
+_LANG_ALIASES = {"ts": "typescript", "typescript": "typescript", "js": "javascript", "javascript": "javascript"}
+_UI_FRAMEWORK_OVERRIDES: dict[str, FrameworkProfile] = {
+    "react": REACT_FRAMEWORK,
+    "nextjs": NEXTJS_FRAMEWORK,
+}
+
+
+@dataclass(frozen=True)
+class _FileSignals:
+    """Per-file ECMAScript signals used to resolve active UI framework profiles."""
+
+    repo_root: Path
+    file_path: Path
+    lang: str
+    framework_override: str | None
+    imports: tuple[str, ...]
+    has_jsx: bool
+    directives: tuple[str, ...]
+
+
+@lru_cache(maxsize=64)
+def _read_package_deps(pkg_str: str, _mtime_ns: int) -> frozenset[str]:
+    """Read and cache dependency names from a single package.json file."""
+    try:
+        data = json.loads(Path(pkg_str).read_text(encoding="utf-8", errors="replace"))
+    except (OSError, ValueError, TypeError):
+        return frozenset()
+    if not isinstance(data, dict):
+        return frozenset()
+    deps: set[str] = set()
+    for section in ("dependencies", "devDependencies", "peerDependencies"):
+        block = data.get(section)
+        if isinstance(block, dict):
+            deps.update(str(k) for k in block)
+    return frozenset(deps)
+
+
+def _find_repo_js_deps(repo_root: Path, file_path: Path) -> frozenset[str]:
+    """Walk ancestor directories up to repo_root collecting cached package.json deps."""
+    root = repo_root.resolve()
+    curr = file_path.resolve().parent
+    deps: set[str] = set()
+    while True:
+        pkg = curr / "package.json"
+        if pkg.is_file():
+            try:
+                deps.update(_read_package_deps(str(pkg), pkg.stat().st_mtime_ns))
+            except OSError:
+                pass
+        if curr == root or curr.parent == curr:
+            break
+        curr = curr.parent
+    return frozenset(deps)
+
+
+def _detect_target_lang(ext: str, lang_override: str | None) -> str:
+    if lang_override:
+        return _LANG_ALIASES.get(lang_override, lang_override)
+    if ext in _TS_EXTENSIONS:
+        return "typescript"
+    if ext in _JS_EXTENSIONS:
+        return "javascript"
+    return "java" if ext == ".java" else "python"
+
+
+def _is_next_route_path(repo_root: Path, file_path: Path) -> bool:
+    res, root = file_path.resolve(), repo_root.resolve()
+    parts = res.relative_to(root).parts if res.is_relative_to(root) else file_path.parts
+    return bool({"app", "pages"} & set(parts))
+
+
+def _resolve_java_profile(repo_root: Path, file_path: Path, framework_override: str | None) -> LanguageProfile:
     if framework_override == "none":
         return LanguageProfile(name="java", file_extensions=(".java",), frameworks=[])
     if framework_override == "spring-boot":
         return JAVA_PROFILE
-
     is_spring = _is_spring_source(file_path) or _has_spring_build_descriptor(repo_root)
-    frameworks = [SPRING_BOOT_FRAMEWORK] if is_spring else []
-    return LanguageProfile(name="java", file_extensions=(".java",), frameworks=frameworks)
+    return LanguageProfile(name="java", file_extensions=(".java",), frameworks=[SPRING_BOOT_FRAMEWORK] if is_spring else [])
+
+
+def _resolve_ecmascript_frameworks(sig: _FileSignals) -> list[FrameworkProfile]:
+    if sig.framework_override in _UI_FRAMEWORK_OVERRIDES:
+        return [_UI_FRAMEWORK_OVERRIDES[sig.framework_override]]
+    if sig.framework_override == "angular":
+        return [ANGULAR_FRAMEWORK] if sig.lang == "typescript" else []
+    if sig.framework_override is not None:
+        return []
+    return _auto_detect_ui_frameworks(sig)
+
+
+def _auto_detect_ui_frameworks(sig: _FileSignals) -> list[FrameworkProfile]:
+    has_react = any(i in {"react", "react-dom"} or i.startswith(("react/", "react-dom/")) for i in sig.imports)
+    has_next = any(i == "next" or i.startswith("next/") for i in sig.imports)
+    has_ng = sig.lang == "typescript" and any(i.startswith("@angular/") for i in sig.imports)
+    if has_ng:
+        return [ANGULAR_FRAMEWORK]
+    deps = _find_repo_js_deps(sig.repo_root, sig.file_path)
+    ui_dir = bool(set(sig.directives) & {"use client", "use server"})
+    is_next_ctx = _is_next_route_path(sig.repo_root, sig.file_path) or has_react or sig.has_jsx or ui_dir
+    if has_next or ("next" in deps and is_next_ctx):
+        return [NEXTJS_FRAMEWORK]
+    if has_react or sig.has_jsx or ("react" in deps and ui_dir):
+        return [REACT_FRAMEWORK]
+    return []
+
+
+def resolve_active_profiles(
+    repo_root: Path,
+    file_path: Path,
+    lang_override: str | None = None,
+    framework_override: str | None = None,
+    imports: list[str] | None = None,
+    has_jsx: bool = False,
+    directives: list[str] | None = None,
+) -> LanguageProfile:
+    """Resolve active LanguageProfile and attached FrameworkProfiles for a given file."""
+    lang = _detect_target_lang(file_path.suffix.lower(), lang_override)
+    fw_override = None if framework_override == "auto" else framework_override
+    if lang == "python":
+        return PYTHON_PROFILE
+    if lang == "java":
+        return _resolve_java_profile(repo_root, file_path, fw_override)
+    sig = _FileSignals(repo_root, file_path, lang, fw_override, tuple(imports or ()), has_jsx, tuple(directives or ()))
+    fws = _resolve_ecmascript_frameworks(sig)
+    if not fws:
+        return TYPESCRIPT_PROFILE if lang == "typescript" else JAVASCRIPT_PROFILE
+    return TypeScriptLanguageProfile(frameworks=fws) if lang == "typescript" else JavaScriptLanguageProfile(frameworks=fws)

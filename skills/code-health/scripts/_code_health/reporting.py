@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 from _code_health.models import (
     GRADE_ORDER,
@@ -18,22 +19,27 @@ from _code_health.models import (
 from _code_health.module_engine import ModuleAnalyzer, collect_git_stats
 
 
+def _has_long_minified_line(path: Path) -> bool:
+    try:
+        with path.open("r", encoding="utf-8", errors="replace") as f:
+            return any(len(line) > 1000 for _, line in zip(range(50), f))
+    except OSError:
+        return False
+
+
 def _is_minified_or_bundled(path: Path) -> bool:
-    """Return True if path is a minified or bundled JavaScript file."""
+    """Return True if path is a minified bundle or ambient declaration file."""
     name = path.name.lower()
-    if name.endswith((".min.js", ".min.mjs", ".min.cjs")):
+    if name.endswith((".d.ts", ".d.mts", ".d.cts")):
         return True
-    if path.suffix.lower() in {".js", ".mjs", ".cjs"}:
-        try:
-            with path.open("r", encoding="utf-8", errors="replace") as f:
-                for idx, line in enumerate(f):
-                    if idx >= 50:
-                        break
-                    if len(line) > 1000:
-                        return True
-        except OSError:
-            pass
-    return False
+    is_min = name.endswith(
+        (".min.js", ".min.jsx", ".min.mjs", ".min.cjs", ".min.ts", ".min.tsx", ".min.mts", ".min.cts")
+    )
+    if not is_min and path.suffix.lower() in {".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}:
+        is_min = _has_long_minified_line(path)
+    if is_min:
+        sys.stderr.write(f"Skipped minified asset: {path}\n")
+    return is_min
 
 
 class ScorecardFormatter:
@@ -190,9 +196,11 @@ class CodeHealthRunner:
         elif self.lang_override == "java":
             valid_exts = {".java"}
         elif self.lang_override in {"javascript", "js"}:
-            valid_exts = {".js", ".mjs", ".cjs"}
+            valid_exts = {".js", ".jsx", ".mjs", ".cjs"}
+        elif self.lang_override in {"typescript", "ts"}:
+            valid_exts = {".ts", ".tsx", ".mts", ".cts"}
         else:
-            valid_exts = {".py", ".java", ".js", ".mjs", ".cjs"}
+            valid_exts = {".py", ".java", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"}
         direct = {r for r in resolved if r.is_file() and r.suffix.lower() in valid_exts}
         walked = {
             c.resolve() for r in resolved if r.is_dir()

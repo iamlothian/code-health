@@ -43,6 +43,22 @@ class BaseProfileProtocol(Protocol):
         """Determine if a function/method call represents an assertion."""
         ...
 
+    def extra_concerns(self, func: IRFunction) -> set[str]:
+        """Collect non-call operational concerns for func."""
+        ...
+
+    def requires_explicit_return_type(self, func: IRFunction) -> bool:
+        """Return True if func requires an explicit return annotation."""
+        ...
+
+    def requires_constructor_docstring(self, cls: IRClass | None) -> bool:
+        """Return True if constructors on cls require docstrings."""
+        ...
+
+    def is_lcom4_exempt(self, cls: IRClass) -> bool:
+        """Return True if cls is exempt from LCOM4 split penalties."""
+        ...
+
 
 def _apply_ir_penalties(
     scores: tuple[float, float, float, float, float], penalties: list[RulePenalty]
@@ -73,7 +89,7 @@ def _blend_ir_class_methods(
 
 def _count_ir_asserts(func: IRFunction, profile: BaseProfileProtocol) -> int:
     matched = [c for c in func.calls if profile.is_test_assert_call(c.name)]
-    if profile.name == "javascript":
+    if profile.name in {"javascript", "typescript"}:
         matchers_at_line = {c.lineno for c in matched if c.name.split(".")[-1] != "expect"}
         matched = [c for c in matched if c.name.split(".")[-1] != "expect" or c.lineno not in matchers_at_line]
     return len(matched)
@@ -93,24 +109,37 @@ def _score_test_clean_ir(func: IRFunction, profile: BaseProfileProtocol) -> tupl
     return p0 + p_many, f0 + f_many
 
 
-def _score_source_clean_ir(func: IRFunction, profile: BaseProfileProtocol | None = None) -> tuple[float, list[str]]:
-    findings: list[str] = []
-    pen = 0.0
-    if not func.has_docstring and not func.name.startswith("_"):
-        p_doc = 5.0 if func.loc <= 10 else 10.0
-        pen += p_doc
-        findings.append(f"Clean: missing public docstring (-{p_doc:.1f} pts)")
+def _score_source_type_annotations_ir(
+    func: IRFunction, profile: BaseProfileProtocol | None
+) -> tuple[float, list[str]]:
     if profile and profile.name == "javascript":
-        return pen, findings
+        return 0.0, []
+    pen = 0.0
+    findings: list[str] = []
     untyped = [p.name for p in func.params if p.type_annotation is None and p.name not in {"self", "cls"}]
     if untyped:
         p_un = min(25.0, len(untyped) * 5.0)
         pen += p_un
         findings.append(f"Clean: {len(untyped)} untyped param(s) ({', '.join(untyped[:3])}) (-{p_un:.1f} pts)")
-    if func.return_type is None and not func.name.startswith("__"):
+    needs_ret = profile is None or profile.requires_explicit_return_type(func)
+    if needs_ret and func.return_type is None and not func.name.startswith("__"):
         pen += 10.0
         findings.append("Clean: missing return type annotation (-10.0 pts)")
     return pen, findings
+
+
+def _score_source_clean_ir(
+    func: IRFunction, profile: BaseProfileProtocol | None = None, parent: IRClass | None = None
+) -> tuple[float, list[str]]:
+    findings: list[str] = []
+    pen = 0.0
+    ctor_exempt = func.name == "constructor" and profile is not None and not profile.requires_constructor_docstring(parent)
+    if not ctor_exempt and not func.has_docstring and not func.name.startswith("_"):
+        p_doc = 5.0 if func.loc <= 10 else 10.0
+        pen += p_doc
+        findings.append(f"Clean: missing public docstring (-{p_doc:.1f} pts)")
+    t_pen, t_findings = _score_source_type_annotations_ir(func, profile)
+    return pen + t_pen, findings + t_findings
 
 
 def _check_ir_exceptions(handlers: list) -> tuple[float, list[str]]:
@@ -146,17 +175,20 @@ class UniversalIRScorer:
         self, func: IRFunction, file_path: str, is_test: bool, parent: IRClass | None = None
     ) -> FunctionReport:
         """Evaluate an IRFunction into a FunctionReport."""
-        concerns = sorted({c for call in func.calls if (c := self.profile.map_concern(call.name))})
+        concerns = sorted(
+            {c for call in func.calls if (c := self.profile.map_concern(call.name))}
+            | self.profile.extra_concerns(func)
+        )
         ext_calls = len({c.name for c in func.calls if not self.profile.map_concern(c.name)})
         is_entry = self.profile.is_entrypoint_func(func)
 
         s_srp, f_srp = self._score_srp(func, concerns, ext_calls, is_entry, is_test)
         s_size, f_size = self._score_size(func, is_entry, is_test)
         s_comp, f_comp = self._score_complexity(func)
-        p_cln, f_cln = _score_test_clean_ir(func, self.profile) if is_test else _score_source_clean_ir(func, self.profile)
-        p_ex, f_ex = (0.0, []) if self.profile.name == "javascript" else _check_ir_exceptions(func.except_handlers)
+        p_cln, f_cln = _score_test_clean_ir(func, self.profile) if is_test else _score_source_clean_ir(func, self.profile, parent)
+        p_ex, f_ex = (0.0, []) if self.profile.name in {"javascript", "typescript"} else _check_ir_exceptions(func.except_handlers)
         s_clean = 100.0 - p_cln - p_ex
-        s_sec, f_sec = (100.0, []) if self.profile.name == "javascript" else _score_security_ir(func, is_test)
+        s_sec, f_sec = (100.0, []) if self.profile.name in {"javascript", "typescript"} else _score_security_ir(func, is_test)
 
         penalties = self.profile.evaluate_function(func, parent)
         raw_scores = (s_srp, s_size, s_comp, s_clean, s_sec)
@@ -189,7 +221,8 @@ class UniversalIRScorer:
         a_cnt = len(cls.fields)
         total_cc = sum(m.cyclomatic_complexity for m in methods)
 
-        p_lcom, f_lcom = penalty_item((cls.lcom4 - 1) * int(m_cnt > 2), 15.0, f"SRP: LCOM4={cls.lcom4} disconnected method groups")
+        lcom_excess = 0 if self.profile.is_lcom4_exempt(cls) else (cls.lcom4 - 1) * int(m_cnt > 2)
+        p_lcom, f_lcom = penalty_item(lcom_excess, 15.0, f"SRP: LCOM4={cls.lcom4} disconnected method groups")
         p_mc, f_mc = penalty_item(m_cnt - self.cfg.max_ideal_class_methods, 4.0, f"SRP: methods={m_cnt} (>{self.cfg.max_ideal_class_methods})")
         p_fc, f_fc = penalty_item(a_cnt - self.cfg.max_ideal_class_attrs, 4.0, f"SRP: self attributes={a_cnt} (>{self.cfg.max_ideal_class_attrs})")
         s_srp = 100.0 - p_lcom - p_mc - p_fc

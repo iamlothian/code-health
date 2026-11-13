@@ -5,6 +5,7 @@ from __future__ import annotations
 import ast
 from collections import defaultdict
 from dataclasses import dataclass, field
+import importlib
 from pathlib import Path
 import subprocess
 
@@ -14,6 +15,7 @@ from _code_health.ast_engine import (
     docstring_lines,
     has_exempt_base,
 )
+from _code_health.ir_scorer import UniversalIRScorer
 from _code_health.models import (
     AnalysisContext,
     ClassReport,
@@ -24,6 +26,19 @@ from _code_health.models import (
     RubricConfig,
     penalty_item,
 )
+from _code_health.profiles import resolve_active_profiles
+
+_NATIVE_PARSERS: dict[str, tuple[str, str]] = {
+    ".java": ("_code_health.java_parser", "parse_java_file"),
+    ".js": ("_code_health.js_parser", "parse_javascript_file"),
+    ".jsx": ("_code_health.js_parser", "parse_javascript_file"),
+    ".mjs": ("_code_health.js_parser", "parse_javascript_file"),
+    ".cjs": ("_code_health.js_parser", "parse_javascript_file"),
+    ".ts": ("_code_health.ts_parser", "parse_typescript_file"),
+    ".tsx": ("_code_health.ts_parser", "parse_typescript_file"),
+    ".mts": ("_code_health.ts_parser", "parse_typescript_file"),
+    ".cts": ("_code_health.ts_parser", "parse_typescript_file"),
+}
 
 
 @dataclass(frozen=True)
@@ -56,7 +71,11 @@ class _GitLogAccumulator:
         header = lines[0].split("|", 2) + ["", ""]
         feat_inc = int(header[2].lower().startswith("feat"))
         files = [ln.replace("\\", "/") for ln in lines[1:]]
-        source_files = [f for f in files if f.endswith((".py", ".java", ".js", ".mjs", ".cjs"))]
+        source_files = [
+            f for f in files
+            if f.endswith((".py", ".java", ".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".mts", ".cts"))
+            and not f.endswith((".d.ts", ".d.mts", ".d.cts"))
+        ]
         for f in source_files:
             self.commits[f] += 1
             self.feats[f] += feat_inc
@@ -83,11 +102,19 @@ def is_test_file_path(rel_path: str) -> bool:
     is_py = fname.startswith("test_") or fname.endswith("_test.py") or fname == "conftest.py"
     is_java = fname.endswith(("Test.java", "Tests.java", "IT.java"))
     is_js = (
-        fname.endswith((".test.js", ".spec.js", "_test.js", ".test.mjs", ".spec.mjs", ".test.cjs", ".spec.cjs"))
-        or (fname.startswith("test_") and fname.endswith((".js", ".mjs", ".cjs")))
+        fname.endswith((
+            ".test.js", ".spec.js", "_test.js",
+            ".test.jsx", ".spec.jsx", "_test.jsx",
+            ".test.mjs", ".spec.mjs", ".test.cjs", ".spec.cjs",
+        ))
+        or (fname.startswith("test_") and fname.endswith((".js", ".jsx", ".mjs", ".cjs")))
+    )
+    is_ts = (
+        fname.endswith((".test.ts", ".spec.ts", "_test.ts", ".test.tsx", ".spec.tsx", "_test.tsx", ".test.mts", ".spec.mts", "_test.mts", ".test.cts", ".spec.cts", "_test.cts"))
+        or (fname.startswith("test_") and fname.endswith((".ts", ".tsx", ".mts", ".cts")))
     )
     is_test_dir = bool({"tests", "test", "__tests__"} & set(parts))
-    return is_test_dir or is_py or is_java or is_js
+    return is_test_dir or is_py or is_java or is_js or is_ts
 
 
 def collect_git_stats(repo_root: Path) -> dict[str, GitFileStats]:
@@ -167,10 +194,8 @@ class ModuleAnalyzer:
         is_test = is_test_file_path(rel_path)
         gstat = self.git_stats.get(rel_path) if self.git_stats else None
 
-        if resolved.suffix.lower() == ".java":
-            return self._analyze_java(resolved, rel_path, is_test, gstat)
-        if resolved.suffix.lower() in {".js", ".mjs", ".cjs"}:
-            return self._analyze_javascript(resolved, rel_path, is_test, gstat)
+        if resolved.suffix.lower() in _NATIVE_PARSERS:
+            return self._analyze_native(resolved, rel_path, is_test, gstat)
 
         raw_text = resolved.read_text(encoding="utf-8", errors="replace")
         lines = raw_text.splitlines()
@@ -188,49 +213,58 @@ class ModuleAnalyzer:
         scores = self._blend_scores(mod_scores, classes, functions)
         return FileReport(rel_path, is_test, loc, int_imports, dup_blocks, mid_imports, gstat, scores, findings, classes, functions)
 
-    def _analyze_java(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.ir_scorer import UniversalIRScorer
-        from _code_health.java_parser import parse_java_file
-        from _code_health.profiles import resolve_active_profiles
+    def _analyze_native(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
+        mod_path, fn_name = _NATIVE_PARSERS[resolved.suffix.lower()]
+        parse_fn = getattr(importlib.import_module(mod_path), fn_name)
+        return self._score_ir_module(parse_fn(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
 
-        ir_mod = parse_java_file(resolved, rel_path, is_test)
+    def _score_ir_module(
+        self, ir_mod: object, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None
+    ) -> FileReport:
+        syntax_errs = getattr(ir_mod, "syntax_errors", [])
+        loc = ir_mod.loc  # type: ignore[attr-defined]
+        if syntax_errs:
+            findings = [f"Syntax: parse error at L{ln}" for ln in syntax_errs]
+            return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, DimensionScores.from_raw((0.0, 0.0, 0.0, 0.0, 0.0), self.cfg), findings)
+
+        unit_fns = list(getattr(ir_mod, "functions", [])) + [m for c in getattr(ir_mod, "classes", []) for m in getattr(c, "methods", [])]
         profile = resolve_active_profiles(
-            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
+            self.repo_root,
+            resolved,
+            lang_override=self.lang_override,
+            framework_override=self.framework_override,
+            imports=getattr(ir_mod, "imports", []),
+            has_jsx=any(getattr(fn, "jsx_elements_count", 0) > 0 for fn in unit_fns),
+            directives=getattr(ir_mod, "directives", []),
         )
         scorer = UniversalIRScorer(self.cfg, profile)
-
-        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
-        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
+        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]  # type: ignore[attr-defined]
+        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]  # type: ignore[attr-defined]
 
         srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
-        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
-        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
-
-        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
-        scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
-
-    def _analyze_javascript(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        from _code_health.ir_scorer import UniversalIRScorer
-        from _code_health.js_parser import parse_javascript_file
-        from _code_health.profiles import resolve_active_profiles
-
-        ir_mod = parse_javascript_file(resolved, rel_path, is_test)
-        profile = resolve_active_profiles(
-            self.repo_root, resolved, lang_override=self.lang_override, framework_override=self.framework_override
+        mod_loc_pen = round(max(0, min(loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, loc - self.cfg.max_mid_file_loc) * 0.25, 1)
+        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
+        ts_ig = getattr(ir_mod, "ts_ignore_count", 0)
+        p_ts, f_ts = penalty_item(
+            ts_ig, 10.0, f"Clean (TS): {ts_ig} '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks", cap=20.0
         )
-        scorer = UniversalIRScorer(self.cfg, profile)
 
-        classes = [scorer.score_class(c, rel_path, is_test) for c in ir_mod.classes]
-        functions = [scorer.score_function(f, rel_path, is_test) for f in ir_mod.functions]
+        mod_penalties = profile.evaluate_module(ir_mod)
+        dim_pens = {"srp": 0.0, "size": 0.0, "clean": 0.0, "security": 0.0}
+        mod_findings: list[str] = []
+        for p in mod_penalties:
+            if p.dimension in dim_pens:
+                dim_pens[p.dimension] += p.penalty_points
+            mod_findings.append(p.finding)
 
-        srp_pen, g_findings = self._score_git_srp(gstat) if gstat else (0.0, [])
-        mod_loc_pen = round(max(0, min(ir_mod.loc, self.cfg.max_mid_file_loc) - self.cfg.max_ideal_file_loc) * 0.15 + max(0, ir_mod.loc - self.cfg.max_mid_file_loc) * 0.25, 1)
-        p_loc, f_loc = penalty_item(mod_loc_pen, 1.0, f"Size: file LOC={ir_mod.loc} (>{self.cfg.max_ideal_file_loc})", cap=100.0)
-
-        mod_scores = (100.0 - srp_pen, 100.0 - p_loc, 100.0)
+        mod_scores = (
+            100.0 - srp_pen - dim_pens["srp"],
+            100.0 - p_loc - dim_pens["size"],
+            100.0 - p_ts - dim_pens["clean"],
+            100.0 - dim_pens["security"],
+        )
         scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, ir_mod.loc, [], 0, 0, gstat, scores, g_findings + f_loc, classes, functions)
+        return FileReport(rel_path, is_test, loc, [], 0, 0, gstat, scores, g_findings + f_loc + f_ts + mod_findings, classes, functions)
 
     def _analyze_units(
         self, tree: ast.Module, lines: list[str], rel_path: str, is_test: bool
@@ -272,15 +306,16 @@ class ModuleAnalyzer:
         return p1 + p2 + p3, f1 + f2 + f3
 
     def _blend_scores(
-        self, mod_scores: tuple[float, float, float], classes: list[ClassReport], functions: list[FunctionReport]
+        self, mod_scores: tuple[float, ...], classes: list[ClassReport], functions: list[FunctionReport]
     ) -> DimensionScores:
+        mod_sec = mod_scores[3] if len(mod_scores) > 3 else 100.0
         units = [(max(1, c.loc), c.scores) for c in classes] + [(max(1, f.loc), f.scores) for f in functions]
         if not units:
-            return DimensionScores.from_raw((mod_scores[0], mod_scores[1], 100.0, mod_scores[2], 100.0), self.cfg)
+            return DimensionScores.from_raw((mod_scores[0], mod_scores[1], 100.0, mod_scores[2], mod_sec), self.cfg)
         total_w = sum(w for w, _ in units)
         u_srp = sum(w * s.srp for w, s in units) / total_w - (100.0 - mod_scores[0])
         u_size = sum(w * s.size for w, s in units) / total_w - (100.0 - mod_scores[1])
         u_comp = sum(w * s.complexity for w, s in units) / total_w
         u_clean = sum(w * s.clean for w, s in units) / total_w - (100.0 - mod_scores[2])
-        u_sec = min(s.security for _, s in units)
+        u_sec = min(s.security for _, s in units) - (100.0 - mod_sec)
         return DimensionScores.from_raw((u_srp, u_size, u_comp, u_clean, u_sec), self.cfg)

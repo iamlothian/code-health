@@ -1,111 +1,10 @@
----
-name: python-code-health
-description: Use when writing, reviewing, or refactoring Python code to evaluate its deterministic health scorecard (SRP, size, complexity, clean code, security) and iteratively improve it.
----
+# Python Refactoring Playbook by Dimension
 
-# Deterministic Python Code Health
-
-Use this skill to inspect, grade, and iteratively refactor Python code against an objective, deterministic 0–100 engineering rubric across five dimensions:
-1. **Single Responsibility & Cohesion (SRP) — 30%**
-2. **Size & Readability — 25%**
-3. **Complexity & Control Flow — 20%**
-4. **Clean Code & Maintainability — 15%**
-5. **Security & Boundary Hygiene — 10%**
-
-The analyzer is completely self-contained in standard Python 3.11+ with **zero external dependencies**. Every deducted point produces an exact line-numbered finding showing what caused the smell and how much it cost.
+This reference provides targeted refactoring patterns to resolve deterministic code health penalties in Python code.
 
 ---
 
-## Quick Reference & Commands
-
-The analyzer scripts are bundled inside this skill's `scripts/` folder. In any project, locate the script and invoke it with Python:
-
-```bash
-# 1. Fast inner-loop check on a single modified file (sub-second AST-only)
-python <path-to-skill>/scripts/code_health.py path/to/file.py --no-git
-
-# 2. Focus on a specific class or method
-python <path-to-skill>/scripts/code_health.py path/to/file.py --symbol MyClass.process_item --no-git
-
-# 3. Quality-gate threshold (exits 1 if score < 90.0) and filter clean methods
-python <path-to-skill>/scripts/code_health.py path/to/file.py --only-flagged --fail-under 90.0 --no-git
-
-# 4. Multi-file or full repository scan with Git churn analysis
-python <path-to-skill>/scripts/code_health.py src tests --format console
-
-# 5. Export JSON and Markdown scorecards
-python <path-to-skill>/scripts/code_health.py src tests --json-out scorecard.json --markdown-out HEALTH.md
-```
-
-> [!TIP]
-> **Locating the script:**
-> - When running inside this repository: `python skills/python-code-health/scripts/code_health.py` (or `python scripts/code_health.py`).
-> - When running from global skills (`~/.gemini/config/skills/python-code-health`): `python ~/.gemini/config/skills/python-code-health/scripts/code_health.py`.
-> - If you copied the skill to project `.agents/skills/python-code-health`: `python .agents/skills/python-code-health/scripts/code_health.py`.
-
----
-
-## When to Use
-
-- **During Feature Implementation:** After drafting a new function, method, or class, run the analyzer on your file with `--no-git` to immediately spot size, complexity, or SRP bloat before writing more code.
-- **Before Declaring Done:** Ensure any modified or created Python files achieve **Grade A ($\ge 90.0$)** with zero critical findings before committing or requesting review.
-- **During Refactoring:** Run with `--symbol <name>` or `--only-flagged` to isolate and tackle low-scoring methods one by one.
-- **In Quality Gates:** Use `--fail-under 90.0` in CI or verification scripts to enforce engineering standards objectively.
-
----
-
-## Interpreting Scorecards
-
-The analyzer outputs:
-1. **Header Banner:** Overall composite score (0–100), letter grade (`A`–`F`), and the 5 dimension averages.
-2. **Files Table:** Per-file breakdown of LOC, Git commits, dimension scores, and composite grade.
-3. **Classes Table:** Per-class LOC, method count, attribute count, LCOM4 cohesion score, and grade.
-4. **Flagged Functions & Methods Table:**
-   - Location: `file:lineno`
-   - Symbol: `Class.method` or `function_name`
-   - Metrics: `LOC`, `CC` (Cyclomatic Complexity), `CogC` (Cognitive Complexity), `Params`, `Nesting`
-   - Dimension Scores & Grade
-   - **Exact Penalty Reasons:** Bulleted list detailing every deduction, e.g.:
-     - `Size: LOC=48 (>25) (-34.5 pts)`
-     - `Complexity: cognitive=14 (>8) (-15.0 pts)`
-     - `SRP: mixes 3 concerns (filesystem_io, presentation, serialization) (-12.0 pts)`
-     - `Clean: missing return type annotation (-10.0 pts)`
-
-### Grade Scale
-- **Grade A (90.0 – 100.0):** Healthy, cohesive, clean Python. Target for all production code.
-  - **High-Assurance Quality Gates (95.0 – 100.0):** For mission-critical libraries, core infrastructure, or strict refactoring runs (`--fail-under 95.0`). Requires zero test smells, strict assertion hygiene, hoisted module imports, and tight LOC limits across all files.
-- **Grade B (80.0 – 89.9):** Minor smells or slightly long functions. Acceptable for legacy code, easy to polish to A.
-- **Grade C (70.0 – 79.9):** Significant smell (e.g. mixed concerns, high cognitive complexity, or 50+ LOC).
-- **Grade D / F (< 70.0):** God methods, deep nesting, or architectural hot spots requiring refactoring.
-
----
-
-## The Iterative Refactoring Loop
-
-When writing or refactoring Python code, follow this 5-step cycle:
-
-```mermaid
-flowchart TD
-    A["1. Write / Modify Code"] --> B["2. Run Health Check\n(python code_health.py file.py --no-git)"]
-    B --> C{"Composite Score >= 90.0 (Grade A)\n& No Critical Findings?"}
-    C -- Yes --> D["4. Run Project Unit Tests\n(pytest)"]
-    C -- No --> E["3. Apply Targeted Refactor\n(Fix Specific Finding Bullets)"]
-    E --> B
-    D -- Tests Pass --> F["5. Ready to Commit / Review"]
-    D -- Tests Fail --> G["Fix Test Regression"] --> D
-```
-
-1. **Check Baseline:** Run `python <skill_path>/scripts/code_health.py path/to/file.py --no-git`.
-2. **Isolate Worst Offenders:** Look at the Flagged Functions table. If composite is `< 90.0`, pick the lowest scoring function or class.
-3. **Apply Targeted Refactor:** Read the specific finding bullet points and apply the refactorings outlined in the playbook below.
-4. **Re-check Score:** Re-run the analyzer. Verify that the score increased and findings were resolved.
-5. **Verify Tests:** Run `pytest` to guarantee that the refactoring did not break existing behavior.
-
----
-
-## Refactoring Playbook by Dimension
-
-### 1. Single Responsibility & Cohesion (SRP)
+## 1. Single Responsibility & Cohesion (SRP)
 
 - **Finding: `SRP: mixes X concerns (presentation, filesystem_io, ...)`**
   - *Cause:* Function mixes printing/UI output, raw file I/O, subprocess execution, or data serialization inside business logic.
@@ -129,7 +28,9 @@ flowchart TD
   - *Cause:* Methods in a class do not share instance state (`self.x`), indicating two or more unrelated responsibilities jammed into one class.
   - *Fix:* Split the class into separate, cohesive classes grouped by the state attributes they access, or turn stateless methods into standalone module-level functions.
 
-### 2. Size & Readability
+---
+
+## 2. Size & Readability
 
 - **Finding: `Size: LOC=X (>25)`**
   - *Cause:* Function exceeds 25 non-comment statements in `src/` (or 40 statements in `tests/`).
@@ -156,7 +57,9 @@ flowchart TD
     perform_action()
     ```
 
-### 3. Complexity & Control Flow
+---
+
+## 3. Complexity & Control Flow
 
 - **Finding: `Complexity: CC=X (>5)` or `Complexity: cognitive=X (>8)`**
   - *Cause:* High branching, multiple `elif`/`else` chains, nested loops, and compound boolean expressions.
@@ -167,7 +70,9 @@ flowchart TD
   - *Cause:* More than 3 return points in a single function.
   - *Fix:* Consolidate exit paths or extract pre-validation logic into a separate validator function.
 
-### 4. Clean Code & Maintainability
+---
+
+## 4. Clean Code & Maintainability
 
 - **Finding: `Clean: missing return type annotation` or `untyped param(s)`**
   - *Fix:* Add explicit type annotations to all parameters and return values (e.g. `def format_item(name: str, count: int) -> str:`).
@@ -188,7 +93,9 @@ flowchart TD
   - *Cause:* Re-declaring repetitive mock data, payloads, or setup blocks across test cases ($\ge 6$ identical AST statements).
   - *Fix:* Consolidate repeated test fixture data, mock payloads, or setup boilerplate into reusable helper functions or parameterized pytest fixtures.
 
-### 5. Security & Operational Hygiene
+---
+
+## 5. Security & Operational Hygiene
 
 - **Finding: `Security: subprocess call with shell=True`**
   - *Fix:* Remove `shell=True`. Pass the command as a list: `subprocess.run(["git", "status"], check=True)`.
@@ -200,11 +107,3 @@ flowchart TD
   - *Fix:* Call `.resolve()` and verify path containment (e.g., `target_path.is_relative_to(safe_root)`).
 - **Finding: `Security: file mutation (L...) before branch checkout (L...)`**
   - *Fix:* Ensure Git branch checkouts occur before file modifications, not after.
-
----
-
-## Detailed Rubric Specification
-
-For the complete mathematical specification, dimension weight tables, LCOM4 graph definitions, and module-level Git churn scoring models, see:
-- [`references/scoring-rubric.md`](./references/scoring-rubric.md)
-
