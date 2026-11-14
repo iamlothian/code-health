@@ -1,0 +1,31 @@
+{
+  "id": "typescript_zod_json_schema_clean",
+  "pair_id": "typescript_schema_visitor_size",
+  "scenario_title": "5. JSON Schema Contract Size vs. Monolithic AST Visitor (colinhacks/zod)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/zod_json_schema.ts",
+  "is_test": false,
+  "source_dataset": "colinhacks/zod (packages/zod/src/v4/core/json-schema.ts)",
+  "source_url": "https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/json-schema.ts",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 99,
+    "classes_count": 0,
+    "functions_count": 0,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/zod_json_schema.ts     src      99    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n"
+  }
+}

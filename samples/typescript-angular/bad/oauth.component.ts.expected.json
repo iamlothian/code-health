@@ -1,0 +1,50 @@
+{
+  "id": "typescript_angular_oss_oauth_bad",
+  "pair_id": "typescript_angular_oss_auth_clean",
+  "scenario_title": "6. Angular Auth Component Hygiene vs. OWASP Juice Shop OAuth Component",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/oauth.component.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/oauth/oauth.component.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/oauth/oauth.component.ts",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 70,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 89.5,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 51.2,
+      "security": 100.0,
+      "composite": 56.2,
+      "grade": "F"
+    },
+    "required_findings": [
+      "unmanaged .subscribe()",
+      "explicit 'any' type usage",
+      "missing return type annotation"
+    ],
+    "all_findings": [
+      "[Class OAuthComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Class OAuthComponent] Clean (Angular): unmanaged .subscribe() at L29 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+      "[Method OAuthComponent.ngOnInit] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+      "[Method OAuthComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+      "[Method OAuthComponent.ngOnInit] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method OAuthComponent.login] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+      "[Method OAuthComponent.login] Clean: missing public docstring (-10.0 pts)",
+      "[Method OAuthComponent.login] Clean: missing return type annotation (-10.0 pts)",
+      "[Method OAuthComponent.login] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method OAuthComponent.invalidateSession] Clean: missing public docstring (-5.0 pts)",
+      "[Method OAuthComponent.invalidateSession] Clean: missing return type annotation (-10.0 pts)",
+      "[Method OAuthComponent.parseRedirectUrlParams] Clean: missing public docstring (-5.0 pts)",
+      "[Method OAuthComponent.parseRedirectUrlParams] Clean: missing return type annotation (-10.0 pts)",
+      "[Method OAuthComponent.parseRedirectUrlParams] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 56.2/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 89.5 | Size: 100.0 | Complexity: 100.0 | Clean: 51.2 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/oauth.component.ts src      70    -  89.5 100.0 100.0  51.2 100.0   56.2   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/oauth.component.ts:    57    4     1    5   56.2   F\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L29 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/oauth.component.ts:46   17   1    0   1   0   90.0   A\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/oauth.component.ts:28   17   1    0   0   0   91.5   A\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/oauth.component.ts:71   10   2    1   0   1   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/oauth.component.ts:64    6   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+  }
+}

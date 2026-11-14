@@ -1,0 +1,31 @@
+{
+  "id": "javascript_merge_sort_clean",
+  "pair_id": "javascript_sorting_class_clean",
+  "scenario_title": "1. Sorting Algorithm Documentation & Clean Hygiene (MergeSort vs. BubbleSort)",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/MergeSort.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Sorts/MergeSort.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/MergeSort.js",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 20,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/MergeSort.js           src      20    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/MergeSort.js:18 merge          13   4    3   2   2  100.0   A\nsamples/javascript/good/MergeSort.js:40 mergeSort       7   2    1   1   1  100.0   A\n"
+  }
+}

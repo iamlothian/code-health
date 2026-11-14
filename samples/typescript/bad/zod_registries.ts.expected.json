@@ -1,0 +1,48 @@
+{
+  "id": "typescript_zod_registries_any",
+  "pair_id": "typescript_schema_registry_clean",
+  "scenario_title": "6. Schema Definition Typing Hygiene vs. Registry Escape Hatches (colinhacks/zod)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/bad/zod_registries.ts",
+  "is_test": false,
+  "source_dataset": "colinhacks/zod (packages/zod/src/v4/core/registries.ts)",
+  "source_url": "https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/registries.ts",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 80,
+    "classes_count": 1,
+    "functions_count": 6,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 73.3,
+      "security": 100.0,
+      "composite": 78.3,
+      "grade": "C"
+    },
+    "required_findings": [
+      "explicit 'any' type usage",
+      "non-null assertion",
+      "missing class docstring"
+    ],
+    "all_findings": [
+      "[Class $ZodRegistry] Clean: missing class docstring (-15.0 pts)",
+      "[Method $ZodRegistry.add] Clean: missing public docstring (-10.0 pts)",
+      "[Method $ZodRegistry.add] Clean (TS): 2 explicit 'any' type usage(s) defeat type safety (-10.0 pts)",
+      "[Method $ZodRegistry.add] Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)",
+      "[Method $ZodRegistry.clear] Clean: missing public docstring (-5.0 pts)",
+      "[Method $ZodRegistry.remove] Clean: missing public docstring (-5.0 pts)",
+      "[Method $ZodRegistry.remove] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method $ZodRegistry.remove] Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)",
+      "[Method $ZodRegistry.get] Clean: missing public docstring (-5.0 pts)",
+      "[Method $ZodRegistry.get] Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)",
+      "[Method $ZodRegistry.has] Clean: missing public docstring (-5.0 pts)",
+      "[Func registry] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 78.3/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 73.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_registries.ts       src      80    - 100.0 100.0 100.0  73.3 100.0   78.3   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_registries.ts:27 $ZodRe    43    5     1   14   76.8   C\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_registries.ts:33 $ZodRegi   11   4    1   2   1   96.4   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (TS): 2 explicit 'any' type usage(s) defeat type safety (-10.0 pts)\n    - Clean (TS): 2 non-null assertion(s) ('!') bypass strict null checks (-4.0 pts)\nsamples/typescript/bad/zod_registries.ts:60 $ZodRegi   10   4    3   1   2   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)\nsamples/typescript/bad/zod_registries.ts:51 $ZodRegi    8   4    1   1   1   98.2   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\nsamples/typescript/bad/zod_registries.ts:45 $ZodRegi    5   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript/bad/zod_registries.ts:74 $ZodRegi    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript/bad/zod_registries.ts:90 registry    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "python_subprocess_and_yaml_security_good",
+  "pair_id": "python_subprocess_and_yaml_security",
+  "scenario_title": "6. Safe Analyzer Plugin vs. Unsafe Subprocess & YAML Deserialization (PyCQA/bandit)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/pytorch_load.py",
+  "is_test": false,
+  "source_dataset": "PyCQA/bandit (bandit/plugins/pytorch_load.py)",
+  "source_url": "https://github.com/PyCQA/bandit/blob/main/bandit/plugins/pytorch_load.py",
+  "license": "Apache-2.0",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 28,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 96.0,
+      "clean": 85.0,
+      "security": 100.0,
+      "composite": 97.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func pytorch_load] Complexity: CC=6 (>5) (-4.0 pts)",
+      "[Func pytorch_load] Clean: missing return type annotation (-10.0 pts)",
+      "[Func pytorch_load] Clean: 1 untyped param(s) (context) (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 96.0 | Clean: 85.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pytorch_load.py            src      28    - 100.0 100.0  96.0  85.0 100.0   97.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pytorch_load.py:52 pytorch_load    16   6    6   1   2   97.0   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 1 untyped param(s) (context) (-5.0 pts)\n"
+  }
+}

@@ -1,0 +1,873 @@
+{
+  "version": "1.2.0",
+  "profile": "typescript-angular",
+  "language": "typescript",
+  "framework": "angular",
+  "description": "100% verbatim real-world Angular TypeScript good and bad code health scorecard baseline samples from angular-realworld-example-app and OWASP Juice Shop across 10 scenarios.",
+  "samples": [
+    {
+      "id": "typescript_angular_oss_header_good",
+      "pair_id": "typescript_angular_oss_xss_and_sub",
+      "scenario_title": "1. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/header.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/core/layout/header.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/layout/header.component.ts",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 16,
+        "classes_count": 1,
+        "functions_count": 0,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 85.0,
+          "security": 100.0,
+          "composite": 97.8,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class HeaderComponent] Clean: missing class docstring (-15.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/header.component.ts src      16    - 100.0 100.0 100.0  85.0 100.0   97.8   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/header.component.t     5    0     1    0   97.8   A\n    - Clean: missing class docstring (-15.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_search_result_bad",
+      "pair_id": "typescript_angular_oss_xss_and_sub",
+      "scenario_title": "1. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/search_result.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/search-result/search-result.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/search-result/search-result.component.ts",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 186,
+        "classes_count": 1,
+        "functions_count": 10,
+        "scores": {
+          "srp": 36.1,
+          "size": 96.5,
+          "complexity": 98.1,
+          "clean": 68.5,
+          "security": 65.0,
+          "composite": 41.1,
+          "grade": "F"
+        },
+        "required_findings": [
+          "bypassSecurityTrustHtml"
+        ],
+        "all_findings": [
+          "[Class SearchResultComponent] SRP: self attributes=22 (>7) (-60.0 pts)",
+          "[Class SearchResultComponent] Complexity: total class CC=26 (>25) (-1.5 pts)",
+          "[Class SearchResultComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Size: LOC=48 (>25) (-34.5 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.ngAfterViewInit] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)",
+          "[Method SearchResultComponent.trustProductDescription] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method SearchResultComponent.ngOnDestroy] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.ngOnDestroy] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.filterTable] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Method SearchResultComponent.filterTable] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.filterTable] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.filterTable] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)",
+          "[Method SearchResultComponent.setupResponsivePageSize] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.setupResponsivePageSize] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.updatePageSize] Clean: missing public docstring (-10.0 pts)",
+          "[Method SearchResultComponent.updatePageSize] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.updatePageSizeOptions] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.updatePageSizeOptions] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.startHackingInstructor] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.startHackingInstructor] Clean: missing return type annotation (-10.0 pts)",
+          "[Method SearchResultComponent.isLoggedIn] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.isDeluxe] Clean: missing public docstring (-5.0 pts)",
+          "[Method SearchResultComponent.isDeluxe] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 41.1/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 10\nDimensions -> SRP: 36.1 | Size: 96.5 | Complexity: 98.1 | Clean: 68.5 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.component.ts src     186    -  36.1  96.5  98.1  68.5  65.0   41.1   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.compo   160   10     3   26   41.1   F\n    - SRP: self attributes=22 (>7) (-60.0 pts)\n    - Complexity: total class CC=26 (>25) (-1.5 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/search_result.compone    5   2    1   1   1   70.0   C\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L113 (-35.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/search_result.compone   25   4    5   0   2   70.0   C\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L146 (-35.0 pts)\nsamples/typescript-angular/bad/search_result.compone   48   6    5   0   2   70.5   C\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Size: LOC=48 (>25) (-34.5 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   14   5    4   0   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   15   2    1   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone   10   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    7   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    6   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    3   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/search_result.compone    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_article_preview_good",
+      "pair_id": "typescript_angular_oss_di_and_sub",
+      "scenario_title": "2. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/article_preview.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/article-preview.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/article-preview.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 45,
+        "classes_count": 1,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 97.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class ArticlePreviewComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method ArticlePreviewComponent.articleInput] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlePreviewComponent.toggleFavorite] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.component.ts src      45    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.co    14    2     1    3   97.0   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_preview.comp    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/article_preview.comp    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_complaint_bad",
+      "pair_id": "typescript_angular_oss_di_and_sub",
+      "scenario_title": "2. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/complaint.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/complaint/complaint.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/complaint/complaint.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 102,
+        "classes_count": 1,
+        "functions_count": 5,
+        "scores": {
+          "srp": 80.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 52.0,
+          "security": 100.0,
+          "composite": 57.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "unmanaged .subscribe()"
+        ],
+        "all_findings": [
+          "[Class ComplaintComponent] SRP: self attributes=12 (>7) (-20.0 pts)",
+          "[Class ComplaintComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Class ComplaintComponent] Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+          "[Method ComplaintComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+          "[Method ComplaintComponent.initComplaint] Clean: missing public docstring (-10.0 pts)",
+          "[Method ComplaintComponent.initComplaint] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ComplaintComponent.initComplaint] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method ComplaintComponent.save] Clean: missing public docstring (-5.0 pts)",
+          "[Method ComplaintComponent.save] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ComplaintComponent.saveComplaint] Clean: missing public docstring (-10.0 pts)",
+          "[Method ComplaintComponent.saveComplaint] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ComplaintComponent.saveComplaint] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method ComplaintComponent.resetForm] Clean: missing public docstring (-5.0 pts)",
+          "[Method ComplaintComponent.resetForm] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 57.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 52.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component.ts src     102    -  80.0 100.0 100.0  52.0 100.0   57.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component    80    5     1    6   57.0   F\n    - SRP: self attributes=12 (>7) (-20.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L71 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   96.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/complaint.component.t   19   1    0   0   0   96.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/complaint.component.t    8   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/complaint.component.t    6   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/complaint.component.t   14   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_favorite_button_good",
+      "pair_id": "typescript_angular_oss_score_board",
+      "scenario_title": "3. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/favorite_button.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/favorite-button.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/favorite-button.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 73,
+        "classes_count": 1,
+        "functions_count": 2,
+        "scores": {
+          "srp": 95.5,
+          "size": 98.5,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 95.3,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class FavoriteButtonComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method FavoriteButtonComponent.toggleFavorite] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+          "[Method FavoriteButtonComponent.toggleFavorite] Size: LOC=27 (>25) (-3.0 pts)",
+          "[Method FavoriteButtonComponent.toggleFavorite] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 95.5 | Size: 98.5 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.component.ts src      73    -  95.5  98.5 100.0  80.0 100.0   95.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.co    38    2     1    4   95.3   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/favorite_button.comp   27   3    2   0   1   95.0   A\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Size: LOC=27 (>25) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/favorite_button.comp    5   1    0   3   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_score_board_bad",
+      "pair_id": "typescript_angular_oss_score_board",
+      "scenario_title": "3. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/score_board.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/score-board/score-board.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/score-board.component.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 217,
+        "classes_count": 1,
+        "functions_count": 12,
+        "scores": {
+          "srp": 29.0,
+          "size": 98.6,
+          "complexity": 79.0,
+          "clean": 72.9,
+          "security": 65.0,
+          "composite": 34.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "bypassSecurityTrustHtml"
+        ],
+        "all_findings": [
+          "[Class ScoreBoardComponent] SRP: methods=12 (>10) (-8.0 pts)",
+          "[Class ScoreBoardComponent] SRP: self attributes=22 (>7) (-60.0 pts)",
+          "[Class ScoreBoardComponent] Complexity: total class CC=36 (>25) (-16.5 pts)",
+          "[Class ScoreBoardComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method ScoreBoardComponent.ngOnInit] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Method ScoreBoardComponent.ngOnInit] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.loadChallenges] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+          "[Method ScoreBoardComponent.loadChallenges] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.loadChallenges] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)",
+          "[Method ScoreBoardComponent.ngOnDestroy] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.onFilterSettingUpdate] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.onFilterSettingUpdate] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.onChallengeSolvedWebsocket] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.onChallengeSolvedWebsocket] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.onCodeChallengeSolvedWebsocket] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.onCodeChallengeSolvedWebsocket] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.filterAndUpdateChallenges] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Size: LOC=36 (>25) (-16.5 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Complexity: CC=12 (>5) (-34.0 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Complexity: cognitive=16 (>8) (-20.0 pts)",
+          "[Method ScoreBoardComponent.checkTagHighlight] Clean: missing public docstring (-10.0 pts)",
+          "[Method ScoreBoardComponent.getChallengeKey] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.reset] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.reset] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.repeatChallengeNotification] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.repeatChallengeNotification] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ScoreBoardComponent.unlockHint] Clean: missing public docstring (-5.0 pts)",
+          "[Method ScoreBoardComponent.unlockHint] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 34.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 12\nDimensions -> SRP: 29.0 | Size: 98.6 | Complexity: 79.0 | Clean: 72.9 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.component.ts src     217    -  29.0  98.6  79.0  72.9  65.0   34.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.compone   175   12     3   36   34.0   F\n    - SRP: methods=12 (>10) (-8.0 pts)\n    - SRP: self attributes=22 (>7) (-60.0 pts)\n    - Complexity: total class CC=36 (>25) (-16.5 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/score_board.component   36  12   16   0   3   51.0   F\n    - Size: LOC=36 (>25) (-16.5 pts)\n    - Complexity: CC=12 (>5) (-34.0 pts)\n    - Complexity: cognitive=16 (>8) (-20.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   25   5    1   0   1   70.0   C\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L103 (-35.0 pts)\nsamples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   16   3    2   1   1   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    5   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    5   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    4   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    9   2    0   2   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component   10   1    0   0   0   98.3   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/score_board.component   13   4    3   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/score_board.component    9   2    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/score_board.component    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_articles_service_good",
+      "pair_id": "typescript_angular_oss_service_complexity",
+      "scenario_title": "4. Angular Articles Service vs. OWASP Juice Shop WebSocket Chat Service Complexity",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/articles.service.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/services/articles.service.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/services/articles.service.ts",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 42,
+        "classes_count": 1,
+        "functions_count": 8,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 79.4,
+          "security": 100.0,
+          "composite": 96.9,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class ArticlesService] Clean: missing class docstring (-15.0 pts)",
+          "[Method ArticlesService.query] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlesService.query] Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+          "[Method ArticlesService.get] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlesService.delete] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlesService.create] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlesService.update] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlesService.favorite] Clean: missing public docstring (-5.0 pts)",
+          "[Method ArticlesService.unfavorite] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 79.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/articles.service.ts src      42    - 100.0 100.0 100.0  79.4 100.0   96.9   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/articles.service.t    35    8     1    9   96.9   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/articles.service.ts:   10   2    1   1   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    7   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    1   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_chat_service_bad",
+      "pair_id": "typescript_angular_oss_service_complexity",
+      "scenario_title": "4. Angular Articles Service vs. OWASP Juice Shop WebSocket Chat Service Complexity",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/chat.service.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/Services/chat.service.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/Services/chat.service.ts",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 88,
+        "classes_count": 1,
+        "functions_count": 1,
+        "scores": {
+          "srp": 88.0,
+          "size": 12.5,
+          "complexity": 0.0,
+          "clean": 75.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=18",
+          "Complexity: cognitive=34",
+          "Size: LOC=66"
+        ],
+        "all_findings": [
+          "[Class ChatService] Clean: missing class docstring (-15.0 pts)",
+          "[Method ChatService.streamMessages] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+          "[Method ChatService.streamMessages] Size: LOC=66 (>25) (-77.5 pts)",
+          "[Method ChatService.streamMessages] Size: nesting depth=4 (>3) (-10.0 pts)",
+          "[Method ChatService.streamMessages] Complexity: CC=18 (>5) (-76.0 pts)",
+          "[Method ChatService.streamMessages] Complexity: cognitive=34 (>8) (-65.0 pts)",
+          "[Method ChatService.streamMessages] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 1\nDimensions -> SRP: 88.0 | Size: 12.5 | Complexity: 0.0 | Clean: 75.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/chat.service.ts src      88    -  88.0  12.5   0.0  75.0 100.0    5.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/chat.service.ts:26     71    1     1   18    5.0   F\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/chat.service.ts:31 Ch   66  18   34   1   4    5.0   F\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Size: LOC=66 (>25) (-77.5 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=18 (>5) (-76.0 pts)\n    - Complexity: cognitive=34 (>8) (-65.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_article_comment_good",
+      "pair_id": "typescript_angular_oss_component_size",
+      "scenario_title": "5. Angular Article Comment Component vs. OWASP Juice Shop Monolithic Product Component",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/article_comment.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/components/article-comment.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/components/article-comment.component.ts",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 48,
+        "classes_count": 1,
+        "functions_count": 0,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 85.0,
+          "security": 100.0,
+          "composite": 97.8,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class ArticleCommentComponent] Clean: missing class docstring (-15.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 85.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_comment.component.ts src      48    - 100.0 100.0 100.0  85.0 100.0   97.8   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/article_comment.co     7    0     1    0   97.8   A\n    - Clean: missing class docstring (-15.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_product_bad",
+      "pair_id": "typescript_angular_oss_component_size",
+      "scenario_title": "5. Angular Article Comment Component vs. OWASP Juice Shop Monolithic Product Component",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/product.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/product/product.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/product/product.component.ts",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 201,
+        "classes_count": 1,
+        "functions_count": 2,
+        "scores": {
+          "srp": 74.0,
+          "size": 50.0,
+          "complexity": 96.0,
+          "clean": 48.0,
+          "security": 100.0,
+          "composite": 53.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC=149",
+          "unmanaged .subscribe()",
+          "high external call fan-out=31"
+        ],
+        "all_findings": [
+          "[Class ProductComponent] SRP: self attributes=9 (>7) (-8.0 pts)",
+          "[Class ProductComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Class ProductComponent] Clean (Angular): unmanaged .subscribe() at L76 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+          "[Method ProductComponent.addToBasket] SRP: high external call fan-out=31 (>6) (-36.0 pts)",
+          "[Method ProductComponent.addToBasket] Size: LOC=149 (>25) (-100.0 pts)",
+          "[Method ProductComponent.addToBasket] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method ProductComponent.addToBasket] Clean: missing public docstring (-10.0 pts)",
+          "[Method ProductComponent.addToBasket] Clean: missing return type annotation (-10.0 pts)",
+          "[Method ProductComponent.addToBasket] Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)",
+          "[Method ProductComponent.addToBasket] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method ProductComponent.showDetail] Clean: missing public docstring (-5.0 pts)",
+          "[Method ProductComponent.showDetail] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 53.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 74.0 | Size: 50.0 | Complexity: 96.0 | Clean: 48.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/product.component.ts src     201    -  74.0  50.0  96.0  48.0 100.0   53.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/product.component.t   180    2     1    8   53.0   F\n    - SRP: self attributes=9 (>7) (-8.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L76 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/product.component.ts:  149   7    8   1   2    5.0   F\n    - SRP: high external call fan-out=31 (>6) (-36.0 pts)\n    - Size: LOC=149 (>25) (-100.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/product.component.ts:    9   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_auth_good",
+      "pair_id": "typescript_angular_oss_auth_clean",
+      "scenario_title": "6. Angular Auth Component Hygiene vs. OWASP Juice Shop OAuth Component",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/auth.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/core/auth/auth.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/auth/auth.component.ts",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 80,
+        "classes_count": 1,
+        "functions_count": 3,
+        "scores": {
+          "srp": 89.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 77.7,
+          "security": 100.0,
+          "composite": 93.4,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class AuthComponent] SRP: self attributes=9 (>7) (-8.0 pts)",
+          "[Class AuthComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method AuthComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+          "[Method AuthComponent.ngOnInit] Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)",
+          "[Method AuthComponent.submitForm] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+          "[Method AuthComponent.submitForm] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 93.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 89.0 | Size: 100.0 | Complexity: 100.0 | Clean: 77.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/auth.component.ts src      80    -  89.0 100.0 100.0  77.7 100.0   93.4   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/auth.component.ts:    62    3     1    7   93.4   A\n    - SRP: self attributes=9 (>7) (-8.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/auth.component.ts:60   25   3    2   0   1   95.8   A\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/auth.component.ts:46   13   3    2   0   1   98.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\nsamples/typescript-angular/good/auth.component.ts:29   16   1    0   3   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_oauth_bad",
+      "pair_id": "typescript_angular_oss_auth_clean",
+      "scenario_title": "6. Angular Auth Component Hygiene vs. OWASP Juice Shop OAuth Component",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/oauth.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/oauth/oauth.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/oauth/oauth.component.ts",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 70,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 89.5,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 51.2,
+          "security": 100.0,
+          "composite": 56.2,
+          "grade": "F"
+        },
+        "required_findings": [
+          "unmanaged .subscribe()",
+          "explicit 'any' type usage",
+          "missing return type annotation"
+        ],
+        "all_findings": [
+          "[Class OAuthComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Class OAuthComponent] Clean (Angular): unmanaged .subscribe() at L29 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+          "[Method OAuthComponent.ngOnInit] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+          "[Method OAuthComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+          "[Method OAuthComponent.ngOnInit] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method OAuthComponent.login] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+          "[Method OAuthComponent.login] Clean: missing public docstring (-10.0 pts)",
+          "[Method OAuthComponent.login] Clean: missing return type annotation (-10.0 pts)",
+          "[Method OAuthComponent.login] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method OAuthComponent.invalidateSession] Clean: missing public docstring (-5.0 pts)",
+          "[Method OAuthComponent.invalidateSession] Clean: missing return type annotation (-10.0 pts)",
+          "[Method OAuthComponent.parseRedirectUrlParams] Clean: missing public docstring (-5.0 pts)",
+          "[Method OAuthComponent.parseRedirectUrlParams] Clean: missing return type annotation (-10.0 pts)",
+          "[Method OAuthComponent.parseRedirectUrlParams] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 56.2/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 89.5 | Size: 100.0 | Complexity: 100.0 | Clean: 51.2 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/oauth.component.ts src      70    -  89.5 100.0 100.0  51.2 100.0   56.2   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/oauth.component.ts:    57    4     1    5   56.2   F\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L29 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/oauth.component.ts:46   17   1    0   1   0   90.0   A\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/oauth.component.ts:28   17   1    0   0   0   91.5   A\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/oauth.component.ts:71   10   2    1   0   1   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/oauth.component.ts:64    6   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_settings_good",
+      "pair_id": "typescript_angular_oss_admin_security",
+      "scenario_title": "7. Angular Settings Component vs. OWASP Juice Shop Administration XSS Sinks",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/settings.component.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/settings/settings.component.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/settings/settings.component.ts",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 71,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 99.2,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 77.5,
+          "security": 100.0,
+          "composite": 96.4,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class SettingsComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Method SettingsComponent.ngOnInit] Clean: missing public docstring (-5.0 pts)",
+          "[Method SettingsComponent.logout] Clean: missing public docstring (-5.0 pts)",
+          "[Method SettingsComponent.submitForm] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Method SettingsComponent.submitForm] Clean: missing public docstring (-10.0 pts)",
+          "[Method SettingsComponent.submitForm] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 99.2 | Size: 100.0 | Complexity: 100.0 | Clean: 77.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/settings.component.ts src      71    -  99.2 100.0 100.0  77.5 100.0   96.4   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/settings.component    50    4     1    8   96.4   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/settings.component.t   17   2    1   0   1   96.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/good/settings.component.t   10   4    1   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/settings.component.t    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/settings.component.t    4   1    0   2   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_administration_bad",
+      "pair_id": "typescript_angular_oss_admin_security",
+      "scenario_title": "7. Angular Settings Component vs. OWASP Juice Shop Administration XSS Sinks",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/administration.component.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/administration/administration.component.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/administration/administration.component.ts",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 123,
+        "classes_count": 1,
+        "functions_count": 9,
+        "scores": {
+          "srp": 64.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 53.3,
+          "security": 65.0,
+          "composite": 58.3,
+          "grade": "F"
+        },
+        "required_findings": [
+          "bypassSecurityTrustHtml",
+          "unmanaged .subscribe()"
+        ],
+        "all_findings": [
+          "[Class AdministrationComponent] SRP: self attributes=16 (>7) (-36.0 pts)",
+          "[Class AdministrationComponent] Clean: missing class docstring (-15.0 pts)",
+          "[Class AdministrationComponent] Clean (Angular): unmanaged .subscribe() at L69 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+          "[Method AdministrationComponent.ngOnInit] Clean: missing public docstring (-5.0 pts)",
+          "[Method AdministrationComponent.toggleShowToolCalls] Clean: missing public docstring (-5.0 pts)",
+          "[Method AdministrationComponent.toggleShowToolCalls] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.toggleShowToolCalls] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method AdministrationComponent.findAllUsers] Clean: missing public docstring (-10.0 pts)",
+          "[Method AdministrationComponent.findAllUsers] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.findAllUsers] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L74 (-35.0 pts)",
+          "[Method AdministrationComponent.findAllFeedbacks] Clean: missing public docstring (-10.0 pts)",
+          "[Method AdministrationComponent.findAllFeedbacks] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.findAllFeedbacks] Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L92 (-35.0 pts)",
+          "[Method AdministrationComponent.deleteFeedback] Clean: missing public docstring (-10.0 pts)",
+          "[Method AdministrationComponent.deleteFeedback] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.showUserDetail] Clean: missing public docstring (-5.0 pts)",
+          "[Method AdministrationComponent.showUserDetail] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.showFeedbackDetails] Clean: missing public docstring (-5.0 pts)",
+          "[Method AdministrationComponent.showFeedbackDetails] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.showFeedbackDetails] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Method AdministrationComponent.times] Clean: missing public docstring (-5.0 pts)",
+          "[Method AdministrationComponent.times] Clean: missing return type annotation (-10.0 pts)",
+          "[Method AdministrationComponent.doesUserHaveAnActiveSession] Clean: missing public docstring (-5.0 pts)",
+          "[Method AdministrationComponent.doesUserHaveAnActiveSession] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 58.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 9\nDimensions -> SRP: 64.0 | Size: 100.0 | Complexity: 100.0 | Clean: 53.3 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/administration.component.ts src     123    -  64.0 100.0 100.0  53.3  65.0   58.3   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/administration.comp    97    9     3   13   58.3   F\n    - SRP: self attributes=16 (>7) (-36.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L69 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/administration.compon   18   3    3   0   2   70.0   C\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L74 (-35.0 pts)\nsamples/typescript-angular/bad/administration.compon   17   2    1   0   1   70.0   C\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Security (Angular): unsafe XSS/DOM sink 'bypassSecurityTrustHtml' at L92 (-35.0 pts)\nsamples/typescript-angular/bad/administration.compon    6   1    0   1   0   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/administration.compon   11   1    0   1   0   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/administration.compon    8   1    0   2   0   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/administration.compon    7   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/administration.compon    3   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/administration.compon    4   2    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/bad/administration.compon    5   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_comments_service_good",
+      "pair_id": "typescript_angular_oss_service_cohesion",
+      "scenario_title": "8. Angular Cohesive Comments Service vs. OWASP Juice Shop Disconnected Storage Service",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/comments.service.ts",
+      "is_test": false,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/services/comments.service.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/services/comments.service.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 22,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 81.2,
+          "security": 100.0,
+          "composite": 97.2,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class CommentsService] Clean: missing class docstring (-15.0 pts)",
+          "[Method CommentsService.getAll] Clean: missing public docstring (-5.0 pts)",
+          "[Method CommentsService.add] Clean: missing public docstring (-5.0 pts)",
+          "[Method CommentsService.delete] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 81.2 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/comments.service.ts src      22    - 100.0 100.0 100.0  81.2 100.0   97.2   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/comments.service.t    16    4     1    4   97.2   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/comments.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/comments.service.ts:    7   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/comments.service.ts:    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/comments.service.ts:    1   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_conversation_storage_bad",
+      "pair_id": "typescript_angular_oss_service_cohesion",
+      "scenario_title": "8. Angular Cohesive Comments Service vs. OWASP Juice Shop Disconnected Storage Service",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/conversation_storage.service.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/Services/conversation-storage.service.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/Services/conversation-storage.service.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 42,
+        "classes_count": 1,
+        "functions_count": 7,
+        "scores": {
+          "srp": 55.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 60.0,
+          "grade": "D"
+        },
+        "required_findings": [
+          "LCOM4=4 disconnected method groups"
+        ],
+        "all_findings": [
+          "[Class ConversationStorageService] SRP: LCOM4=4 disconnected method groups (-45.0 pts)",
+          "[Class ConversationStorageService] Clean: missing class docstring (-15.0 pts)",
+          "[Method ConversationStorageService.generateId] Clean: missing public docstring (-5.0 pts)",
+          "[Method ConversationStorageService.generateTitle] Clean: missing public docstring (-5.0 pts)",
+          "[Method ConversationStorageService.getAll] Clean: missing public docstring (-5.0 pts)",
+          "[Method ConversationStorageService.getById] Clean: missing public docstring (-5.0 pts)",
+          "[Method ConversationStorageService.save] Clean: missing public docstring (-5.0 pts)",
+          "[Method ConversationStorageService.delete] Clean: missing public docstring (-5.0 pts)",
+          "[Method ConversationStorageService.deleteAll] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 60.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7\nDimensions -> SRP: 55.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/conversation_storage.service.ts src      42    -  55.0 100.0 100.0  80.0 100.0   60.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/conversation_storag    36    7     4   10   60.0   D\n    - SRP: LCOM4=4 disconnected method groups (-45.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/conversation_storage.    5   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    3   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    6   2    1   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.   10   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_query_params_good",
+      "pair_id": "typescript_angular_oss_helper_complexity",
+      "scenario_title": "9. OWASP Juice Shop Score Board Query Param Helpers vs. Challenge Filtering Complexity",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/query_params_converters.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/score-board/filter-settings/query-params-converters.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/filter-settings/query-params-converters.ts",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 37,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 95.7,
+          "size": 100.0,
+          "complexity": 92.0,
+          "clean": 91.4,
+          "security": 100.0,
+          "composite": 95.8,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func fromQueryParams] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Func fromQueryParams] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Func fromQueryParams] Clean: missing public docstring (-10.0 pts)",
+          "[Func toQueryParams] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Func toQueryParams] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 95.7 | Size: 100.0 | Complexity: 92.0 | Clean: 91.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/query_params_converters.ts src      37    -  95.7 100.0  92.0  91.4 100.0   95.8   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/query_params_convert   25   7    6   1   1   95.1   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/query_params_convert   10   7    1   1   1   97.7   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_challenge_filtering_bad",
+      "pair_id": "typescript_angular_oss_helper_complexity",
+      "scenario_title": "9. OWASP Juice Shop Score Board Query Param Helpers vs. Challenge Filtering Complexity",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/challenge_filtering.ts",
+      "is_test": false,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/score-board/helpers/challenge-filtering.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/helpers/challenge-filtering.ts",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 98,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 69.7,
+          "size": 15.8,
+          "complexity": 15.2,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 20.2,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=15",
+          "Size: LOC=80",
+          "high external call fan-out=23"
+        ],
+        "all_findings": [
+          "[Func filterChallenges] SRP: high external call fan-out=23 (>6) (-36.0 pts)",
+          "[Func filterChallenges] Size: LOC=80 (>25) (-100.0 pts)",
+          "[Func filterChallenges] Complexity: CC=15 (>5) (-55.0 pts)",
+          "[Func filterChallenges] Complexity: cognitive=12 (>8) (-10.0 pts)",
+          "[Func filterChallenges] Complexity: returns=20 (>3) (-68.0 pts)",
+          "[Func filterChallenges] Clean: missing public docstring (-10.0 pts)",
+          "[Func getCompleteChallengeStatus] Complexity: returns=4 (>3) (-4.0 pts)",
+          "[Func getCompleteChallengeStatus] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 20.2/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 69.7 | Size: 15.8 | Complexity: 15.2 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/challenge_filtering.ts src      98    -  69.7  15.8  15.2  90.0 100.0   20.2   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/challenge_filtering.t   80  15   12   2   2    5.0   F\n    - SRP: high external call fan-out=23 (>6) (-36.0 pts)\n    - Size: LOC=80 (>25) (-100.0 pts)\n    - Complexity: CC=15 (>5) (-55.0 pts)\n    - Complexity: cognitive=12 (>8) (-10.0 pts)\n    - Complexity: returns=20 (>3) (-68.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/bad/challenge_filtering.t   15   5    6   1   2   97.7   A\n    - Complexity: returns=4 (>3) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_user_spec_good",
+      "pair_id": "typescript_angular_oss_test_suite_size",
+      "scenario_title": "10. Angular User Service Spec vs. OWASP Juice Shop Oversized Navbar Spec",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "good",
+      "file_path": "samples/typescript-angular/good/user.service.spec.ts",
+      "is_test": true,
+      "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/core/auth/services/user.service.spec.ts)",
+      "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/auth/services/user.service.spec.ts",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 325,
+        "classes_count": 0,
+        "functions_count": 28,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 28\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/user.service.spec.ts test    325    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/user.service.spec.ts    3   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    4   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   11   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    4   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    8   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    8   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   14   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    8   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    4   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    4   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    6   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    7   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   2    1   0   1  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    8   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   11   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   15   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    8   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    4   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   11   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts    4   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   12   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   16   1    0   0   0  100.0   A\nsamples/typescript-angular/good/user.service.spec.ts   16   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_angular_oss_navbar_spec_bad",
+      "pair_id": "typescript_angular_oss_test_suite_size",
+      "scenario_title": "10. Angular User Service Spec vs. OWASP Juice Shop Oversized Navbar Spec",
+      "language": "typescript",
+      "framework": "angular",
+      "quality": "bad",
+      "file_path": "samples/typescript-angular/bad/navbar.component.spec.ts",
+      "is_test": true,
+      "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/navbar/navbar.component.spec.ts)",
+      "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/navbar/navbar.component.spec.ts",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 519,
+        "classes_count": 1,
+        "functions_count": 56,
+        "scores": {
+          "srp": 100.0,
+          "size": 74.7,
+          "complexity": 100.0,
+          "clean": 98.3,
+          "security": 100.0,
+          "composite": 79.5,
+          "grade": "C"
+        },
+        "required_findings": [
+          "file LOC=519 (>350)",
+          "explicit 'any' type usage"
+        ],
+        "all_findings": [
+          "Size: file LOC=519 (>350) (-25.3 pts)",
+          "[Method MockSocket.on] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should set selected a language] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should apply stored language cookie on init] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should default to English when no language cookie is set] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should set selected language details when changeLanguage finds the language] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should not update shortKeyLang when changeLanguage is called with unknown key] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should make the score board visible when scoreBoardChallenge is solved via socket] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should ignore unrelated challenge solved events for score board visibility] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+          "[Func test: should navigate to the profile page via window.location.replace] Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)",
+          "[Func test: should navigate to the data erasure page via window.location.replace] Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 79.5/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 56\nDimensions -> SRP: 100.0 | Size: 74.7 | Complexity: 100.0 | Clean: 98.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/navbar.component.spec.ts test    519    - 100.0  74.7 100.0  98.3 100.0   79.5   C\n    - Size: file LOC=519 (>350) (-25.3 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/navbar.component.sp     5    1     1    1   99.2   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/navbar.component.spec    9   1    0   0   0   97.8   A\n    - Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    9   1    0   0   0   97.8   A\n    - Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    3   1    0   2   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    8   1    0   0   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec   10   2    1   0   1   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec   10   2    1   0   1   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/navbar.component.spec    3   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    4   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    4   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    4   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec   21   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    6   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    4   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    4   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    4   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    5   1    0   0   0  100.0   A\nsamples/typescript-angular/bad/navbar.component.spec    7   1    0   0   0  100.0   A\n"
+      }
+    }
+  ]
+}

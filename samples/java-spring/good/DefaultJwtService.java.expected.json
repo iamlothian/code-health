@@ -1,0 +1,39 @@
+{
+  "id": "java_spring_di_clean_good",
+  "pair_id": "java_spring_constructor_vs_field_injection",
+  "scenario_title": "4. Spring Security & JWT Service Dependency Injection (spring-boot-realworld-example-app, ~38 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/DefaultJwtService.java",
+  "is_test": false,
+  "source_dataset": "gothinkster/spring-boot-realworld-example-app (infrastructure/service/DefaultJwtService.java)",
+  "source_url": "https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/infrastructure/service/DefaultJwtService.java",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 34,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 97.8,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 80.0,
+      "security": 100.0,
+      "composite": 96.3,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class DefaultJwtService] Clean: missing class docstring (-15.0 pts)",
+      "[Method DefaultJwtService.toToken] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method DefaultJwtService.toToken] Clean: missing public docstring (-5.0 pts)",
+      "[Method DefaultJwtService.getSubFromToken] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method DefaultJwtService.getSubFromToken] Clean: missing public docstring (-5.0 pts)",
+      "[Method DefaultJwtService.expireTimeFromNow] Clean: missing public docstring (-5.0 pts)",
+      "[Method DefaultJwtService.DefaultJwtService] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 97.8 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/DefaultJwtService.java src      34    -  97.8 100.0 100.0  80.0 100.0   96.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/DefaultJwtService.java:17    34    4     1    5   96.3   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/DefaultJwtService.java:40 D   10   2    1   1   0   97.5   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/DefaultJwtService.java:31 D    8   1    0   1   0   98.3   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/DefaultJwtService.java:23 D    7   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/DefaultJwtService.java:51 D    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

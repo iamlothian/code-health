@@ -1,0 +1,42 @@
+{
+  "id": "java_math_clean_bad",
+  "pair_id": "java_math_documentation_clean",
+  "scenario_title": "7. Mathematical Utility Javadocs & Cohesion (TheAlgorithms/Java maths/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/DistanceFormula.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/DistanceFormula.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/DistanceFormula.java",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 35,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 70.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 79.0,
+      "security": 100.0,
+      "composite": 75.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "Clean: missing class docstring (-15.0 pts)",
+      "Clean: missing public docstring (-5.0 pts)"
+    ],
+    "all_findings": [
+      "[Class DistanceFormula] SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+      "[Class DistanceFormula] Clean: missing class docstring (-15.0 pts)",
+      "[Method DistanceFormula.euclideanDistance] Clean: missing public docstring (-5.0 pts)",
+      "[Method DistanceFormula.manhattanDistance] Clean: missing public docstring (-5.0 pts)",
+      "[Method DistanceFormula.hammingDistance] Clean: missing public docstring (-5.0 pts)",
+      "[Method DistanceFormula.minkowskiDistance] Clean: missing public docstring (-10.0 pts)",
+      "[Method DistanceFormula.DistanceFormula] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 70.0 | Size: 100.0 | Complexity: 100.0 | Clean: 79.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DistanceFormula.java          src      35    -  70.0 100.0 100.0  79.0 100.0   75.0   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DistanceFormula.java:3 DistanceFo    35    5     3    9   75.0   C\n    - SRP: LCOM4=3 disconnected method groups (-30.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DistanceFormula.java:31 DistanceFor   13   3    2   3   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DistanceFormula.java:4 DistanceForm    2   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DistanceFormula.java:7 DistanceForm    5   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DistanceFormula.java:13 DistanceFor    3   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DistanceFormula.java:17 DistanceFor   10   3    2   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

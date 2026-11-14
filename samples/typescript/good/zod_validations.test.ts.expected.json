@@ -1,0 +1,31 @@
+{
+  "id": "typescript_zod_validations_test_clean",
+  "pair_id": "typescript_vitest_suite_hygiene",
+  "scenario_title": "10. Vitest Schema Validation Suite vs. Oversized First-Party Switch Test (colinhacks/zod)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/zod_validations.test.ts",
+  "is_test": true,
+  "source_dataset": "colinhacks/zod (packages/zod/src/v4/classic/tests/validations.test.ts)",
+  "source_url": "https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/classic/tests/validations.test.ts",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 254,
+    "classes_count": 0,
+    "functions_count": 13,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 13\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/zod_validations.test.ts test    254    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/zod_validations.test.ts:5 te   36   3    2   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:45 t   18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:65 t   18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:85 t   18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:105    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:125    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:145    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:165    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:185    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:205    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:225    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:245    18   2    1   0   1  100.0   A\nsamples/typescript/good/zod_validations.test.ts:265    18   2    1   0   1  100.0   A\n"
+  }
+}

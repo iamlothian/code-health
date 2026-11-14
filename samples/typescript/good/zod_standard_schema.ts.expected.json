@@ -1,0 +1,31 @@
+{
+  "id": "typescript_zod_standard_schema_clean",
+  "pair_id": "typescript_schema_error_security",
+  "scenario_title": "4. Schema Contract vs. Legacy Error Class Prototype & Cohesion (colinhacks/zod)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/zod_standard_schema.ts",
+  "is_test": false,
+  "source_dataset": "colinhacks/zod (packages/zod/src/v4/core/standard-schema.ts)",
+  "source_url": "https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/standard-schema.ts",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 78,
+    "classes_count": 0,
+    "functions_count": 0,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/zod_standard_schema.ts src      78    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n"
+  }
+}

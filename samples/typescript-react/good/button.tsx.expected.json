@@ -1,0 +1,33 @@
+{
+  "id": "typescript_react_oss_button_good",
+  "pair_id": "typescript_react_oss_picker_complexity",
+  "scenario_title": "6. React Focused Button Primitive vs. Branchy Font Picker Component (shadcn-ui/ui)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/button.tsx",
+  "is_test": false,
+  "source_dataset": "shadcn-ui/ui (apps/v4/registry/bases/radix/ui/button.tsx)",
+  "source_url": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/bases/radix/ui/button.tsx",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 55,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 98.5,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func Button] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/button.tsx       src      55    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/button.tsx:36 Button     21   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

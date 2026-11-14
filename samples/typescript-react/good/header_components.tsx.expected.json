@@ -1,0 +1,33 @@
+{
+  "id": "typescript_react_oss_header_components_good",
+  "pair_id": "typescript_react_oss_table_header_complexity",
+  "scenario_title": "5. React Composable Table Header Controls vs. Branchy Column Header (TanStack/table)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/header_components.tsx",
+  "is_test": false,
+  "source_dataset": "TanStack/table (examples/react/composable-tables/src/components/header-components.tsx)",
+  "source_url": "https://github.com/TanStack/table/blob/main/examples/react/composable-tables/src/components/header-components.tsx",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 49,
+    "classes_count": 0,
+    "functions_count": 4,
+    "scores": {
+      "srp": 98.5,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 99.5,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func ColumnFilter] SRP: high external call fan-out=7 (>6) (-3.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 98.5 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/header_components.tsx src      49    -  98.5 100.0 100.0 100.0 100.0   99.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/header_components.tsx:   23   3    1   0   1   99.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\nsamples/typescript-react/good/header_components.tsx:    8   3    2   0   1  100.0   A\nsamples/typescript-react/good/header_components.tsx:    4   1    0   0   0  100.0   A\nsamples/typescript-react/good/header_components.tsx:   12   3    2   0   1  100.0   A\n"
+  }
+}

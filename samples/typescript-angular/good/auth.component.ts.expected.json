@@ -1,0 +1,38 @@
+{
+  "id": "typescript_angular_oss_auth_good",
+  "pair_id": "typescript_angular_oss_auth_clean",
+  "scenario_title": "6. Angular Auth Component Hygiene vs. OWASP Juice Shop OAuth Component",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/auth.component.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/core/auth/auth.component.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/core/auth/auth.component.ts",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 80,
+    "classes_count": 1,
+    "functions_count": 3,
+    "scores": {
+      "srp": 89.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 77.7,
+      "security": 100.0,
+      "composite": 93.4,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class AuthComponent] SRP: self attributes=9 (>7) (-8.0 pts)",
+      "[Class AuthComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Method AuthComponent.ngOnInit] Clean: missing public docstring (-10.0 pts)",
+      "[Method AuthComponent.ngOnInit] Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)",
+      "[Method AuthComponent.submitForm] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+      "[Method AuthComponent.submitForm] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 93.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 89.0 | Size: 100.0 | Complexity: 100.0 | Clean: 77.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/auth.component.ts src      80    -  89.0 100.0 100.0  77.7 100.0   93.4   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/auth.component.ts:    62    3     1    7   93.4   A\n    - SRP: self attributes=9 (>7) (-8.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/auth.component.ts:60   25   3    2   0   1   95.8   A\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/auth.component.ts:46   13   3    2   0   1   98.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\nsamples/typescript-angular/good/auth.component.ts:29   16   1    0   3   0  100.0   A\n"
+  }
+}

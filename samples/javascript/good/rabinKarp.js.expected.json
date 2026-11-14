@@ -1,0 +1,31 @@
+{
+  "id": "javascript_rabin_karp_clean",
+  "pair_id": "javascript_string_matching_complexity",
+  "scenario_title": "2. String Matching & Pattern Search Complexity (Rabin-Karp vs. Regex Matching)",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/rabinKarp.js",
+  "is_test": false,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/string/rabin-karp/rabinKarp.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/string/rabin-karp/rabinKarp.js",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 23,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/rabinKarp.js           src      23    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/rabinKarp.js:8 rabinKarp       22   5    5   2   2  100.0   A\n"
+  }
+}

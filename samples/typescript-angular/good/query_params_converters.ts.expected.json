@@ -1,0 +1,37 @@
+{
+  "id": "typescript_angular_oss_query_params_good",
+  "pair_id": "typescript_angular_oss_helper_complexity",
+  "scenario_title": "9. OWASP Juice Shop Score Board Query Param Helpers vs. Challenge Filtering Complexity",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/query_params_converters.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/score-board/filter-settings/query-params-converters.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/score-board/filter-settings/query-params-converters.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 37,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 95.7,
+      "size": 100.0,
+      "complexity": 92.0,
+      "clean": 91.4,
+      "security": 100.0,
+      "composite": 95.8,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func fromQueryParams] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Func fromQueryParams] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Func fromQueryParams] Clean: missing public docstring (-10.0 pts)",
+      "[Func toQueryParams] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Func toQueryParams] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.8/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 95.7 | Size: 100.0 | Complexity: 92.0 | Clean: 91.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/query_params_converters.ts src      37    -  95.7 100.0  92.0  91.4 100.0   95.8   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/query_params_convert   25   7    6   1   1   95.1   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-angular/good/query_params_convert   10   7    1   1   1   97.7   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

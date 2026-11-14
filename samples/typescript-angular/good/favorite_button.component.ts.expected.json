@@ -1,7 +1,7 @@
 {
   "id": "typescript_angular_oss_favorite_button_good",
   "pair_id": "typescript_angular_oss_score_board",
-  "scenario_title": "4. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
+  "scenario_title": "3. Angular Favorite Button Component vs. OWASP Juice Shop Score Board",
   "language": "typescript",
   "framework": "angular",
   "quality": "good",

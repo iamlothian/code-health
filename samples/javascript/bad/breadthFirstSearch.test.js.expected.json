@@ -1,0 +1,36 @@
+{
+  "id": "javascript_bfs_test_oversized",
+  "pair_id": "javascript_graph_test_size",
+  "scenario_title": "10. Graph Algorithm Test Suite Decomposition & Test Function Size",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/breadthFirstSearch.test.js",
+  "is_test": true,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 146,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 70.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 75.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "Size: LOC=70 (>40)"
+    ],
+    "all_findings": [
+      "[Func test: should perform BFS operation on graph] Size: LOC=70 (>40) (-30.0 pts)",
+      "[Func test: should allow to create custom vertex visiting logic] Size: LOC=70 (>40) (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 70.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/breadthFirstSearch.test.js test    146    - 100.0  70.0 100.0 100.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/breadthFirstSearch.test.js:7    70   3    2   0   1   75.0   C\n    - Size: LOC=70 (>40) (-30.0 pts)\nsamples/javascript/bad/breadthFirstSearch.test.js:92   70   4    2   0   1   75.0   C\n    - Size: LOC=70 (>40) (-30.0 pts)\n"
+  }
+}

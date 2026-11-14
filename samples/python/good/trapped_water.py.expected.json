@@ -1,0 +1,31 @@
+{
+  "id": "python_dp_clean_typing_good",
+  "pair_id": "python_dp_clean_typing",
+  "scenario_title": "9. Dynamic Programming Type Annotations & Documentation Hygiene (TheAlgorithms/Python dynamic_programming/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/trapped_water.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (dynamic_programming/trapped_water.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/trapped_water.py",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 38,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/trapped_water.py           src      38    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/trapped_water.py:16 trapped_rain   18   5    4   1   1  100.0   A\n"
+  }
+}

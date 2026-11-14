@@ -1,0 +1,46 @@
+{
+  "id": "java_buffer_cohesion_bad",
+  "pair_id": "java_buffer_cohesion",
+  "scenario_title": "5. Ring & Sliding Window Buffer Cohesion & Attribute Count (TheAlgorithms/Java buffers/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/SlidingWindowAggregator.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/buffers/SlidingWindowAggregator.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/buffers/SlidingWindowAggregator.java",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 177,
+    "classes_count": 1,
+    "functions_count": 26,
+    "scores": {
+      "srp": 8.9,
+      "size": 100.0,
+      "complexity": 83.5,
+      "clean": 99.0,
+      "security": 100.0,
+      "composite": 13.9,
+      "grade": "F"
+    },
+    "required_findings": [
+      "SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+      "SRP: methods=26 (>10) (-64.0 pts)",
+      "SRP: self attributes=10 (>7) (-12.0 pts)"
+    ],
+    "all_findings": [
+      "[Class SlidingWindowAggregator] SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+      "[Class SlidingWindowAggregator] SRP: methods=26 (>10) (-64.0 pts)",
+      "[Class SlidingWindowAggregator] SRP: self attributes=10 (>7) (-12.0 pts)",
+      "[Class SlidingWindowAggregator] Complexity: total class CC=36 (>25) (-16.5 pts)",
+      "[Method SlidingWindowAggregator.add] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method SlidingWindowAggregator.toString] Clean: missing public docstring (-5.0 pts)",
+      "[Method SlidingWindowAggregator.slotOf] Clean: missing public docstring (-5.0 pts)",
+      "[Method SlidingWindowAggregator.elementAt] Clean: missing public docstring (-5.0 pts)",
+      "[Method SlidingWindowAggregator.aggregateAt] Clean: missing public docstring (-5.0 pts)",
+      "[Method SlidingWindowAggregator.requireNonNullResult] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 13.9/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 26\nDimensions -> SRP: 8.9 | Size: 100.0 | Complexity: 83.5 | Clean: 99.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SlidingWindowAggregator.java  src     177    -   8.9 100.0  83.5  99.0 100.0   13.9   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SlidingWindowAggregator.java:92 S   177   26     2   36   13.9   F\n    - SRP: LCOM4=2 disconnected method groups (-15.0 pts)\n    - SRP: methods=26 (>10) (-64.0 pts)\n    - SRP: self attributes=10 (>7) (-12.0 pts)\n    - Complexity: total class CC=36 (>25) (-16.5 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SlidingWindowAggregator.java:205 Sl   12   1    0   1   0   99.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:387 Sl    4   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:409 Sl    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:413 Sl    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:418 Sl    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:423 Sl    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:130 Sl   10   1    0   3   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:149 Sl    3   1    0   2   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:159 Sl    3   1    0   1   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:170 Sl    3   1    0   1   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:182 Sl    3   1    0   2   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:194 Sl    3   1    0   2   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:226 Sl    6   2    1   1   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:239 Sl   15   3    2   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:263 Sl   10   3    2   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:281 Sl    6   2    1   1   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:294 Sl    6   2    1   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:307 Sl    6   2    1   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:319 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:328 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:337 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:346 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:353 Sl    9   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:369 Sl    7   2    1   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:382 Sl    4   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:397 Sl   11   2    1   0   1  100.0   A\n"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "java_bst_size_bad",
+  "pair_id": "java_bst_size_and_complexity",
+  "scenario_title": "9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/RedBlackBST.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 308,
+    "classes_count": 1,
+    "functions_count": 13,
+    "scores": {
+      "srp": 87.8,
+      "size": 49.4,
+      "complexity": 43.8,
+      "clean": 91.5,
+      "security": 100.0,
+      "composite": 48.8,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: class LOC=308 (>200) (-43.2 pts)",
+      "Complexity: total class CC=59 (>25) (-51.0 pts)"
+    ],
+    "all_findings": [
+      "[Class RedBlackBST] SRP: methods=13 (>10) (-12.0 pts)",
+      "[Class RedBlackBST] Size: class LOC=308 (>200) (-43.2 pts)",
+      "[Class RedBlackBST] Complexity: total class CC=59 (>25) (-51.0 pts)",
+      "[Method RedBlackBST.printTree] Clean: missing public docstring (-5.0 pts)",
+      "[Method RedBlackBST.printTreepre] Clean: missing public docstring (-5.0 pts)",
+      "[Method RedBlackBST.findNode] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Method RedBlackBST.findNode] Complexity: returns=5 (>3) (-8.0 pts)",
+      "[Method RedBlackBST.findNode] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.insert] Size: LOC=30 (>25) (-7.5 pts)",
+      "[Method RedBlackBST.insert] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Method RedBlackBST.insert] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.fixTree] Size: LOC=39 (>25) (-21.0 pts)",
+      "[Method RedBlackBST.fixTree] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Method RedBlackBST.fixTree] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.rotateLeft] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.rotateRight] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.transplant] Clean: missing public docstring (-5.0 pts)",
+      "[Method RedBlackBST.treeMinimum] Clean: missing public docstring (-5.0 pts)",
+      "[Method RedBlackBST.delete] Size: LOC=35 (>25) (-15.0 pts)",
+      "[Method RedBlackBST.delete] Complexity: CC=6 (>5) (-4.0 pts)",
+      "[Method RedBlackBST.delete] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.deleteFixup] Size: LOC=56 (>25) (-52.5 pts)",
+      "[Method RedBlackBST.deleteFixup] Complexity: CC=11 (>5) (-27.0 pts)",
+      "[Method RedBlackBST.deleteFixup] Complexity: cognitive=10 (>8) (-5.0 pts)",
+      "[Method RedBlackBST.deleteFixup] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.insertDemo] Clean: missing public docstring (-10.0 pts)",
+      "[Method RedBlackBST.deleteDemo] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method RedBlackBST.deleteDemo] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 48.8/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 13\nDimensions -> SRP: 87.8 | Size: 49.4 | Complexity: 43.8 | Clean: 91.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/RedBlackBST.java              src     308    -  87.8  49.4  43.8  91.5 100.0   48.8   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/RedBlackBST.java:8 RedBlackBST      308   13     1   59   48.8   F\n    - SRP: methods=13 (>10) (-12.0 pts)\n    - Size: class LOC=308 (>200) (-43.2 pts)\n    - Complexity: total class CC=59 (>25) (-51.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/RedBlackBST.java:243 RedBlackBST.de   56  11   10   1   1   52.5   F\n    - Size: LOC=56 (>25) (-52.5 pts)\n    - Complexity: CC=11 (>5) (-27.0 pts)\n    - Complexity: cognitive=10 (>8) (-5.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:96 RedBlackBST.fix   39   7    6   1   1   91.7   A\n    - Size: LOC=39 (>25) (-21.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:206 RedBlackBST.de   35   6    5   1   1   94.0   A\n    - Size: LOC=35 (>25) (-15.0 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:65 RedBlackBST.ins   30   7    6   1   1   95.0   A\n    - Size: LOC=30 (>25) (-7.5 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:47 RedBlackBST.fin   17   7    6   2   1   95.3   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:319 RedBlackBST.de   19   2    1   0   1   97.6   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:137 RedBlackBST.ro   24   4    3   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:162 RedBlackBST.ro   24   4    3   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:300 RedBlackBST.in   16   2    1   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:29 RedBlackBST.pri    8   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/RedBlackBST.java:38 RedBlackBST.pri    8   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/RedBlackBST.java:188 RedBlackBST.tr   10   3    2   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/RedBlackBST.java:199 RedBlackBST.tr    6   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "python_expression_stack_complexity_bad",
+  "pair_id": "python_expression_stack_complexity",
+  "scenario_title": "8. Stack Expression Notation Conversion Complexity (TheAlgorithms/Python data_structures/stacks/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/infix_to_postfix_conversion.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (data_structures/stacks/infix_to_postfix_conversion.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/stacks/infix_to_postfix_conversion.py",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 91,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 89.3,
+      "size": 79.0,
+      "complexity": 10.5,
+      "clean": 96.0,
+      "security": 100.0,
+      "composite": 15.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=",
+      "Complexity: cognitive="
+    ],
+    "all_findings": [
+      "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+      "[Func infix_to_postfix] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Func infix_to_postfix] Size: LOC=34 (>25) (-13.5 pts)",
+      "[Func infix_to_postfix] Size: nesting depth=4 (>3) (-10.0 pts)",
+      "[Func infix_to_postfix] Complexity: CC=15 (>5) (-55.0 pts)",
+      "[Func infix_to_postfix] Complexity: cognitive=36 (>8) (-70.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 15.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 89.3 | Size: 79.0 | Complexity: 10.5 | Clean: 96.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/infix_to_postfix_conversion.py src      91    -  89.3  79.0  10.5  96.0 100.0   15.5   F\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/infix_to_postfix_conversion.py:45   34  15   36   1   4    5.0   F\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Size: LOC=34 (>25) (-13.5 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=15 (>5) (-55.0 pts)\n    - Complexity: cognitive=36 (>8) (-70.0 pts)\nsamples/python/bad/infix_to_postfix_conversion.py:28    2   1    0   1   0  100.0   A\nsamples/python/bad/infix_to_postfix_conversion.py:37    2   1    0   1   0  100.0   A\n"
+  }
+}

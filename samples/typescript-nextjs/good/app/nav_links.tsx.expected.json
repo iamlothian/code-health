@@ -1,7 +1,7 @@
 {
   "id": "typescript_nextjs_oss_nav_links_good",
   "pair_id": "typescript_nextjs_oss_nav_vs_form",
-  "scenario_title": "2. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+  "scenario_title": "1. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
   "language": "typescript",
   "framework": "nextjs",
   "quality": "good",

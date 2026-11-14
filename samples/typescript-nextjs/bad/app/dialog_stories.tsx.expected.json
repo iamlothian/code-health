@@ -1,0 +1,39 @@
+{
+  "id": "typescript_nextjs_oss_dialog_stories_bad",
+  "pair_id": "typescript_nextjs_oss_client_directive",
+  "scenario_title": "6. Next.js App Router Dialog Story without Client Hook Leak vs. Missing 'use client' Directive (bulletproof-react)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/dialog_stories.tsx",
+  "is_test": false,
+  "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/dialog/dialog.stories.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/dialog/dialog.stories.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 54,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 88.4,
+      "complexity": 100.0,
+      "clean": 74.9,
+      "security": 100.0,
+      "composite": 79.5,
+      "grade": "C"
+    },
+    "required_findings": [
+      "without 'use client' directive"
+    ],
+    "all_findings": [
+      "Clean (Next.js): App Router module uses client hooks without 'use client' directive (-15.0 pts)",
+      "[Func DemoDialog] Size: LOC=33 (>25) (-12.0 pts)",
+      "[Func DemoDialog] Clean: missing public docstring (-10.0 pts)",
+      "[Func Demo.render] Clean: missing public docstring (-5.0 pts)",
+      "[Func Demo.render] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 79.5/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 88.4 | Complexity: 100.0 | Clean: 74.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/dialog_stories.tsx src      54    - 100.0  88.4 100.0  74.9 100.0   79.5   C\n    - Clean (Next.js): App Router module uses client hooks without 'use client' directive (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/dialog_stories.tsx   33   2    1   0   1   95.5   A\n    - Size: LOC=33 (>25) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-nextjs/bad/app/dialog_stories.tsx    1   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+  }
+}

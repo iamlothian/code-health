@@ -1,0 +1,43 @@
+{
+  "id": "python_dp_clean_typing_bad",
+  "pair_id": "python_dp_clean_typing",
+  "scenario_title": "9. Dynamic Programming Type Annotations & Documentation Hygiene (TheAlgorithms/Python dynamic_programming/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/floyd_warshall.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (dynamic_programming/floyd_warshall.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/floyd_warshall.py",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 72,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 61.0,
+      "security": 100.0,
+      "composite": 66.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "Clean: missing class docstring (-15.0 pts)",
+      "Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "all_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+      "[Class Graph] Clean: missing class docstring (-15.0 pts)",
+      "[Method Graph.__init__] Clean: 1 untyped param(s) (n) (-5.0 pts)",
+      "[Method Graph.add_edge] Clean: 3 untyped param(s) (u, v, w) (-15.0 pts)",
+      "[Method Graph.show_min] Clean: missing return type annotation (-10.0 pts)",
+      "[Method Graph.show_min] Clean: 2 untyped param(s) (u, v) (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 66.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 61.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/floyd_warshall.py           src      72    - 100.0 100.0 100.0  61.0 100.0   66.0   D\n    - Clean: missing module docstring (-10.0 pts)\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/floyd_warshall.py:4 Graph          49    4     1    7   96.2   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/floyd_warshall.py:45 Graph.show_m    2   1    0   2   0   97.0   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 2 untyped param(s) (u, v) (-10.0 pts)\nsamples/python/bad/floyd_warshall.py:14 Graph.add_ed    2   1    0   3   0   97.8   A\n    - Clean: 3 untyped param(s) (u, v, w) (-15.0 pts)\nsamples/python/bad/floyd_warshall.py:5 Graph.__init_    8   1    0   1   0   99.2   A\n    - Clean: 1 untyped param(s) (n) (-5.0 pts)\nsamples/python/bad/floyd_warshall.py:26 Graph.floyd_    5   4    6   0   3  100.0   A\n"
+  }
+}

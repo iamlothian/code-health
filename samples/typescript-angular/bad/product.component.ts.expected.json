@@ -1,0 +1,48 @@
+{
+  "id": "typescript_angular_oss_product_bad",
+  "pair_id": "typescript_angular_oss_component_size",
+  "scenario_title": "5. Angular Article Comment Component vs. OWASP Juice Shop Monolithic Product Component",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/product.component.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/product/product.component.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/product/product.component.ts",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 201,
+    "classes_count": 1,
+    "functions_count": 2,
+    "scores": {
+      "srp": 74.0,
+      "size": 50.0,
+      "complexity": 96.0,
+      "clean": 48.0,
+      "security": 100.0,
+      "composite": 53.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC=149",
+      "unmanaged .subscribe()",
+      "high external call fan-out=31"
+    ],
+    "all_findings": [
+      "[Class ProductComponent] SRP: self attributes=9 (>7) (-8.0 pts)",
+      "[Class ProductComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Class ProductComponent] Clean (Angular): unmanaged .subscribe() at L76 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)",
+      "[Method ProductComponent.addToBasket] SRP: high external call fan-out=31 (>6) (-36.0 pts)",
+      "[Method ProductComponent.addToBasket] Size: LOC=149 (>25) (-100.0 pts)",
+      "[Method ProductComponent.addToBasket] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Method ProductComponent.addToBasket] Clean: missing public docstring (-10.0 pts)",
+      "[Method ProductComponent.addToBasket] Clean: missing return type annotation (-10.0 pts)",
+      "[Method ProductComponent.addToBasket] Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)",
+      "[Method ProductComponent.addToBasket] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)",
+      "[Method ProductComponent.showDetail] Clean: missing public docstring (-5.0 pts)",
+      "[Method ProductComponent.showDetail] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 53.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 74.0 | Size: 50.0 | Complexity: 96.0 | Clean: 48.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/product.component.ts src     201    -  74.0  50.0  96.0  48.0 100.0   53.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/product.component.t   180    2     1    8   53.0   F\n    - SRP: self attributes=9 (>7) (-8.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Angular): unmanaged .subscribe() at L76 without takeUntilDestroyed/takeUntil/DestroyRef/ngOnDestroy (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/product.component.ts:  149   7    8   1   2    5.0   F\n    - SRP: high external call fan-out=31 (>6) (-36.0 pts)\n    - Size: LOC=149 (>25) (-100.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 2 loose equality comparison(s) (==/!=) trigger implicit type coercion (prefer ===/!==) (-4.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-angular/bad/product.component.ts:    9   1    0   1   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+  }
+}

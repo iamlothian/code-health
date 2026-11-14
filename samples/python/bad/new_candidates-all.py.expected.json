@@ -1,0 +1,46 @@
+{
+  "id": "python_subprocess_and_yaml_security_bad",
+  "pair_id": "python_subprocess_and_yaml_security",
+  "scenario_title": "6. Safe Analyzer Plugin vs. Unsafe Subprocess & YAML Deserialization (PyCQA/bandit)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/new_candidates-all.py",
+  "is_test": false,
+  "source_dataset": "PyCQA/bandit (examples/new_candidates-all.py)",
+  "source_url": "https://github.com/PyCQA/bandit/blob/main/examples/new_candidates-all.py",
+  "license": "Apache-2.0",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 12,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 75.0,
+      "security": 20.0,
+      "composite": 25.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Security: subprocess call with shell=True",
+      "Security: unsafe yaml.load() without SafeLoader"
+    ],
+    "all_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "[Func subprocess_shell_cmd] Clean: missing return type annotation (-10.0 pts)",
+      "[Func subprocess_shell_cmd] Clean: missing public docstring (-5.0 pts)",
+      "[Func subprocess_shell_cmd] Security: subprocess call with shell=True at L7 (-40.0 pts)",
+      "[Func subprocess_shell_cmd] Security: subprocess call with shell=True at L9 (-40.0 pts)",
+      "[Func yaml_load] Clean: missing return type annotation (-10.0 pts)",
+      "[Func yaml_load] Clean: missing public docstring (-5.0 pts)",
+      "[Func yaml_load] Security: unsafe yaml.load() without SafeLoader at L15 (-40.0 pts)",
+      "[Func yaml_load] Security: unsafe yaml.load() without SafeLoader at L17 (-40.0 pts)",
+      "[Func xml_sax_make_parser] Clean: missing return type annotation (-10.0 pts)",
+      "[Func xml_sax_make_parser] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 25.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 20.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/new_candidates-all.py       src      12    - 100.0 100.0 100.0  75.0  20.0   25.0   F\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/new_candidates-all.py:4 subproces    3   1    0   0   0   25.0   F\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Security: subprocess call with shell=True at L7 (-40.0 pts)\n    - Security: subprocess call with shell=True at L9 (-40.0 pts)\nsamples/python/bad/new_candidates-all.py:11 yaml_loa    4   1    0   0   0   25.0   F\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Security: unsafe yaml.load() without SafeLoader at L15 (-40.0 pts)\n    - Security: unsafe yaml.load() without SafeLoader at L17 (-40.0 pts)\nsamples/python/bad/new_candidates-all.py:19 xml_sax_    3   1    0   0   0   97.8   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

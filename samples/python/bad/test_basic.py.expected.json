@@ -1,0 +1,42 @@
+{
+  "id": "python_click_test_duplication_bad",
+  "pair_id": "python_click_test_duplication",
+  "scenario_title": "10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/test_basic.py",
+  "is_test": true,
+  "source_dataset": "pallets/click (tests/test_basic.py)",
+  "source_url": "https://github.com/pallets/click/blob/main/tests/test_basic.py",
+  "license": "BSD-3-Clause",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 761,
+    "classes_count": 0,
+    "functions_count": 42,
+    "scores": {
+      "srp": 100.0,
+      "size": 21.9,
+      "complexity": 100.0,
+      "clean": 72.8,
+      "security": 100.0,
+      "composite": 26.9,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Clean: 3 mid-file/late import(s) (-12.0 pts)",
+      "Clean: 3 duplicate code block(s) detected (-15.0 pts)",
+      "Size: file LOC=761 (>350) (-77.8 pts)"
+    ],
+    "all_findings": [
+      "Size: file LOC=761 (>350) (-77.8 pts)",
+      "Clean: 3 mid-file/late import(s) (-12.0 pts)",
+      "Clean: 3 duplicate code block(s) detected (-15.0 pts)",
+      "[Func test_param_named_help] Size: params=5 (>4) (-6.0 pts)",
+      "[Func test_basic_group] Clean (Test): 10 assertions in single test (>8) (-6.0 pts)",
+      "[Func test_cast_multi_default] Size: params=5 (>4) (-6.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 26.9/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 42\nDimensions -> SRP: 100.0 | Size: 21.9 | Complexity: 100.0 | Clean: 72.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/test_basic.py               test    761    - 100.0  21.9 100.0  72.8 100.0   26.9   F\n    - Size: file LOC=761 (>350) (-77.8 pts)\n    - Clean: 3 mid-file/late import(s) (-12.0 pts)\n    - Clean: 3 duplicate code block(s) detected (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/test_basic.py:46 test_param_named   17   1    0   5   0   98.5   A\n    - Size: params=5 (>4) (-6.0 pts)\nsamples/python/bad/test_basic.py:969 test_cast_multi    9   2    2   5   1   98.5   A\n    - Size: params=5 (>4) (-6.0 pts)\nsamples/python/bad/test_basic.py:137 test_basic_grou   21   1    0   1   0   99.1   A\n    - Clean (Test): 10 assertions in single test (>8) (-6.0 pts)\nsamples/python/bad/test_basic.py:12 test_basic_funct   15   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:71 test_param_squat    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:88 test_option_reus   12   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:109 test_repr         13   1    0   0   0  100.0   A\nsamples/python/bad/test_basic.py:127 test_return_val    7   1    0   0   0  100.0   A\nsamples/python/bad/test_basic.py:163 test_group_comm    7   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:175 test_group_from    7   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:197 test_string_opt   11   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:220 test_int_option   11   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:246 test_uuid_optio   13   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:271 test_float_opti   11   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:303 test_boolean_sw    7   1    0   4   0  100.0   A\nsamples/python/bad/test_basic.py:325 test_boolean_fl    7   1    0   4   0  100.0   A\nsamples/python/bad/test_basic.py:342 test_boolean_co    9   1    0   3   0  100.0   A\nsamples/python/bad/test_basic.py:390 test_flag_value    8   1    0   4   0  100.0   A\nsamples/python/bad/test_basic.py:410 test_file_optio   16   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:431 test_file_lazy_   30   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:471 test_path_optio   32   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:515 test_choice_opt   16   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:536 test_choice_arg   16   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:557 test_choice_arg   21   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:584 test_choice_arg   24   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:615 test_choice_arg   22   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:643 test_choice_arg   15   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:670 test_datetime_a    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:683 test_datetime_o   21   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:710 test_datetime_o    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:721 test_required_o    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:732 test_evaluation   38   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:775 test_hidden_opt    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:786 test_hidden_com   10   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:800 test_hidden_gro   14   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:819 test_summary_li   14   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:838 test_help_inval   15   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:855 test_version_op   19   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:885 test_version_op   20   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:914 test_version_op   13   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:935 test_custom_ver    8   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:946 test_custom_ver    8   1    0   1   0  100.0   A\n"
+  }
+}

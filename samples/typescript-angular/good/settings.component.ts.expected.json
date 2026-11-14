@@ -1,0 +1,38 @@
+{
+  "id": "typescript_angular_oss_settings_good",
+  "pair_id": "typescript_angular_oss_admin_security",
+  "scenario_title": "7. Angular Settings Component vs. OWASP Juice Shop Administration XSS Sinks",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/settings.component.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/settings/settings.component.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/settings/settings.component.ts",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 71,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 99.2,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 77.5,
+      "security": 100.0,
+      "composite": 96.4,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class SettingsComponent] Clean: missing class docstring (-15.0 pts)",
+      "[Method SettingsComponent.ngOnInit] Clean: missing public docstring (-5.0 pts)",
+      "[Method SettingsComponent.logout] Clean: missing public docstring (-5.0 pts)",
+      "[Method SettingsComponent.submitForm] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method SettingsComponent.submitForm] Clean: missing public docstring (-10.0 pts)",
+      "[Method SettingsComponent.submitForm] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 99.2 | Size: 100.0 | Complexity: 100.0 | Clean: 77.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/settings.component.ts src      71    -  99.2 100.0 100.0  77.5 100.0   96.4   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/settings.component    50    4     1    8   96.4   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/settings.component.t   17   2    1   0   1   96.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-angular/good/settings.component.t   10   4    1   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/settings.component.t    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/settings.component.t    4   1    0   2   0  100.0   A\n"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "typescript_nextjs_oss_md_preview_bad",
+  "pair_id": "typescript_nextjs_oss_md_preview_security",
+  "scenario_title": "5. Next.js Safe Link Wrapper vs. dangerouslySetInnerHTML Markdown Preview (bulletproof-react)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/md_preview.tsx",
+  "is_test": false,
+  "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/md-preview/md-preview.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/md-preview/md-preview.tsx",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 15,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 95.0,
+      "security": 65.0,
+      "composite": 70.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "dangerouslySetInnerHTML"
+    ],
+    "all_findings": [
+      "[Func MDPreview] Clean: missing public docstring (-5.0 pts)",
+      "[Func MDPreview] Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L12 (-35.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/md_preview.tsx src      15    - 100.0 100.0 100.0  95.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/md_preview.tsx:8 M   10   1    0   1   0   70.0   C\n    - Clean: missing public docstring (-5.0 pts)\n    - Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L12 (-35.0 pts)\n"
+  }
+}

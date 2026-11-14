@@ -1,0 +1,714 @@
+{
+  "version": "1.2.0",
+  "profile": "javascript",
+  "language": "javascript",
+  "framework": "auto",
+  "description": "Functionally comparable verbatim real-world JavaScript code health scorecard baseline samples from TheAlgorithms/JavaScript and trekhleb/javascript-algorithms.",
+  "samples": [
+    {
+      "id": "javascript_merge_sort_clean",
+      "pair_id": "javascript_sorting_class_clean",
+      "scenario_title": "1. Sorting Algorithm Documentation & Clean Hygiene (MergeSort vs. BubbleSort)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/MergeSort.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Sorts/MergeSort.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/MergeSort.js",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 20,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/MergeSort.js           src      20    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/MergeSort.js:18 merge          13   4    3   2   2  100.0   A\nsamples/javascript/good/MergeSort.js:40 mergeSort       7   2    1   1   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_bubble_sort_unannotated",
+      "pair_id": "javascript_sorting_class_clean",
+      "scenario_title": "1. Sorting Algorithm Documentation & Clean Hygiene (MergeSort vs. BubbleSort)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/BubbleSort.js",
+      "is_test": false,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/sorting/bubble-sort/BubbleSort.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sorting/bubble-sort/BubbleSort.js",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 22,
+        "classes_count": 1,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 73.0,
+          "security": 100.0,
+          "composite": 78.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "Clean: missing class docstring",
+          "Clean: missing public docstring",
+          "unannotated parameter(s)"
+        ],
+        "all_findings": [
+          "[Class BubbleSort] Clean: missing class docstring (-15.0 pts)",
+          "[Method BubbleSort.sort] Clean: missing public docstring (-10.0 pts)",
+          "[Method BubbleSort.sort] Clean: 1 unannotated parameter(s) without default values (originalArray) (-2.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 78.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 73.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/BubbleSort.js           src      22    - 100.0 100.0 100.0  73.0 100.0   78.0   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/BubbleSort.js:3 BubbleSort     21    1     1    5   78.0   C\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/BubbleSort.js:4 BubbleSort.so   19   5    8   1   3   98.2   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (originalArray) (-2.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_rabin_karp_clean",
+      "pair_id": "javascript_string_matching_complexity",
+      "scenario_title": "2. String Matching & Pattern Search Complexity (Rabin-Karp vs. Regex Matching)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/rabinKarp.js",
+      "is_test": false,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/string/rabin-karp/rabinKarp.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/string/rabin-karp/rabinKarp.js",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 23,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/rabinKarp.js           src      23    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/rabinKarp.js:8 rabinKarp       22   5    5   2   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_regex_matching_complex",
+      "pair_id": "javascript_string_matching_complexity",
+      "scenario_title": "2. String Matching & Pattern Search Complexity (Rabin-Karp vs. Regex Matching)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/regularExpressionMatching.js",
+      "is_test": false,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/string/regular-expression-matching/regularExpressionMatching.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/string/regular-expression-matching/regularExpressionMatching.js",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 48,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 48.5,
+          "complexity": 21.5,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 26.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=13",
+          "Complexity: cognitive=23"
+        ],
+        "all_findings": [
+          "[Func regularExpressionMatching] Size: LOC=46 (>25) (-31.5 pts)",
+          "[Func regularExpressionMatching] Size: nesting depth=5 (>3) (-20.0 pts)",
+          "[Func regularExpressionMatching] Complexity: CC=13 (>5) (-41.0 pts)",
+          "[Func regularExpressionMatching] Complexity: cognitive=23 (>8) (-37.5 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 26.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 48.5 | Complexity: 21.5 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/regularExpressionMatching.js src      48    - 100.0  48.5  21.5 100.0 100.0   26.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/regularExpressionMatching.js:   46  13   23   2   5   26.5   F\n    - Size: LOC=46 (>25) (-31.5 pts)\n    - Size: nesting depth=5 (>3) (-20.0 pts)\n    - Complexity: CC=13 (>5) (-41.0 pts)\n    - Complexity: cognitive=23 (>8) (-37.5 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_binary_heap_clean",
+      "pair_id": "javascript_heap_oop_srp",
+      "scenario_title": "3. Binary Heap Priority Queue OOP Cohesion & Method Count",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/BinaryHeap.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Heap/BinaryHeap.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Heap/BinaryHeap.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 66,
+        "classes_count": 1,
+        "functions_count": 11,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 99.6,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 99.9,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Method BinaryHeap.<method>] Complexity: CC=6 (>5) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 11\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 99.6 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/BinaryHeap.js          src      66    - 100.0 100.0  99.6 100.0 100.0   99.9   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/BinaryHeap.js:8 BinaryHeap    63    9     1   17   99.9   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/BinaryHeap.js:76 BinaryHeap.   18   6    7   1   2   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/javascript/good/BinaryHeap.js:14 BinaryHeap.    4   1    0   1   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:32 BinaryHeap.    4   1    0   1   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:41 BinaryHeap.    3   1    0   0   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:49 BinaryHeap.    3   1    0   0   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:58 BinaryHeap.   11   3    1   1   1  100.0   A\nsamples/javascript/good/BinaryHeap.js:101 BinaryHeap    3   1    0   0   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:109 BinaryHeap    9   2    1   0   1  100.0   A\nsamples/javascript/good/BinaryHeap.js:127 BinaryHeap    6   1    0   2   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:141 minHeapCom    1   1    0   2   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:149 maxHeapCom    1   1    0   2   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_heap_god_class",
+      "pair_id": "javascript_heap_oop_srp",
+      "scenario_title": "3. Binary Heap Priority Queue OOP Cohesion & Method Count",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/Heap.js",
+      "is_test": false,
+      "source_dataset": "trekhleb/javascript-algorithms (src/data-structures/heap/Heap.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/data-structures/heap/Heap.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 142,
+        "classes_count": 1,
+        "functions_count": 21,
+        "scores": {
+          "srp": 55.4,
+          "size": 100.0,
+          "complexity": 78.8,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 60.4,
+          "grade": "D"
+        },
+        "required_findings": [
+          "SRP: methods=21 (>10)"
+        ],
+        "all_findings": [
+          "[Class Heap] SRP: methods=21 (>10) (-44.0 pts)",
+          "[Class Heap] Complexity: total class CC=39 (>25) (-21.0 pts)",
+          "[Method Heap.remove] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Method Heap.remove] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method Heap.heapifyDown] SRP: high external call fan-out=8 (>6) (-6.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 60.4/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 21\nDimensions -> SRP: 55.4 | Size: 100.0 | Complexity: 78.8 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/Heap.js                 src     142    -  55.4 100.0  78.8 100.0 100.0   60.4   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/Heap.js:6 Heap                141   21     1   39   60.4   D\n    - SRP: methods=21 (>10) (-44.0 pts)\n    - Complexity: total class CC=39 (>25) (-21.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/Heap.js:150 Heap.remove         24   6    6   2   3   97.4   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/javascript/bad/Heap.js:241 Heap.heapifyDown    22   5    5   1   2   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/javascript/bad/Heap.js:11 Heap.constructor      7   2    1   1   1  100.0   A\nsamples/javascript/bad/Heap.js:25 Heap.getLeftChildI    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:33 Heap.getRightChild    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:41 Heap.getParentInde    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:49 Heap.hasParent        3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:57 Heap.hasLeftChild     3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:65 Heap.hasRightChild    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:73 Heap.leftChild        3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:81 Heap.rightChild       3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:89 Heap.parent           3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:97 Heap.swap             5   1    0   2   0  100.0   A\nsamples/javascript/bad/Heap.js:106 Heap.peek            6   2    1   0   1  100.0   A\nsamples/javascript/bad/Heap.js:117 Heap.poll           12   3    2   0   1  100.0   A\nsamples/javascript/bad/Heap.js:139 Heap.add             5   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:194 Heap.find            9   3    3   2   2  100.0   A\nsamples/javascript/bad/Heap.js:209 Heap.isEmpty         3   1    0   0   0  100.0   A\nsamples/javascript/bad/Heap.js:216 Heap.toString        3   1    0   0   0  100.0   A\nsamples/javascript/bad/Heap.js:223 Heap.heapifyUp      10   4    1   1   1  100.0   A\nsamples/javascript/bad/Heap.js:280 Heap.pairIsInCorr    6   1    0   2   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_fenwick_tree_clean",
+      "pair_id": "javascript_range_tree_lcom4",
+      "scenario_title": "4. Range-Query Tree OOP Cohesion (FenwickTree vs. SegmentTree)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/FenwickTree.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Trees/FenwickTree.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Trees/FenwickTree.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 27,
+        "classes_count": 1,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.7,
+          "security": 100.0,
+          "composite": 98.6,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Method FenwickTree.constructor] Clean: 3 unannotated parameter(s) without default values (feneickArray, array, n) (-6.0 pts)",
+          "[Method FenwickTree.update] Clean: missing public docstring (-5.0 pts)",
+          "[Method FenwickTree.update] Clean: 4 unannotated parameter(s) without default values (feneickArray, n, index) (-8.0 pts)",
+          "[Method FenwickTree.getPrefixSum] Clean: missing public docstring (-5.0 pts)",
+          "[Method FenwickTree.getPrefixSum] Clean: 2 unannotated parameter(s) without default values (feneickArray, index) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.6/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/FenwickTree.js         src      27    - 100.0 100.0 100.0  90.7 100.0   98.6   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/FenwickTree.js:7 FenwickTr    26    3     1    7   98.6   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/FenwickTree.js:17 FenwickTre    7   2    1   4   1   98.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 4 unannotated parameter(s) without default values (feneickArray, n, index) (-8.0 pts)\nsamples/javascript/good/FenwickTree.js:25 FenwickTre    9   2    1   2   1   98.7   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (feneickArray, index) (-4.0 pts)\nsamples/javascript/good/FenwickTree.js:8 FenwickTree    8   3    2   3   1   99.1   A\n    - Clean: 3 unannotated parameter(s) without default values (feneickArray, array, n) (-6.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_segment_tree_lcom4",
+      "pair_id": "javascript_range_tree_lcom4",
+      "scenario_title": "4. Range-Query Tree OOP Cohesion (FenwickTree vs. SegmentTree)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/SegmentTree.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Tree/SegmentTree.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Tree/SegmentTree.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 42,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 70.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.8,
+          "security": 100.0,
+          "composite": 75.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "SRP: LCOM4=3 disconnected method groups"
+        ],
+        "all_findings": [
+          "[Class SegmentTree] SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+          "[Method SegmentTree.constructor] Clean: missing public docstring (-5.0 pts)",
+          "[Method SegmentTree.constructor] Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)",
+          "[Method SegmentTree.build] Clean: missing public docstring (-5.0 pts)",
+          "[Method SegmentTree.build] Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)",
+          "[Method SegmentTree.update] Clean: missing public docstring (-5.0 pts)",
+          "[Method SegmentTree.update] Clean: 2 unannotated parameter(s) without default values (index, value) (-4.0 pts)",
+          "[Method SegmentTree.query] Clean: missing public docstring (-10.0 pts)",
+          "[Method SegmentTree.query] Clean: 2 unannotated parameter(s) without default values (left, right) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 70.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SegmentTree.js          src      42    -  70.0 100.0 100.0  90.8 100.0   75.0   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SegmentTree.js:13 SegmentTr    41    4     3   10   75.0   C\n    - SRP: LCOM4=3 disconnected method groups (-30.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SegmentTree.js:68 SegmentTree   14   4    5   2   2   97.9   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (left, right) (-4.0 pts)\nsamples/javascript/bad/SegmentTree.js:48 SegmentTree    8   2    1   2   1   98.7   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (index, value) (-4.0 pts)\nsamples/javascript/bad/SegmentTree.js:16 SegmentTree    6   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)\nsamples/javascript/bad/SegmentTree.js:31 SegmentTree    9   3    2   1   1   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_affine_cipher_clean",
+      "pair_id": "javascript_cipher_function_size",
+      "scenario_title": "5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/AffineCipher.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Ciphers/AffineCipher.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/AffineCipher.js",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 51,
+        "classes_count": 0,
+        "functions_count": 6,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 6\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/AffineCipher.js        src      51    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/AffineCipher.js:16 mod          3   1    0   2   0  100.0   A\nsamples/javascript/good/AffineCipher.js:26 inverseMo    5   3    3   2   2  100.0   A\nsamples/javascript/good/AffineCipher.js:39 isCorrect   12   5    3   3   1  100.0   A\nsamples/javascript/good/AffineCipher.js:60 findCharI    3   1    0   1   0  100.0   A\nsamples/javascript/good/AffineCipher.js:72 encrypt     11   4    6   3   3  100.0   A\nsamples/javascript/good/AffineCipher.js:91 decrypt     14   4    6   3   3  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_morse_code_monolith",
+      "pair_id": "javascript_cipher_function_size",
+      "scenario_title": "5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/MorseCode.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Ciphers/MorseCode.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/MorseCode.js",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 76,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 82.0,
+          "size": 0.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC=75 (>25)"
+        ],
+        "all_findings": [
+          "[Func morse] SRP: high external call fan-out=12 (>6) (-18.0 pts)",
+          "[Func morse] Size: LOC=75 (>25) (-100.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js            src      76    -  82.0   0.0 100.0 100.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js:11 morse           75   3    3   3   2    5.0   F\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\n    - Size: LOC=75 (>25) (-100.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_quicksort_recursive_clean",
+      "pair_id": "javascript_sort_function_size",
+      "scenario_title": "6. Sorting Algorithm Decomposition vs. Monolithic IntroSort",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/QuickSortRecursive.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Sorts/QuickSortRecursive.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/QuickSortRecursive.js",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 30,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/QuickSortRecursive.js  src      30    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/QuickSortRecursive.js:24 qui   11   3    2   3   1  100.0   A\nsamples/javascript/good/QuickSortRecursive.js:45 par   18   3    3   3   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_introsort_monolith",
+      "pair_id": "javascript_sort_function_size",
+      "scenario_title": "6. Sorting Algorithm Decomposition vs. Monolithic IntroSort",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/IntroSort.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Sorts/IntroSort.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/IntroSort.js",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 182,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 85.0,
+          "size": 28.3,
+          "complexity": 28.7,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 33.3,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC=129 (>25)"
+        ],
+        "all_findings": [
+          "[Func introsort] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+          "[Func introsort] Size: LOC=129 (>25) (-100.0 pts)",
+          "[Func introsort] Complexity: CC=34 (>5) (-100.0 pts)",
+          "[Func introsort] Complexity: cognitive=34 (>8) (-65.0 pts)",
+          "[Func introsort] Complexity: returns=16 (>3) (-52.0 pts)",
+          "[Func demo1] Size: LOC=26 (>25) (-1.5 pts)",
+          "[Func demo2] Size: LOC=26 (>25) (-1.5 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 33.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 85.0 | Size: 28.3 | Complexity: 28.7 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js            src     182    -  85.0  28.3  28.7 100.0 100.0   33.3   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js:18 introsort      129  34   34   2   2    5.0   F\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Size: LOC=129 (>25) (-100.0 pts)\n    - Complexity: CC=34 (>5) (-100.0 pts)\n    - Complexity: cognitive=34 (>8) (-65.0 pts)\n    - Complexity: returns=16 (>3) (-52.0 pts)\nsamples/javascript/bad/IntroSort.js:250 demo1          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\nsamples/javascript/bad/IntroSort.js:282 demo2          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_dfs_clean",
+      "pair_id": "javascript_graph_traversal_srp",
+      "scenario_title": "7. Graph Traversal Concern Separation & External Call Fan-Out",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/depthFirstSearch.js",
+      "is_test": false,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/depth-first-search/depthFirstSearch.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/depth-first-search/depthFirstSearch.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 33,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 97.6,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 99.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func initCallbacks] Complexity: returns=4 (>3) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 97.6 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/depthFirstSearch.js    src      33    - 100.0 100.0  97.6 100.0 100.0   99.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/depthFirstSearch.js:17 initC   20   5    1   1   1   99.2   A\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/javascript/good/depthFirstSearch.js:48 depth    9   2    1   4   1  100.0   A\nsamples/javascript/good/depthFirstSearch.js:65 depth    4   1    0   3   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_eulerian_path_fanout",
+      "pair_id": "javascript_graph_traversal_srp",
+      "scenario_title": "7. Graph Traversal Concern Separation & External Call Fan-Out",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/eulerianPath.js",
+      "is_test": false,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/eulerian-path/eulerianPath.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/eulerian-path/eulerianPath.js",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 52,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 67.0,
+          "size": 60.0,
+          "complexity": 79.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 65.0,
+          "grade": "D"
+        },
+        "required_findings": [
+          "SRP: high external call fan-out=17 (>6)"
+        ],
+        "all_findings": [
+          "[Func eulerianPath] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+          "[Func eulerianPath] Size: LOC=51 (>25) (-40.0 pts)",
+          "[Func eulerianPath] Complexity: CC=9 (>5) (-16.0 pts)",
+          "[Func eulerianPath] Complexity: cognitive=10 (>8) (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 67.0 | Size: 60.0 | Complexity: 79.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/eulerianPath.js         src      52    -  67.0  60.0  79.0 100.0 100.0   65.0   D\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/eulerianPath.js:9 eulerianPat   51   9   10   1   2   65.0   D\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Size: LOC=51 (>25) (-40.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Complexity: cognitive=10 (>8) (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_figurate_number_clean",
+      "pair_id": "javascript_math_numerical_complexity",
+      "scenario_title": "8. Numerical Math Algorithm Cyclomatic & Cognitive Complexity",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/FigurateNumber.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Maths/FigurateNumber.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/FigurateNumber.js",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 41,
+        "classes_count": 0,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/FigurateNumber.js      src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/FigurateNumber.js:18 isTrian   10   4    6   1   3  100.0   A\nsamples/javascript/good/FigurateNumber.js:34 isTetra   10   4    6   1   3  100.0   A\nsamples/javascript/good/FigurateNumber.js:49 isPenta   10   4    6   1   3  100.0   A\nsamples/javascript/good/FigurateNumber.js:65 checkAl    7   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_simpson_integration_complex",
+      "pair_id": "javascript_math_numerical_complexity",
+      "scenario_title": "8. Numerical Math Algorithm Cyclomatic & Cognitive Complexity",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/SimpsonIntegration.js",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/JavaScript (Maths/SimpsonIntegration.js)",
+      "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/SimpsonIntegration.js",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 38,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 82.0,
+          "complexity": 39.5,
+          "clean": 92.0,
+          "security": 100.0,
+          "composite": 44.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=14",
+          "Complexity: cognitive=13"
+        ],
+        "all_findings": [
+          "[Func integralEvaluation] Size: LOC=37 (>25) (-18.0 pts)",
+          "[Func integralEvaluation] Complexity: CC=14 (>5) (-48.0 pts)",
+          "[Func integralEvaluation] Complexity: cognitive=13 (>8) (-12.5 pts)",
+          "[Func integralEvaluation] Clean: 4 unannotated parameter(s) without default values (N, a, b) (-8.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 44.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 82.0 | Complexity: 39.5 | Clean: 92.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SimpsonIntegration.js   src      38    - 100.0  82.0  39.5  92.0 100.0   44.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SimpsonIntegration.js:24 inte   37  14   13   4   3   44.5   F\n    - Size: LOC=37 (>25) (-18.0 pts)\n    - Complexity: CC=14 (>5) (-48.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\n    - Clean: 4 unannotated parameter(s) without default values (N, a, b) (-8.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_knapsack_test_clean",
+      "pair_id": "javascript_test_assertion_hygiene",
+      "scenario_title": "9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/Knapsack.test.js",
+      "is_test": true,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 127,
+        "classes_count": 0,
+        "functions_count": 7,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/Knapsack.test.js       test    127    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/Knapsack.test.js:5 test: sho   16   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:26 test: sh   16   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:47 test: sh   14   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:66 test: sh   19   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:90 test: sh   20   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:115 test: s   18   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:138 test: s   20   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_knapsack_item_test_dense",
+      "pair_id": "javascript_test_assertion_hygiene",
+      "scenario_title": "9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite)",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/KnapsackItem.test.js",
+      "is_test": true,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 29,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 70.0,
+          "security": 100.0,
+          "composite": 75.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "21 assertions in single test (>8)"
+        ],
+        "all_findings": [
+          "[Func test: should create knapsack item and count its total weight and value] Clean (Test): 21 assertions in single test (>8) (-30.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js    test     29    - 100.0 100.0 100.0  70.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js:4 test:    26   1    0   0   0   75.0   C\n    - Clean (Test): 21 assertions in single test (>8) (-30.0 pts)\n"
+      }
+    },
+    {
+      "id": "javascript_articulation_points_test_clean",
+      "pair_id": "javascript_graph_test_size",
+      "scenario_title": "10. Graph Algorithm Test Suite Decomposition & Test Function Size",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/javascript/good/articulationPoints.test.js",
+      "is_test": true,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 190,
+        "classes_count": 0,
+        "functions_count": 7,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/articulationPoints.test.js test    190    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/articulationPoints.test.js:7   18   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:3   19   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:5   22   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:8   36   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:1   36   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:1   23   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:1   30   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "javascript_bfs_test_oversized",
+      "pair_id": "javascript_graph_test_size",
+      "scenario_title": "10. Graph Algorithm Test Suite Decomposition & Test Function Size",
+      "language": "javascript",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/javascript/bad/breadthFirstSearch.test.js",
+      "is_test": true,
+      "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js)",
+      "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 146,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 70.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 75.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "Size: LOC=70 (>40)"
+        ],
+        "all_findings": [
+          "[Func test: should perform BFS operation on graph] Size: LOC=70 (>40) (-30.0 pts)",
+          "[Func test: should allow to create custom vertex visiting logic] Size: LOC=70 (>40) (-30.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 70.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/breadthFirstSearch.test.js test    146    - 100.0  70.0 100.0 100.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/breadthFirstSearch.test.js:7    70   3    2   0   1   75.0   C\n    - Size: LOC=70 (>40) (-30.0 pts)\nsamples/javascript/bad/breadthFirstSearch.test.js:92   70   4    2   0   1   75.0   C\n    - Size: LOC=70 (>40) (-30.0 pts)\n"
+      }
+    }
+  ]
+}

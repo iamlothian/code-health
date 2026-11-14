@@ -1,7 +1,7 @@
 {
   "id": "typescript_angular_oss_search_result_bad",
   "pair_id": "typescript_angular_oss_xss_and_sub",
-  "scenario_title": "2. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
+  "scenario_title": "1. Angular Layout Component vs. OWASP Juice Shop Search XSS & Leak",
   "language": "typescript",
   "framework": "angular",
   "quality": "bad",

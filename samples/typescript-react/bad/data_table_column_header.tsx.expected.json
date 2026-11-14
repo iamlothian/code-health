@@ -1,0 +1,40 @@
+{
+  "id": "typescript_react_oss_column_header_bad",
+  "pair_id": "typescript_react_oss_table_header_complexity",
+  "scenario_title": "5. React Composable Table Header Controls vs. Branchy Column Header (TanStack/table)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/data_table_column_header.tsx",
+  "is_test": false,
+  "source_dataset": "TanStack/table (examples/react/kitchen-sink-shadcn-radix/src/components/data-table/data-table-column-header.tsx)",
+  "source_url": "https://github.com/TanStack/table/blob/main/examples/react/kitchen-sink-shadcn-radix/src/components/data-table/data-table-column-header.tsx",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 153,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 76.0,
+      "size": 0.0,
+      "complexity": 0.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=",
+      "Complexity: cognitive="
+    ],
+    "all_findings": [
+      "[Func ColumnHeader] SRP: high external call fan-out=14 (>6) (-24.0 pts)",
+      "[Func ColumnHeader] Size: LOC=131 (>25) (-100.0 pts)",
+      "[Func ColumnHeader] Complexity: CC=22 (>5) (-100.0 pts)",
+      "[Func ColumnHeader] Complexity: cognitive=11 (>8) (-7.5 pts)",
+      "[Func ColumnHeader] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 76.0 | Size: 0.0 | Complexity: 0.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/data_table_column_header.tsx src     153    -  76.0   0.0   0.0  90.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/data_table_column_heade  131  22   11   1   1    5.0   F\n    - SRP: high external call fan-out=14 (>6) (-24.0 pts)\n    - Size: LOC=131 (>25) (-100.0 pts)\n    - Complexity: CC=22 (>5) (-100.0 pts)\n    - Complexity: cognitive=11 (>8) (-7.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "javascript_articulation_points_test_clean",
+  "pair_id": "javascript_graph_test_size",
+  "scenario_title": "10. Graph Algorithm Test Suite Decomposition & Test Function Size",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/articulationPoints.test.js",
+  "is_test": true,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 190,
+    "classes_count": 0,
+    "functions_count": 7,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/articulationPoints.test.js test    190    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/articulationPoints.test.js:7   18   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:3   19   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:5   22   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:8   36   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:1   36   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:1   23   1    0   0   0  100.0   A\nsamples/javascript/good/articulationPoints.test.js:1   30   1    0   0   0  100.0   A\n"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "javascript_dfs_clean",
+  "pair_id": "javascript_graph_traversal_srp",
+  "scenario_title": "7. Graph Traversal Concern Separation & External Call Fan-Out",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/depthFirstSearch.js",
+  "is_test": false,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/depth-first-search/depthFirstSearch.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/depth-first-search/depthFirstSearch.js",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 33,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 97.6,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 99.5,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func initCallbacks] Complexity: returns=4 (>3) (-4.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 97.6 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/depthFirstSearch.js    src      33    - 100.0 100.0  97.6 100.0 100.0   99.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/depthFirstSearch.js:17 initC   20   5    1   1   1   99.2   A\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/javascript/good/depthFirstSearch.js:48 depth    9   2    1   4   1  100.0   A\nsamples/javascript/good/depthFirstSearch.js:65 depth    4   1    0   3   0  100.0   A\n"
+  }
+}

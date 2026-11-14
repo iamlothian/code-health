@@ -1,0 +1,43 @@
+{
+  "id": "typescript_angular_oss_chat_service_bad",
+  "pair_id": "typescript_angular_oss_service_complexity",
+  "scenario_title": "4. Angular Articles Service vs. OWASP Juice Shop WebSocket Chat Service Complexity",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/chat.service.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/Services/chat.service.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/Services/chat.service.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 88,
+    "classes_count": 1,
+    "functions_count": 1,
+    "scores": {
+      "srp": 88.0,
+      "size": 12.5,
+      "complexity": 0.0,
+      "clean": 75.0,
+      "security": 100.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=18",
+      "Complexity: cognitive=34",
+      "Size: LOC=66"
+    ],
+    "all_findings": [
+      "[Class ChatService] Clean: missing class docstring (-15.0 pts)",
+      "[Method ChatService.streamMessages] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Method ChatService.streamMessages] Size: LOC=66 (>25) (-77.5 pts)",
+      "[Method ChatService.streamMessages] Size: nesting depth=4 (>3) (-10.0 pts)",
+      "[Method ChatService.streamMessages] Complexity: CC=18 (>5) (-76.0 pts)",
+      "[Method ChatService.streamMessages] Complexity: cognitive=34 (>8) (-65.0 pts)",
+      "[Method ChatService.streamMessages] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 1\nDimensions -> SRP: 88.0 | Size: 12.5 | Complexity: 0.0 | Clean: 75.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/chat.service.ts src      88    -  88.0  12.5   0.0  75.0 100.0    5.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/chat.service.ts:26     71    1     1   18    5.0   F\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/chat.service.ts:31 Ch   66  18   34   1   4    5.0   F\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Size: LOC=66 (>25) (-77.5 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=18 (>5) (-76.0 pts)\n    - Complexity: cognitive=34 (>8) (-65.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

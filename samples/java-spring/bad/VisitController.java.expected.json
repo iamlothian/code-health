@@ -1,0 +1,41 @@
+{
+  "id": "java_spring_petclinic_cohesion_bad",
+  "pair_id": "java_spring_controller_cohesion",
+  "scenario_title": "9. Spring MVC Controller Cohesion & LCOM4 (spring-projects/spring-petclinic, ~44 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/VisitController.java",
+  "is_test": false,
+  "source_dataset": "spring-projects/spring-petclinic (owner/VisitController.java)",
+  "source_url": "https://github.com/spring-projects/spring-petclinic/blob/main/src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+  "license": "Apache-2.0",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 50,
+    "classes_count": 1,
+    "functions_count": 6,
+    "scores": {
+      "srp": 54.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 95.0,
+      "security": 100.0,
+      "composite": 59.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "SRP: LCOM4=4 disconnected method groups (-45.0 pts)"
+    ],
+    "all_findings": [
+      "[Class VisitController] SRP: LCOM4=4 disconnected method groups (-45.0 pts)",
+      "[Method VisitController.setAllowedFields] Clean: missing public docstring (-5.0 pts)",
+      "[Method VisitController.minVisitDate] Clean: missing public docstring (-5.0 pts)",
+      "[Method VisitController.initNewVisitForm] Clean: missing public docstring (-5.0 pts)",
+      "[Method VisitController.processNewVisitForm] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method VisitController.processNewVisitForm] Clean: missing public docstring (-10.0 pts)",
+      "[Method VisitController.VisitController] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 59.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6\nDimensions -> SRP: 54.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/VisitController.java   src      50    -  54.0 100.0 100.0  95.0 100.0   59.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/VisitController.java:42 Vi    50    6     4    9   59.0   F\n    - SRP: LCOM4=4 disconnected method groups (-45.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/VisitController.java:97 Visi   14   3    2   5   1   96.7   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/bad/VisitController.java:47 Visi    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/bad/VisitController.java:51 Visi    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/bad/VisitController.java:83 Visi    4   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/bad/VisitController.java:90 Visi    4   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/bad/VisitController.java:63 Visi   17   2    1   3   1  100.0   A\n"
+  }
+}

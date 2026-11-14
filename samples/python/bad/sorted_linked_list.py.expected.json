@@ -1,0 +1,46 @@
+{
+  "id": "python_linked_structure_srp_bad",
+  "pair_id": "python_linked_structure_srp",
+  "scenario_title": "7. Linked Data Structure Class Cohesion & Method Count (TheAlgorithms/Python data_structures/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/sorted_linked_list.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (data_structures/linked_list/sorted_linked_list.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/linked_list/sorted_linked_list.py",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 274,
+    "classes_count": 2,
+    "functions_count": 12,
+    "scores": {
+      "srp": 62.5,
+      "size": 86.2,
+      "complexity": 82.4,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 67.5,
+      "grade": "D"
+    },
+    "required_findings": [
+      "SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+      "SRP: methods=12 (>10) (-8.0 pts)"
+    ],
+    "all_findings": [
+      "Clean: missing module docstring (-10.0 pts)",
+      "[Class SortedLinkedList] SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+      "[Class SortedLinkedList] SRP: methods=12 (>10) (-8.0 pts)",
+      "[Class SortedLinkedList] Size: class LOC=233 (>200) (-13.2 pts)",
+      "[Class SortedLinkedList] Complexity: total class CC=34 (>25) (-13.5 pts)",
+      "[Method SortedLinkedList.insert] Complexity: CC=7 (>5) (-8.0 pts)",
+      "[Method SortedLinkedList.insert] Complexity: cognitive=13 (>8) (-12.5 pts)",
+      "[Method SortedLinkedList.delete] Size: nesting depth=4 (>3) (-10.0 pts)",
+      "[Method SortedLinkedList.delete] Complexity: CC=8 (>5) (-12.0 pts)",
+      "[Method SortedLinkedList.delete] Complexity: cognitive=14 (>8) (-15.0 pts)",
+      "[Method SortedLinkedList.delete] Complexity: returns=4 (>3) (-4.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 67.5/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 2 | Functions/Methods: 12\nDimensions -> SRP: 62.5 | Size: 86.2 | Complexity: 82.4 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/sorted_linked_list.py       src     274    -  62.5  86.2  82.4  90.0 100.0   67.5   D\n    - Clean: missing module docstring (-10.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/sorted_linked_list.py:24 Sorted   233   12     3   34   67.0   D\n    - SRP: LCOM4=3 disconnected method groups (-30.0 pts)\n    - SRP: methods=12 (>10) (-8.0 pts)\n    - Size: class LOC=233 (>200) (-13.2 pts)\n    - Complexity: total class CC=34 (>25) (-13.5 pts)\nsamples/python/bad/sorted_linked_list.py:8 Node        3    0     0    0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/sorted_linked_list.py:113 SortedL   18   8   14   1   4   74.0   C\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\n    - Complexity: cognitive=14 (>8) (-15.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/python/bad/sorted_linked_list.py:80 SortedLi   17   7   13   1   3   95.9   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\nsamples/python/bad/sorted_linked_list.py:27 SortedLi    3   1    0   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:37 SortedLi    5   2    1   0   1  100.0   A\nsamples/python/bad/sorted_linked_list.py:52 SortedLi    2   1    0   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:68 SortedLi    2   1    0   1   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:160 SortedL    2   1    0   1   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:184 SortedL    2   1    0   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:203 SortedL    2   2    1   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:222 SortedL    2   2    1   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:242 SortedL    7   4    5   0   2  100.0   A\nsamples/python/bad/sorted_linked_list.py:267 SortedL   12   4    6   1   2  100.0   A\n"
+  }
+}

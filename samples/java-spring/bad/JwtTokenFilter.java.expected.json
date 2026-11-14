@@ -1,0 +1,42 @@
+{
+  "id": "java_spring_di_clean_bad",
+  "pair_id": "java_spring_constructor_vs_field_injection",
+  "scenario_title": "4. Spring Security & JWT Service Dependency Injection (spring-boot-realworld-example-app, ~38 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/JwtTokenFilter.java",
+  "is_test": false,
+  "source_dataset": "gothinkster/spring-boot-realworld-example-app (api/security/JwtTokenFilter.java)",
+  "source_url": "https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/api/security/JwtTokenFilter.java",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 42,
+    "classes_count": 1,
+    "functions_count": 2,
+    "scores": {
+      "srp": 88.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 59.0,
+      "security": 100.0,
+      "composite": 64.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Clean: missing class docstring (-15.0 pts)",
+      "Clean (Spring): @Autowired field injection detected on 'userRepository' (-8.0 pts)",
+      "Clean (Spring): @Autowired field injection detected on 'jwtService' (-8.0 pts)"
+    ],
+    "all_findings": [
+      "[Class JwtTokenFilter] Clean: missing class docstring (-15.0 pts)",
+      "[Class JwtTokenFilter] Clean (Spring): @Autowired field injection detected on 'userRepository' (-8.0 pts)",
+      "[Class JwtTokenFilter] Clean (Spring): @Autowired field injection detected on 'jwtService' (-8.0 pts)",
+      "[Method JwtTokenFilter.doFilterInternal] SRP: high external call fan-out=14 (>6) (-24.0 pts)",
+      "[Method JwtTokenFilter.doFilterInternal] Clean: missing public docstring (-10.0 pts)",
+      "[Method JwtTokenFilter.getTokenString] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 64.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 88.0 | Size: 100.0 | Complexity: 100.0 | Clean: 59.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/JwtTokenFilter.java    src      42    -  88.0 100.0 100.0  59.0 100.0   64.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/JwtTokenFilter.java:18 Jwt    42    2     1    5   64.0   D\n    - Clean: missing class docstring (-15.0 pts)\n    - Clean (Spring): @Autowired field injection detected on 'userRepository' (-8.0 pts)\n    - Clean (Spring): @Autowired field injection detected on 'jwtService' (-8.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/JwtTokenFilter.java:24 JwtTo   24   2    1   3   1   91.3   A\n    - SRP: high external call fan-out=14 (>6) (-24.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/bad/JwtTokenFilter.java:50 JwtTo   12   3    2   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

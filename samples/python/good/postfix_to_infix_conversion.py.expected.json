@@ -1,0 +1,31 @@
+{
+  "id": "python_expression_stack_complexity_good",
+  "pair_id": "python_expression_stack_complexity",
+  "scenario_title": "8. Stack Expression Notation Conversion Complexity (TheAlgorithms/Python data_structures/stacks/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/postfix_to_infix_conversion.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (data_structures/stacks/postfix_to_infix_conversion.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/stacks/postfix_to_infix_conversion.py",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 39,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/postfix_to_infix_conversion.py src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/postfix_to_infix_conversion.py:7   13   5    6   1   2  100.0   A\n"
+  }
+}

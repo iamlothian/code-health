@@ -1,0 +1,33 @@
+{
+  "id": "typescript_nextjs_oss_product_desc_good",
+  "pair_id": "typescript_nextjs_oss_prose_xss",
+  "scenario_title": "4. Next.js Safe Product Description Component vs. Raw dangerouslySetInnerHTML Prose (vercel/commerce)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "good",
+  "file_path": "samples/typescript-nextjs/good/app/product_description.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/commerce (components/product/product-description.tsx)",
+  "source_url": "https://github.com/vercel/commerce/blob/main/components/product/product-description.tsx",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 28,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 98.5,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func ProductDescription] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/product_description.tsx src      28    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/product_descripti   23   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

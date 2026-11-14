@@ -1,0 +1,38 @@
+{
+  "id": "java_spring_test_assertions_bad",
+  "pair_id": "java_spring_test_assertions_and_di",
+  "scenario_title": "10. JUnit 5 Spring Test Assertions & Injection Hygiene (realworld vs petclinic-microservices)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/ApiGatewayControllerTest.java",
+  "is_test": true,
+  "source_dataset": "spring-petclinic/spring-petclinic-microservices (boundary/web/ApiGatewayControllerTest.java)",
+  "source_url": "https://github.com/spring-petclinic/spring-petclinic-microservices/blob/main/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java",
+  "license": "Apache-2.0",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 60,
+    "classes_count": 1,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 62.0,
+      "security": 100.0,
+      "composite": 67.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Clean (Spring): @Autowired field injection detected on 'client' (-8.0 pts)",
+      "Clean (Test): test has 0 assertions (-30.0 pts)"
+    ],
+    "all_findings": [
+      "[Class ApiGatewayControllerTest] Clean (Spring): @Autowired field injection detected on 'client' (-8.0 pts)",
+      "[Method ApiGatewayControllerTest.getOwnerDetails_withAvailableVisitsService] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method ApiGatewayControllerTest.getOwnerDetails_withServiceError] Clean (Test): test has 0 assertions (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 67.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 62.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/ApiGatewayControllerTest.java test     60    - 100.0 100.0 100.0  62.0 100.0   67.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/ApiGatewayControllerTest.j    60    2     1    2   67.0   D\n    - Clean (Spring): @Autowired field injection detected on 'client' (-8.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/ApiGatewayControllerTest.jav   26   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java-spring/bad/ApiGatewayControllerTest.jav   24   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\n"
+  }
+}

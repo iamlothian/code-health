@@ -1,0 +1,31 @@
+{
+  "id": "typescript_floyd_warshall_clean",
+  "pair_id": "typescript_graph_shortest_path_complexity",
+  "scenario_title": "1. Graph Shortest-Path Algorithm Complexity & Control Flow (TheAlgorithms/TypeScript)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/floyd_warshall.ts",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/TypeScript (graph/floyd_warshall.ts)",
+  "source_url": "https://github.com/TheAlgorithms/TypeScript/blob/master/graph/floyd_warshall.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 20,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/floyd_warshall.ts      src      20    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/floyd_warshall.ts:11 floydWa   20   5    8   1   3  100.0   A\n"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "javascript_knapsack_test_clean",
+  "pair_id": "javascript_test_assertion_hygiene",
+  "scenario_title": "9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite)",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/Knapsack.test.js",
+  "is_test": true,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 127,
+    "classes_count": 0,
+    "functions_count": 7,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/Knapsack.test.js       test    127    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/Knapsack.test.js:5 test: sho   16   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:26 test: sh   16   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:47 test: sh   14   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:66 test: sh   19   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:90 test: sh   20   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:115 test: s   18   1    0   0   0  100.0   A\nsamples/javascript/good/Knapsack.test.js:138 test: s   20   1    0   0   0  100.0   A\n"
+  }
+}

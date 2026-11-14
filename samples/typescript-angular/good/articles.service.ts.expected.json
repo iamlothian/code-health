@@ -1,0 +1,41 @@
+{
+  "id": "typescript_angular_oss_articles_service_good",
+  "pair_id": "typescript_angular_oss_service_complexity",
+  "scenario_title": "4. Angular Articles Service vs. OWASP Juice Shop WebSocket Chat Service Complexity",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/articles.service.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/services/articles.service.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/services/articles.service.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 42,
+    "classes_count": 1,
+    "functions_count": 8,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 79.4,
+      "security": 100.0,
+      "composite": 96.9,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class ArticlesService] Clean: missing class docstring (-15.0 pts)",
+      "[Method ArticlesService.query] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlesService.query] Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+      "[Method ArticlesService.get] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlesService.delete] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlesService.create] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlesService.update] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlesService.favorite] Clean: missing public docstring (-5.0 pts)",
+      "[Method ArticlesService.unfavorite] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 79.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/articles.service.ts src      42    - 100.0 100.0 100.0  79.4 100.0   96.9   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/articles.service.t    35    8     1    9   96.9   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/articles.service.ts:   10   2    1   1   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    7   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/articles.service.ts:    1   1    0   1   0  100.0   A\n"
+  }
+}

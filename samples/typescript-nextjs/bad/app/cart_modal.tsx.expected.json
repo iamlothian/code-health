@@ -1,0 +1,41 @@
+{
+  "id": "typescript_nextjs_oss_cart_modal_bad",
+  "pair_id": "typescript_nextjs_oss_cart_complexity",
+  "scenario_title": "8. Next.js Cart Trigger Leaf vs. Monolithic Branchy Cart Modal (vercel/commerce)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/cart_modal.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/commerce (components/cart/modal.tsx)",
+  "source_url": "https://github.com/vercel/commerce/blob/main/components/cart/modal.tsx",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 243,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 83.9,
+      "size": 10.8,
+      "complexity": 75.9,
+      "clean": 82.9,
+      "security": 100.0,
+      "composite": 15.8,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=11 (>5)"
+    ],
+    "all_findings": [
+      "[Func CartModal] SRP: high external call fan-out=12 (>6) (-18.0 pts)",
+      "[Func CartModal] Size: LOC=199 (>25) (-100.0 pts)",
+      "[Func CartModal] Complexity: CC=11 (>5) (-27.0 pts)",
+      "[Func CartModal] Clean: missing public docstring (-10.0 pts)",
+      "[Func CartModal] Clean (React): array index used as JSX key at L121 (-8.0 pts)",
+      "[Func CloseCart] Clean: missing public docstring (-10.0 pts)",
+      "[Func CheckoutButton] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 15.8/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 83.9 | Size: 10.8 | Complexity: 75.9 | Clean: 82.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/cart_modal.tsx src     243    -  83.9  10.8  75.9  82.9 100.0   15.8   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/cart_modal.tsx:24   199  11    7   0   2    5.0   F\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\n    - Size: LOC=199 (>25) (-100.0 pts)\n    - Complexity: CC=11 (>5) (-27.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): array index used as JSX key at L121 (-8.0 pts)\nsamples/typescript-nextjs/bad/app/cart_modal.tsx:231   12   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-nextjs/bad/app/cart_modal.tsx:244   12   2    1   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

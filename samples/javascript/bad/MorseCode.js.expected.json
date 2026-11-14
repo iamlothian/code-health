@@ -1,0 +1,36 @@
+{
+  "id": "javascript_morse_code_monolith",
+  "pair_id": "javascript_cipher_function_size",
+  "scenario_title": "5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/MorseCode.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Ciphers/MorseCode.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/MorseCode.js",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 76,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 82.0,
+      "size": 0.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC=75 (>25)"
+    ],
+    "all_findings": [
+      "[Func morse] SRP: high external call fan-out=12 (>6) (-18.0 pts)",
+      "[Func morse] Size: LOC=75 (>25) (-100.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js            src      76    -  82.0   0.0 100.0 100.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js:11 morse           75   3    3   3   2    5.0   F\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\n    - Size: LOC=75 (>25) (-100.0 pts)\n"
+  }
+}

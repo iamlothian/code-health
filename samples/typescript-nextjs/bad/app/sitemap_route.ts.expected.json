@@ -1,0 +1,37 @@
+{
+  "id": "typescript_nextjs_oss_sitemap_route_bad",
+  "pair_id": "typescript_nextjs_oss_metadata_routes_srp",
+  "scenario_title": "7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/sitemap_route.ts",
+  "is_test": false,
+  "source_dataset": "vercel/commerce (app/sitemap.ts)",
+  "source_url": "https://github.com/vercel/commerce/blob/main/app/sitemap.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 42,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 73.0,
+      "size": 86.5,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 78.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "SRP: high external call fan-out=15 (>6)"
+    ],
+    "all_findings": [
+      "[Func sitemap] SRP: high external call fan-out=15 (>6) (-27.0 pts)",
+      "[Func sitemap] Size: LOC=34 (>25) (-13.5 pts)",
+      "[Func sitemap] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 78.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 73.0 | Size: 86.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/sitemap_route.ts src      42    -  73.0  86.5 100.0  90.0 100.0   78.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/sitemap_route.ts:1   34   2    1   0   1   78.0   C\n    - SRP: high external call fan-out=15 (>6) (-27.0 pts)\n    - Size: LOC=34 (>25) (-13.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

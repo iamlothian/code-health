@@ -1,0 +1,37 @@
+{
+  "id": "java_spring_sqli_adv_good",
+  "pair_id": "java_spring_sql_parameterization_advanced",
+  "scenario_title": "6. Spring JDBC Query Parameterization vs SQL String Concatenation (OWASP WebGoat sqlinjection/advanced/)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/SqlInjectionLesson6b.java",
+  "is_test": false,
+  "source_dataset": "OWASP WebGoat (sqlinjection/advanced/SqlInjectionLesson6b.java)",
+  "source_url": "https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java",
+  "license": "GPL-2.0",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 36,
+    "classes_count": 1,
+    "functions_count": 3,
+    "scores": {
+      "srp": 99.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 78.3,
+      "security": 100.0,
+      "composite": 96.4,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class SqlInjectionLesson6b] Clean: missing class docstring (-15.0 pts)",
+      "[Method SqlInjectionLesson6b.completed] Clean: missing public docstring (-5.0 pts)",
+      "[Method SqlInjectionLesson6b.getPassword] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method SqlInjectionLesson6b.getPassword] Clean: missing public docstring (-10.0 pts)",
+      "[Method SqlInjectionLesson6b.SqlInjectionLesson6b] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 99.0 | Size: 100.0 | Complexity: 100.0 | Clean: 78.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/SqlInjectionLesson6b.java src      36    -  99.0 100.0 100.0  78.3 100.0   96.4   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/SqlInjectionLesson6b.java    36    3     1    6   96.4   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/SqlInjectionLesson6b.java:4   20   3    2   0   1   97.6   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/good/SqlInjectionLesson6b.java:2    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/SqlInjectionLesson6b.java:3    9   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

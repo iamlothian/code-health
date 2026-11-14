@@ -1,0 +1,38 @@
+{
+  "id": "javascript_eulerian_path_fanout",
+  "pair_id": "javascript_graph_traversal_srp",
+  "scenario_title": "7. Graph Traversal Concern Separation & External Call Fan-Out",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/eulerianPath.js",
+  "is_test": false,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/graph/eulerian-path/eulerianPath.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/eulerian-path/eulerianPath.js",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 52,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 67.0,
+      "size": 60.0,
+      "complexity": 79.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "SRP: high external call fan-out=17 (>6)"
+    ],
+    "all_findings": [
+      "[Func eulerianPath] SRP: high external call fan-out=17 (>6) (-33.0 pts)",
+      "[Func eulerianPath] Size: LOC=51 (>25) (-40.0 pts)",
+      "[Func eulerianPath] Complexity: CC=9 (>5) (-16.0 pts)",
+      "[Func eulerianPath] Complexity: cognitive=10 (>8) (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 67.0 | Size: 60.0 | Complexity: 79.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/eulerianPath.js         src      52    -  67.0  60.0  79.0 100.0 100.0   65.0   D\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/eulerianPath.js:9 eulerianPat   51   9   10   1   2   65.0   D\n    - SRP: high external call fan-out=17 (>6) (-33.0 pts)\n    - Size: LOC=51 (>25) (-40.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Complexity: cognitive=10 (>8) (-5.0 pts)\n"
+  }
+}

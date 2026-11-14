@@ -1,7 +1,7 @@
 {
   "id": "typescript_angular_oss_complaint_bad",
   "pair_id": "typescript_angular_oss_di_and_sub",
-  "scenario_title": "3. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
+  "scenario_title": "2. Angular Article Preview Component vs. OWASP Juice Shop Complaint Form",
   "language": "typescript",
   "framework": "angular",
   "quality": "bad",

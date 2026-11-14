@@ -1,0 +1,41 @@
+{
+  "id": "javascript_introsort_monolith",
+  "pair_id": "javascript_sort_function_size",
+  "scenario_title": "6. Sorting Algorithm Decomposition vs. Monolithic IntroSort",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/IntroSort.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Sorts/IntroSort.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/IntroSort.js",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 182,
+    "classes_count": 0,
+    "functions_count": 3,
+    "scores": {
+      "srp": 85.0,
+      "size": 28.3,
+      "complexity": 28.7,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 33.3,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC=129 (>25)"
+    ],
+    "all_findings": [
+      "[Func introsort] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+      "[Func introsort] Size: LOC=129 (>25) (-100.0 pts)",
+      "[Func introsort] Complexity: CC=34 (>5) (-100.0 pts)",
+      "[Func introsort] Complexity: cognitive=34 (>8) (-65.0 pts)",
+      "[Func introsort] Complexity: returns=16 (>3) (-52.0 pts)",
+      "[Func demo1] Size: LOC=26 (>25) (-1.5 pts)",
+      "[Func demo2] Size: LOC=26 (>25) (-1.5 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 33.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 85.0 | Size: 28.3 | Complexity: 28.7 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js            src     182    -  85.0  28.3  28.7 100.0 100.0   33.3   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js:18 introsort      129  34   34   2   2    5.0   F\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Size: LOC=129 (>25) (-100.0 pts)\n    - Complexity: CC=34 (>5) (-100.0 pts)\n    - Complexity: cognitive=34 (>8) (-65.0 pts)\n    - Complexity: returns=16 (>3) (-52.0 pts)\nsamples/javascript/bad/IntroSort.js:250 demo1          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\nsamples/javascript/bad/IntroSort.js:282 demo2          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\n"
+  }
+}

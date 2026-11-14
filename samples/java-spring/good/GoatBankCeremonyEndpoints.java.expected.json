@@ -1,0 +1,40 @@
+{
+  "id": "java_spring_webauthn_size_good",
+  "pair_id": "java_spring_handler_size_decomposition",
+  "scenario_title": "7. WebAuthn Endpoint Decomposition vs Oversized Handler Method (OWASP WebGoat webauthn/, ~110 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/GoatBankCeremonyEndpoints.java",
+  "is_test": false,
+  "source_dataset": "OWASP WebGoat (webauthn/GoatBankCeremonyEndpoints.java)",
+  "source_url": "https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/GoatBankCeremonyEndpoints.java",
+  "license": "GPL-2.0",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 119,
+    "classes_count": 1,
+    "functions_count": 7,
+    "scores": {
+      "srp": 87.6,
+      "size": 98.9,
+      "complexity": 100.0,
+      "clean": 97.1,
+      "security": 100.0,
+      "composite": 95.6,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Method GoatBankCeremonyEndpoints.registrationOptions] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+      "[Method GoatBankCeremonyEndpoints.authenticationOptions] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Method GoatBankCeremonyEndpoints.authenticationOptions] Clean: missing public docstring (-10.0 pts)",
+      "[Method GoatBankCeremonyEndpoints.simulateCreate] SRP: high external call fan-out=12 (>6) (-18.0 pts)",
+      "[Method GoatBankCeremonyEndpoints.simulateGet] SRP: high external call fan-out=19 (>6) (-36.0 pts)",
+      "[Method GoatBankCeremonyEndpoints.simulateGet] Size: LOC=30 (>25) (-7.5 pts)",
+      "[Method GoatBankCeremonyEndpoints.descriptors] Clean: missing public docstring (-5.0 pts)",
+      "[Method GoatBankCeremonyEndpoints.error] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.6/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7\nDimensions -> SRP: 87.6 | Size: 98.9 | Complexity: 100.0 | Clean: 97.1 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/GoatBankCeremonyEndpoints.java src     119    -  87.6  98.9 100.0  97.1 100.0   95.6   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/GoatBankCeremonyEndpoints   119    7     1   11   95.6   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j   30   3    2   3   1   69.0   D\n    - SRP: high external call fan-out=19 (>6) (-36.0 pts)\n    - Size: LOC=30 (>25) (-7.5 pts)\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j   23   1    0   3   0   93.7   A\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j   25   3    2   3   1   94.6   A\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j   22   1    0   4   0   94.9   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j    5   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/GoatBankCeremonyEndpoints.j    4   1    0   1   0  100.0   A\n"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "typescript_ky_normalize_complex",
+  "pair_id": "typescript_http_options_complexity",
+  "scenario_title": "9. Request Option Helpers vs. High-Complexity Retry Option Normalizer (sindresorhus/ky)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/bad/ky_normalize.ts",
+  "is_test": false,
+  "source_dataset": "sindresorhus/ky (source/utils/normalize.ts)",
+  "source_url": "https://github.com/sindresorhus/ky/blob/main/source/utils/normalize.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 73,
+    "classes_count": 0,
+    "functions_count": 4,
+    "scores": {
+      "srp": 86.4,
+      "size": 67.3,
+      "complexity": 9.3,
+      "clean": 90.4,
+      "security": 100.0,
+      "composite": 14.3,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=19 (>5)",
+      "Size: LOC=49 (>25)",
+      "SRP: high external call fan-out=11 (>6)"
+    ],
+    "all_findings": [
+      "[Func normalizeRequestMethod] Clean: missing public docstring (-5.0 pts)",
+      "[Func defaultRetryOptions.delay] Clean: missing public docstring (-5.0 pts)",
+      "[Func defaultRetryOptions.delay] Clean: 1 untyped param(s) (attemptCount) (-5.0 pts)",
+      "[Func defaultRetryOptions.delay] Clean: missing return type annotation (-10.0 pts)",
+      "[Func normalizeRetryOptions] SRP: high external call fan-out=11 (>6) (-15.0 pts)",
+      "[Func normalizeRetryOptions] Size: LOC=49 (>25) (-36.0 pts)",
+      "[Func normalizeRetryOptions] Complexity: CC=19 (>5) (-83.0 pts)",
+      "[Func normalizeRetryOptions] Complexity: cognitive=20 (>8) (-30.0 pts)",
+      "[Func normalizeRetryOptions] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 14.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 86.4 | Size: 67.3 | Complexity: 9.3 | Clean: 90.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/ky_normalize.ts         src      73    -  86.4  67.3   9.3  90.4 100.0   14.3   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/ky_normalize.ts:37 normalizeR   49  19   20   1   3    5.0   F\n    - SRP: high external call fan-out=11 (>6) (-15.0 pts)\n    - Size: LOC=49 (>25) (-36.0 pts)\n    - Complexity: CC=19 (>5) (-83.0 pts)\n    - Complexity: cognitive=20 (>8) (-30.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript/bad/ky_normalize.ts:32 defaultRet    1   1    0   1   0   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 untyped param(s) (attemptCount) (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript/bad/ky_normalize.ts:6 normalizeRe    2   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript/bad/ky_normalize.ts:14 normalizeR    2   2    1   1   1  100.0   A\n"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "typescript_react_oss_material_table_bad",
+  "pair_id": "typescript_react_oss_hooks_hygiene_clean",
+  "scenario_title": "8. React Composable Cell Components vs. Conditional Hook Call (TanStack/table)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/material_react_table.tsx",
+  "is_test": false,
+  "source_dataset": "TanStack/table (examples/react/material-react-table/src/material-react-table/components/MaterialReactTable.tsx)",
+  "source_url": "https://github.com/TanStack/table/blob/main/examples/react/material-react-table/src/material-react-table/components/MaterialReactTable.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 37,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 66.4,
+      "security": 100.0,
+      "composite": 71.4,
+      "grade": "C"
+    },
+    "required_findings": [
+      "Rules of Hooks",
+      "explicit 'any' type usage"
+    ],
+    "all_findings": [
+      "[Func isTableInstanceProp] Clean: missing public docstring (-5.0 pts)",
+      "[Func MaterialReactTable] Clean: missing public docstring (-10.0 pts)",
+      "[Func MaterialReactTable] Clean (React): Rules of Hooks violation calling 'useMaterialReactTable' in branch/loop at L32 (-25.0 pts)",
+      "[Func MaterialReactTable] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 71.4/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 66.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/material_react_table.tsx src      37    - 100.0 100.0 100.0  66.4 100.0   71.4   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/material_react_table.ts   18   2    1   1   1   65.0   D\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): Rules of Hooks violation calling 'useMaterialReactTable' in branch/loop at L32 (-25.0 pts)\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript-react/bad/material_react_table.ts    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

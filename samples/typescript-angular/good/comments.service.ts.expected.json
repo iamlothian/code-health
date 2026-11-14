@@ -1,0 +1,36 @@
+{
+  "id": "typescript_angular_oss_comments_service_good",
+  "pair_id": "typescript_angular_oss_service_cohesion",
+  "scenario_title": "8. Angular Cohesive Comments Service vs. OWASP Juice Shop Disconnected Storage Service",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "good",
+  "file_path": "samples/typescript-angular/good/comments.service.ts",
+  "is_test": false,
+  "source_dataset": "realworld-apps/angular-realworld-example-app (src/app/features/article/services/comments.service.ts)",
+  "source_url": "https://github.com/realworld-apps/angular-realworld-example-app/blob/main/src/app/features/article/services/comments.service.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 22,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 81.2,
+      "security": 100.0,
+      "composite": 97.2,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class CommentsService] Clean: missing class docstring (-15.0 pts)",
+      "[Method CommentsService.getAll] Clean: missing public docstring (-5.0 pts)",
+      "[Method CommentsService.add] Clean: missing public docstring (-5.0 pts)",
+      "[Method CommentsService.delete] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 81.2 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/comments.service.ts src      22    - 100.0 100.0 100.0  81.2 100.0   97.2   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/comments.service.t    16    4     1    4   97.2   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/good/comments.service.ts:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/comments.service.ts:    7   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/comments.service.ts:    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/good/comments.service.ts:    1   1    0   1   0  100.0   A\n"
+  }
+}

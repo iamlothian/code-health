@@ -1,0 +1,50 @@
+{
+  "id": "typescript_react_oss_adapter_test_bad",
+  "pair_id": "typescript_react_oss_component_test_hygiene",
+  "scenario_title": "10. React Component RTL Test Hygiene vs. Bloated Multi-Assertion Adapter Test",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/adapter_reactivity.test.tsx",
+  "is_test": true,
+  "source_dataset": "TanStack/table (packages/react-table/tests/adapterReactivity.test.tsx)",
+  "source_url": "https://github.com/TanStack/table/blob/main/packages/react-table/tests/adapterReactivity.test.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 508,
+    "classes_count": 0,
+    "functions_count": 10,
+    "scores": {
+      "srp": 100.0,
+      "size": 29.5,
+      "complexity": 99.0,
+      "clean": 88.0,
+      "security": 100.0,
+      "composite": 34.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "assertions in single test (>8)",
+      "non-null assertion"
+    ],
+    "all_findings": [
+      "Size: file LOC=508 (>350) (-23.7 pts)",
+      "[Func unmount] Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)",
+      "[Func test: exposes React adapter APIs through the returned table surface] Size: LOC=54 (>40) (-14.0 pts)",
+      "[Func test: updates the paginated row model without invalidating the core row model] Size: LOC=57 (>40) (-17.0 pts)",
+      "[Func test: updates the paginated row model without invalidating the core row model] Clean (Test): 9 assertions in single test (>8) (-3.0 pts)",
+      "[Func test: updates the paginated row model without invalidating the core row model] Clean (TS): 4 non-null assertion(s) ('!') bypass strict null checks (-8.0 pts)",
+      "[Func test: bridges external atoms through both Subscribe source overloads] Size: LOC=57 (>40) (-17.0 pts)",
+      "[Func test: isolates Subscribe render cycles to each selected dependency] Size: LOC=106 (>40) (-97.0 pts)",
+      "[Func test: isolates Subscribe render cycles to each selected dependency] Complexity: returns=4 (>3) (-4.0 pts)",
+      "[Func test: isolates Subscribe render cycles to each selected dependency] Clean (Test): 26 assertions in single test (>8) (-30.0 pts)",
+      "[Func test: stops root and isolated React observers after unmount] Size: LOC=62 (>40) (-22.0 pts)",
+      "[Func test: stops root and isolated React observers after unmount] Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)",
+      "[Func test: refreshes data, columns, and table options together on the next render] Size: LOC=92 (>40) (-69.0 pts)",
+      "[Func test: refreshes data, columns, and table options together on the next render] Clean (Test): 11 assertions in single test (>8) (-9.0 pts)",
+      "[Func test: refreshes data, columns, and table options together on the next render] Clean (TS): 3 non-null assertion(s) ('!') bypass strict null checks (-6.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 34.5/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 10\nDimensions -> SRP: 100.0 | Size: 29.5 | Complexity: 99.0 | Clean: 88.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/adapter_reactivity.test.tsx test    508    - 100.0  29.5  99.0  88.0 100.0   34.5   F\n    - Size: file LOC=508 (>350) (-23.7 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/adapter_reactivity.test  106   1    0   0   0    8.0   F\n    - Size: LOC=106 (>40) (-97.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\n    - Clean (Test): 26 assertions in single test (>8) (-30.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test   92   5    4   0   1   36.0   F\n    - Size: LOC=92 (>40) (-69.0 pts)\n    - Clean (Test): 11 assertions in single test (>8) (-9.0 pts)\n    - Clean (TS): 3 non-null assertion(s) ('!') bypass strict null checks (-6.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test   57   1    0   0   0   94.1   A\n    - Size: LOC=57 (>40) (-17.0 pts)\n    - Clean (Test): 9 assertions in single test (>8) (-3.0 pts)\n    - Clean (TS): 4 non-null assertion(s) ('!') bypass strict null checks (-8.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test   62   1    0   0   0   94.2   A\n    - Size: LOC=62 (>40) (-22.0 pts)\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test   57   1    0   0   0   95.8   A\n    - Size: LOC=57 (>40) (-17.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test   54   1    0   0   0   96.5   A\n    - Size: LOC=54 (>40) (-14.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test    4   1    0   0   0   99.7   A\n    - Clean (TS): 1 non-null assertion(s) ('!') bypass strict null checks (-2.0 pts)\nsamples/typescript-react/bad/adapter_reactivity.test    4   1    0   1   0  100.0   A\nsamples/typescript-react/bad/adapter_reactivity.test    3   1    0   1   0  100.0   A\nsamples/typescript-react/bad/adapter_reactivity.test    3   1    0   1   0  100.0   A\n"
+  }
+}

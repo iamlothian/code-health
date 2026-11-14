@@ -5,8 +5,8 @@
 **Force:** `--framework nextjs`  
 **Builds on:** [React Playbook](react-playbook.md)  
 **Worked examples:**  
-- Clean: [dashboard_page_clean.tsx](../../../samples/typescript-nextjs/good/app/dashboard_page_clean.tsx), [nav_links.tsx](../../../samples/typescript-nextjs/good/app/nav_links.tsx), [invoices_page.tsx](../../../samples/typescript-nextjs/good/app/invoices_page.tsx), [invoices_error.tsx](../../../samples/typescript-nextjs/good/app/invoices_error.tsx)  
-- Flagged: [dashboard_page_unsafe.tsx](../../../samples/typescript-nextjs/bad/app/dashboard_page_unsafe.tsx), [login_form.tsx](../../../samples/typescript-nextjs/bad/app/login_form.tsx), [customers_table.tsx](../../../samples/typescript-nextjs/bad/app/customers_table.tsx), [revenue_chart.tsx](../../../samples/typescript-nextjs/bad/app/revenue_chart.tsx)
+- Clean: [product_description.tsx](../../../samples/typescript-nextjs/good/app/product_description.tsx), [confirmation_dialog_stories.tsx](../../../samples/typescript-nextjs/good/app/confirmation_dialog_stories.tsx), [nav_links.tsx](../../../samples/typescript-nextjs/good/app/nav_links.tsx), [invoices_page.tsx](../../../samples/typescript-nextjs/good/app/invoices_page.tsx), [invoices_error.tsx](../../../samples/typescript-nextjs/good/app/invoices_error.tsx)  
+- Flagged: [prose_html.tsx](../../../samples/typescript-nextjs/bad/app/prose_html.tsx), [dialog_stories.tsx](../../../samples/typescript-nextjs/bad/app/dialog_stories.tsx), [cart_modal.tsx](../../../samples/typescript-nextjs/bad/app/cart_modal.tsx), [login_form.tsx](../../../samples/typescript-nextjs/bad/app/login_form.tsx), [customers_table.tsx](../../../samples/typescript-nextjs/bad/app/customers_table.tsx), [revenue_chart.tsx](../../../samples/typescript-nextjs/bad/app/revenue_chart.tsx)
 
 ---
 
@@ -90,8 +90,6 @@ export default async function DashboardPageClean(): Promise<JSX.Element> {
   return <DashboardTabs initialTab={activeTab} />;
 }
 ```
-
-See [dashboard_page_unsafe.tsx](../../../samples/typescript-nextjs/bad/app/dashboard_page_unsafe.tsx) vs. [dashboard_page_clean.tsx](../../../samples/typescript-nextjs/good/app/dashboard_page_clean.tsx).
 
 ---
 

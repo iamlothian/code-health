@@ -1,0 +1,883 @@
+{
+  "version": "1.2.0",
+  "profile": "java",
+  "language": "java",
+  "framework": "none",
+  "description": "Functionally comparable verbatim real-world Java (framework=none) Good and Bad code health scorecard baseline samples across 10 scenarios.",
+  "samples": [
+    {
+      "id": "java_contest_structure_good",
+      "pair_id": "java_contest_structure",
+      "scenario_title": "1. Competitive Programming Contest Class Structure (Same Problem: Codeforces 1575D)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/DivisibleByTwentyFiveClean.java",
+      "is_test": false,
+      "source_dataset": "DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #57)",
+      "source_url": "https://huggingface.co/datasets/deepmind/code_contests",
+      "license": "CC-BY-4.0",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 132,
+        "classes_count": 1,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 75.0,
+          "security": 100.0,
+          "composite": 96.2,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class Main] Clean: missing class docstring (-15.0 pts)",
+          "[Method Main.main] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 96.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveClean.java src     132    - 100.0 100.0 100.0  75.0 100.0   96.2   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveClean.java:   132    1     1    2   96.2   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveClean.java:9    11   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "java_contest_structure_bad",
+      "pair_id": "java_contest_structure",
+      "scenario_title": "1. Competitive Programming Contest Class Structure (Same Problem: Codeforces 1575D)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/DivisibleByTwentyFiveGodClass.java",
+      "is_test": false,
+      "source_dataset": "DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #45)",
+      "source_url": "https://huggingface.co/datasets/deepmind/code_contests",
+      "license": "CC-BY-4.0",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 611,
+        "classes_count": 1,
+        "functions_count": 69,
+        "scores": {
+          "srp": 0.0,
+          "size": 0.0,
+          "complexity": 0.0,
+          "clean": 94.1,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: file LOC=611 (>350) (-40.2 pts)",
+          "SRP: LCOM4=14 disconnected method groups (-100.0 pts)",
+          "SRP: methods=69 (>10) (-100.0 pts)",
+          "Complexity: total class CC=162 (>25) (-100.0 pts)"
+        ],
+        "all_findings": [
+          "Size: file LOC=611 (>350) (-40.2 pts)",
+          "[Class Main] SRP: LCOM4=14 disconnected method groups (-100.0 pts)",
+          "[Class Main] SRP: methods=69 (>10) (-100.0 pts)",
+          "[Class Main] SRP: self attributes=8 (>7) (-4.0 pts)",
+          "[Class Main] Size: class LOC=611 (>200) (-100.0 pts)",
+          "[Class Main] Complexity: total class CC=162 (>25) (-100.0 pts)",
+          "[Method Main.main] Size: LOC=26 (>25) (-1.5 pts)",
+          "[Method Main.main] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method Main.main] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.go] Size: LOC=37 (>25) (-18.0 pts)",
+          "[Method Main.go] Complexity: CC=11 (>5) (-27.0 pts)",
+          "[Method Main.go] Complexity: cognitive=10 (>8) (-5.0 pts)",
+          "[Method Main.go] Complexity: returns=4 (>3) (-4.0 pts)",
+          "[Method Main.go] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.find] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.update] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.sum] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.update1] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.sum1] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.add] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.remove] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.upper] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.lower] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.copy] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.copy] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.input] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.inputL] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.inputS] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.sum] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.sum] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.reverse] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.reverse] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.input] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.input] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.charinput] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.prefix] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.prefix] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.suffix] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.suffix] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.fill] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.min] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.max] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.power] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.power] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.print] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.print] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.mod] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.reverse] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.i] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.s] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.l] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.sort] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.sort] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.sort] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.hash] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.tree] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.prime] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method Main.prime] Complexity: returns=5 (>3) (-8.0 pts)",
+          "[Method Main.prime] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.prime] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method Main.prime] Complexity: returns=5 (>3) (-8.0 pts)",
+          "[Method Main.prime] Clean: missing public docstring (-10.0 pts)",
+          "[Method Main.gcd] Clean: missing public docstring (-5.0 pts)",
+          "[Method Main.gcd] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 69\nDimensions -> SRP: 0.0 | Size: 0.0 | Complexity: 0.0 | Clean: 94.1 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java src     611    -   0.0   0.0   0.0  94.1 100.0    5.0   F\n    - Size: file LOC=611 (>350) (-40.2 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DivisibleByTwentyFiveGodClass.jav   611   69    14  162    5.0   F\n    - SRP: LCOM4=14 disconnected method groups (-100.0 pts)\n    - SRP: methods=69 (>10) (-100.0 pts)\n    - SRP: self attributes=8 (>7) (-4.0 pts)\n    - Size: class LOC=611 (>200) (-100.0 pts)\n    - Complexity: total class CC=162 (>25) (-100.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   37  11   10   4   1   69.0   D\n    - Size: LOC=37 (>25) (-18.0 pts)\n    - Complexity: CC=11 (>5) (-27.0 pts)\n    - Complexity: cognitive=10 (>8) (-5.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   14   6    5   1   1   96.1   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   14   6    5   1   1   96.1   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   26   6    5   1   1   97.3   A\n    - Size: LOC=26 (>25) (-1.5 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   17   3    2   4   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   17   3    2   4   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   16   5    4   3   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   15   5    4   2   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   11   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   11   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   12   3    2   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   12   3    2   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   12   3    2   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    5   2    1   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    4   2    1   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    4   2    1   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    8   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   3    2   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    9   3    2   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    9   3    2   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    9   3    2   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:   10   3    2   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    4   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   3    2   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    9   4    3   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    4   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    7   3    2   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    9   4    3   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   3   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   3   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   3   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   3   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    5   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DivisibleByTwentyFiveGodClass.java:    6   2    1   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "java_complexity_good",
+      "pair_id": "java_method_complexity",
+      "scenario_title": "2. Method Complexity & Control Flow (Same Problem: Codeforces 1575D)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/DivisibleByTwentyFiveModular.java",
+      "is_test": false,
+      "source_dataset": "DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #46)",
+      "source_url": "https://huggingface.co/datasets/deepmind/code_contests",
+      "license": "CC-BY-4.0",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 79,
+        "classes_count": 1,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 96.5,
+          "complexity": 93.3,
+          "clean": 76.7,
+          "security": 100.0,
+          "composite": 94.3,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Class Solution] Clean: missing class docstring (-15.0 pts)",
+          "[Method Solution.f] Size: LOC=28 (>25) (-4.5 pts)",
+          "[Method Solution.f] Size: params=5 (>4) (-6.0 pts)",
+          "[Method Solution.f] Complexity: CC=9 (>5) (-16.0 pts)",
+          "[Method Solution.f] Complexity: returns=4 (>3) (-4.0 pts)",
+          "[Method Solution.f] Clean: missing public docstring (-10.0 pts)",
+          "[Method Solution.solve] Clean: missing public docstring (-10.0 pts)",
+          "[Method Solution.main] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 94.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 96.5 | Complexity: 93.3 | Clean: 76.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveModular.java src      79    - 100.0  96.5  93.3  76.7 100.0   94.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveModular.jav    79    3     1   14   94.3   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DivisibleByTwentyFiveModular.java:   28   9    8   5   1   91.9   A\n    - Size: LOC=28 (>25) (-4.5 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/good/DivisibleByTwentyFiveModular.java:   16   4    3   2   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/good/DivisibleByTwentyFiveModular.java:    8   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "java_complexity_bad",
+      "pair_id": "java_method_complexity",
+      "scenario_title": "2. Method Complexity & Control Flow (Same Problem: Codeforces 1575D)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/DivisibleByTwentyFiveBranchy.java",
+      "is_test": false,
+      "source_dataset": "DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #32)",
+      "source_url": "https://huggingface.co/datasets/deepmind/code_contests",
+      "license": "CC-BY-4.0",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 42,
+        "classes_count": 1,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 79.0,
+          "complexity": 39.5,
+          "clean": 75.0,
+          "security": 100.0,
+          "composite": 44.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC=39 (>25) (-21.0 pts)",
+          "Complexity: CC=14 (>5) (-48.0 pts)",
+          "Complexity: cognitive=13 (>8) (-12.5 pts)"
+        ],
+        "all_findings": [
+          "[Class Codeforces] Clean: missing class docstring (-15.0 pts)",
+          "[Method Codeforces.main] Size: LOC=39 (>25) (-21.0 pts)",
+          "[Method Codeforces.main] Complexity: CC=14 (>5) (-48.0 pts)",
+          "[Method Codeforces.main] Complexity: cognitive=13 (>8) (-12.5 pts)",
+          "[Method Codeforces.main] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 44.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 79.0 | Complexity: 39.5 | Clean: 75.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DivisibleByTwentyFiveBranchy.java src      42    - 100.0  79.0  39.5  75.0 100.0   44.5   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DivisibleByTwentyFiveBranchy.java    42    1     1   14   44.5   F\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DivisibleByTwentyFiveBranchy.java:6   39  14   13   1   1   44.5   F\n    - Size: LOC=39 (>25) (-21.0 pts)\n    - Complexity: CC=14 (>5) (-48.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "java_cohesion_good",
+      "pair_id": "java_class_cohesion",
+      "scenario_title": "3. Linked List Data Structure Cohesion & Method Count (TheAlgorithms/Java lists/, ~250 LOC)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/DoublyLinkedList.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 234,
+        "classes_count": 3,
+        "functions_count": 19,
+        "scores": {
+          "srp": 96.6,
+          "size": 99.2,
+          "complexity": 93.1,
+          "clean": 99.4,
+          "security": 100.0,
+          "composite": 97.3,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Method Link.main] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+          "[Method Link.main] Size: LOC=33 (>25) (-12.0 pts)",
+          "[Class LinkOperations] SRP: methods=11 (>10) (-4.0 pts)",
+          "[Class LinkOperations] Complexity: total class CC=32 (>25) (-10.5 pts)",
+          "[Method LinkOperations.removeDuplicates] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 3 | Functions/Methods: 19\nDimensions -> SRP: 96.6 | Size: 99.2 | Complexity: 93.1 | Clean: 99.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DoublyLinkedList.java        src     234    -  96.6  99.2  93.1  99.4 100.0   97.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DoublyLinkedList.java:172 LinkOp   154   11     1   32   96.6   A\n    - SRP: methods=11 (>10) (-4.0 pts)\n    - Complexity: total class CC=32 (>25) (-10.5 pts)\nsamples/java/good/DoublyLinkedList.java:93 Link       44    3     1    3   97.8   A\nsamples/java/good/DoublyLinkedList.java:16 DoublyL    36    5     1    7  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/DoublyLinkedList.java:129 Link.mai   33   1    0   1   0   93.4   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Size: LOC=33 (>25) (-12.0 pts)\nsamples/java/good/DoublyLinkedList.java:362 LinkOper   13   4    3   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/good/DoublyLinkedList.java:34 DoublyLin    4   1    0   0   0  100.0   A\nsamples/java/good/DoublyLinkedList.java:45 DoublyLin    8   1    0   1   0  100.0   A\nsamples/java/good/DoublyLinkedList.java:59 DoublyLin    3   1    0   0   0  100.0   A\nsamples/java/good/DoublyLinkedList.java:66 DoublyLin    8   2    1   0   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:78 DoublyLin    8   2    1   0   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:113 Link.Lin    3   1    0   1   0  100.0   A\nsamples/java/good/DoublyLinkedList.java:120 Link.dis    3   1    0   0   0  100.0   A\nsamples/java/good/DoublyLinkedList.java:193 LinkOper   11   2    1   2   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:210 LinkOper   13   2    1   2   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:230 LinkOper   23   5    4   3   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:260 LinkOper   11   2    1   0   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:279 LinkOper   11   2    1   0   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:298 LinkOper   19   5    4   1   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:325 LinkOper   18   4    3   2   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:350 LinkOper   11   3    2   1   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:379 LinkOper   14   2    1   0   1  100.0   A\nsamples/java/good/DoublyLinkedList.java:405 LinkOper    5   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_cohesion_bad",
+      "pair_id": "java_class_cohesion",
+      "scenario_title": "3. Linked List Data Structure Cohesion & Method Count (TheAlgorithms/Java lists/, ~250 LOC)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/SinglyLinkedList.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/SinglyLinkedList.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/SinglyLinkedList.java",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 281,
+        "classes_count": 1,
+        "functions_count": 27,
+        "scores": {
+          "srp": 15.7,
+          "size": 66.7,
+          "complexity": 50.2,
+          "clean": 98.9,
+          "security": 100.0,
+          "composite": 20.7,
+          "grade": "F"
+        },
+        "required_findings": [
+          "SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+          "SRP: methods=27 (>10) (-68.0 pts)",
+          "Size: class LOC=281 (>200) (-32.4 pts)",
+          "Complexity: total class CC=58 (>25) (-49.5 pts)"
+        ],
+        "all_findings": [
+          "[Class SinglyLinkedList] SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+          "[Class SinglyLinkedList] SRP: methods=27 (>10) (-68.0 pts)",
+          "[Class SinglyLinkedList] Size: class LOC=281 (>200) (-32.4 pts)",
+          "[Class SinglyLinkedList] Complexity: total class CC=58 (>25) (-49.5 pts)",
+          "[Method SinglyLinkedList.swapNodes] Size: LOC=33 (>25) (-12.0 pts)",
+          "[Method SinglyLinkedList.swapNodes] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method SinglyLinkedList.toString] Clean: missing public docstring (-5.0 pts)",
+          "[Method SinglyLinkedList.deleteDuplicates] Clean: missing public docstring (-10.0 pts)",
+          "[Method SinglyLinkedList.print] Clean: missing public docstring (-10.0 pts)",
+          "[Method SinglyLinkedList.main] SRP: high external call fan-out=19 (>6) (-36.0 pts)",
+          "[Method SinglyLinkedList.main] Size: LOC=34 (>25) (-13.5 pts)",
+          "[Method SinglyLinkedList.iterator] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 20.7/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 27\nDimensions -> SRP: 15.7 | Size: 66.7 | Complexity: 50.2 | Clean: 98.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SinglyLinkedList.java         src     281    -  15.7  66.7  50.2  98.9 100.0   20.7   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SinglyLinkedList.java:10 SinglyLi   281   27     2   58   20.7   F\n    - SRP: LCOM4=2 disconnected method groups (-15.0 pts)\n    - SRP: methods=27 (>10) (-68.0 pts)\n    - Size: class LOC=281 (>200) (-32.4 pts)\n    - Complexity: total class CC=58 (>25) (-49.5 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SinglyLinkedList.java:402 SinglyLin   34   2    1   1   0   69.0   D\n    - SRP: high external call fan-out=19 (>6) (-36.0 pts)\n    - Size: LOC=34 (>25) (-13.5 pts)\nsamples/java/bad/SinglyLinkedList.java:81 SinglyLink   33   7    6   2   1   95.4   A\n    - Size: LOC=33 (>25) (-12.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\nsamples/java/bad/SinglyLinkedList.java:251 SinglyLin   15   4    3   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/SinglyLinkedList.java:275 SinglyLin   11   3    2   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/SinglyLinkedList.java:242 SinglyLin    8   2    1   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SinglyLinkedList.java:449 SinglyLin    4   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SinglyLinkedList.java:25 SinglyLink    4   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:36 SinglyLink    4   1    0   2   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:46 SinglyLink   12   3    2   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:64 SinglyLink   12   3    2   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:129 SinglyLin   15   3    2   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:152 SinglyLin   10   2    1   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:169 SinglyLin    8   2    1   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:183 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:192 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:201 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:209 SinglyLin    3   1    0   1   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:218 SinglyLin    7   2    1   0   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:233 SinglyLin    8   3    2   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:292 SinglyLin    3   1    0   1   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:301 SinglyLin    3   1    0   1   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:311 SinglyLin   22   4    3   2   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:340 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:347 SinglyLin    3   1    0   0   0  100.0   A\nsamples/java/bad/SinglyLinkedList.java:354 SinglyLin   14   3    2   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:377 SinglyLin    8   2    1   1   1  100.0   A\nsamples/java/bad/SinglyLinkedList.java:393 SinglyLin    5   2    1   3   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_cipher_size_good",
+      "pair_id": "java_cipher_class_size",
+      "scenario_title": "4. Block & Classical Cipher Implementation Size (TheAlgorithms/Java ciphers/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/AffineCipher.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/AffineCipher.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/AffineCipher.java",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 37,
+        "classes_count": 1,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/AffineCipher.java            src      37    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/AffineCipher.java:21 AffineCiphe    37    3     1    9  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/AffineCipher.java:22 AffineCipher.    2   1    0   0   0  100.0   A\nsamples/java/good/AffineCipher.java:35 AffineCipher.   11   3    2   1   1  100.0   A\nsamples/java/good/AffineCipher.java:58 AffineCipher.   20   5    4   1   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_cipher_size_bad",
+      "pair_id": "java_cipher_class_size",
+      "scenario_title": "4. Block & Classical Cipher Implementation Size (TheAlgorithms/Java ciphers/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/Blowfish.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/Blowfish.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/Blowfish.java",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 1149,
+        "classes_count": 1,
+        "functions_count": 9,
+        "scores": {
+          "srp": 99.0,
+          "size": 0.0,
+          "complexity": 100.0,
+          "clean": 98.9,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: file LOC=1149 (>350) (-100.0 pts)",
+          "Size: class LOC=1149 (>200) (-100.0 pts)"
+        ],
+        "all_findings": [
+          "Size: file LOC=1149 (>350) (-100.0 pts)",
+          "[Class Blowfish] Size: class LOC=1149 (>200) (-100.0 pts)",
+          "[Method Blowfish.hexToBin] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Method Blowfish.xor] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Method Blowfish.keyGenerate] Clean: missing public docstring (-5.0 pts)",
+          "[Method Blowfish.round] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 9\nDimensions -> SRP: 99.0 | Size: 0.0 | Complexity: 100.0 | Clean: 98.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Blowfish.java                 src    1149    -  99.0   0.0 100.0  98.9 100.0    5.0   F\n    - Size: file LOC=1149 (>350) (-100.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Blowfish.java:11 Blowfish          1149    9     1   16    5.0   F\n    - Size: class LOC=1149 (>200) (-100.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Blowfish.java:1080 Blowfish.hexToBi   14   2    1   1   1   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/java/bad/Blowfish.java:1121 Blowfish.xor       10   2    1   2   1   99.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\nsamples/java/bad/Blowfish.java:1170 Blowfish.keyGene    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/Blowfish.java:1181 Blowfish.round     10   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/Blowfish.java:1104 Blowfish.binToHe    8   2    1   1   1  100.0   A\nsamples/java/bad/Blowfish.java:1140 Blowfish.addBin     9   1    0   2   0  100.0   A\nsamples/java/bad/Blowfish.java:1155 Blowfish.f         12   2    1   1   1  100.0   A\nsamples/java/bad/Blowfish.java:1205 Blowfish.encrypt   11   2    1   2   1  100.0   A\nsamples/java/bad/Blowfish.java:1229 Blowfish.decrypt   11   2    1   2   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_buffer_cohesion_good",
+      "pair_id": "java_buffer_cohesion",
+      "scenario_title": "5. Ring & Sliding Window Buffer Cohesion & Attribute Count (TheAlgorithms/Java buffers/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/CircularBuffer.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/buffers/CircularBuffer.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/buffers/CircularBuffer.java",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 55,
+        "classes_count": 1,
+        "functions_count": 5,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/CircularBuffer.java          src      55    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/CircularBuffer.java:13 CircularB    55    5     1    8  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/CircularBuffer.java:26 CircularBuf    8   1    0   1   0  100.0   A\nsamples/java/good/CircularBuffer.java:42 CircularBuf    3   1    0   0   0  100.0   A\nsamples/java/good/CircularBuffer.java:52 CircularBuf    3   1    0   0   0  100.0   A\nsamples/java/good/CircularBuffer.java:62 CircularBuf    8   2    1   0   1  100.0   A\nsamples/java/good/CircularBuffer.java:80 CircularBuf   13   3    2   1   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_buffer_cohesion_bad",
+      "pair_id": "java_buffer_cohesion",
+      "scenario_title": "5. Ring & Sliding Window Buffer Cohesion & Attribute Count (TheAlgorithms/Java buffers/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/SlidingWindowAggregator.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/buffers/SlidingWindowAggregator.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/buffers/SlidingWindowAggregator.java",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 177,
+        "classes_count": 1,
+        "functions_count": 26,
+        "scores": {
+          "srp": 8.9,
+          "size": 100.0,
+          "complexity": 83.5,
+          "clean": 99.0,
+          "security": 100.0,
+          "composite": 13.9,
+          "grade": "F"
+        },
+        "required_findings": [
+          "SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+          "SRP: methods=26 (>10) (-64.0 pts)",
+          "SRP: self attributes=10 (>7) (-12.0 pts)"
+        ],
+        "all_findings": [
+          "[Class SlidingWindowAggregator] SRP: LCOM4=2 disconnected method groups (-15.0 pts)",
+          "[Class SlidingWindowAggregator] SRP: methods=26 (>10) (-64.0 pts)",
+          "[Class SlidingWindowAggregator] SRP: self attributes=10 (>7) (-12.0 pts)",
+          "[Class SlidingWindowAggregator] Complexity: total class CC=36 (>25) (-16.5 pts)",
+          "[Method SlidingWindowAggregator.add] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Method SlidingWindowAggregator.toString] Clean: missing public docstring (-5.0 pts)",
+          "[Method SlidingWindowAggregator.slotOf] Clean: missing public docstring (-5.0 pts)",
+          "[Method SlidingWindowAggregator.elementAt] Clean: missing public docstring (-5.0 pts)",
+          "[Method SlidingWindowAggregator.aggregateAt] Clean: missing public docstring (-5.0 pts)",
+          "[Method SlidingWindowAggregator.requireNonNullResult] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 13.9/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 26\nDimensions -> SRP: 8.9 | Size: 100.0 | Complexity: 83.5 | Clean: 99.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SlidingWindowAggregator.java  src     177    -   8.9 100.0  83.5  99.0 100.0   13.9   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SlidingWindowAggregator.java:92 S   177   26     2   36   13.9   F\n    - SRP: LCOM4=2 disconnected method groups (-15.0 pts)\n    - SRP: methods=26 (>10) (-64.0 pts)\n    - SRP: self attributes=10 (>7) (-12.0 pts)\n    - Complexity: total class CC=36 (>25) (-16.5 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/SlidingWindowAggregator.java:205 Sl   12   1    0   1   0   99.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:387 Sl    4   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:409 Sl    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:413 Sl    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:418 Sl    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:423 Sl    3   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/SlidingWindowAggregator.java:130 Sl   10   1    0   3   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:149 Sl    3   1    0   2   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:159 Sl    3   1    0   1   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:170 Sl    3   1    0   1   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:182 Sl    3   1    0   2   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:194 Sl    3   1    0   2   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:226 Sl    6   2    1   1   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:239 Sl   15   3    2   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:263 Sl   10   3    2   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:281 Sl    6   2    1   1   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:294 Sl    6   2    1   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:307 Sl    6   2    1   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:319 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:328 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:337 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:346 Sl    3   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:353 Sl    9   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:369 Sl    7   2    1   0   1  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:382 Sl    4   1    0   0   0  100.0   A\nsamples/java/bad/SlidingWindowAggregator.java:397 Sl   11   2    1   0   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_graph_complexity_good",
+      "pair_id": "java_graph_algorithm_complexity",
+      "scenario_title": "6. Graph Traversal & Path Complexity (TheAlgorithms/Java graph/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/TarjanBridges.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/graph/TarjanBridges.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/graph/TarjanBridges.java",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 57,
+        "classes_count": 1,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 98.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 99.6,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Method TarjanBridges.findBridges] Complexity: CC=6 (>5) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.6/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 98.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/TarjanBridges.java           src      57    - 100.0 100.0  98.0 100.0 100.0   99.6   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/TarjanBridges.java:29 TarjanBrid    57    2     1    7   99.6   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/TarjanBridges.java:52 TarjanBridge   19   6    5   2   1   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/java/good/TarjanBridges.java:31 TarjanBridge    3   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_graph_complexity_bad",
+      "pair_id": "java_graph_algorithm_complexity",
+      "scenario_title": "6. Graph Traversal & Path Complexity (TheAlgorithms/Java graph/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/HierholzerEulerianPath.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/graph/HierholzerEulerianPath.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/graph/HierholzerEulerianPath.java",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 188,
+        "classes_count": 1,
+        "functions_count": 7,
+        "scores": {
+          "srp": 97.0,
+          "size": 92.5,
+          "complexity": 47.7,
+          "clean": 94.3,
+          "security": 100.0,
+          "composite": 52.7,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: total class CC=48 (>25) (-34.5 pts)",
+          "Complexity: returns=6 (>3) (-12.0 pts)"
+        ],
+        "all_findings": [
+          "[Class HierholzerEulerianPath] Complexity: total class CC=48 (>25) (-34.5 pts)",
+          "[Method HierholzerEulerianPath.findEulerianPath] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Method HierholzerEulerianPath.findEulerianPath] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method HierholzerEulerianPath.findEulerianPath] Complexity: returns=6 (>3) (-12.0 pts)",
+          "[Method HierholzerEulerianPath.computeDegrees] Clean: missing public docstring (-10.0 pts)",
+          "[Method HierholzerEulerianPath.determineStartNode] Size: LOC=29 (>25) (-6.0 pts)",
+          "[Method HierholzerEulerianPath.determineStartNode] Complexity: CC=9 (>5) (-16.0 pts)",
+          "[Method HierholzerEulerianPath.determineStartNode] Clean: missing public docstring (-10.0 pts)",
+          "[Method HierholzerEulerianPath.buildHierholzerPath] SRP: high external call fan-out=11 (>6) (-15.0 pts)",
+          "[Method HierholzerEulerianPath.buildHierholzerPath] Clean: missing public docstring (-10.0 pts)",
+          "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Size: LOC=49 (>25) (-36.0 pts)",
+          "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Complexity: CC=15 (>5) (-55.0 pts)",
+          "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Complexity: cognitive=14 (>8) (-15.0 pts)",
+          "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Clean: missing public docstring (-10.0 pts)",
+          "[Method HierholzerEulerianPath.allNonZeroDegreeVerticesWeaklyConnected] Size: LOC=32 (>25) (-10.5 pts)",
+          "[Method HierholzerEulerianPath.allNonZeroDegreeVerticesWeaklyConnected] Complexity: CC=10 (>5) (-20.0 pts)",
+          "[Method HierholzerEulerianPath.allNonZeroDegreeVerticesWeaklyConnected] Complexity: cognitive=9 (>8) (-2.5 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 52.7/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7\nDimensions -> SRP: 97.0 | Size: 92.5 | Complexity: 47.7 | Clean: 94.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/HierholzerEulerianPath.java   src     188    -  97.0  92.5  47.7  94.3 100.0   52.7   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/HierholzerEulerianPath.java:38 Hi   188    7     1   48   52.7   F\n    - Complexity: total class CC=48 (>25) (-34.5 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/HierholzerEulerianPath.java:207 Hie   49  15   14   3   1   35.0   F\n    - Size: LOC=49 (>25) (-36.0 pts)\n    - Complexity: CC=15 (>5) (-55.0 pts)\n    - Complexity: cognitive=14 (>8) (-15.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:269 Hie   32  10    9   4   1   92.9   A\n    - Size: LOC=32 (>25) (-10.5 pts)\n    - Complexity: CC=10 (>5) (-20.0 pts)\n    - Complexity: cognitive=9 (>8) (-2.5 pts)\nsamples/java/bad/HierholzerEulerianPath.java:151 Hie   29   9    8   2   1   93.8   A\n    - Size: LOC=29 (>25) (-6.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:184 Hie   19   4    3   2   1   94.0   A\n    - SRP: high external call fan-out=11 (>6) (-15.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:105 Hie   24   6    5   0   1   95.0   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Complexity: returns=6 (>3) (-12.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:139 Hie   11   3    2   2   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:95 Hier    3   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_math_clean_good",
+      "pair_id": "java_math_documentation_clean",
+      "scenario_title": "7. Mathematical Utility Javadocs & Cohesion (TheAlgorithms/Java maths/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/ChineseRemainderTheorem.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/ChineseRemainderTheorem.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/ChineseRemainderTheorem.java",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 42,
+        "classes_count": 1,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/ChineseRemainderTheorem.java src      42    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/ChineseRemainderTheorem.java:13     42    3     1    9  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/ChineseRemainderTheorem.java:14 Ch    2   1    0   0   0  100.0   A\nsamples/java/good/ChineseRemainderTheorem.java:23 Ch   17   4    3   2   1  100.0   A\nsamples/java/good/ChineseRemainderTheorem.java:55 Ch   21   4    3   2   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_math_clean_bad",
+      "pair_id": "java_math_documentation_clean",
+      "scenario_title": "7. Mathematical Utility Javadocs & Cohesion (TheAlgorithms/Java maths/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/DistanceFormula.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/DistanceFormula.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/DistanceFormula.java",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 35,
+        "classes_count": 1,
+        "functions_count": 5,
+        "scores": {
+          "srp": 70.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 79.0,
+          "security": 100.0,
+          "composite": 75.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "Clean: missing class docstring (-15.0 pts)",
+          "Clean: missing public docstring (-5.0 pts)"
+        ],
+        "all_findings": [
+          "[Class DistanceFormula] SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+          "[Class DistanceFormula] Clean: missing class docstring (-15.0 pts)",
+          "[Method DistanceFormula.euclideanDistance] Clean: missing public docstring (-5.0 pts)",
+          "[Method DistanceFormula.manhattanDistance] Clean: missing public docstring (-5.0 pts)",
+          "[Method DistanceFormula.hammingDistance] Clean: missing public docstring (-5.0 pts)",
+          "[Method DistanceFormula.minkowskiDistance] Clean: missing public docstring (-10.0 pts)",
+          "[Method DistanceFormula.DistanceFormula] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 70.0 | Size: 100.0 | Complexity: 100.0 | Clean: 79.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DistanceFormula.java          src      35    -  70.0 100.0 100.0  79.0 100.0   75.0   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DistanceFormula.java:3 DistanceFo    35    5     3    9   75.0   C\n    - SRP: LCOM4=3 disconnected method groups (-30.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/DistanceFormula.java:31 DistanceFor   13   3    2   3   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/DistanceFormula.java:4 DistanceForm    2   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DistanceFormula.java:7 DistanceForm    5   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DistanceFormula.java:13 DistanceFor    3   1    0   4   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/DistanceFormula.java:17 DistanceFor   10   3    2   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "java_string_srp_good",
+      "pair_id": "java_string_cohesion_srp",
+      "scenario_title": "8. String Algorithm Single-Responsibility Cohesion (TheAlgorithms/Java strings/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/PermuteString.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/PermuteString.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/PermuteString.java",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 27,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/PermuteString.java           src      27    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/PermuteString.java:29 PermuteStr    27    4     1    6  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/PermuteString.java:30 PermuteStrin    2   1    0   0   0  100.0   A\nsamples/java/good/PermuteString.java:45 PermuteStrin    5   1    0   1   0  100.0   A\nsamples/java/good/PermuteString.java:59 PermuteStrin   11   3    2   4   1  100.0   A\nsamples/java/good/PermuteString.java:82 PermuteStrin    7   1    0   3   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_string_srp_bad",
+      "pair_id": "java_string_cohesion_srp",
+      "scenario_title": "8. String Algorithm Single-Responsibility Cohesion (TheAlgorithms/Java strings/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/Anagrams.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/Anagrams.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/Anagrams.java",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 87,
+        "classes_count": 1,
+        "functions_count": 6,
+        "scores": {
+          "srp": 31.5,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 36.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "SRP: LCOM4=5 disconnected method groups (-60.0 pts)",
+          "SRP: high external call fan-out=10 (>6) (-12.0 pts)"
+        ],
+        "all_findings": [
+          "[Class Anagrams] SRP: LCOM4=5 disconnected method groups (-60.0 pts)",
+          "[Method Anagrams.areAnagramsBySorting] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+          "[Method Anagrams.areAnagramsByCountingCharsSingleArray] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+          "[Method Anagrams.areAnagramsUsingHashMap] SRP: high external call fan-out=15 (>6) (-27.0 pts)",
+          "[Method Anagrams.areAnagramsBySingleFreqArray] SRP: high external call fan-out=8 (>6) (-6.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 36.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6\nDimensions -> SRP: 31.5 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Anagrams.java                 src      87    -  31.5 100.0 100.0 100.0 100.0   36.5   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Anagrams.java:13 Anagrams            87    6     5   23   36.5   F\n    - SRP: LCOM4=5 disconnected method groups (-60.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Anagrams.java:104 Anagrams.areAnagr   18   5    4   2   1   78.0   C\n    - SRP: high external call fan-out=15 (>6) (-27.0 pts)\nsamples/java/bad/Anagrams.java:26 Anagrams.areAnagra   12   2    1   2   1   96.4   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\nsamples/java/bad/Anagrams.java:76 Anagrams.areAnagra   18   5    4   2   1   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/java/bad/Anagrams.java:133 Anagrams.areAnagr   18   5    4   2   1   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/java/bad/Anagrams.java:14 Anagrams.Anagrams     2   1    0   0   0  100.0   A\nsamples/java/bad/Anagrams.java:48 Anagrams.areAnagra   17   5    4   2   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_bst_size_good",
+      "pair_id": "java_bst_size_and_complexity",
+      "scenario_title": "9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/BSTRecursive.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 73,
+        "classes_count": 1,
+        "functions_count": 8,
+        "scores": {
+          "srp": 100.0,
+          "size": 99.2,
+          "complexity": 98.0,
+          "clean": 99.4,
+          "security": 100.0,
+          "composite": 99.3,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Method BSTRecursive.getRoot] Clean: missing public docstring (-5.0 pts)",
+          "[Method BSTRecursive.delete] Size: LOC=29 (>25) (-6.0 pts)",
+          "[Method BSTRecursive.delete] Complexity: CC=8 (>5) (-12.0 pts)",
+          "[Method BSTRecursive.search] Complexity: returns=4 (>3) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 99.2 | Complexity: 98.0 | Clean: 99.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BSTRecursive.java            src      73    - 100.0  99.2  98.0  99.4 100.0   99.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BSTRecursive.java:22 BSTRecursiv    73    8     1   22   99.3   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BSTRecursive.java:47 BSTRecursive.   29   8    7   2   1   96.1   A\n    - Size: LOC=29 (>25) (-6.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\nsamples/java/good/BSTRecursive.java:36 BSTRecursive.    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/good/BSTRecursive.java:104 BSTRecursive   11   4    3   2   1   99.2   A\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/java/good/BSTRecursive.java:32 BSTRecursive.    3   1    0   0   0  100.0   A\nsamples/java/good/BSTRecursive.java:86 BSTRecursive.   10   4    3   2   1  100.0   A\nsamples/java/good/BSTRecursive.java:122 BSTRecursive    3   1    0   1   0  100.0   A\nsamples/java/good/BSTRecursive.java:131 BSTRecursive    3   1    0   1   0  100.0   A\nsamples/java/good/BSTRecursive.java:140 BSTRecursive    8   2    1   1   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_bst_size_bad",
+      "pair_id": "java_bst_size_and_complexity",
+      "scenario_title": "9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/RedBlackBST.java",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 308,
+        "classes_count": 1,
+        "functions_count": 13,
+        "scores": {
+          "srp": 87.8,
+          "size": 49.4,
+          "complexity": 43.8,
+          "clean": 91.5,
+          "security": 100.0,
+          "composite": 48.8,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: class LOC=308 (>200) (-43.2 pts)",
+          "Complexity: total class CC=59 (>25) (-51.0 pts)"
+        ],
+        "all_findings": [
+          "[Class RedBlackBST] SRP: methods=13 (>10) (-12.0 pts)",
+          "[Class RedBlackBST] Size: class LOC=308 (>200) (-43.2 pts)",
+          "[Class RedBlackBST] Complexity: total class CC=59 (>25) (-51.0 pts)",
+          "[Method RedBlackBST.printTree] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackBST.printTreepre] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackBST.findNode] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackBST.findNode] Complexity: returns=5 (>3) (-8.0 pts)",
+          "[Method RedBlackBST.findNode] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.insert] Size: LOC=30 (>25) (-7.5 pts)",
+          "[Method RedBlackBST.insert] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackBST.insert] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.fixTree] Size: LOC=39 (>25) (-21.0 pts)",
+          "[Method RedBlackBST.fixTree] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackBST.fixTree] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.rotateLeft] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.rotateRight] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.transplant] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackBST.treeMinimum] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackBST.delete] Size: LOC=35 (>25) (-15.0 pts)",
+          "[Method RedBlackBST.delete] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method RedBlackBST.delete] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.deleteFixup] Size: LOC=56 (>25) (-52.5 pts)",
+          "[Method RedBlackBST.deleteFixup] Complexity: CC=11 (>5) (-27.0 pts)",
+          "[Method RedBlackBST.deleteFixup] Complexity: cognitive=10 (>8) (-5.0 pts)",
+          "[Method RedBlackBST.deleteFixup] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.insertDemo] Clean: missing public docstring (-10.0 pts)",
+          "[Method RedBlackBST.deleteDemo] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Method RedBlackBST.deleteDemo] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 48.8/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 13\nDimensions -> SRP: 87.8 | Size: 49.4 | Complexity: 43.8 | Clean: 91.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/RedBlackBST.java              src     308    -  87.8  49.4  43.8  91.5 100.0   48.8   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/RedBlackBST.java:8 RedBlackBST      308   13     1   59   48.8   F\n    - SRP: methods=13 (>10) (-12.0 pts)\n    - Size: class LOC=308 (>200) (-43.2 pts)\n    - Complexity: total class CC=59 (>25) (-51.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/RedBlackBST.java:243 RedBlackBST.de   56  11   10   1   1   52.5   F\n    - Size: LOC=56 (>25) (-52.5 pts)\n    - Complexity: CC=11 (>5) (-27.0 pts)\n    - Complexity: cognitive=10 (>8) (-5.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:96 RedBlackBST.fix   39   7    6   1   1   91.7   A\n    - Size: LOC=39 (>25) (-21.0 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:206 RedBlackBST.de   35   6    5   1   1   94.0   A\n    - Size: LOC=35 (>25) (-15.0 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:65 RedBlackBST.ins   30   7    6   1   1   95.0   A\n    - Size: LOC=30 (>25) (-7.5 pts)\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:47 RedBlackBST.fin   17   7    6   2   1   95.3   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:319 RedBlackBST.de   19   2    1   0   1   97.6   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:137 RedBlackBST.ro   24   4    3   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:162 RedBlackBST.ro   24   4    3   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:300 RedBlackBST.in   16   2    1   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/RedBlackBST.java:29 RedBlackBST.pri    8   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/RedBlackBST.java:38 RedBlackBST.pri    8   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/RedBlackBST.java:188 RedBlackBST.tr   10   3    2   2   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/RedBlackBST.java:199 RedBlackBST.tr    6   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "java_junit_test_hygiene_good",
+      "pair_id": "java_junit_test_hygiene",
+      "scenario_title": "10. JUnit 5 Sorting Test Suite Assertion Hygiene (TheAlgorithms/Java sorts/ tests)",
+      "language": "java",
+      "framework": "none",
+      "quality": "good",
+      "file_path": "samples/java/good/BubbleSortTest.java",
+      "is_test": true,
+      "source_dataset": "TheAlgorithms/Java (src/test/java/com/thealgorithms/sorts/BubbleSortTest.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/sorts/BubbleSortTest.java",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 148,
+        "classes_count": 1,
+        "functions_count": 10,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 10\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BubbleSortTest.java          test    148    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BubbleSortTest.java:12 BubbleSor   148   10     1   10  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BubbleSortTest.java:16 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:24 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:32 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:40 BubbleSortT   19   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:60 BubbleSortT   35   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:96 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:104 BubbleSort    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:112 BubbleSort    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:120 BubbleSort    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:163 BubbleSort   15   1    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "java_junit_test_hygiene_bad",
+      "pair_id": "java_junit_test_hygiene",
+      "scenario_title": "10. JUnit 5 Sorting Test Suite Assertion Hygiene (TheAlgorithms/Java sorts/ tests)",
+      "language": "java",
+      "framework": "none",
+      "quality": "bad",
+      "file_path": "samples/java/bad/InsertionSortTest.java",
+      "is_test": true,
+      "source_dataset": "TheAlgorithms/Java (src/test/java/com/thealgorithms/sorts/InsertionSortTest.java)",
+      "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/sorts/InsertionSortTest.java",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 160,
+        "classes_count": 1,
+        "functions_count": 20,
+        "scores": {
+          "srp": 60.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 89.5,
+          "security": 100.0,
+          "composite": 65.0,
+          "grade": "D"
+        },
+        "required_findings": [
+          "Clean (Test): test has 0 assertions (-30.0 pts)",
+          "SRP: methods=20 (>10) (-40.0 pts)"
+        ],
+        "all_findings": [
+          "[Class InsertionSortTest] SRP: methods=20 (>10) (-40.0 pts)",
+          "[Method InsertionSortTest.insertionSortSortEmptyArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+          "[Method InsertionSortTest.insertionSortClassicalSortSingleValueArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+          "[Method InsertionSortTest.insertionSortClassicalWithIntegerArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+          "[Method InsertionSortTest.insertionSortClassicalForArrayWithNegativeValuesShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+          "[Method InsertionSortTest.insertionSortClassicalForArrayWithDuplicateValuesShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+          "[Method InsertionSortTest.insertionSortClassicalWithStringArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+          "[Method InsertionSortTest.insertionSortClassicalWithRandomArrayPass] Clean (Test): test has 0 assertions (-30.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 20\nDimensions -> SRP: 60.0 | Size: 100.0 | Complexity: 100.0 | Clean: 89.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/InsertionSortTest.java        test    160    -  60.0 100.0 100.0  89.5 100.0   65.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/InsertionSortTest.java:11 Inserti   160   20     1   20   65.0   D\n    - SRP: methods=20 (>10) (-40.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/InsertionSortTest.java:19 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:33 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:47 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:61 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:75 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:89 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:103 Insertio    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:14 Insertion    4   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:25 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:39 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:53 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:67 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:81 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:95 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:109 Insertio    6   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:116 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:124 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:132 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:140 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:183 Insertio   15   1    0   0   0  100.0   A\n"
+      }
+    }
+  ]
+}

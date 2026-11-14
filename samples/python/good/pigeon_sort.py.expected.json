@@ -1,0 +1,31 @@
+{
+  "id": "python_sorting_size_good",
+  "pair_id": "python_sorting_size",
+  "scenario_title": "5. Sorting Algorithm Function Size & Decomposition (TheAlgorithms/Python sorts/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/pigeon_sort.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (sorts/pigeon_sort.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/sorts/pigeon_sort.py",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 35,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pigeon_sort.py             src      35    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pigeon_sort.py:16 pigeon_sort      17   5    5   1   2  100.0   A\n"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "java_junit_test_hygiene_good",
+  "pair_id": "java_junit_test_hygiene",
+  "scenario_title": "10. JUnit 5 Sorting Test Suite Assertion Hygiene (TheAlgorithms/Java sorts/ tests)",
+  "language": "java",
+  "framework": "none",
+  "quality": "good",
+  "file_path": "samples/java/good/BubbleSortTest.java",
+  "is_test": true,
+  "source_dataset": "TheAlgorithms/Java (src/test/java/com/thealgorithms/sorts/BubbleSortTest.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/sorts/BubbleSortTest.java",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 148,
+    "classes_count": 1,
+    "functions_count": 10,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 10\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BubbleSortTest.java          test    148    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BubbleSortTest.java:12 BubbleSor   148   10     1   10  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BubbleSortTest.java:16 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:24 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:32 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:40 BubbleSortT   19   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:60 BubbleSortT   35   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:96 BubbleSortT    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:104 BubbleSort    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:112 BubbleSort    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:120 BubbleSort    7   1    0   0   0  100.0   A\nsamples/java/good/BubbleSortTest.java:163 BubbleSort   15   1    0   0   0  100.0   A\n"
+  }
+}

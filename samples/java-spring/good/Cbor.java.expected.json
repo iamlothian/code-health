@@ -1,0 +1,40 @@
+{
+  "id": "java_spring_webauthn_complexity_good",
+  "pair_id": "java_spring_endpoint_complexity",
+  "scenario_title": "8. WebAuthn Codec Decomposition vs High-Complexity Authentication Handler (OWASP WebGoat webauthn/)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/Cbor.java",
+  "is_test": false,
+  "source_dataset": "OWASP WebGoat (webauthn/Cbor.java)",
+  "source_url": "https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/Cbor.java",
+  "license": "GPL-2.0",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 175,
+    "classes_count": 1,
+    "functions_count": 7,
+    "scores": {
+      "srp": 97.9,
+      "size": 97.4,
+      "complexity": 100.0,
+      "clean": 94.3,
+      "security": 100.0,
+      "composite": 97.9,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Method Cbor.decode] Clean: missing public docstring (-5.0 pts)",
+      "[Method Cbor.encode] Clean: missing public docstring (-5.0 pts)",
+      "[Method Cbor.write] SRP: high external call fan-out=11 (>6) (-15.0 pts)",
+      "[Method Cbor.write] Size: LOC=37 (>25) (-18.0 pts)",
+      "[Method Cbor.write] Clean: missing public docstring (-10.0 pts)",
+      "[Method Cbor.writeHead] Clean: missing public docstring (-10.0 pts)",
+      "[Method Cbor.writeBigEndian] Clean: missing public docstring (-5.0 pts)",
+      "[Method Cbor.Cbor] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7\nDimensions -> SRP: 97.9 | Size: 97.4 | Complexity: 100.0 | Clean: 94.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/Cbor.java             src     175    -  97.9  97.4 100.0  94.3 100.0   97.9   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/Cbor.java:22 Cbor           175    7     1   15   97.9   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/Cbor.java:52 Cbor.write       37   3    2   2   1   89.5   B\n    - SRP: high external call fan-out=11 (>6) (-15.0 pts)\n    - Size: LOC=37 (>25) (-18.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/good/Cbor.java:90 Cbor.writeHead   18   5    4   3   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/good/Cbor.java:26 Cbor.Cbor         1   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/Cbor.java:28 Cbor.decode       8   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/Cbor.java:46 Cbor.encode       5   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/Cbor.java:109 Cbor.writeBig    5   2    1   3   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/Cbor.java:38 Cbor.decodeFir    5   1    0   2   0  100.0   A\n"
+  }
+}

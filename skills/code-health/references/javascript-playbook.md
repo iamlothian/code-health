@@ -10,11 +10,11 @@ This reference provides targeted refactoring patterns for vanilla JavaScript and
 ## 1. Single Responsibility & Cohesion (SRP)
 
 - **Finding: `SRP: LCOM4=X disconnected method groups`** (`-15.0 pts` per group over `1` when class has `> 2` non-constructor methods)
-  - *Cause:* A class bundles unrelated methods and `this.*` fields that never interact (see [`trie_god_class.js`](../../../samples/javascript/bad/trie_god_class.js) vs [`trie_clean.js`](../../../samples/javascript/good/trie_clean.js)).
+  - *Cause:* A class bundles unrelated methods and `this.*` fields that never interact (see [`SegmentTree.js`](../../../samples/javascript/bad/SegmentTree.js) vs [`FenwickTree.js`](../../../samples/javascript/good/FenwickTree.js)).
   - *Fix:* Split unrelated capabilities (e.g., CSV parsing, logging, caching) into separate modules or focused classes grouped by shared state.
 
 - **Finding: `SRP: methods=X (>10)`** / **`SRP: self attributes=X (>7)`** (`-4.0 pts` each above threshold)
-  - *Fix:* Extract cohesive helper classes (such as `TrieNode` + `Trie` in [`trie_clean.js`](../../../samples/javascript/good/trie_clean.js)) or stateless module helpers.
+  - *Fix:* Extract cohesive helper classes (such as `BinaryHeap` in [`BinaryHeap.js`](../../../samples/javascript/good/BinaryHeap.js) vs. [`Heap.js`](../../../samples/javascript/bad/Heap.js) with 21 methods) or stateless module helpers.
 
 - **Finding: `SRP: high external call fan-out=X (>6)`** (`-3.0 pts` per call over `6`, capped at `-36.0 pts`)
   - *Fix:* Delegate sub-workflows (e.g., distance initialization, neighbor relaxation) to small helper functions.
@@ -27,8 +27,8 @@ This reference provides targeted refactoring patterns for vanilla JavaScript and
 ## 2. Size & Readability
 
 - **Finding: `Size: LOC=X (>25)`** (`-1.5 pts`/line for `26–50`, `-2.5 pts`/line above `50`; tests allow `<= 40` LOC)
-  - *Cause:* Monolithic functions handling initialization, scanning, and state updates inline (see [`dijkstra_branchy.js`](../../../samples/javascript/bad/dijkstra_branchy.js)).
-  - *Fix:* Decompose into single-purpose functions (`initDistances`, `minDistanceNode`, `relaxNeighbors`, `dijkstra` in [`dijkstra_clean.js`](../../../samples/javascript/good/dijkstra_clean.js)).
+  - *Cause:* Monolithic functions handling initialization, scanning, and state updates inline (see [`IntroSort.js`](../../../samples/javascript/bad/IntroSort.js) and [`regularExpressionMatching.js`](../../../samples/javascript/bad/regularExpressionMatching.js)).
+  - *Fix:* Decompose into single-purpose functions (as in [`QuickSortRecursive.js`](../../../samples/javascript/good/QuickSortRecursive.js) and [`rabinKarp.js`](../../../samples/javascript/good/rabinKarp.js)).
 
 - **Finding: `Size: params=X (>4)`** (`-6.0 pts` per parameter over `4`)
   - *Fix:* Accept an options object with destructuring and defaults (`function solve({ graph, start, target, weighted = true })`).
@@ -76,7 +76,7 @@ This reference provides targeted refactoring patterns for vanilla JavaScript and
 
 - **Finding: `Clean: X unannotated parameter(s) without default values (...)`** (`-2.0 pts` each, capped at `-10.0 pts` on non-test functions)
   - *Cause:* Parameters lack both a default value (`param = default`) and a JSDoc `@param {type}` tag.
-  - *Fix:* Add JSDoc `@param {type} name` annotations or meaningful default values (see [`clean_math_service.js`](../../../samples/javascript/good/clean_math_service.js)):
+  - *Fix:* Add JSDoc `@param {type} name` annotations or meaningful default values (see [`MergeSort.js`](../../../samples/javascript/good/MergeSort.js) vs. [`BubbleSort.js`](../../../samples/javascript/bad/BubbleSort.js)):
     ```javascript
     /**
      * Add two numbers.
@@ -96,7 +96,7 @@ This reference provides targeted refactoring patterns for vanilla JavaScript and
 
 ## 5. Security & Boundary Hygiene
 
-All five rules below are demonstrated in [`smelly_legacy_script.js`](../../../samples/javascript/bad/smelly_legacy_script.js):
+The five JavaScript security rules enforced by the analyzer are:
 
 - **Finding: `Security: dynamic code execution via eval (-40.0 pts)`** / **`Security: dynamic code execution via new Function (-40.0 pts)`**
   - *Cause:* `eval(...)`, `window.eval(...)`, `globalThis.eval(...)`, or `new Function(...)` executes arbitrary strings as code.
@@ -121,7 +121,7 @@ All five rules below are demonstrated in [`smelly_legacy_script.js`](../../../sa
 Test functions (`it(...)`, `test(...)`, `it.only(...)`, `test.skip(...)`, etc. inside `*.test.js`, `*.spec.js`, `_test.js`, `*.test.jsx`, `*.test.mjs`, `*.test.cjs`, or `tests/` / `test/` / `__tests__/`) are exempt from SRP, Security, and parameter-annotation checks, and allow `<= 40` LOC per test. Recognized assertions include Node `assert` (`assert`, `assertEquals`, `strictEqual`, `deepStrictEqual`, `ok`), Jest/Vitest (`expect`, `toBe`, `toEqual`, `toStrictEqual`, `toThrow`, `toBeTruthy`, `toBeFalsy`, `toHaveLength`), and Chai (`should`, `equal`).
 
 - **Finding: `Clean (Test): test has 0 assertions (-30.0 pts)`**
-  - *Fix:* Add explicit `assert.*` or `expect(...).*` checks directly inside each `it`/`test` block (compare [`graph_algorithms_bad.test.js`](../../../samples/javascript/bad/graph_algorithms_bad.test.js) with [`graph_algorithms.test.js`](../../../samples/javascript/good/graph_algorithms.test.js)).
+  - *Fix:* Add explicit `assert.*` or `expect(...).*` checks directly inside each `it`/`test` block.
 - **Finding: `Clean (Test): X assertions in single test (>8)`** (`-3.0 pts` per assertion over `8`, capped at `-30.0 pts`)
-  - *Fix:* Split monolithic tests into focused `it(...)` / `test(...)` cases covering one behavior each (`<= 8` assertions per test).
+  - *Fix:* Split monolithic tests into focused `it(...)` / `test(...)` cases covering one behavior each (`<= 8` assertions per test; compare [`KnapsackItem.test.js`](../../../samples/javascript/bad/KnapsackItem.test.js) with [`Knapsack.test.js`](../../../samples/javascript/good/Knapsack.test.js)).
 

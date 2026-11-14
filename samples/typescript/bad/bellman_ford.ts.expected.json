@@ -1,0 +1,39 @@
+{
+  "id": "typescript_bellman_ford_complex",
+  "pair_id": "typescript_graph_shortest_path_complexity",
+  "scenario_title": "1. Graph Shortest-Path Algorithm Complexity & Control Flow (TheAlgorithms/TypeScript)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/bad/bellman_ford.ts",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/TypeScript (graph/bellman_ford.ts)",
+  "source_url": "https://github.com/TheAlgorithms/TypeScript/blob/master/graph/bellman_ford.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 25,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 90.0,
+      "complexity": 68.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 73.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "Complexity: CC=8 (>5)",
+      "Complexity: cognitive=16 (>8)",
+      "Size: nesting depth=4 (>3)"
+    ],
+    "all_findings": [
+      "[Func bellmanFord] Size: nesting depth=4 (>3) (-10.0 pts)",
+      "[Func bellmanFord] Complexity: CC=8 (>5) (-12.0 pts)",
+      "[Func bellmanFord] Complexity: cognitive=16 (>8) (-20.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 73.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 90.0 | Complexity: 68.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/bellman_ford.ts         src      25    - 100.0  90.0  68.0 100.0 100.0   73.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/bellman_ford.ts:12 bellmanFor   25   8   16   2   4   73.0   C\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\n    - Complexity: cognitive=16 (>8) (-20.0 pts)\n"
+  }
+}

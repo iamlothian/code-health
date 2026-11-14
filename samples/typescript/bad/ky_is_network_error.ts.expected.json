@@ -1,0 +1,38 @@
+{
+  "id": "typescript_ky_is_network_error_complex",
+  "pair_id": "typescript_http_error_guard_complexity",
+  "scenario_title": "8. HTTP Type Guards vs. Branchy Network Error Classifier (sindresorhus/ky)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/bad/ky_is_network_error.ts",
+  "is_test": false,
+  "source_dataset": "sindresorhus/ky (source/utils/is-network-error.ts)",
+  "source_url": "https://github.com/sindresorhus/ky/blob/main/source/utils/is-network-error.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 32,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 51.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 56.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=13 (>5)",
+      "Complexity: returns=5 (>3)"
+    ],
+    "all_findings": [
+      "[Func isRawNetworkError] Complexity: CC=13 (>5) (-41.0 pts)",
+      "[Func isRawNetworkError] Complexity: returns=5 (>3) (-8.0 pts)",
+      "[Func isRawNetworkError] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 56.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 51.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/ky_is_network_error.ts  src      32    - 100.0 100.0  51.0  90.0 100.0   56.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/ky_is_network_error.ts:15 isR   21  13    4   1   1   56.0   F\n    - Complexity: CC=13 (>5) (-41.0 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "typescript_nextjs_oss_ui_link_good",
+  "pair_id": "typescript_nextjs_oss_md_preview_security",
+  "scenario_title": "5. Next.js Safe Link Wrapper vs. dangerouslySetInnerHTML Markdown Preview (bulletproof-react)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "good",
+  "file_path": "samples/typescript-nextjs/good/app/ui_link.tsx",
+  "is_test": false,
+  "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/link/link.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/link/link.tsx",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 18,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 98.5,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func Link] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/ui_link.tsx src      18    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/ui_link.tsx:11 Li   11   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

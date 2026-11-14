@@ -1,0 +1,39 @@
+{
+  "id": "javascript_heap_god_class",
+  "pair_id": "javascript_heap_oop_srp",
+  "scenario_title": "3. Binary Heap Priority Queue OOP Cohesion & Method Count",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/Heap.js",
+  "is_test": false,
+  "source_dataset": "trekhleb/javascript-algorithms (src/data-structures/heap/Heap.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/data-structures/heap/Heap.js",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 142,
+    "classes_count": 1,
+    "functions_count": 21,
+    "scores": {
+      "srp": 55.4,
+      "size": 100.0,
+      "complexity": 78.8,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 60.4,
+      "grade": "D"
+    },
+    "required_findings": [
+      "SRP: methods=21 (>10)"
+    ],
+    "all_findings": [
+      "[Class Heap] SRP: methods=21 (>10) (-44.0 pts)",
+      "[Class Heap] Complexity: total class CC=39 (>25) (-21.0 pts)",
+      "[Method Heap.remove] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method Heap.remove] Complexity: CC=6 (>5) (-4.0 pts)",
+      "[Method Heap.heapifyDown] SRP: high external call fan-out=8 (>6) (-6.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 60.4/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 21\nDimensions -> SRP: 55.4 | Size: 100.0 | Complexity: 78.8 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/Heap.js                 src     142    -  55.4 100.0  78.8 100.0 100.0   60.4   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/Heap.js:6 Heap                141   21     1   39   60.4   D\n    - SRP: methods=21 (>10) (-44.0 pts)\n    - Complexity: total class CC=39 (>25) (-21.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/Heap.js:150 Heap.remove         24   6    6   2   3   97.4   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/javascript/bad/Heap.js:241 Heap.heapifyDown    22   5    5   1   2   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/javascript/bad/Heap.js:11 Heap.constructor      7   2    1   1   1  100.0   A\nsamples/javascript/bad/Heap.js:25 Heap.getLeftChildI    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:33 Heap.getRightChild    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:41 Heap.getParentInde    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:49 Heap.hasParent        3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:57 Heap.hasLeftChild     3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:65 Heap.hasRightChild    3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:73 Heap.leftChild        3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:81 Heap.rightChild       3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:89 Heap.parent           3   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:97 Heap.swap             5   1    0   2   0  100.0   A\nsamples/javascript/bad/Heap.js:106 Heap.peek            6   2    1   0   1  100.0   A\nsamples/javascript/bad/Heap.js:117 Heap.poll           12   3    2   0   1  100.0   A\nsamples/javascript/bad/Heap.js:139 Heap.add             5   1    0   1   0  100.0   A\nsamples/javascript/bad/Heap.js:194 Heap.find            9   3    3   2   2  100.0   A\nsamples/javascript/bad/Heap.js:209 Heap.isEmpty         3   1    0   0   0  100.0   A\nsamples/javascript/bad/Heap.js:216 Heap.toString        3   1    0   0   0  100.0   A\nsamples/javascript/bad/Heap.js:223 Heap.heapifyUp      10   4    1   1   1  100.0   A\nsamples/javascript/bad/Heap.js:280 Heap.pairIsInCorr    6   1    0   2   0  100.0   A\n"
+  }
+}

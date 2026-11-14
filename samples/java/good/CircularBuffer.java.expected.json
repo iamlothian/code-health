@@ -1,0 +1,31 @@
+{
+  "id": "java_buffer_cohesion_good",
+  "pair_id": "java_buffer_cohesion",
+  "scenario_title": "5. Ring & Sliding Window Buffer Cohesion & Attribute Count (TheAlgorithms/Java buffers/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "good",
+  "file_path": "samples/java/good/CircularBuffer.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/buffers/CircularBuffer.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/buffers/CircularBuffer.java",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 55,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/CircularBuffer.java          src      55    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/CircularBuffer.java:13 CircularB    55    5     1    8  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/CircularBuffer.java:26 CircularBuf    8   1    0   1   0  100.0   A\nsamples/java/good/CircularBuffer.java:42 CircularBuf    3   1    0   0   0  100.0   A\nsamples/java/good/CircularBuffer.java:52 CircularBuf    3   1    0   0   0  100.0   A\nsamples/java/good/CircularBuffer.java:62 CircularBuf    8   2    1   0   1  100.0   A\nsamples/java/good/CircularBuffer.java:80 CircularBuf   13   3    2   1   1  100.0   A\n"
+  }
+}

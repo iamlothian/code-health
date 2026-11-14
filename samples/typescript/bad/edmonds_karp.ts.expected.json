@@ -1,0 +1,42 @@
+{
+  "id": "typescript_edmonds_karp_monolith",
+  "pair_id": "typescript_graph_traversal_size",
+  "scenario_title": "2. Graph Traversal Function Size & Nesting (TheAlgorithms/TypeScript)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/bad/edmonds_karp.ts",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/TypeScript (graph/edmonds_karp.ts)",
+  "source_url": "https://github.com/TheAlgorithms/TypeScript/blob/master/graph/edmonds_karp.ts",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 68,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 79.0,
+      "size": 0.0,
+      "complexity": 14.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC=67 (>25)",
+      "Size: nesting depth=5 (>3)",
+      "SRP: high external call fan-out=13 (>6)"
+    ],
+    "all_findings": [
+      "[Func edmondsKarp] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+      "[Func edmondsKarp] Size: LOC=67 (>25) (-80.0 pts)",
+      "[Func edmondsKarp] Size: nesting depth=5 (>3) (-20.0 pts)",
+      "[Func edmondsKarp] Complexity: CC=13 (>5) (-41.0 pts)",
+      "[Func edmondsKarp] Complexity: cognitive=26 (>8) (-45.0 pts)",
+      "[Func edmondsKarp] Clean (TS): 5 non-null assertion(s) ('!') bypass strict null checks (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 79.0 | Size: 0.0 | Complexity: 14.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/edmonds_karp.ts         src      68    -  79.0   0.0  14.0  90.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/edmonds_karp.ts:15 edmondsKar   67  13   26   3   5    5.0   F\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Size: LOC=67 (>25) (-80.0 pts)\n    - Size: nesting depth=5 (>3) (-20.0 pts)\n    - Complexity: CC=13 (>5) (-41.0 pts)\n    - Complexity: cognitive=26 (>8) (-45.0 pts)\n    - Clean (TS): 5 non-null assertion(s) ('!') bypass strict null checks (-10.0 pts)\n"
+  }
+}

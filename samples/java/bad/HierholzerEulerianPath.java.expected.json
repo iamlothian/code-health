@@ -1,0 +1,52 @@
+{
+  "id": "java_graph_complexity_bad",
+  "pair_id": "java_graph_algorithm_complexity",
+  "scenario_title": "6. Graph Traversal & Path Complexity (TheAlgorithms/Java graph/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/HierholzerEulerianPath.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/graph/HierholzerEulerianPath.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/graph/HierholzerEulerianPath.java",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 188,
+    "classes_count": 1,
+    "functions_count": 7,
+    "scores": {
+      "srp": 97.0,
+      "size": 92.5,
+      "complexity": 47.7,
+      "clean": 94.3,
+      "security": 100.0,
+      "composite": 52.7,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: total class CC=48 (>25) (-34.5 pts)",
+      "Complexity: returns=6 (>3) (-12.0 pts)"
+    ],
+    "all_findings": [
+      "[Class HierholzerEulerianPath] Complexity: total class CC=48 (>25) (-34.5 pts)",
+      "[Method HierholzerEulerianPath.findEulerianPath] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method HierholzerEulerianPath.findEulerianPath] Complexity: CC=6 (>5) (-4.0 pts)",
+      "[Method HierholzerEulerianPath.findEulerianPath] Complexity: returns=6 (>3) (-12.0 pts)",
+      "[Method HierholzerEulerianPath.computeDegrees] Clean: missing public docstring (-10.0 pts)",
+      "[Method HierholzerEulerianPath.determineStartNode] Size: LOC=29 (>25) (-6.0 pts)",
+      "[Method HierholzerEulerianPath.determineStartNode] Complexity: CC=9 (>5) (-16.0 pts)",
+      "[Method HierholzerEulerianPath.determineStartNode] Clean: missing public docstring (-10.0 pts)",
+      "[Method HierholzerEulerianPath.buildHierholzerPath] SRP: high external call fan-out=11 (>6) (-15.0 pts)",
+      "[Method HierholzerEulerianPath.buildHierholzerPath] Clean: missing public docstring (-10.0 pts)",
+      "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Size: LOC=49 (>25) (-36.0 pts)",
+      "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Complexity: CC=15 (>5) (-55.0 pts)",
+      "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Complexity: cognitive=14 (>8) (-15.0 pts)",
+      "[Method HierholzerEulerianPath.rotateEulerianCircuitIfNeeded] Clean: missing public docstring (-10.0 pts)",
+      "[Method HierholzerEulerianPath.allNonZeroDegreeVerticesWeaklyConnected] Size: LOC=32 (>25) (-10.5 pts)",
+      "[Method HierholzerEulerianPath.allNonZeroDegreeVerticesWeaklyConnected] Complexity: CC=10 (>5) (-20.0 pts)",
+      "[Method HierholzerEulerianPath.allNonZeroDegreeVerticesWeaklyConnected] Complexity: cognitive=9 (>8) (-2.5 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 52.7/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7\nDimensions -> SRP: 97.0 | Size: 92.5 | Complexity: 47.7 | Clean: 94.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/HierholzerEulerianPath.java   src     188    -  97.0  92.5  47.7  94.3 100.0   52.7   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/HierholzerEulerianPath.java:38 Hi   188    7     1   48   52.7   F\n    - Complexity: total class CC=48 (>25) (-34.5 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/HierholzerEulerianPath.java:207 Hie   49  15   14   3   1   35.0   F\n    - Size: LOC=49 (>25) (-36.0 pts)\n    - Complexity: CC=15 (>5) (-55.0 pts)\n    - Complexity: cognitive=14 (>8) (-15.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:269 Hie   32  10    9   4   1   92.9   A\n    - Size: LOC=32 (>25) (-10.5 pts)\n    - Complexity: CC=10 (>5) (-20.0 pts)\n    - Complexity: cognitive=9 (>8) (-2.5 pts)\nsamples/java/bad/HierholzerEulerianPath.java:151 Hie   29   9    8   2   1   93.8   A\n    - Size: LOC=29 (>25) (-6.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:184 Hie   19   4    3   2   1   94.0   A\n    - SRP: high external call fan-out=11 (>6) (-15.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:105 Hie   24   6    5   0   1   95.0   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Complexity: returns=6 (>3) (-12.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:139 Hie   11   3    2   2   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java/bad/HierholzerEulerianPath.java:95 Hier    3   1    0   1   0  100.0   A\n"
+  }
+}

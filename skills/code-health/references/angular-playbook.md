@@ -5,8 +5,8 @@
 **Force:** `--framework angular` (only activates on TypeScript files)  
 **Builds on:** [TypeScript Playbook](typescript-playbook.md)  
 **Worked examples:**  
-- Clean: [orders_panel_clean.component.ts](../../../samples/typescript-angular/good/orders_panel_clean.component.ts), [header.component.ts](../../../samples/typescript-angular/good/header.component.ts), [article_preview.component.ts](../../../samples/typescript-angular/good/article_preview.component.ts), [favorite_button.component.ts](../../../samples/typescript-angular/good/favorite_button.component.ts)  
-- Flagged: [orders_panel_legacy.component.ts](../../../samples/typescript-angular/bad/orders_panel_legacy.component.ts), [search_result.component.ts](../../../samples/typescript-angular/bad/search_result.component.ts), [complaint.component.ts](../../../samples/typescript-angular/bad/complaint.component.ts), [score_board.component.ts](../../../samples/typescript-angular/bad/score_board.component.ts)
+- Clean: [article_comment.component.ts](../../../samples/typescript-angular/good/article_comment.component.ts), [settings.component.ts](../../../samples/typescript-angular/good/settings.component.ts), [header.component.ts](../../../samples/typescript-angular/good/header.component.ts), [article_preview.component.ts](../../../samples/typescript-angular/good/article_preview.component.ts), [favorite_button.component.ts](../../../samples/typescript-angular/good/favorite_button.component.ts)  
+- Flagged: [product.component.ts](../../../samples/typescript-angular/bad/product.component.ts), [administration.component.ts](../../../samples/typescript-angular/bad/administration.component.ts), [search_result.component.ts](../../../samples/typescript-angular/bad/search_result.component.ts), [complaint.component.ts](../../../samples/typescript-angular/bad/complaint.component.ts), [score_board.component.ts](../../../samples/typescript-angular/bad/score_board.component.ts)
 
 ---
 
@@ -53,8 +53,6 @@ export class OrdersPanelCleanComponent implements OnInit {
   // ...
 }
 ```
-
-See [orders_panel_legacy.component.ts](../../../samples/typescript-angular/bad/orders_panel_legacy.component.ts) vs. [orders_panel_clean.component.ts](../../../samples/typescript-angular/good/orders_panel_clean.component.ts).
 
 ---
 

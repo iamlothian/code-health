@@ -1,0 +1,33 @@
+{
+  "id": "typescript_bipartite_graph_clean",
+  "pair_id": "typescript_graph_traversal_size",
+  "scenario_title": "2. Graph Traversal Function Size & Nesting (TheAlgorithms/TypeScript)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/bipartite_graph.ts",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/TypeScript (graph/bipartite_graph.ts)",
+  "source_url": "https://github.com/TheAlgorithms/TypeScript/blob/master/graph/bipartite_graph.ts",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 27,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 93.7,
+      "security": 100.0,
+      "composite": 99.1,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func dfs] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.1/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 93.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/bipartite_graph.ts     src      27    - 100.0 100.0 100.0  93.7 100.0   99.1   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/bipartite_graph.ts:1 dfs       17   4    4   4   2   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript/good/bipartite_graph.ts:33 isBipa   10   4    3   1   2  100.0   A\n"
+  }
+}

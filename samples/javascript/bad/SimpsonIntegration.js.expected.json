@@ -1,0 +1,39 @@
+{
+  "id": "javascript_simpson_integration_complex",
+  "pair_id": "javascript_math_numerical_complexity",
+  "scenario_title": "8. Numerical Math Algorithm Cyclomatic & Cognitive Complexity",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/SimpsonIntegration.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Maths/SimpsonIntegration.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/SimpsonIntegration.js",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 38,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 82.0,
+      "complexity": 39.5,
+      "clean": 92.0,
+      "security": 100.0,
+      "composite": 44.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=14",
+      "Complexity: cognitive=13"
+    ],
+    "all_findings": [
+      "[Func integralEvaluation] Size: LOC=37 (>25) (-18.0 pts)",
+      "[Func integralEvaluation] Complexity: CC=14 (>5) (-48.0 pts)",
+      "[Func integralEvaluation] Complexity: cognitive=13 (>8) (-12.5 pts)",
+      "[Func integralEvaluation] Clean: 4 unannotated parameter(s) without default values (N, a, b) (-8.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 44.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 82.0 | Complexity: 39.5 | Clean: 92.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SimpsonIntegration.js   src      38    - 100.0  82.0  39.5  92.0 100.0   44.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SimpsonIntegration.js:24 inte   37  14   13   4   3   44.5   F\n    - Size: LOC=37 (>25) (-18.0 pts)\n    - Complexity: CC=14 (>5) (-48.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\n    - Clean: 4 unannotated parameter(s) without default values (N, a, b) (-8.0 pts)\n"
+  }
+}

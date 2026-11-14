@@ -1,0 +1,36 @@
+{
+  "id": "java_bst_size_good",
+  "pair_id": "java_bst_size_and_complexity",
+  "scenario_title": "9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "good",
+  "file_path": "samples/java/good/BSTRecursive.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 73,
+    "classes_count": 1,
+    "functions_count": 8,
+    "scores": {
+      "srp": 100.0,
+      "size": 99.2,
+      "complexity": 98.0,
+      "clean": 99.4,
+      "security": 100.0,
+      "composite": 99.3,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Method BSTRecursive.getRoot] Clean: missing public docstring (-5.0 pts)",
+      "[Method BSTRecursive.delete] Size: LOC=29 (>25) (-6.0 pts)",
+      "[Method BSTRecursive.delete] Complexity: CC=8 (>5) (-12.0 pts)",
+      "[Method BSTRecursive.search] Complexity: returns=4 (>3) (-4.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 99.2 | Complexity: 98.0 | Clean: 99.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BSTRecursive.java            src      73    - 100.0  99.2  98.0  99.4 100.0   99.3   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BSTRecursive.java:22 BSTRecursiv    73    8     1   22   99.3   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/good/BSTRecursive.java:47 BSTRecursive.   29   8    7   2   1   96.1   A\n    - Size: LOC=29 (>25) (-6.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\nsamples/java/good/BSTRecursive.java:36 BSTRecursive.    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/good/BSTRecursive.java:104 BSTRecursive   11   4    3   2   1   99.2   A\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/java/good/BSTRecursive.java:32 BSTRecursive.    3   1    0   0   0  100.0   A\nsamples/java/good/BSTRecursive.java:86 BSTRecursive.   10   4    3   2   1  100.0   A\nsamples/java/good/BSTRecursive.java:122 BSTRecursive    3   1    0   1   0  100.0   A\nsamples/java/good/BSTRecursive.java:131 BSTRecursive    3   1    0   1   0  100.0   A\nsamples/java/good/BSTRecursive.java:140 BSTRecursive    8   2    1   1   1  100.0   A\n"
+  }
+}

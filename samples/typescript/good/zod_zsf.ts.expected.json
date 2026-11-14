@@ -1,0 +1,31 @@
+{
+  "id": "typescript_zod_zsf_clean",
+  "pair_id": "typescript_schema_registry_clean",
+  "scenario_title": "6. Schema Definition Typing Hygiene vs. Registry Escape Hatches (colinhacks/zod)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/zod_zsf.ts",
+  "is_test": false,
+  "source_dataset": "colinhacks/zod (packages/zod/src/v4/core/zsf.ts)",
+  "source_url": "https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/zsf.ts",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 82,
+    "classes_count": 0,
+    "functions_count": 0,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/zod_zsf.ts             src      82    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n"
+  }
+}

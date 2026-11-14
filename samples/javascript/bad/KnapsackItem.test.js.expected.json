@@ -1,0 +1,35 @@
+{
+  "id": "javascript_knapsack_item_test_dense",
+  "pair_id": "javascript_test_assertion_hygiene",
+  "scenario_title": "9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite)",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/KnapsackItem.test.js",
+  "is_test": true,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 29,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 70.0,
+      "security": 100.0,
+      "composite": 75.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "21 assertions in single test (>8)"
+    ],
+    "all_findings": [
+      "[Func test: should create knapsack item and count its total weight and value] Clean (Test): 21 assertions in single test (>8) (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js    test     29    - 100.0 100.0 100.0  70.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js:4 test:    26   1    0   0   0   75.0   C\n    - Clean (Test): 21 assertions in single test (>8) (-30.0 pts)\n"
+  }
+}

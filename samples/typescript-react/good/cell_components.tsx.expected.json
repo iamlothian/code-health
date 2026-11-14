@@ -1,0 +1,33 @@
+{
+  "id": "typescript_react_oss_cell_components_good",
+  "pair_id": "typescript_react_oss_hooks_hygiene_clean",
+  "scenario_title": "8. React Composable Cell Components vs. Conditional Hook Call (TanStack/table)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/cell_components.tsx",
+  "is_test": false,
+  "source_dataset": "TanStack/table (examples/react/composable-tables/src/components/cell-components.tsx)",
+  "source_url": "https://github.com/TanStack/table/blob/main/examples/react/composable-tables/src/components/cell-components.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 91,
+    "classes_count": 0,
+    "functions_count": 8,
+    "scores": {
+      "srp": 100.0,
+      "size": 96.2,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 99.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func RowActionsCell] Size: LOC=32 (>25) (-10.5 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 96.2 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/cell_components.tsx src      91    - 100.0  96.2 100.0 100.0 100.0   99.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/cell_components.tsx:79   32   1    0   0   0   97.4   A\n    - Size: LOC=32 (>25) (-10.5 pts)\nsamples/typescript-react/good/cell_components.tsx:19   17   1    0   0   0  100.0   A\nsamples/typescript-react/good/cell_components.tsx:41    4   1    0   0   0  100.0   A\nsamples/typescript-react/good/cell_components.tsx:49    4   1    0   0   0  100.0   A\nsamples/typescript-react/good/cell_components.tsx:57    5   1    0   0   0  100.0   A\nsamples/typescript-react/good/cell_components.tsx:66    9   1    0   0   0  100.0   A\nsamples/typescript-react/good/cell_components.tsx:11   12   1    0   0   0  100.0   A\nsamples/typescript-react/good/cell_components.tsx:13    5   1    0   0   0  100.0   A\n"
+  }
+}

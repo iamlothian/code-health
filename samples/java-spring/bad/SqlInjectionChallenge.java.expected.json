@@ -1,0 +1,42 @@
+{
+  "id": "java_spring_sqli_adv_bad",
+  "pair_id": "java_spring_sql_parameterization_advanced",
+  "scenario_title": "6. Spring JDBC Query Parameterization vs SQL String Concatenation (OWASP WebGoat sqlinjection/advanced/)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/SqlInjectionChallenge.java",
+  "is_test": false,
+  "source_dataset": "OWASP WebGoat (sqlinjection/advanced/SqlInjectionChallenge.java)",
+  "source_url": "https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java",
+  "license": "GPL-2.0",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 60,
+    "classes_count": 1,
+    "functions_count": 3,
+    "scores": {
+      "srp": 84.0,
+      "size": 97.5,
+      "complexity": 100.0,
+      "clean": 76.7,
+      "security": 60.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Security (Spring): potential SQL/JPQL injection in statement.executeQuery via string concatenation (-40.0 pts)"
+    ],
+    "all_findings": [
+      "[Class SqlInjectionChallenge] Clean: missing class docstring (-15.0 pts)",
+      "[Method SqlInjectionChallenge.registerNewUser] SRP: high external call fan-out=19 (>6) (-36.0 pts)",
+      "[Method SqlInjectionChallenge.registerNewUser] Size: LOC=30 (>25) (-7.5 pts)",
+      "[Method SqlInjectionChallenge.registerNewUser] Clean: missing public docstring (-10.0 pts)",
+      "[Method SqlInjectionChallenge.registerNewUser] Security (Spring): potential SQL/JPQL injection in statement.executeQuery via string concatenation (-40.0 pts)",
+      "[Method SqlInjectionChallenge.checkArguments] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Method SqlInjectionChallenge.checkArguments] Clean: missing public docstring (-10.0 pts)",
+      "[Method SqlInjectionChallenge.SqlInjectionChallenge] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3\nDimensions -> SRP: 84.0 | Size: 97.5 | Complexity: 100.0 | Clean: 76.7 | Security: 60.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/SqlInjectionChallenge.java src      60    -  84.0  97.5 100.0  76.7  60.0   65.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/SqlInjectionChallenge.java    60    3     1    7   65.0   D\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/SqlInjectionChallenge.java:4   30   3    2   3   1   65.0   D\n    - SRP: high external call fan-out=19 (>6) (-36.0 pts)\n    - Size: LOC=30 (>25) (-7.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Spring): potential SQL/JPQL injection in statement.executeQuery via string concatenation (-40.0 pts)\nsamples/java-spring/bad/SqlInjectionChallenge.java:8   13   3    2   3   1   94.9   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/bad/SqlInjectionChallenge.java:4    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

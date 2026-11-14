@@ -1,0 +1,36 @@
+{
+  "id": "typescript_nextjs_oss_prose_bad",
+  "pair_id": "typescript_nextjs_oss_prose_xss",
+  "scenario_title": "4. Next.js Safe Product Description Component vs. Raw dangerouslySetInnerHTML Prose (vercel/commerce)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/prose_html.tsx",
+  "is_test": false,
+  "source_dataset": "vercel/commerce (components/prose.tsx)",
+  "source_url": "https://github.com/vercel/commerce/blob/main/components/prose.tsx",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 13,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 65.0,
+      "composite": 70.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "dangerouslySetInnerHTML"
+    ],
+    "all_findings": [
+      "[Func Prose] Clean: missing public docstring (-10.0 pts)",
+      "[Func Prose] Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L10 (-35.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/prose_html.tsx src      13    - 100.0 100.0 100.0  90.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/prose_html.tsx:3 P   11   1    0   1   0   70.0   C\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L10 (-35.0 pts)\n"
+  }
+}

@@ -1,0 +1,716 @@
+{
+  "version": "1.2.0",
+  "profile": "typescript-nextjs",
+  "language": "typescript",
+  "framework": "nextjs",
+  "description": "Functionally comparable verbatim open-source Next.js App Router (framework: nextjs) TypeScript code health scorecard baseline samples across 10 Good/Bad scenario pairs.",
+  "samples": [
+    {
+      "id": "typescript_nextjs_oss_nav_links_good",
+      "pair_id": "typescript_nextjs_oss_nav_vs_form",
+      "scenario_title": "1. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/nav_links.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/dashboard/nav-links.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/nav-links.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 43,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func NavLinks] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/nav_links.tsx src      43    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/nav_links.tsx:24    25   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_login_form_bad",
+      "pair_id": "typescript_nextjs_oss_nav_vs_form",
+      "scenario_title": "1. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/login_form.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/login-form.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/login-form.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 86,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 2.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 7.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func LoginForm] Size: LOC=74 (>25) (-97.5 pts)",
+          "[Func LoginForm] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 7.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 2.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/login_form.tsx src      86    - 100.0   2.5 100.0  90.0 100.0    7.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/login_form.tsx:15    74   3    0   0   0    7.5   F\n    - Size: LOC=74 (>25) (-97.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_invoices_page_good",
+      "pair_id": "typescript_nextjs_oss_page_vs_table",
+      "scenario_title": "2. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/invoices_page.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/dashboard/invoices/page.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/page.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 40,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 95.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 97.4,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Page] Size: LOC=28 (>25) (-4.5 pts)",
+          "[Func Page] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.4/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 95.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_page.tsx src      40    - 100.0  95.5 100.0  90.0 100.0   97.4   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_page.tsx   28   3    0   1   0   97.4   A\n    - Size: LOC=28 (>25) (-4.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_customers_table_bad",
+      "pair_id": "typescript_nextjs_oss_page_vs_table",
+      "scenario_title": "2. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/customers_table.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 118,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 0.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func CustomersTable] Size: LOC=114 (>25) (-100.0 pts)",
+          "[Func CustomersTable] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  90.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.ts  114   1    0   1   0    5.0   F\n    - Size: LOC=114 (>25) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_error_good",
+      "pair_id": "typescript_nextjs_oss_error_vs_chart",
+      "scenario_title": "3. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/invoices_error.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/dashboard/invoices/error.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/error.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 26,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Error] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_error.tsx src      26    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/invoices_error.ts   24   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_revenue_chart_bad",
+      "pair_id": "typescript_nextjs_oss_error_vs_chart",
+      "scenario_title": "3. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/revenue_chart.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/next-learn (dashboard/final-example/app/ui/dashboard/revenue-chart.tsx)",
+      "source_url": "https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/revenue-chart.tsx",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 48,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 71.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 76.5,
+          "grade": "C"
+        },
+        "required_findings": [
+          "Size: LOC="
+        ],
+        "all_findings": [
+          "[Func RevenueChart] Size: LOC=44 (>25) (-28.5 pts)",
+          "[Func RevenueChart] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 76.5/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 71.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/revenue_chart.tsx src      48    - 100.0  71.5 100.0  90.0 100.0   76.5   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/revenue_chart.tsx:   44   3    1   0   1   76.5   C\n    - Size: LOC=44 (>25) (-28.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_product_desc_good",
+      "pair_id": "typescript_nextjs_oss_prose_xss",
+      "scenario_title": "4. Next.js Safe Product Description Component vs. Raw dangerouslySetInnerHTML Prose (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/product_description.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (components/product/product-description.tsx)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/components/product/product-description.tsx",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 28,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func ProductDescription] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/product_description.tsx src      28    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/product_descripti   23   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_prose_bad",
+      "pair_id": "typescript_nextjs_oss_prose_xss",
+      "scenario_title": "4. Next.js Safe Product Description Component vs. Raw dangerouslySetInnerHTML Prose (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/prose_html.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (components/prose.tsx)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/components/prose.tsx",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 13,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 65.0,
+          "composite": 70.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "dangerouslySetInnerHTML"
+        ],
+        "all_findings": [
+          "[Func Prose] Clean: missing public docstring (-10.0 pts)",
+          "[Func Prose] Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L10 (-35.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/prose_html.tsx src      13    - 100.0 100.0 100.0  90.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/prose_html.tsx:3 P   11   1    0   1   0   70.0   C\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L10 (-35.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_ui_link_good",
+      "pair_id": "typescript_nextjs_oss_md_preview_security",
+      "scenario_title": "5. Next.js Safe Link Wrapper vs. dangerouslySetInnerHTML Markdown Preview (bulletproof-react)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/ui_link.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/link/link.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/link/link.tsx",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 18,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Link] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/ui_link.tsx src      18    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/ui_link.tsx:11 Li   11   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_md_preview_bad",
+      "pair_id": "typescript_nextjs_oss_md_preview_security",
+      "scenario_title": "5. Next.js Safe Link Wrapper vs. dangerouslySetInnerHTML Markdown Preview (bulletproof-react)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/md_preview.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/md-preview/md-preview.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/md-preview/md-preview.tsx",
+      "license": "MIT",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 15,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 95.0,
+          "security": 65.0,
+          "composite": 70.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "dangerouslySetInnerHTML"
+        ],
+        "all_findings": [
+          "[Func MDPreview] Clean: missing public docstring (-5.0 pts)",
+          "[Func MDPreview] Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L12 (-35.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 70.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/md_preview.tsx src      15    - 100.0 100.0 100.0  95.0  65.0   70.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/md_preview.tsx:8 M   10   1    0   1   0   70.0   C\n    - Clean: missing public docstring (-5.0 pts)\n    - Security (Nextjs): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L12 (-35.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_confirm_dialog_stories_good",
+      "pair_id": "typescript_nextjs_oss_client_directive",
+      "scenario_title": "6. Next.js App Router Dialog Story without Client Hook Leak vs. Missing 'use client' Directive (bulletproof-react)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/confirmation_dialog_stories.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/dialog/confirmation-dialog/confirmation-dialog.stories.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/dialog/confirmation-dialog/confirmation-dialog.stories.tsx",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 26,
+        "classes_count": 0,
+        "functions_count": 0,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/confirmation_dialog_stories.tsx src      26    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_dialog_stories_bad",
+      "pair_id": "typescript_nextjs_oss_client_directive",
+      "scenario_title": "6. Next.js App Router Dialog Story without Client Hook Leak vs. Missing 'use client' Directive (bulletproof-react)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/dialog_stories.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/dialog/dialog.stories.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/dialog/dialog.stories.tsx",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 54,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 88.4,
+          "complexity": 100.0,
+          "clean": 74.9,
+          "security": 100.0,
+          "composite": 79.5,
+          "grade": "C"
+        },
+        "required_findings": [
+          "without 'use client' directive"
+        ],
+        "all_findings": [
+          "Clean (Next.js): App Router module uses client hooks without 'use client' directive (-15.0 pts)",
+          "[Func DemoDialog] Size: LOC=33 (>25) (-12.0 pts)",
+          "[Func DemoDialog] Clean: missing public docstring (-10.0 pts)",
+          "[Func Demo.render] Clean: missing public docstring (-5.0 pts)",
+          "[Func Demo.render] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 79.5/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 88.4 | Complexity: 100.0 | Clean: 74.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/dialog_stories.tsx src      54    - 100.0  88.4 100.0  74.9 100.0   79.5   C\n    - Clean (Next.js): App Router module uses client hooks without 'use client' directive (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/dialog_stories.tsx   33   2    1   0   1   95.5   A\n    - Size: LOC=33 (>25) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-nextjs/bad/app/dialog_stories.tsx    1   1    0   0   0   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_robots_route_good",
+      "pair_id": "typescript_nextjs_oss_metadata_routes_srp",
+      "scenario_title": "7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/robots_route.ts",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (app/robots.ts)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/app/robots.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 12,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 97.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func robots] Clean: missing public docstring (-10.0 pts)",
+          "[Func robots] Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/robots_route.ts src      12    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/robots_route.ts:3   11   1    0   0   0   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_sitemap_route_bad",
+      "pair_id": "typescript_nextjs_oss_metadata_routes_srp",
+      "scenario_title": "7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/sitemap_route.ts",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (app/sitemap.ts)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/app/sitemap.ts",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 42,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 73.0,
+          "size": 86.5,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 78.0,
+          "grade": "C"
+        },
+        "required_findings": [
+          "SRP: high external call fan-out=15 (>6)"
+        ],
+        "all_findings": [
+          "[Func sitemap] SRP: high external call fan-out=15 (>6) (-27.0 pts)",
+          "[Func sitemap] Size: LOC=34 (>25) (-13.5 pts)",
+          "[Func sitemap] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 78.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 73.0 | Size: 86.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/sitemap_route.ts src      42    -  73.0  86.5 100.0  90.0 100.0   78.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/sitemap_route.ts:1   34   2    1   0   1   78.0   C\n    - SRP: high external call fan-out=15 (>6) (-27.0 pts)\n    - Size: LOC=34 (>25) (-13.5 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_open_cart_good",
+      "pair_id": "typescript_nextjs_oss_cart_complexity",
+      "scenario_title": "8. Next.js Cart Trigger Leaf vs. Monolithic Branchy Cart Modal (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/open_cart.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (components/cart/open-cart.tsx)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/components/cart/open-cart.tsx",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 25,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func OpenCart] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/open_cart.tsx src      25    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/open_cart.tsx:4 O   23   2    1   1   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_cart_modal_bad",
+      "pair_id": "typescript_nextjs_oss_cart_complexity",
+      "scenario_title": "8. Next.js Cart Trigger Leaf vs. Monolithic Branchy Cart Modal (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/cart_modal.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (components/cart/modal.tsx)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/components/cart/modal.tsx",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 243,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 83.9,
+          "size": 10.8,
+          "complexity": 75.9,
+          "clean": 82.9,
+          "security": 100.0,
+          "composite": 15.8,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=11 (>5)"
+        ],
+        "all_findings": [
+          "[Func CartModal] SRP: high external call fan-out=12 (>6) (-18.0 pts)",
+          "[Func CartModal] Size: LOC=199 (>25) (-100.0 pts)",
+          "[Func CartModal] Complexity: CC=11 (>5) (-27.0 pts)",
+          "[Func CartModal] Clean: missing public docstring (-10.0 pts)",
+          "[Func CartModal] Clean (React): array index used as JSX key at L121 (-8.0 pts)",
+          "[Func CloseCart] Clean: missing public docstring (-10.0 pts)",
+          "[Func CheckoutButton] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 15.8/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 83.9 | Size: 10.8 | Complexity: 75.9 | Clean: 82.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/cart_modal.tsx src     243    -  83.9  10.8  75.9  82.9 100.0   15.8   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/cart_modal.tsx:24   199  11    7   0   2    5.0   F\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\n    - Size: LOC=199 (>25) (-100.0 pts)\n    - Complexity: CC=11 (>5) (-27.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): array index used as JSX key at L121 (-8.0 pts)\nsamples/typescript-nextjs/bad/app/cart_modal.tsx:231   12   1    0   1   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-nextjs/bad/app/cart_modal.tsx:244   12   2    1   0   1   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_discussions_panel_good",
+      "pair_id": "typescript_nextjs_oss_discussions_complexity",
+      "scenario_title": "9. Next.js Discussions Container vs. Branchy Comments List Component (bulletproof-react)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/discussions_panel.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/app/app/discussions/_components/discussions.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/app/app/discussions/_components/discussions.tsx",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 25,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 98.5,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func Discussions] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 98.5/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/discussions_panel.tsx src      25    - 100.0 100.0 100.0  90.0 100.0   98.5   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/discussions_panel   19   1    0   0   0   98.5   A\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_comments_list_bad",
+      "pair_id": "typescript_nextjs_oss_discussions_complexity",
+      "scenario_title": "9. Next.js Discussions Container vs. Branchy Comments List Component (bulletproof-react)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/comments_list.tsx",
+      "is_test": false,
+      "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/features/comments/components/comments-list.tsx)",
+      "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/features/comments/components/comments-list.tsx",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 81,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 91.0,
+          "size": 20.0,
+          "complexity": 84.0,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 25.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=9 (>5)"
+        ],
+        "all_findings": [
+          "[Func CommentsList] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+          "[Func CommentsList] Size: LOC=67 (>25) (-80.0 pts)",
+          "[Func CommentsList] Complexity: CC=9 (>5) (-16.0 pts)",
+          "[Func CommentsList] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 25.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 91.0 | Size: 20.0 | Complexity: 84.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/comments_list.tsx src      81    -  91.0  20.0  84.0  90.0 100.0   25.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/comments_list.tsx:   67   9    3   1   1   25.0   F\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Size: LOC=67 (>25) (-80.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_filter_index_good",
+      "pair_id": "typescript_nextjs_oss_filter_srp",
+      "scenario_title": "10. Next.js Search Filter List Wrapper vs. High Fan-Out Filter Dropdown (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "good",
+      "file_path": "samples/typescript-nextjs/good/app/filter_index.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (components/layout/search/filter/index.tsx)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/components/layout/search/filter/index.tsx",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 44,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 95.4,
+          "complexity": 100.0,
+          "clean": 89.3,
+          "security": 100.0,
+          "composite": 97.2,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func FilterItemList] Clean: missing public docstring (-5.0 pts)",
+          "[Func FilterItemList] Clean (React): array index used as JSX key at L13 (-8.0 pts)",
+          "[Func FilterList] Size: LOC=29 (>25) (-6.0 pts)",
+          "[Func FilterList] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 95.4 | Complexity: 100.0 | Clean: 89.3 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/filter_index.tsx src      44    - 100.0  95.4 100.0  89.3 100.0   97.2   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/filter_index.tsx:   29   2    1   1   1   97.0   A\n    - Size: LOC=29 (>25) (-6.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/typescript-nextjs/good/app/filter_index.tsx:    9   1    0   1   0   98.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (React): array index used as JSX key at L13 (-8.0 pts)\n"
+      }
+    },
+    {
+      "id": "typescript_nextjs_oss_filter_dropdown_bad",
+      "pair_id": "typescript_nextjs_oss_filter_srp",
+      "scenario_title": "10. Next.js Search Filter List Wrapper vs. High Fan-Out Filter Dropdown (vercel/commerce)",
+      "language": "typescript",
+      "framework": "nextjs",
+      "quality": "bad",
+      "file_path": "samples/typescript-nextjs/bad/app/filter_dropdown.tsx",
+      "is_test": false,
+      "source_dataset": "vercel/commerce (components/layout/search/filter/dropdown.tsx)",
+      "source_url": "https://github.com/vercel/commerce/blob/main/components/layout/search/filter/dropdown.tsx",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 57,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 79.0,
+          "size": 60.0,
+          "complexity": 88.0,
+          "clean": 82.0,
+          "security": 100.0,
+          "composite": 65.0,
+          "grade": "D"
+        },
+        "required_findings": [
+          "SRP: high external call fan-out=13 (>6)"
+        ],
+        "all_findings": [
+          "[Func FilterItemDropdown] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
+          "[Func FilterItemDropdown] Size: LOC=51 (>25) (-40.0 pts)",
+          "[Func FilterItemDropdown] Complexity: CC=8 (>5) (-12.0 pts)",
+          "[Func FilterItemDropdown] Clean: missing public docstring (-10.0 pts)",
+          "[Func FilterItemDropdown] Clean (React): array index used as JSX key at L58 (-8.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 79.0 | Size: 60.0 | Complexity: 88.0 | Clean: 82.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/filter_dropdown.tsx src      57    -  79.0  60.0  88.0  82.0 100.0   65.0   D\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/filter_dropdown.ts   51   8    2   1   1   65.0   D\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Size: LOC=51 (>25) (-40.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): array index used as JSX key at L58 (-8.0 pts)\n"
+      }
+    }
+  ]
+}

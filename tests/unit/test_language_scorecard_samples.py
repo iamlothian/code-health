@@ -18,13 +18,31 @@ if _SCRIPTS_DIR not in sys.path:
 from _code_health.models import RenderFilter, RubricConfig  # noqa: E402
 from _code_health.reporting import CodeHealthRunner, ScorecardFormatter  # noqa: E402
 
-_MANIFEST_PATH = _REPO_ROOT / "samples" / "manifest.json"
+_SAMPLES_ROOT = _REPO_ROOT / "samples"
+_EXPECTED_PROFILES: tuple[str, ...] = (
+    "python",
+    "java",
+    "java-spring",
+    "javascript",
+    "typescript",
+    "typescript-react",
+    "typescript-nextjs",
+    "typescript-angular",
+)
+
+
+def _load_profile_manifest(profile: str) -> dict[str, Any]:
+    """Load the per-profile manifest JSON from samples/<profile>/manifest.json."""
+    manifest_path = _SAMPLES_ROOT / profile / "manifest.json"
+    return dict(json.loads(manifest_path.read_text(encoding="utf-8")))
 
 
 def _load_manifest_samples() -> list[dict[str, Any]]:
-    """Load all sample definitions from samples/manifest.json."""
-    data = json.loads(_MANIFEST_PATH.read_text(encoding="utf-8"))
-    return list(data["samples"])
+    """Load all sample definitions across all per-profile manifests."""
+    all_samples: list[dict[str, Any]] = []
+    for profile in _EXPECTED_PROFILES:
+        all_samples.extend(_load_profile_manifest(profile)["samples"])
+    return all_samples
 
 
 def _load_scenario_pairs() -> list[tuple[str, dict[str, Any], dict[str, Any]]]:
@@ -68,14 +86,25 @@ def _run_sample_analysis(entry: dict[str, Any]) -> tuple[Any, str]:
 
 
 def test_samples_manifest_and_catalog_exist() -> None:
-    """Verify the top-level samples manifest and human-readable baseline catalog exist."""
-    catalog_path = _REPO_ROOT / "samples" / "SCORECARD_BASELINES.md"
-    assert _MANIFEST_PATH.is_file()
-    assert catalog_path.is_file()
-    samples = _load_manifest_samples()
-    assert len(samples) == 68
-    catalog_text = catalog_path.read_text(encoding="utf-8")
-    assert "# Multi-Language Code Health Scorecard Baselines" in catalog_text
+    """Verify per-profile manifests and baseline catalogs exist without a root monolith."""
+    assert not (_SAMPLES_ROOT / "manifest.json").exists()
+    assert not (_SAMPLES_ROOT / "SCORECARD_BASELINES.md").exists()
+
+    total_samples = 0
+    for profile in _EXPECTED_PROFILES:
+        profile_dir = _SAMPLES_ROOT / profile
+        catalog_path = profile_dir / "SCORECARD_BASELINES.md"
+        assert (profile_dir / "manifest.json").is_file()
+        assert catalog_path.is_file() and "Code Health Scorecard Baselines" in catalog_path.read_text(encoding="utf-8")
+
+        entries = _load_profile_manifest(profile)["samples"]
+        good_count = sum(1 for item in entries if item["quality"] == "good")
+        bad_count = sum(1 for item in entries if item["quality"] == "bad")
+        assert (len(entries), good_count, bad_count) == (20, 10, 10)
+        assert all(not item["source_dataset"].lower().startswith("custom") for item in entries)
+        total_samples += len(entries)
+
+    assert total_samples == 160
 
 
 @pytest.mark.parametrize("entry", _load_manifest_samples(), ids=lambda e: e["id"])

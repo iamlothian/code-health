@@ -1,0 +1,49 @@
+{
+  "id": "typescript_react_oss_use_layout_bad",
+  "pair_id": "typescript_react_oss_hook_srp",
+  "scenario_title": "4. React Focused Media Query Hook vs. Layout Hook & Effect Sprawl (shadcn-ui/ui)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/use_layout.tsx",
+  "is_test": false,
+  "source_dataset": "shadcn-ui/ui (apps/v4/hooks/use-layout.tsx)",
+  "source_url": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/hooks/use-layout.tsx",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 134,
+    "classes_count": 0,
+    "functions_count": 4,
+    "scores": {
+      "srp": 63.0,
+      "size": 15.9,
+      "complexity": 15.9,
+      "clean": 89.1,
+      "security": 100.0,
+      "composite": 20.9,
+      "grade": "F"
+    },
+    "required_findings": [
+      "effect sprawl",
+      "high external call fan-out=",
+      "empty catch block"
+    ],
+    "all_findings": [
+      "[Func saveToLS] Clean: missing public docstring (-5.0 pts)",
+      "[Func saveToLS] Clean: missing return type annotation (-10.0 pts)",
+      "[Func saveToLS] Clean: empty catch block swallows exception (-10.0 pts)",
+      "[Func useLayout] Clean: missing public docstring (-5.0 pts)",
+      "[Func useLayout] Clean: missing return type annotation (-10.0 pts)",
+      "[Func Layout] SRP: high external call fan-out=21 (>6) (-36.0 pts)",
+      "[Func Layout] Size: LOC=95 (>25) (-100.0 pts)",
+      "[Func Layout] Complexity: CC=20 (>5) (-90.0 pts)",
+      "[Func Layout] Complexity: cognitive=22 (>8) (-35.0 pts)",
+      "[Func Layout] Complexity: returns=9 (>3) (-24.0 pts)",
+      "[Func Layout] Clean: missing public docstring (-10.0 pts)",
+      "[Func Layout] SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)",
+      "[Func LayoutProvider] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 20.9/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4\nDimensions -> SRP: 63.0 | Size: 15.9 | Complexity: 15.9 | Clean: 89.1 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/use_layout.tsx    src     134    -  63.0  15.9  15.9  89.1 100.0   20.9   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/use_layout.tsx:43 Layou   95  20   22   1   3    5.0   F\n    - SRP: high external call fan-out=21 (>6) (-36.0 pts)\n    - Size: LOC=95 (>25) (-100.0 pts)\n    - Complexity: CC=20 (>5) (-90.0 pts)\n    - Complexity: cognitive=22 (>8) (-35.0 pts)\n    - Complexity: returns=9 (>3) (-24.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - SRP (React): effect sprawl with 3 useEffect/useLayoutEffect calls (>2) (-8.0 pts)\nsamples/typescript-react/bad/use_layout.tsx:27 saveT    6   2    1   2   1   96.2   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: empty catch block swallows exception (-10.0 pts)\nsamples/typescript-react/bad/use_layout.tsx:35 useLa    7   2    1   0   1   97.8   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\nsamples/typescript-react/bad/use_layout.tsx:155 Layo    5   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

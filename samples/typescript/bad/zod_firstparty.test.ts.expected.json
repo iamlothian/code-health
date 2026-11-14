@@ -1,0 +1,40 @@
+{
+  "id": "typescript_zod_firstparty_test_bad",
+  "pair_id": "typescript_vitest_suite_hygiene",
+  "scenario_title": "10. Vitest Schema Validation Suite vs. Oversized First-Party Switch Test (colinhacks/zod)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/typescript/bad/zod_firstparty.test.ts",
+  "is_test": true,
+  "source_dataset": "colinhacks/zod (packages/zod/src/v3/tests/firstparty.test.ts)",
+  "source_url": "https://github.com/colinhacks/zod/blob/main/packages/zod/src/v3/tests/firstparty.test.ts",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 83,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 55.0,
+      "complexity": 0.0,
+      "clean": 60.0,
+      "security": 100.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "@ts-ignore",
+      "test has 0 assertions",
+      "Complexity: CC=37 (>5)"
+    ],
+    "all_findings": [
+      "Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+      "[Func test: first party switch] Size: LOC=80 (>40) (-45.0 pts)",
+      "[Func test: first party switch] Complexity: CC=37 (>5) (-100.0 pts)",
+      "[Func test: first party switch] Clean (Test): test has 0 assertions (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 55.0 | Complexity: 0.0 | Clean: 60.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_firstparty.test.ts  test     83    - 100.0  55.0   0.0  60.0 100.0    5.0   F\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_firstparty.test.ts:7 test   80  37    1   0   1    5.0   F\n    - Size: LOC=80 (>40) (-45.0 pts)\n    - Complexity: CC=37 (>5) (-100.0 pts)\n    - Clean (Test): test has 0 assertions (-30.0 pts)\n"
+  }
+}

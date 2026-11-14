@@ -1,0 +1,37 @@
+{
+  "id": "typescript_react_oss_chart_code_viewer_bad",
+  "pair_id": "typescript_react_oss_code_viewer_security",
+  "scenario_title": "9. React Safe Copy Button vs. Chart Code Viewer dangerouslySetInnerHTML (shadcn-ui/ui)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/chart_code_viewer.tsx",
+  "is_test": false,
+  "source_dataset": "shadcn-ui/ui (apps/v4/components/chart-code-viewer.tsx)",
+  "source_url": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/components/chart-code-viewer.tsx",
+  "license": "MIT",
+  "target_dimension": "security",
+  "expected": {
+    "loc": 114,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 0.0,
+      "complexity": 100.0,
+      "clean": 90.0,
+      "security": 65.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "dangerouslySetInnerHTML"
+    ],
+    "all_findings": [
+      "[Func ChartCodeViewer] Size: LOC=90 (>25) (-100.0 pts)",
+      "[Func ChartCodeViewer] Clean: missing public docstring (-10.0 pts)",
+      "[Func ChartCodeViewer] Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L72 (-35.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 65.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/chart_code_viewer.tsx src     114    - 100.0   0.0 100.0  90.0  65.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/chart_code_viewer.tsx:2   90   3    1   1   1    5.0   F\n    - Size: LOC=90 (>25) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Security (React): unsafe XSS/DOM sink 'dangerouslySetInnerHTML' at L72 (-35.0 pts)\n"
+  }
+}

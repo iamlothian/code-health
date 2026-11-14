@@ -1,0 +1,33 @@
+{
+  "id": "javascript_binary_heap_clean",
+  "pair_id": "javascript_heap_oop_srp",
+  "scenario_title": "3. Binary Heap Priority Queue OOP Cohesion & Method Count",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/BinaryHeap.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Heap/BinaryHeap.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Heap/BinaryHeap.js",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 66,
+    "classes_count": 1,
+    "functions_count": 11,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 99.6,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 99.9,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Method BinaryHeap.<method>] Complexity: CC=6 (>5) (-4.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 11\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 99.6 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/BinaryHeap.js          src      66    - 100.0 100.0  99.6 100.0 100.0   99.9   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/BinaryHeap.js:8 BinaryHeap    63    9     1   17   99.9   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/BinaryHeap.js:76 BinaryHeap.   18   6    7   1   2   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/javascript/good/BinaryHeap.js:14 BinaryHeap.    4   1    0   1   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:32 BinaryHeap.    4   1    0   1   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:41 BinaryHeap.    3   1    0   0   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:49 BinaryHeap.    3   1    0   0   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:58 BinaryHeap.   11   3    1   1   1  100.0   A\nsamples/javascript/good/BinaryHeap.js:101 BinaryHeap    3   1    0   0   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:109 BinaryHeap    9   2    1   0   1  100.0   A\nsamples/javascript/good/BinaryHeap.js:127 BinaryHeap    6   1    0   2   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:141 minHeapCom    1   1    0   2   0  100.0   A\nsamples/javascript/good/BinaryHeap.js:149 maxHeapCom    1   1    0   2   0  100.0   A\n"
+  }
+}

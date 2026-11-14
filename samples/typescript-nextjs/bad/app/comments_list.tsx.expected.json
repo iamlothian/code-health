@@ -1,0 +1,38 @@
+{
+  "id": "typescript_nextjs_oss_comments_list_bad",
+  "pair_id": "typescript_nextjs_oss_discussions_complexity",
+  "scenario_title": "9. Next.js Discussions Container vs. Branchy Comments List Component (bulletproof-react)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "bad",
+  "file_path": "samples/typescript-nextjs/bad/app/comments_list.tsx",
+  "is_test": false,
+  "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/features/comments/components/comments-list.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/features/comments/components/comments-list.tsx",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 81,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 91.0,
+      "size": 20.0,
+      "complexity": 84.0,
+      "clean": 90.0,
+      "security": 100.0,
+      "composite": 25.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=9 (>5)"
+    ],
+    "all_findings": [
+      "[Func CommentsList] SRP: high external call fan-out=9 (>6) (-9.0 pts)",
+      "[Func CommentsList] Size: LOC=67 (>25) (-80.0 pts)",
+      "[Func CommentsList] Complexity: CC=9 (>5) (-16.0 pts)",
+      "[Func CommentsList] Clean: missing public docstring (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 25.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 91.0 | Size: 20.0 | Complexity: 84.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/comments_list.tsx src      81    -  91.0  20.0  84.0  90.0 100.0   25.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/comments_list.tsx:   67   9    3   1   1   25.0   F\n    - SRP: high external call fan-out=9 (>6) (-9.0 pts)\n    - Size: LOC=67 (>25) (-80.0 pts)\n    - Complexity: CC=9 (>5) (-16.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+  }
+}

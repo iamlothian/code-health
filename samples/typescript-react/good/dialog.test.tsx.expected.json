@@ -1,0 +1,31 @@
+{
+  "id": "typescript_react_oss_dialog_test_good",
+  "pair_id": "typescript_react_oss_component_test_hygiene",
+  "scenario_title": "10. React Component RTL Test Hygiene vs. Bloated Multi-Assertion Adapter Test",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/dialog.test.tsx",
+  "is_test": true,
+  "source_dataset": "alan2207/bulletproof-react (apps/react-vite/src/components/ui/dialog/__tests__/dialog.test.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/react-vite/src/components/ui/dialog/__tests__/dialog.test.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 56,
+    "classes_count": 0,
+    "functions_count": 2,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/dialog.test.tsx  test     56    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/dialog.test.tsx:20 Tes   31   2    1   0   1  100.0   A\nsamples/typescript-react/good/dialog.test.tsx:54 tes   10   1    0   0   0  100.0   A\n"
+  }
+}

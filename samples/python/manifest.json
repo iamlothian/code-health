@@ -1,0 +1,805 @@
+{
+  "version": "1.2.0",
+  "profile": "python",
+  "language": "python",
+  "framework": "auto",
+  "description": "Functionally comparable real-world Python code health scorecard baseline samples across 10 good/bad scenario pairs.",
+  "samples": [
+    {
+      "id": "python_complexity_good",
+      "pair_id": "python_algorithmic_complexity",
+      "scenario_title": "1. Shortest-Path Graph Algorithm Complexity & Decomposition (TheAlgorithms/Python graphs/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/bellman_ford.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (graphs/bellman_ford.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/graphs/bellman_ford.py",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 56,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 97.8,
+          "clean": 86.9,
+          "security": 100.0,
+          "composite": 97.6,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "[Func print_distance] Clean: 1 untyped param(s) (src) (-5.0 pts)",
+          "[Func print_distance] Clean: missing public docstring (-5.0 pts)",
+          "[Func check_negative_cycle] Clean: missing public docstring (-5.0 pts)",
+          "[Func bellman_ford] Complexity: CC=6 (>5) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.6/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 97.8 | Clean: 86.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/bellman_ford.py            src      56    - 100.0 100.0  97.8  86.9 100.0   97.6   A\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/bellman_ford.py:4 print_distance    4   2    1   2   1   98.5   A\n    - Clean: 1 untyped param(s) (src) (-5.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/good/bellman_ford.py:10 check_negativ    8   4    4   3   2   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/good/bellman_ford.py:20 bellman_ford    14   6    8   4   3   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\n"
+      }
+    },
+    {
+      "id": "python_complexity_bad",
+      "pair_id": "python_algorithmic_complexity",
+      "scenario_title": "1. Shortest-Path Graph Algorithm Complexity & Decomposition (TheAlgorithms/Python graphs/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/a_star.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (graphs/a_star.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/graphs/a_star.py",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 118,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 14.0,
+          "complexity": 10.5,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 15.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "Size: LOC=63 (>25) (-70.0 pts)",
+          "Size: params=5 (>4) (-6.0 pts)",
+          "Size: nesting depth=4 (>3) (-10.0 pts)",
+          "Complexity: CC=16 (>5) (-62.0 pts)",
+          "Complexity: cognitive=19 (>8) (-27.5 pts)"
+        ],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "[Func search] Size: LOC=63 (>25) (-70.0 pts)",
+          "[Func search] Size: params=5 (>4) (-6.0 pts)",
+          "[Func search] Size: nesting depth=4 (>3) (-10.0 pts)",
+          "[Func search] Complexity: CC=16 (>5) (-62.0 pts)",
+          "[Func search] Complexity: cognitive=19 (>8) (-27.5 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 15.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 14.0 | Complexity: 10.5 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/a_star.py                   src     118    - 100.0  14.0  10.5  90.0 100.0   15.5   F\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/a_star.py:12 search                 63  16   19   5   4   15.5   F\n    - Size: LOC=63 (>25) (-70.0 pts)\n    - Size: params=5 (>4) (-6.0 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=16 (>5) (-62.0 pts)\n    - Complexity: cognitive=19 (>8) (-27.5 pts)\n"
+      }
+    },
+    {
+      "id": "python_oop_srp_good",
+      "pair_id": "python_oop_cohesion_and_size",
+      "scenario_title": "2. Binary Tree Data Structure OOP Design (TheAlgorithms/Python binary_tree/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/fenwick_tree.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (data_structures/binary_tree/fenwick_tree.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/fenwick_tree.py",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 202,
+        "classes_count": 1,
+        "functions_count": 11,
+        "scores": {
+          "srp": 96.0,
+          "size": 100.0,
+          "complexity": 96.6,
+          "clean": 85.1,
+          "security": 100.0,
+          "composite": 95.9,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+          "[Class FenwickTree] SRP: methods=11 (>10) (-4.0 pts)",
+          "[Class FenwickTree] Complexity: total class CC=27 (>25) (-3.0 pts)",
+          "[Method FenwickTree.next_] Clean: missing public docstring (-5.0 pts)",
+          "[Method FenwickTree.prev] Clean: missing public docstring (-5.0 pts)",
+          "[Method FenwickTree.rank_query] Complexity: CC=6 (>5) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 95.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 11\nDimensions -> SRP: 96.0 | Size: 100.0 | Complexity: 96.6 | Clean: 85.1 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/fenwick_tree.py            src     202    -  96.0 100.0  96.6  85.1 100.0   95.9   A\n    - Clean: missing module docstring (-10.0 pts)\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/fenwick_tree.py:4 FenwickTree    194   11     1   27   98.0   A\n    - SRP: methods=11 (>10) (-4.0 pts)\n    - Complexity: total class CC=27 (>25) (-3.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/fenwick_tree.py:73 FenwickTree.n    2   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/good/fenwick_tree.py:77 FenwickTree.p    2   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/good/fenwick_tree.py:198 FenwickTree.   14   6    6   1   2   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/python/good/fenwick_tree.py:11 FenwickTree._    8   4    5   2   1  100.0   A\nsamples/python/good/fenwick_tree.py:28 FenwickTree.i    7   3    3   1   2  100.0   A\nsamples/python/good/fenwick_tree.py:53 FenwickTree.g    7   3    3   0   2  100.0   A\nsamples/python/good/fenwick_tree.py:80 FenwickTree.a    7   3    2   2   1  100.0   A\nsamples/python/good/fenwick_tree.py:107 FenwickTree.    2   1    0   2   0  100.0   A\nsamples/python/good/fenwick_tree.py:129 FenwickTree.    9   3    2   1   1  100.0   A\nsamples/python/good/fenwick_tree.py:156 FenwickTree.    2   1    0   2   0  100.0   A\nsamples/python/good/fenwick_tree.py:178 FenwickTree.    2   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_oop_srp_bad",
+      "pair_id": "python_oop_cohesion_and_size",
+      "scenario_title": "2. Binary Tree Data Structure OOP Design (TheAlgorithms/Python binary_tree/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/red_black_tree.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (data_structures/binary_tree/red_black_tree.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/red_black_tree.py",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 613,
+        "classes_count": 1,
+        "functions_count": 40,
+        "scores": {
+          "srp": 49.1,
+          "size": 0.0,
+          "complexity": 25.4,
+          "clean": 65.5,
+          "security": 100.0,
+          "composite": 5.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: file LOC=613 (>350) (-40.8 pts)",
+          "Clean: 4 duplicate code block(s) detected (-20.0 pts)",
+          "SRP: methods=27 (>10) (-68.0 pts)",
+          "Size: class LOC=427 (>200) (-90.8 pts)",
+          "Complexity: total class CC=160 (>25) (-100.0 pts)"
+        ],
+        "all_findings": [
+          "Size: file LOC=613 (>350) (-40.8 pts)",
+          "Clean: missing module docstring (-10.0 pts)",
+          "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+          "Clean: 4 duplicate code block(s) detected (-20.0 pts)",
+          "[Class RedBlackTree] SRP: methods=27 (>10) (-68.0 pts)",
+          "[Class RedBlackTree] Size: class LOC=427 (>200) (-90.8 pts)",
+          "[Class RedBlackTree] Complexity: total class CC=160 (>25) (-100.0 pts)",
+          "[Method RedBlackTree.__init__] Size: params=5 (>4) (-6.0 pts)",
+          "[Method RedBlackTree.insert] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackTree.insert] Complexity: cognitive=11 (>8) (-7.5 pts)",
+          "[Method RedBlackTree._insert_repair] Size: LOC=34 (>25) (-13.5 pts)",
+          "[Method RedBlackTree._insert_repair] Size: nesting depth=4 (>3) (-10.0 pts)",
+          "[Method RedBlackTree._insert_repair] Complexity: CC=17 (>5) (-69.0 pts)",
+          "[Method RedBlackTree._insert_repair] Complexity: cognitive=49 (>8) (-100.0 pts)",
+          "[Method RedBlackTree.remove] Size: LOC=39 (>25) (-21.0 pts)",
+          "[Method RedBlackTree.remove] Size: nesting depth=5 (>3) (-20.0 pts)",
+          "[Method RedBlackTree.remove] Complexity: CC=19 (>5) (-83.0 pts)",
+          "[Method RedBlackTree.remove] Complexity: cognitive=54 (>8) (-100.0 pts)",
+          "[Method RedBlackTree._remove_repair] Size: LOC=71 (>25) (-90.0 pts)",
+          "[Method RedBlackTree._remove_repair] Complexity: CC=31 (>5) (-100.0 pts)",
+          "[Method RedBlackTree._remove_repair] Complexity: cognitive=22 (>8) (-35.0 pts)",
+          "[Method RedBlackTree.check_color_properties] Complexity: returns=4 (>3) (-4.0 pts)",
+          "[Method RedBlackTree.check_coloring] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method RedBlackTree.black_height] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackTree.black_height] Complexity: returns=4 (>3) (-4.0 pts)",
+          "[Method RedBlackTree.search] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Method RedBlackTree.search] Complexity: cognitive=10 (>8) (-5.0 pts)",
+          "[Method RedBlackTree.search] Complexity: returns=5 (>3) (-8.0 pts)",
+          "[Method RedBlackTree.floor] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackTree.floor] Complexity: cognitive=13 (>8) (-12.5 pts)",
+          "[Method RedBlackTree.floor] Complexity: returns=5 (>3) (-8.0 pts)",
+          "[Method RedBlackTree.ceil] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method RedBlackTree.ceil] Complexity: cognitive=13 (>8) (-12.5 pts)",
+          "[Method RedBlackTree.ceil] Complexity: returns=5 (>3) (-8.0 pts)",
+          "[Method RedBlackTree.preorder_traverse] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackTree.inorder_traverse] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackTree.postorder_traverse] Clean: missing public docstring (-5.0 pts)",
+          "[Method RedBlackTree.__repr__] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Func test_rotations] Size: LOC=28 (>25) (-4.5 pts)",
+          "[Func print_results] Clean: missing public docstring (-5.0 pts)",
+          "[Func pytests] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+          "[Func pytests] Complexity: CC=8 (>5) (-12.0 pts)",
+          "[Func pytests] Clean: missing public docstring (-5.0 pts)",
+          "[Func main] SRP: high external call fan-out=10 (>6) (-12.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 40\nDimensions -> SRP: 49.1 | Size: 0.0 | Complexity: 25.4 | Clean: 65.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/red_black_tree.py           src     613    -  49.1   0.0  25.4  65.5 100.0    5.0   F\n    - Size: file LOC=613 (>350) (-40.8 pts)\n    - Clean: missing module docstring (-10.0 pts)\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n    - Clean: 4 duplicate code block(s) detected (-20.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/red_black_tree.py:6 RedBlackTre   427   27     1  160    5.0   F\n    - SRP: methods=27 (>10) (-68.0 pts)\n    - Size: class LOC=427 (>200) (-90.8 pts)\n    - Complexity: total class CC=160 (>25) (-100.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/red_black_tree.py:112 RedBlackTre   34  17   49   0   4    5.0   F\n    - Size: LOC=34 (>25) (-13.5 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=17 (>5) (-69.0 pts)\n    - Complexity: cognitive=49 (>8) (-100.0 pts)\nsamples/python/bad/red_black_tree.py:150 RedBlackTre   39  19   54   1   5    5.0   F\n    - Size: LOC=39 (>25) (-21.0 pts)\n    - Size: nesting depth=5 (>3) (-20.0 pts)\n    - Complexity: CC=19 (>5) (-83.0 pts)\n    - Complexity: cognitive=54 (>8) (-100.0 pts)\nsamples/python/bad/red_black_tree.py:205 RedBlackTre   71  31   22   0   2    5.0   F\n    - Size: LOC=71 (>25) (-90.0 pts)\n    - Complexity: CC=31 (>5) (-100.0 pts)\n    - Complexity: cognitive=22 (>8) (-35.0 pts)\nsamples/python/bad/red_black_tree.py:367 RedBlackTre   14   7   13   1   3   76.5   C\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\nsamples/python/bad/red_black_tree.py:384 RedBlackTre   14   7   13   1   3   76.5   C\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\nsamples/python/bad/red_black_tree.py:688 pytests        8   8    0   0   0   95.9   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/bad/red_black_tree.py:698 main          12   1    0   0   0   96.4   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\nsamples/python/bad/red_black_tree.py:350 RedBlackTre   12   6   10   1   2   96.6   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Complexity: cognitive=10 (>8) (-5.0 pts)\n    - Complexity: returns=5 (>3) (-8.0 pts)\nsamples/python/bad/red_black_tree.py:87 RedBlackTree   18   7   11   1   2   96.9   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: cognitive=11 (>8) (-7.5 pts)\nsamples/python/bad/red_black_tree.py:321 RedBlackTre   10   7    5   0   1   97.6   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/python/bad/red_black_tree.py:487 RedBlackTre   13   7    6   0   1   98.4   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\nsamples/python/bad/red_black_tree.py:20 RedBlackTree   13   1    0   5   0   98.5   A\n    - Size: params=5 (>4) (-6.0 pts)\nsamples/python/bad/red_black_tree.py:526 test_rotati   28   2    1   0   1   98.9   A\n    - Size: LOC=28 (>25) (-4.5 pts)\nsamples/python/bad/red_black_tree.py:278 RedBlackTre   11   4    3   0   1   99.2   A\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/python/bad/red_black_tree.py:311 RedBlackTre    6   6    5   0   1   99.2   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\nsamples/python/bad/red_black_tree.py:466 RedBlackTre    6   3    2   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/bad/red_black_tree.py:473 RedBlackTre    6   3    2   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/bad/red_black_tree.py:480 RedBlackTre    6   3    2   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/bad/red_black_tree.py:684 print_resul    2   2    1   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/python/bad/red_black_tree.py:43 RedBlackTree   17   5    6   0   2  100.0   A\nsamples/python/bad/red_black_tree.py:65 RedBlackTree   17   5    6   0   2  100.0   A\nsamples/python/bad/red_black_tree.py:343 RedBlackTre    2   1    0   1   0  100.0   A\nsamples/python/bad/red_black_tree.py:402 RedBlackTre    5   2    2   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:412 RedBlackTre    5   2    2   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:423 RedBlackTre    5   2    2   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:431 RedBlackTre    7   3    4   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:440 RedBlackTre    4   2    1   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:446 RedBlackTre    4   2    1   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:452 RedBlackTre    2   1    0   0   0  100.0   A\nsamples/python/bad/red_black_tree.py:455 RedBlackTre    7   3    2   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:502 RedBlackTre    7   4    4   1   1  100.0   A\nsamples/python/bad/red_black_tree.py:512 color          5   2    2   1   1  100.0   A\nsamples/python/bad/red_black_tree.py:560 test_insert    5   2    1   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:570 test_insert   16   1    0   0   0  100.0   A\nsamples/python/bad/red_black_tree.py:591 test_insert   11   2    1   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:607 test_insert   17   2    1   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:629 test_floor_   13   4    4   0   2  100.0   A\nsamples/python/bad/red_black_tree.py:645 test_min_ma    9   2    1   0   0  100.0   A\nsamples/python/bad/red_black_tree.py:657 test_tree_t   13   3    2   0   1  100.0   A\nsamples/python/bad/red_black_tree.py:673 test_tree_c    8   3    2   0   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_security_good",
+      "pair_id": "python_security_hygiene",
+      "scenario_title": "3. Serialization & I/O Security Hygiene (PyCQA/bandit examples/, 19 LOC)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/urlopen.py",
+      "is_test": false,
+      "source_dataset": "PyCQA/bandit (examples/urlopen.py)",
+      "source_url": "https://github.com/PyCQA/bandit/blob/main/examples/urlopen.py",
+      "license": "Apache-2.0",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 19,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 80.0,
+          "security": 100.0,
+          "composite": 97.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func test_urlopen] Clean: missing return type annotation (-10.0 pts)",
+          "[Func test_urlopen] Clean: missing public docstring (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/urlopen.py                 src      19    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/urlopen.py:15 test_urlopen         17   1    0   0   0   97.0   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+      }
+    },
+    {
+      "id": "python_security_bad",
+      "pair_id": "python_security_hygiene",
+      "scenario_title": "3. Serialization & I/O Security Hygiene (PyCQA/bandit examples/, 19 LOC)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/yaml_load.py",
+      "is_test": false,
+      "source_dataset": "PyCQA/bandit (examples/yaml_load.py)",
+      "source_url": "https://github.com/PyCQA/bandit/blob/main/examples/yaml_load.py",
+      "license": "Apache-2.0",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 19,
+        "classes_count": 0,
+        "functions_count": 2,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 75.0,
+          "security": 60.0,
+          "composite": 65.0,
+          "grade": "D"
+        },
+        "required_findings": [
+          "Security: unsafe yaml.load() without SafeLoader at L9 (-40.0 pts)"
+        ],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "[Func test_yaml_load] Clean: missing return type annotation (-10.0 pts)",
+          "[Func test_yaml_load] Clean: missing public docstring (-5.0 pts)",
+          "[Func test_yaml_load] Security: unsafe yaml.load() without SafeLoader at L9 (-40.0 pts)",
+          "[Func test_json_load] Clean: missing return type annotation (-10.0 pts)",
+          "[Func test_json_load] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 2\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 60.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/yaml_load.py                src      19    - 100.0 100.0 100.0  75.0  60.0   65.0   D\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/yaml_load.py:7 test_yaml_load        8   2    1   0   1   65.0   D\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Security: unsafe yaml.load() without SafeLoader at L9 (-40.0 pts)\nsamples/python/bad/yaml_load.py:18 test_json_load       2   1    0   0   0   97.8   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "python_test_hygiene_good",
+      "pair_id": "python_test_hygiene",
+      "scenario_title": "4. CLI Command & Option Test Suite Hygiene (pallets/click tests/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/test_info_dict.py",
+      "is_test": true,
+      "source_dataset": "pallets/click (tests/test_info_dict.py)",
+      "source_url": "https://github.com/pallets/click/blob/main/tests/test_info_dict.py",
+      "license": "BSD-3-Clause",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 322,
+        "classes_count": 0,
+        "functions_count": 8,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 8\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_info_dict.py          test    322    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_info_dict.py:212 test_param    3   1    0   2   0  100.0   A\nsamples/python/good/test_info_dict.py:253 test_comma    4   1    0   2   0  100.0   A\nsamples/python/good/test_info_dict.py:259 test_conte   11   1    0   0   0  100.0   A\nsamples/python/good/test_info_dict.py:272 test_param    4   1    0   0   0  100.0   A\nsamples/python/good/test_info_dict.py:300 test_param    2   1    0   3   0  100.0   A\nsamples/python/good/test_info_dict.py:321 test_param    3   1    0   4   0  100.0   A\nsamples/python/good/test_info_dict.py:327 test_argum    5   1    0   0   0  100.0   A\nsamples/python/good/test_info_dict.py:334 test_comma   11   2    0   0   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_test_hygiene_bad",
+      "pair_id": "python_test_hygiene",
+      "scenario_title": "4. CLI Command & Option Test Suite Hygiene (pallets/click tests/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/test_commands.py",
+      "is_test": true,
+      "source_dataset": "pallets/click (tests/test_commands.py)",
+      "source_url": "https://github.com/pallets/click/blob/main/tests/test_commands.py",
+      "license": "BSD-3-Clause",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 544,
+        "classes_count": 0,
+        "functions_count": 28,
+        "scores": {
+          "srp": 100.0,
+          "size": 68.9,
+          "complexity": 100.0,
+          "clean": 92.8,
+          "security": 100.0,
+          "composite": 73.9,
+          "grade": "C"
+        },
+        "required_findings": [
+          "Clean (Test): 24 assertions in single test (>8) (-30.0 pts)",
+          "Size: file LOC=544 (>350) (-29.1 pts)"
+        ],
+        "all_findings": [
+          "Size: file LOC=544 (>350) (-29.1 pts)",
+          "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+          "[Func test_custom_parser] Size: LOC=53 (>40) (-13.0 pts)",
+          "[Func test_help_param_priority] Size: LOC=43 (>40) (-3.0 pts)",
+          "[Func test_help_param_priority] Clean (Test): 24 assertions in single test (>8) (-30.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 73.9/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 28\nDimensions -> SRP: 100.0 | Size: 68.9 | Complexity: 100.0 | Clean: 92.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/test_commands.py            test    544    - 100.0  68.9 100.0  92.8 100.0   73.9   C\n    - Size: file LOC=544 (>350) (-29.1 pts)\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/test_commands.py:469 test_help_pa   43   2    1   1   1   75.0   C\n    - Size: LOC=43 (>40) (-3.0 pts)\n    - Clean (Test): 24 assertions in single test (>8) (-30.0 pts)\nsamples/python/bad/test_commands.py:144 test_custom_   53   1    0   1   0   96.8   A\n    - Size: LOC=53 (>40) (-13.0 pts)\nsamples/python/bad/test_commands.py:8 test_other_com   12   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:24 test_other_co   15   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:44 test_forwarde   17   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:66 test_auto_sho   26   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:98 test_command_    4   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:104 test_default   11   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:129 test_group_w   11   1    0   4   0  100.0   A\nsamples/python/bad/test_commands.py:210 test_object_   16   2    1   1   1  100.0   A\nsamples/python/bad/test_commands.py:262 test_other_c   12   1    0   3   0  100.0   A\nsamples/python/bad/test_commands.py:279 test_invoked   18   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:311 test_subcomm   12   1    0   4   0  100.0   A\nsamples/python/bad/test_commands.py:329 test_aliased   14   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:349 test_group_a    6   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:401 test_iter_pa   17   1    0   3   0  100.0   A\nsamples/python/bad/test_commands.py:462 test_get_hel    4   1    0   3   0  100.0   A\nsamples/python/bad/test_commands.py:536 test_unproce   13   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:554 test_depreca    8   2    1   3   1  100.0   A\nsamples/python/bad/test_commands.py:568 test_depreca    7   1    0   3   0  100.0   A\nsamples/python/bad/test_commands.py:582 test_depreca   10   1    0   2   0  100.0   A\nsamples/python/bad/test_commands.py:603 test_depreca    8   2    1   2   1  100.0   A\nsamples/python/bad/test_commands.py:615 test_command    9   1    0   0   0  100.0   A\nsamples/python/bad/test_commands.py:628 test_group_p   16   1    0   0   0  100.0   A\nsamples/python/bad/test_commands.py:650 test_group_i   18   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:675 test_abort_e    8   1    0   2   0  100.0   A\nsamples/python/bad/test_commands.py:686 test_unknown    4   1    0   1   0  100.0   A\nsamples/python/bad/test_commands.py:699 test_suggest   13   1    0   3   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_sorting_size_good",
+      "pair_id": "python_sorting_size",
+      "scenario_title": "5. Sorting Algorithm Function Size & Decomposition (TheAlgorithms/Python sorts/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/pigeon_sort.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (sorts/pigeon_sort.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/sorts/pigeon_sort.py",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 35,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pigeon_sort.py             src      35    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pigeon_sort.py:16 pigeon_sort      17   5    5   1   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_sorting_size_bad",
+      "pair_id": "python_sorting_size",
+      "scenario_title": "5. Sorting Algorithm Function Size & Decomposition (TheAlgorithms/Python sorts/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/merge_insertion_sort.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (sorts/merge_insertion_sort.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/sorts/merge_insertion_sort.py",
+      "license": "MIT",
+      "target_dimension": "size",
+      "expected": {
+        "loc": 158,
+        "classes_count": 1,
+        "functions_count": 5,
+        "scores": {
+          "srp": 100.0,
+          "size": 25.2,
+          "complexity": 67.9,
+          "clean": 99.8,
+          "security": 100.0,
+          "composite": 30.2,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Size: LOC=92 (>25) (-100.0 pts)",
+          "Complexity: CC=10 (>5) (-20.0 pts)"
+        ],
+        "all_findings": [
+          "[Class Comparable] Clean: missing class docstring (-15.0 pts)",
+          "[Func binary_search_insertion] Complexity: cognitive=9 (>8) (-2.5 pts)",
+          "[Func merge_insertion_sort] Size: LOC=92 (>25) (-100.0 pts)",
+          "[Func merge_insertion_sort] Complexity: CC=10 (>5) (-20.0 pts)",
+          "[Func merge_insertion_sort] Complexity: cognitive=17 (>8) (-22.5 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 30.2/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 25.2 | Complexity: 67.9 | Clean: 99.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/merge_insertion_sort.py     src     158    - 100.0  25.2  67.9  99.8 100.0   30.2   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/merge_insertion_sort.py:19 Comp     2    1     1    1   97.8   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/merge_insertion_sort.py:70 merge_   92  10   17   1   3    5.0   F\n    - Size: LOC=92 (>25) (-100.0 pts)\n    - Complexity: CC=10 (>5) (-20.0 pts)\n    - Complexity: cognitive=17 (>8) (-22.5 pts)\nsamples/python/bad/merge_insertion_sort.py:23 binary   15   5    9   2   3   99.5   A\n    - Complexity: cognitive=9 (>8) (-2.5 pts)\nsamples/python/bad/merge_insertion_sort.py:20 Compar    1   1    0   0   0  100.0   A\nsamples/python/bad/merge_insertion_sort.py:44 merge     8   4    5   2   2  100.0   A\nsamples/python/bad/merge_insertion_sort.py:58 sortli    6   2    1   1   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_subprocess_and_yaml_security_good",
+      "pair_id": "python_subprocess_and_yaml_security",
+      "scenario_title": "6. Safe Analyzer Plugin vs. Unsafe Subprocess & YAML Deserialization (PyCQA/bandit)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/pytorch_load.py",
+      "is_test": false,
+      "source_dataset": "PyCQA/bandit (bandit/plugins/pytorch_load.py)",
+      "source_url": "https://github.com/PyCQA/bandit/blob/main/bandit/plugins/pytorch_load.py",
+      "license": "Apache-2.0",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 28,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 96.0,
+          "clean": 85.0,
+          "security": 100.0,
+          "composite": 97.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [
+          "[Func pytorch_load] Complexity: CC=6 (>5) (-4.0 pts)",
+          "[Func pytorch_load] Clean: missing return type annotation (-10.0 pts)",
+          "[Func pytorch_load] Clean: 1 untyped param(s) (context) (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 96.0 | Clean: 85.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pytorch_load.py            src      28    - 100.0 100.0  96.0  85.0 100.0   97.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/pytorch_load.py:52 pytorch_load    16   6    6   1   2   97.0   A\n    - Complexity: CC=6 (>5) (-4.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 1 untyped param(s) (context) (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "python_subprocess_and_yaml_security_bad",
+      "pair_id": "python_subprocess_and_yaml_security",
+      "scenario_title": "6. Safe Analyzer Plugin vs. Unsafe Subprocess & YAML Deserialization (PyCQA/bandit)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/new_candidates-all.py",
+      "is_test": false,
+      "source_dataset": "PyCQA/bandit (examples/new_candidates-all.py)",
+      "source_url": "https://github.com/PyCQA/bandit/blob/main/examples/new_candidates-all.py",
+      "license": "Apache-2.0",
+      "target_dimension": "security",
+      "expected": {
+        "loc": 12,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 75.0,
+          "security": 20.0,
+          "composite": 25.0,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Security: subprocess call with shell=True",
+          "Security: unsafe yaml.load() without SafeLoader"
+        ],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "[Func subprocess_shell_cmd] Clean: missing return type annotation (-10.0 pts)",
+          "[Func subprocess_shell_cmd] Clean: missing public docstring (-5.0 pts)",
+          "[Func subprocess_shell_cmd] Security: subprocess call with shell=True at L7 (-40.0 pts)",
+          "[Func subprocess_shell_cmd] Security: subprocess call with shell=True at L9 (-40.0 pts)",
+          "[Func yaml_load] Clean: missing return type annotation (-10.0 pts)",
+          "[Func yaml_load] Clean: missing public docstring (-5.0 pts)",
+          "[Func yaml_load] Security: unsafe yaml.load() without SafeLoader at L15 (-40.0 pts)",
+          "[Func yaml_load] Security: unsafe yaml.load() without SafeLoader at L17 (-40.0 pts)",
+          "[Func xml_sax_make_parser] Clean: missing return type annotation (-10.0 pts)",
+          "[Func xml_sax_make_parser] Clean: missing public docstring (-5.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 25.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 20.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/new_candidates-all.py       src      12    - 100.0 100.0 100.0  75.0  20.0   25.0   F\n    - Clean: missing module docstring (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/new_candidates-all.py:4 subproces    3   1    0   0   0   25.0   F\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Security: subprocess call with shell=True at L7 (-40.0 pts)\n    - Security: subprocess call with shell=True at L9 (-40.0 pts)\nsamples/python/bad/new_candidates-all.py:11 yaml_loa    4   1    0   0   0   25.0   F\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n    - Security: unsafe yaml.load() without SafeLoader at L15 (-40.0 pts)\n    - Security: unsafe yaml.load() without SafeLoader at L17 (-40.0 pts)\nsamples/python/bad/new_candidates-all.py:19 xml_sax_    3   1    0   0   0   97.8   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: missing public docstring (-5.0 pts)\n"
+      }
+    },
+    {
+      "id": "python_linked_structure_srp_good",
+      "pair_id": "python_linked_structure_srp",
+      "scenario_title": "7. Linked Data Structure Class Cohesion & Method Count (TheAlgorithms/Python data_structures/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/flatten_binarytree_to_linkedlist.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (data_structures/binary_tree/flatten_binarytree_to_linkedlist.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/flatten_binarytree_to_linkedlist.py",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 96,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/flatten_binarytree_to_linkedlist.py src      96    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/flatten_binarytree_to_linkedli     5    1     1    1  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/flatten_binarytree_to_linkedlist    4   1    0   1   0  100.0   A\nsamples/python/good/flatten_binarytree_to_linkedlist    8   1    0   0   0  100.0   A\nsamples/python/good/flatten_binarytree_to_linkedlist   12   3    2   1   1  100.0   A\nsamples/python/good/flatten_binarytree_to_linkedlist    8   3    3   1   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_linked_structure_srp_bad",
+      "pair_id": "python_linked_structure_srp",
+      "scenario_title": "7. Linked Data Structure Class Cohesion & Method Count (TheAlgorithms/Python data_structures/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/sorted_linked_list.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (data_structures/linked_list/sorted_linked_list.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/linked_list/sorted_linked_list.py",
+      "license": "MIT",
+      "target_dimension": "srp",
+      "expected": {
+        "loc": 274,
+        "classes_count": 2,
+        "functions_count": 12,
+        "scores": {
+          "srp": 62.5,
+          "size": 86.2,
+          "complexity": 82.4,
+          "clean": 90.0,
+          "security": 100.0,
+          "composite": 67.5,
+          "grade": "D"
+        },
+        "required_findings": [
+          "SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+          "SRP: methods=12 (>10) (-8.0 pts)"
+        ],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "[Class SortedLinkedList] SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+          "[Class SortedLinkedList] SRP: methods=12 (>10) (-8.0 pts)",
+          "[Class SortedLinkedList] Size: class LOC=233 (>200) (-13.2 pts)",
+          "[Class SortedLinkedList] Complexity: total class CC=34 (>25) (-13.5 pts)",
+          "[Method SortedLinkedList.insert] Complexity: CC=7 (>5) (-8.0 pts)",
+          "[Method SortedLinkedList.insert] Complexity: cognitive=13 (>8) (-12.5 pts)",
+          "[Method SortedLinkedList.delete] Size: nesting depth=4 (>3) (-10.0 pts)",
+          "[Method SortedLinkedList.delete] Complexity: CC=8 (>5) (-12.0 pts)",
+          "[Method SortedLinkedList.delete] Complexity: cognitive=14 (>8) (-15.0 pts)",
+          "[Method SortedLinkedList.delete] Complexity: returns=4 (>3) (-4.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 67.5/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 2 | Functions/Methods: 12\nDimensions -> SRP: 62.5 | Size: 86.2 | Complexity: 82.4 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/sorted_linked_list.py       src     274    -  62.5  86.2  82.4  90.0 100.0   67.5   D\n    - Clean: missing module docstring (-10.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/sorted_linked_list.py:24 Sorted   233   12     3   34   67.0   D\n    - SRP: LCOM4=3 disconnected method groups (-30.0 pts)\n    - SRP: methods=12 (>10) (-8.0 pts)\n    - Size: class LOC=233 (>200) (-13.2 pts)\n    - Complexity: total class CC=34 (>25) (-13.5 pts)\nsamples/python/bad/sorted_linked_list.py:8 Node        3    0     0    0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/sorted_linked_list.py:113 SortedL   18   8   14   1   4   74.0   C\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=8 (>5) (-12.0 pts)\n    - Complexity: cognitive=14 (>8) (-15.0 pts)\n    - Complexity: returns=4 (>3) (-4.0 pts)\nsamples/python/bad/sorted_linked_list.py:80 SortedLi   17   7   13   1   3   95.9   A\n    - Complexity: CC=7 (>5) (-8.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\nsamples/python/bad/sorted_linked_list.py:27 SortedLi    3   1    0   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:37 SortedLi    5   2    1   0   1  100.0   A\nsamples/python/bad/sorted_linked_list.py:52 SortedLi    2   1    0   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:68 SortedLi    2   1    0   1   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:160 SortedL    2   1    0   1   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:184 SortedL    2   1    0   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:203 SortedL    2   2    1   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:222 SortedL    2   2    1   0   0  100.0   A\nsamples/python/bad/sorted_linked_list.py:242 SortedL    7   4    5   0   2  100.0   A\nsamples/python/bad/sorted_linked_list.py:267 SortedL   12   4    6   1   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_expression_stack_complexity_good",
+      "pair_id": "python_expression_stack_complexity",
+      "scenario_title": "8. Stack Expression Notation Conversion Complexity (TheAlgorithms/Python data_structures/stacks/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/postfix_to_infix_conversion.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (data_structures/stacks/postfix_to_infix_conversion.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/stacks/postfix_to_infix_conversion.py",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 39,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/postfix_to_infix_conversion.py src      39    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/postfix_to_infix_conversion.py:7   13   5    6   1   2  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_expression_stack_complexity_bad",
+      "pair_id": "python_expression_stack_complexity",
+      "scenario_title": "8. Stack Expression Notation Conversion Complexity (TheAlgorithms/Python data_structures/stacks/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/infix_to_postfix_conversion.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (data_structures/stacks/infix_to_postfix_conversion.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/stacks/infix_to_postfix_conversion.py",
+      "license": "MIT",
+      "target_dimension": "complexity",
+      "expected": {
+        "loc": 91,
+        "classes_count": 0,
+        "functions_count": 3,
+        "scores": {
+          "srp": 89.3,
+          "size": 79.0,
+          "complexity": 10.5,
+          "clean": 96.0,
+          "security": 100.0,
+          "composite": 15.5,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Complexity: CC=",
+          "Complexity: cognitive="
+        ],
+        "all_findings": [
+          "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+          "[Func infix_to_postfix] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+          "[Func infix_to_postfix] Size: LOC=34 (>25) (-13.5 pts)",
+          "[Func infix_to_postfix] Size: nesting depth=4 (>3) (-10.0 pts)",
+          "[Func infix_to_postfix] Complexity: CC=15 (>5) (-55.0 pts)",
+          "[Func infix_to_postfix] Complexity: cognitive=36 (>8) (-70.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 15.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 89.3 | Size: 79.0 | Complexity: 10.5 | Clean: 96.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/infix_to_postfix_conversion.py src      91    -  89.3  79.0  10.5  96.0 100.0   15.5   F\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/infix_to_postfix_conversion.py:45   34  15   36   1   4    5.0   F\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\n    - Size: LOC=34 (>25) (-13.5 pts)\n    - Size: nesting depth=4 (>3) (-10.0 pts)\n    - Complexity: CC=15 (>5) (-55.0 pts)\n    - Complexity: cognitive=36 (>8) (-70.0 pts)\nsamples/python/bad/infix_to_postfix_conversion.py:28    2   1    0   1   0  100.0   A\nsamples/python/bad/infix_to_postfix_conversion.py:37    2   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_dp_clean_typing_good",
+      "pair_id": "python_dp_clean_typing",
+      "scenario_title": "9. Dynamic Programming Type Annotations & Documentation Hygiene (TheAlgorithms/Python dynamic_programming/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/trapped_water.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (dynamic_programming/trapped_water.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/trapped_water.py",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 38,
+        "classes_count": 0,
+        "functions_count": 1,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/trapped_water.py           src      38    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/trapped_water.py:16 trapped_rain   18   5    4   1   1  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_dp_clean_typing_bad",
+      "pair_id": "python_dp_clean_typing",
+      "scenario_title": "9. Dynamic Programming Type Annotations & Documentation Hygiene (TheAlgorithms/Python dynamic_programming/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/floyd_warshall.py",
+      "is_test": false,
+      "source_dataset": "TheAlgorithms/Python (dynamic_programming/floyd_warshall.py)",
+      "source_url": "https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/floyd_warshall.py",
+      "license": "MIT",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 72,
+        "classes_count": 1,
+        "functions_count": 4,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 61.0,
+          "security": 100.0,
+          "composite": 66.0,
+          "grade": "D"
+        },
+        "required_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "Clean: missing class docstring (-15.0 pts)",
+          "Clean: missing return type annotation (-10.0 pts)"
+        ],
+        "all_findings": [
+          "Clean: missing module docstring (-10.0 pts)",
+          "Clean: 1 mid-file/late import(s) (-4.0 pts)",
+          "[Class Graph] Clean: missing class docstring (-15.0 pts)",
+          "[Method Graph.__init__] Clean: 1 untyped param(s) (n) (-5.0 pts)",
+          "[Method Graph.add_edge] Clean: 3 untyped param(s) (u, v, w) (-15.0 pts)",
+          "[Method Graph.show_min] Clean: missing return type annotation (-10.0 pts)",
+          "[Method Graph.show_min] Clean: 2 untyped param(s) (u, v) (-10.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 66.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 61.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/floyd_warshall.py           src      72    - 100.0 100.0 100.0  61.0 100.0   66.0   D\n    - Clean: missing module docstring (-10.0 pts)\n    - Clean: 1 mid-file/late import(s) (-4.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/floyd_warshall.py:4 Graph          49    4     1    7   96.2   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/floyd_warshall.py:45 Graph.show_m    2   1    0   2   0   97.0   A\n    - Clean: missing return type annotation (-10.0 pts)\n    - Clean: 2 untyped param(s) (u, v) (-10.0 pts)\nsamples/python/bad/floyd_warshall.py:14 Graph.add_ed    2   1    0   3   0   97.8   A\n    - Clean: 3 untyped param(s) (u, v, w) (-15.0 pts)\nsamples/python/bad/floyd_warshall.py:5 Graph.__init_    8   1    0   1   0   99.2   A\n    - Clean: 1 untyped param(s) (n) (-5.0 pts)\nsamples/python/bad/floyd_warshall.py:26 Graph.floyd_    5   4    6   0   3  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_click_test_duplication_good",
+      "pair_id": "python_click_test_duplication",
+      "scenario_title": "10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "good",
+      "file_path": "samples/python/good/test_chain.py",
+      "is_test": true,
+      "source_dataset": "pallets/click (tests/test_chain.py)",
+      "source_url": "https://github.com/pallets/click/blob/main/tests/test_chain.py",
+      "license": "BSD-3-Clause",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 187,
+        "classes_count": 0,
+        "functions_count": 10,
+        "scores": {
+          "srp": 100.0,
+          "size": 100.0,
+          "complexity": 100.0,
+          "clean": 100.0,
+          "security": 100.0,
+          "composite": 100.0,
+          "grade": "A"
+        },
+        "required_findings": [],
+        "all_findings": [],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 10\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_chain.py              test    187    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_chain.py:8 debug               5   1    0   0   0  100.0   A\nsamples/python/good/test_chain.py:15 test_basic_chai   17   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:47 test_chaining_h   16   1    0   3   0  100.0   A\nsamples/python/good/test_chain.py:68 test_chaining_w   15   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:89 test_no_command    9   1    0   3   0  100.0   A\nsamples/python/good/test_chain.py:107 test_chaining_   15   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:135 test_pipeline    27   1    0   4   0  100.0   A\nsamples/python/good/test_chain.py:170 test_args_and_   16   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:192 test_group_arg   21   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:222 test_group_cha   19   1    0   1   0  100.0   A\n"
+      }
+    },
+    {
+      "id": "python_click_test_duplication_bad",
+      "pair_id": "python_click_test_duplication",
+      "scenario_title": "10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/)",
+      "language": "python",
+      "framework": "auto",
+      "quality": "bad",
+      "file_path": "samples/python/bad/test_basic.py",
+      "is_test": true,
+      "source_dataset": "pallets/click (tests/test_basic.py)",
+      "source_url": "https://github.com/pallets/click/blob/main/tests/test_basic.py",
+      "license": "BSD-3-Clause",
+      "target_dimension": "clean",
+      "expected": {
+        "loc": 761,
+        "classes_count": 0,
+        "functions_count": 42,
+        "scores": {
+          "srp": 100.0,
+          "size": 21.9,
+          "complexity": 100.0,
+          "clean": 72.8,
+          "security": 100.0,
+          "composite": 26.9,
+          "grade": "F"
+        },
+        "required_findings": [
+          "Clean: 3 mid-file/late import(s) (-12.0 pts)",
+          "Clean: 3 duplicate code block(s) detected (-15.0 pts)",
+          "Size: file LOC=761 (>350) (-77.8 pts)"
+        ],
+        "all_findings": [
+          "Size: file LOC=761 (>350) (-77.8 pts)",
+          "Clean: 3 mid-file/late import(s) (-12.0 pts)",
+          "Clean: 3 duplicate code block(s) detected (-15.0 pts)",
+          "[Func test_param_named_help] Size: params=5 (>4) (-6.0 pts)",
+          "[Func test_basic_group] Clean (Test): 10 assertions in single test (>8) (-6.0 pts)",
+          "[Func test_cast_multi_default] Size: params=5 (>4) (-6.0 pts)"
+        ],
+        "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 26.9/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 42\nDimensions -> SRP: 100.0 | Size: 21.9 | Complexity: 100.0 | Clean: 72.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/test_basic.py               test    761    - 100.0  21.9 100.0  72.8 100.0   26.9   F\n    - Size: file LOC=761 (>350) (-77.8 pts)\n    - Clean: 3 mid-file/late import(s) (-12.0 pts)\n    - Clean: 3 duplicate code block(s) detected (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/test_basic.py:46 test_param_named   17   1    0   5   0   98.5   A\n    - Size: params=5 (>4) (-6.0 pts)\nsamples/python/bad/test_basic.py:969 test_cast_multi    9   2    2   5   1   98.5   A\n    - Size: params=5 (>4) (-6.0 pts)\nsamples/python/bad/test_basic.py:137 test_basic_grou   21   1    0   1   0   99.1   A\n    - Clean (Test): 10 assertions in single test (>8) (-6.0 pts)\nsamples/python/bad/test_basic.py:12 test_basic_funct   15   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:71 test_param_squat    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:88 test_option_reus   12   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:109 test_repr         13   1    0   0   0  100.0   A\nsamples/python/bad/test_basic.py:127 test_return_val    7   1    0   0   0  100.0   A\nsamples/python/bad/test_basic.py:163 test_group_comm    7   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:175 test_group_from    7   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:197 test_string_opt   11   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:220 test_int_option   11   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:246 test_uuid_optio   13   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:271 test_float_opti   11   2    2   3   1  100.0   A\nsamples/python/bad/test_basic.py:303 test_boolean_sw    7   1    0   4   0  100.0   A\nsamples/python/bad/test_basic.py:325 test_boolean_fl    7   1    0   4   0  100.0   A\nsamples/python/bad/test_basic.py:342 test_boolean_co    9   1    0   3   0  100.0   A\nsamples/python/bad/test_basic.py:390 test_flag_value    8   1    0   4   0  100.0   A\nsamples/python/bad/test_basic.py:410 test_file_optio   16   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:431 test_file_lazy_   30   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:471 test_path_optio   32   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:515 test_choice_opt   16   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:536 test_choice_arg   16   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:557 test_choice_arg   21   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:584 test_choice_arg   24   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:615 test_choice_arg   22   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:643 test_choice_arg   15   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:670 test_datetime_a    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:683 test_datetime_o   21   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:710 test_datetime_o    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:721 test_required_o    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:732 test_evaluation   38   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:775 test_hidden_opt    8   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:786 test_hidden_com   10   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:800 test_hidden_gro   14   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:819 test_summary_li   14   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:838 test_help_inval   15   1    0   1   0  100.0   A\nsamples/python/bad/test_basic.py:855 test_version_op   19   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:885 test_version_op   20   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:914 test_version_op   13   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:935 test_custom_ver    8   1    0   2   0  100.0   A\nsamples/python/bad/test_basic.py:946 test_custom_ver    8   1    0   1   0  100.0   A\n"
+      }
+    }
+  ]
+}

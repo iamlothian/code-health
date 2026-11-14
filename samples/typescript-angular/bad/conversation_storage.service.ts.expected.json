@@ -1,0 +1,43 @@
+{
+  "id": "typescript_angular_oss_conversation_storage_bad",
+  "pair_id": "typescript_angular_oss_service_cohesion",
+  "scenario_title": "8. Angular Cohesive Comments Service vs. OWASP Juice Shop Disconnected Storage Service",
+  "language": "typescript",
+  "framework": "angular",
+  "quality": "bad",
+  "file_path": "samples/typescript-angular/bad/conversation_storage.service.ts",
+  "is_test": false,
+  "source_dataset": "OWASP juice-shop/juice-shop (frontend/src/app/Services/conversation-storage.service.ts)",
+  "source_url": "https://github.com/juice-shop/juice-shop/blob/master/frontend/src/app/Services/conversation-storage.service.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 42,
+    "classes_count": 1,
+    "functions_count": 7,
+    "scores": {
+      "srp": 55.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 80.0,
+      "security": 100.0,
+      "composite": 60.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "LCOM4=4 disconnected method groups"
+    ],
+    "all_findings": [
+      "[Class ConversationStorageService] SRP: LCOM4=4 disconnected method groups (-45.0 pts)",
+      "[Class ConversationStorageService] Clean: missing class docstring (-15.0 pts)",
+      "[Method ConversationStorageService.generateId] Clean: missing public docstring (-5.0 pts)",
+      "[Method ConversationStorageService.generateTitle] Clean: missing public docstring (-5.0 pts)",
+      "[Method ConversationStorageService.getAll] Clean: missing public docstring (-5.0 pts)",
+      "[Method ConversationStorageService.getById] Clean: missing public docstring (-5.0 pts)",
+      "[Method ConversationStorageService.save] Clean: missing public docstring (-5.0 pts)",
+      "[Method ConversationStorageService.delete] Clean: missing public docstring (-5.0 pts)",
+      "[Method ConversationStorageService.deleteAll] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 60.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7\nDimensions -> SRP: 55.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/conversation_storage.service.ts src      42    -  55.0 100.0 100.0  80.0 100.0   60.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/conversation_storag    36    7     4   10   60.0   D\n    - SRP: LCOM4=4 disconnected method groups (-45.0 pts)\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-angular/bad/conversation_storage.    5   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    3   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    6   2    1   0   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.   10   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/typescript-angular/bad/conversation_storage.    3   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

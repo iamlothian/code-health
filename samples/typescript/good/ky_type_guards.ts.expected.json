@@ -1,0 +1,35 @@
+{
+  "id": "typescript_ky_type_guards_clean",
+  "pair_id": "typescript_http_error_guard_complexity",
+  "scenario_title": "8. HTTP Type Guards vs. Branchy Network Error Classifier (sindresorhus/ky)",
+  "language": "typescript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/typescript/good/ky_type_guards.ts",
+  "is_test": false,
+  "source_dataset": "sindresorhus/ky (source/utils/type-guards.ts)",
+  "source_url": "https://github.com/sindresorhus/ky/blob/main/source/utils/type-guards.ts",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 26,
+    "classes_count": 0,
+    "functions_count": 7,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 97.2,
+      "security": 100.0,
+      "composite": 99.6,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func isErrorType] Clean: missing public docstring (-5.0 pts)",
+      "[Func isErrorType] Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)",
+      "[Func isKyError] Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 99.6/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 7\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 97.2 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/ky_type_guards.ts      src      26    - 100.0 100.0 100.0  97.2 100.0   99.6   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/good/ky_type_guards.ts:9 isErrorT    2   3    0   2   0   97.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean (TS): 3 explicit 'any' type usage(s) defeat type safety (-15.0 pts)\nsamples/typescript/good/ky_type_guards.ts:36 isKyErr    3   1    0   1   0   99.2   A\n    - Clean (TS): 1 explicit 'any' type usage(s) defeat type safety (-5.0 pts)\nsamples/typescript/good/ky_type_guards.ts:59 isHTTPE    3   1    0   1   0  100.0   A\nsamples/typescript/good/ky_type_guards.ts:81 isNetwo    3   1    0   1   0  100.0   A\nsamples/typescript/good/ky_type_guards.ts:103 isTime    3   1    0   1   0  100.0   A\nsamples/typescript/good/ky_type_guards.ts:130 isForc    3   1    0   1   0  100.0   A\nsamples/typescript/good/ky_type_guards.ts:153 isResp    3   1    0   1   0  100.0   A\n"
+  }
+}

@@ -5,8 +5,8 @@
 **Force:** `--framework react`  
 **Builds on:** [TypeScript Playbook](typescript-playbook.md) (for `.tsx`) and [JavaScript Playbook](javascript-playbook.md) (for `.jsx`)  
 **Worked examples:**  
-- Clean: [task_preview_clean.tsx](../../../samples/typescript-react/good/task_preview_clean.tsx), [task_filter_bar.tsx](../../../samples/typescript-react/good/task_filter_bar.tsx), [delete_discussion.tsx](../../../samples/typescript-react/good/delete_discussion.tsx), [link.tsx](../../../samples/typescript-react/good/link.tsx), [discussion_view.tsx](../../../samples/typescript-react/good/discussion_view.tsx)  
-- Flagged: [task_preview_legacy.tsx](../../../samples/typescript-react/bad/task_preview_legacy.tsx), [task_board_legacy.tsx](../../../samples/typescript-react/bad/task_board_legacy.tsx), [update_profile.tsx](../../../samples/typescript-react/bad/update_profile.tsx), [md_preview.tsx](../../../samples/typescript-react/bad/md_preview.tsx), [comments_list.tsx](../../../samples/typescript-react/bad/comments_list.tsx)
+- Clean: [use_media_query.tsx](../../../samples/typescript-react/good/use_media_query.tsx), [button.tsx](../../../samples/typescript-react/good/button.tsx), [sidebar_menu.tsx](../../../samples/typescript-react/good/sidebar_menu.tsx), [cell_components.tsx](../../../samples/typescript-react/good/cell_components.tsx), [delete_discussion.tsx](../../../samples/typescript-react/good/delete_discussion.tsx), [link.tsx](../../../samples/typescript-react/good/link.tsx), [discussion_view.tsx](../../../samples/typescript-react/good/discussion_view.tsx)  
+- Flagged: [material_react_table.tsx](../../../samples/typescript-react/bad/material_react_table.tsx), [nav_actions.tsx](../../../samples/typescript-react/bad/nav_actions.tsx), [chart_code_viewer.tsx](../../../samples/typescript-react/bad/chart_code_viewer.tsx), [font_picker.tsx](../../../samples/typescript-react/bad/font_picker.tsx), [update_profile.tsx](../../../samples/typescript-react/bad/update_profile.tsx), [md_preview.tsx](../../../samples/typescript-react/bad/md_preview.tsx), [comments_list.tsx](../../../samples/typescript-react/bad/comments_list.tsx)
 
 ---
 

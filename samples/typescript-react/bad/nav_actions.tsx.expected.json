@@ -1,0 +1,38 @@
+{
+  "id": "typescript_react_oss_nav_actions_bad",
+  "pair_id": "typescript_react_oss_jsx_key_clean",
+  "scenario_title": "7. React Sidebar Menu Rendering vs. Array Index JSX Keys (shadcn-ui/ui)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "bad",
+  "file_path": "samples/typescript-react/bad/nav_actions.tsx",
+  "is_test": false,
+  "source_dataset": "shadcn-ui/ui (apps/v4/registry/new-york-v4/blocks/sidebar-10/components/nav-actions.tsx)",
+  "source_url": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/sidebar-10/components/nav-actions.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 147,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 60.0,
+      "complexity": 100.0,
+      "clean": 74.0,
+      "security": 100.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "array index used as JSX key",
+      "Size: LOC="
+    ],
+    "all_findings": [
+      "[Func NavActions] Size: LOC=51 (>25) (-40.0 pts)",
+      "[Func NavActions] Clean: missing public docstring (-10.0 pts)",
+      "[Func NavActions] Clean (React): array index used as JSX key at L133 (-16.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 60.0 | Complexity: 100.0 | Clean: 74.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/nav_actions.tsx   src     147    - 100.0  60.0 100.0  74.0 100.0   65.0   D\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/nav_actions.tsx:101 Nav   51   1    0   0   0   65.0   D\n    - Size: LOC=51 (>25) (-40.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): array index used as JSX key at L133 (-16.0 pts)\n"
+  }
+}

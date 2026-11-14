@@ -1,0 +1,34 @@
+{
+  "id": "typescript_react_oss_use_media_query_good",
+  "pair_id": "typescript_react_oss_hook_srp",
+  "scenario_title": "4. React Focused Media Query Hook vs. Layout Hook & Effect Sprawl (shadcn-ui/ui)",
+  "language": "typescript",
+  "framework": "react",
+  "quality": "good",
+  "file_path": "samples/typescript-react/good/use_media_query.tsx",
+  "is_test": false,
+  "source_dataset": "shadcn-ui/ui (apps/v4/hooks/use-media-query.tsx)",
+  "source_url": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/hooks/use-media-query.tsx",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 14,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 80.0,
+      "security": 100.0,
+      "composite": 97.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func useMediaQuery] Clean: missing public docstring (-10.0 pts)",
+      "[Func useMediaQuery] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/use_media_query.tsx src      14    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/good/use_media_query.tsx:3    13   1    0   1   0   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+  }
+}

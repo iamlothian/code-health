@@ -1,0 +1,40 @@
+{
+  "id": "java_string_srp_bad",
+  "pair_id": "java_string_cohesion_srp",
+  "scenario_title": "8. String Algorithm Single-Responsibility Cohesion (TheAlgorithms/Java strings/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/Anagrams.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/Anagrams.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/Anagrams.java",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 87,
+    "classes_count": 1,
+    "functions_count": 6,
+    "scores": {
+      "srp": 31.5,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 36.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "SRP: LCOM4=5 disconnected method groups (-60.0 pts)",
+      "SRP: high external call fan-out=10 (>6) (-12.0 pts)"
+    ],
+    "all_findings": [
+      "[Class Anagrams] SRP: LCOM4=5 disconnected method groups (-60.0 pts)",
+      "[Method Anagrams.areAnagramsBySorting] SRP: high external call fan-out=10 (>6) (-12.0 pts)",
+      "[Method Anagrams.areAnagramsByCountingCharsSingleArray] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method Anagrams.areAnagramsUsingHashMap] SRP: high external call fan-out=15 (>6) (-27.0 pts)",
+      "[Method Anagrams.areAnagramsBySingleFreqArray] SRP: high external call fan-out=8 (>6) (-6.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 36.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6\nDimensions -> SRP: 31.5 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Anagrams.java                 src      87    -  31.5 100.0 100.0 100.0 100.0   36.5   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Anagrams.java:13 Anagrams            87    6     5   23   36.5   F\n    - SRP: LCOM4=5 disconnected method groups (-60.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Anagrams.java:104 Anagrams.areAnagr   18   5    4   2   1   78.0   C\n    - SRP: high external call fan-out=15 (>6) (-27.0 pts)\nsamples/java/bad/Anagrams.java:26 Anagrams.areAnagra   12   2    1   2   1   96.4   A\n    - SRP: high external call fan-out=10 (>6) (-12.0 pts)\nsamples/java/bad/Anagrams.java:76 Anagrams.areAnagra   18   5    4   2   1   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/java/bad/Anagrams.java:133 Anagrams.areAnagr   18   5    4   2   1   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/java/bad/Anagrams.java:14 Anagrams.Anagrams     2   1    0   0   0  100.0   A\nsamples/java/bad/Anagrams.java:48 Anagrams.areAnagra   17   5    4   2   1  100.0   A\n"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "javascript_segment_tree_lcom4",
+  "pair_id": "javascript_range_tree_lcom4",
+  "scenario_title": "4. Range-Query Tree OOP Cohesion (FenwickTree vs. SegmentTree)",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/SegmentTree.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Data-Structures/Tree/SegmentTree.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Tree/SegmentTree.js",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 42,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 70.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 90.8,
+      "security": 100.0,
+      "composite": 75.0,
+      "grade": "C"
+    },
+    "required_findings": [
+      "SRP: LCOM4=3 disconnected method groups"
+    ],
+    "all_findings": [
+      "[Class SegmentTree] SRP: LCOM4=3 disconnected method groups (-30.0 pts)",
+      "[Method SegmentTree.constructor] Clean: missing public docstring (-5.0 pts)",
+      "[Method SegmentTree.constructor] Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)",
+      "[Method SegmentTree.build] Clean: missing public docstring (-5.0 pts)",
+      "[Method SegmentTree.build] Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)",
+      "[Method SegmentTree.update] Clean: missing public docstring (-5.0 pts)",
+      "[Method SegmentTree.update] Clean: 2 unannotated parameter(s) without default values (index, value) (-4.0 pts)",
+      "[Method SegmentTree.query] Clean: missing public docstring (-10.0 pts)",
+      "[Method SegmentTree.query] Clean: 2 unannotated parameter(s) without default values (left, right) (-4.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 70.0 | Size: 100.0 | Complexity: 100.0 | Clean: 90.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SegmentTree.js          src      42    -  70.0 100.0 100.0  90.8 100.0   75.0   C\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SegmentTree.js:13 SegmentTr    41    4     3   10   75.0   C\n    - SRP: LCOM4=3 disconnected method groups (-30.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/SegmentTree.js:68 SegmentTree   14   4    5   2   2   97.9   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (left, right) (-4.0 pts)\nsamples/javascript/bad/SegmentTree.js:48 SegmentTree    8   2    1   2   1   98.7   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 2 unannotated parameter(s) without default values (index, value) (-4.0 pts)\nsamples/javascript/bad/SegmentTree.js:16 SegmentTree    6   1    0   1   0   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)\nsamples/javascript/bad/SegmentTree.js:31 SegmentTree    9   3    2   1   1   99.0   A\n    - Clean: missing public docstring (-5.0 pts)\n    - Clean: 1 unannotated parameter(s) without default values (arr) (-2.0 pts)\n"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "java_spring_petclinic_cohesion_good",
+  "pair_id": "java_spring_controller_cohesion",
+  "scenario_title": "9. Spring MVC Controller Cohesion & LCOM4 (spring-projects/spring-petclinic, ~44 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "good",
+  "file_path": "samples/java-spring/good/VetController.java",
+  "is_test": false,
+  "source_dataset": "spring-projects/spring-petclinic (vet/VetController.java)",
+  "source_url": "https://github.com/spring-projects/spring-petclinic/blob/main/src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+  "license": "Apache-2.0",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 37,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 80.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 95.0,
+      "security": 100.0,
+      "composite": 93.2,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Class VetController] SRP (Spring): @RestController directly injects vetRepository (-20.0 pts)",
+      "[Method VetController.showVetList] Clean: missing public docstring (-5.0 pts)",
+      "[Method VetController.addPaginationModel] Clean: missing public docstring (-5.0 pts)",
+      "[Method VetController.findPaginated] Clean: missing public docstring (-5.0 pts)",
+      "[Method VetController.showResourcesVetList] Clean: missing public docstring (-5.0 pts)",
+      "[Method VetController.VetController] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 93.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 80.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/VetController.java    src      37    -  80.0 100.0 100.0  95.0 100.0   93.2   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/VetController.java:36 Vet    37    5     1    6   93.2   A\n    - SRP (Spring): @RestController directly injects vetRepository (-20.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/good/VetController.java:41 VetCo    3   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/VetController.java:45 VetCo   10   2    1   3   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/VetController.java:56 VetCo    8   1    0   3   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/VetController.java:65 VetCo    6   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java-spring/good/VetController.java:72 VetCo    6   1    0   0   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

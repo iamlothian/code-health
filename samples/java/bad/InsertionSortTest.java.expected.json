@@ -1,0 +1,43 @@
+{
+  "id": "java_junit_test_hygiene_bad",
+  "pair_id": "java_junit_test_hygiene",
+  "scenario_title": "10. JUnit 5 Sorting Test Suite Assertion Hygiene (TheAlgorithms/Java sorts/ tests)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/InsertionSortTest.java",
+  "is_test": true,
+  "source_dataset": "TheAlgorithms/Java (src/test/java/com/thealgorithms/sorts/InsertionSortTest.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/sorts/InsertionSortTest.java",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 160,
+    "classes_count": 1,
+    "functions_count": 20,
+    "scores": {
+      "srp": 60.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 89.5,
+      "security": 100.0,
+      "composite": 65.0,
+      "grade": "D"
+    },
+    "required_findings": [
+      "Clean (Test): test has 0 assertions (-30.0 pts)",
+      "SRP: methods=20 (>10) (-40.0 pts)"
+    ],
+    "all_findings": [
+      "[Class InsertionSortTest] SRP: methods=20 (>10) (-40.0 pts)",
+      "[Method InsertionSortTest.insertionSortSortEmptyArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method InsertionSortTest.insertionSortClassicalSortSingleValueArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method InsertionSortTest.insertionSortClassicalWithIntegerArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method InsertionSortTest.insertionSortClassicalForArrayWithNegativeValuesShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method InsertionSortTest.insertionSortClassicalForArrayWithDuplicateValuesShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method InsertionSortTest.insertionSortClassicalWithStringArrayShouldPass] Clean (Test): test has 0 assertions (-30.0 pts)",
+      "[Method InsertionSortTest.insertionSortClassicalWithRandomArrayPass] Clean (Test): test has 0 assertions (-30.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 20\nDimensions -> SRP: 60.0 | Size: 100.0 | Complexity: 100.0 | Clean: 89.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/InsertionSortTest.java        test    160    -  60.0 100.0 100.0  89.5 100.0   65.0   D\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/InsertionSortTest.java:11 Inserti   160   20     1   20   65.0   D\n    - SRP: methods=20 (>10) (-40.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/InsertionSortTest.java:19 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:33 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:47 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:61 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:75 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:89 Insertion    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:103 Insertio    5   1    0   0   0   75.0   C\n    - Clean (Test): test has 0 assertions (-30.0 pts)\nsamples/java/bad/InsertionSortTest.java:14 Insertion    4   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:25 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:39 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:53 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:67 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:81 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:95 Insertion    7   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:109 Insertio    6   1    0   1   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:116 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:124 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:132 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:140 Insertio    7   1    0   0   0  100.0   A\nsamples/java/bad/InsertionSortTest.java:183 Insertio   15   1    0   0   0  100.0   A\n"
+  }
+}

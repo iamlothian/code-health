@@ -1,0 +1,34 @@
+{
+  "id": "typescript_nextjs_oss_robots_route_good",
+  "pair_id": "typescript_nextjs_oss_metadata_routes_srp",
+  "scenario_title": "7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "good",
+  "file_path": "samples/typescript-nextjs/good/app/robots_route.ts",
+  "is_test": false,
+  "source_dataset": "vercel/commerce (app/robots.ts)",
+  "source_url": "https://github.com/vercel/commerce/blob/main/app/robots.ts",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 12,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 80.0,
+      "security": 100.0,
+      "composite": 97.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [
+      "[Func robots] Clean: missing public docstring (-10.0 pts)",
+      "[Func robots] Clean: missing return type annotation (-10.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/robots_route.ts src      12    - 100.0 100.0 100.0  80.0 100.0   97.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/robots_route.ts:3   11   1    0   0   0   97.0   A\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean: missing return type annotation (-10.0 pts)\n"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "typescript_nextjs_oss_confirm_dialog_stories_good",
+  "pair_id": "typescript_nextjs_oss_client_directive",
+  "scenario_title": "6. Next.js App Router Dialog Story without Client Hook Leak vs. Missing 'use client' Directive (bulletproof-react)",
+  "language": "typescript",
+  "framework": "nextjs",
+  "quality": "good",
+  "file_path": "samples/typescript-nextjs/good/app/confirmation_dialog_stories.tsx",
+  "is_test": false,
+  "source_dataset": "alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/dialog/confirmation-dialog/confirmation-dialog.stories.tsx)",
+  "source_url": "https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/dialog/confirmation-dialog/confirmation-dialog.stories.tsx",
+  "license": "MIT",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 26,
+    "classes_count": 0,
+    "functions_count": 0,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 0\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/good/app/confirmation_dialog_stories.tsx src      26    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n"
+  }
+}

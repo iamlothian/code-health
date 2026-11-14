@@ -1,0 +1,41 @@
+{
+  "id": "java_cipher_size_bad",
+  "pair_id": "java_cipher_class_size",
+  "scenario_title": "4. Block & Classical Cipher Implementation Size (TheAlgorithms/Java ciphers/)",
+  "language": "java",
+  "framework": "none",
+  "quality": "bad",
+  "file_path": "samples/java/bad/Blowfish.java",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/Blowfish.java)",
+  "source_url": "https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/Blowfish.java",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 1149,
+    "classes_count": 1,
+    "functions_count": 9,
+    "scores": {
+      "srp": 99.0,
+      "size": 0.0,
+      "complexity": 100.0,
+      "clean": 98.9,
+      "security": 100.0,
+      "composite": 5.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: file LOC=1149 (>350) (-100.0 pts)",
+      "Size: class LOC=1149 (>200) (-100.0 pts)"
+    ],
+    "all_findings": [
+      "Size: file LOC=1149 (>350) (-100.0 pts)",
+      "[Class Blowfish] Size: class LOC=1149 (>200) (-100.0 pts)",
+      "[Method Blowfish.hexToBin] SRP: high external call fan-out=8 (>6) (-6.0 pts)",
+      "[Method Blowfish.xor] SRP: high external call fan-out=7 (>6) (-3.0 pts)",
+      "[Method Blowfish.keyGenerate] Clean: missing public docstring (-5.0 pts)",
+      "[Method Blowfish.round] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 9\nDimensions -> SRP: 99.0 | Size: 0.0 | Complexity: 100.0 | Clean: 98.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Blowfish.java                 src    1149    -  99.0   0.0 100.0  98.9 100.0    5.0   F\n    - Size: file LOC=1149 (>350) (-100.0 pts)\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Blowfish.java:11 Blowfish          1149    9     1   16    5.0   F\n    - Size: class LOC=1149 (>200) (-100.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java/bad/Blowfish.java:1080 Blowfish.hexToBi   14   2    1   1   1   98.2   A\n    - SRP: high external call fan-out=8 (>6) (-6.0 pts)\nsamples/java/bad/Blowfish.java:1121 Blowfish.xor       10   2    1   2   1   99.1   A\n    - SRP: high external call fan-out=7 (>6) (-3.0 pts)\nsamples/java/bad/Blowfish.java:1170 Blowfish.keyGene    7   2    1   1   1   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/Blowfish.java:1181 Blowfish.round     10   1    0   2   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\nsamples/java/bad/Blowfish.java:1104 Blowfish.binToHe    8   2    1   1   1  100.0   A\nsamples/java/bad/Blowfish.java:1140 Blowfish.addBin     9   1    0   2   0  100.0   A\nsamples/java/bad/Blowfish.java:1155 Blowfish.f         12   2    1   1   1  100.0   A\nsamples/java/bad/Blowfish.java:1205 Blowfish.encrypt   11   2    1   2   1  100.0   A\nsamples/java/bad/Blowfish.java:1229 Blowfish.decrypt   11   2    1   2   1  100.0   A\n"
+  }
+}

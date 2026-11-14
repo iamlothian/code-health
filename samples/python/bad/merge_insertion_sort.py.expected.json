@@ -1,0 +1,40 @@
+{
+  "id": "python_sorting_size_bad",
+  "pair_id": "python_sorting_size",
+  "scenario_title": "5. Sorting Algorithm Function Size & Decomposition (TheAlgorithms/Python sorts/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/python/bad/merge_insertion_sort.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (sorts/merge_insertion_sort.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/sorts/merge_insertion_sort.py",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 158,
+    "classes_count": 1,
+    "functions_count": 5,
+    "scores": {
+      "srp": 100.0,
+      "size": 25.2,
+      "complexity": 67.9,
+      "clean": 99.8,
+      "security": 100.0,
+      "composite": 30.2,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC=92 (>25) (-100.0 pts)",
+      "Complexity: CC=10 (>5) (-20.0 pts)"
+    ],
+    "all_findings": [
+      "[Class Comparable] Clean: missing class docstring (-15.0 pts)",
+      "[Func binary_search_insertion] Complexity: cognitive=9 (>8) (-2.5 pts)",
+      "[Func merge_insertion_sort] Size: LOC=92 (>25) (-100.0 pts)",
+      "[Func merge_insertion_sort] Complexity: CC=10 (>5) (-20.0 pts)",
+      "[Func merge_insertion_sort] Complexity: cognitive=17 (>8) (-22.5 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 30.2/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5\nDimensions -> SRP: 100.0 | Size: 25.2 | Complexity: 67.9 | Clean: 99.8 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/merge_insertion_sort.py     src     158    - 100.0  25.2  67.9  99.8 100.0   30.2   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/merge_insertion_sort.py:19 Comp     2    1     1    1   97.8   A\n    - Clean: missing class docstring (-15.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/bad/merge_insertion_sort.py:70 merge_   92  10   17   1   3    5.0   F\n    - Size: LOC=92 (>25) (-100.0 pts)\n    - Complexity: CC=10 (>5) (-20.0 pts)\n    - Complexity: cognitive=17 (>8) (-22.5 pts)\nsamples/python/bad/merge_insertion_sort.py:23 binary   15   5    9   2   3   99.5   A\n    - Complexity: cognitive=9 (>8) (-2.5 pts)\nsamples/python/bad/merge_insertion_sort.py:20 Compar    1   1    0   0   0  100.0   A\nsamples/python/bad/merge_insertion_sort.py:44 merge     8   4    5   2   2  100.0   A\nsamples/python/bad/merge_insertion_sort.py:58 sortli    6   2    1   1   1  100.0   A\n"
+  }
+}

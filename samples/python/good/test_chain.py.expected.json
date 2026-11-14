@@ -1,0 +1,31 @@
+{
+  "id": "python_click_test_duplication_good",
+  "pair_id": "python_click_test_duplication",
+  "scenario_title": "10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/test_chain.py",
+  "is_test": true,
+  "source_dataset": "pallets/click (tests/test_chain.py)",
+  "source_url": "https://github.com/pallets/click/blob/main/tests/test_chain.py",
+  "license": "BSD-3-Clause",
+  "target_dimension": "clean",
+  "expected": {
+    "loc": 187,
+    "classes_count": 0,
+    "functions_count": 10,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 10\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_chain.py              test    187    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/test_chain.py:8 debug               5   1    0   0   0  100.0   A\nsamples/python/good/test_chain.py:15 test_basic_chai   17   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:47 test_chaining_h   16   1    0   3   0  100.0   A\nsamples/python/good/test_chain.py:68 test_chaining_w   15   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:89 test_no_command    9   1    0   3   0  100.0   A\nsamples/python/good/test_chain.py:107 test_chaining_   15   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:135 test_pipeline    27   1    0   4   0  100.0   A\nsamples/python/good/test_chain.py:170 test_args_and_   16   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:192 test_group_arg   21   1    0   1   0  100.0   A\nsamples/python/good/test_chain.py:222 test_group_cha   19   1    0   1   0  100.0   A\n"
+  }
+}

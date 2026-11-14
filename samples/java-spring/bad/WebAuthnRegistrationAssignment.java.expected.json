@@ -1,0 +1,41 @@
+{
+  "id": "java_spring_webauthn_size_bad",
+  "pair_id": "java_spring_handler_size_decomposition",
+  "scenario_title": "7. WebAuthn Endpoint Decomposition vs Oversized Handler Method (OWASP WebGoat webauthn/, ~110 LOC)",
+  "language": "java",
+  "framework": "spring-boot",
+  "quality": "bad",
+  "file_path": "samples/java-spring/bad/WebAuthnRegistrationAssignment.java",
+  "is_test": false,
+  "source_dataset": "OWASP WebGoat (webauthn/WebAuthnRegistrationAssignment.java)",
+  "source_url": "https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/WebAuthnRegistrationAssignment.java",
+  "license": "GPL-2.0",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 103,
+    "classes_count": 1,
+    "functions_count": 2,
+    "scores": {
+      "srp": 82.0,
+      "size": 50.0,
+      "complexity": 50.0,
+      "clean": 92.5,
+      "security": 100.0,
+      "composite": 55.0,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Size: LOC=88 (>25) (-100.0 pts)"
+    ],
+    "all_findings": [
+      "[Method WebAuthnRegistrationAssignment.finishRegistration] SRP: high external call fan-out=59 (>6) (-36.0 pts)",
+      "[Method WebAuthnRegistrationAssignment.finishRegistration] Size: LOC=88 (>25) (-100.0 pts)",
+      "[Method WebAuthnRegistrationAssignment.finishRegistration] Complexity: CC=14 (>5) (-48.0 pts)",
+      "[Method WebAuthnRegistrationAssignment.finishRegistration] Complexity: cognitive=13 (>8) (-12.5 pts)",
+      "[Method WebAuthnRegistrationAssignment.finishRegistration] Complexity: returns=14 (>3) (-44.0 pts)",
+      "[Method WebAuthnRegistrationAssignment.finishRegistration] Clean: missing public docstring (-10.0 pts)",
+      "[Method WebAuthnRegistrationAssignment.rejected] Clean: missing public docstring (-5.0 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 55.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 2\nDimensions -> SRP: 82.0 | Size: 50.0 | Complexity: 50.0 | Clean: 92.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/WebAuthnRegistrationAssignment.java src     103    -  82.0  50.0  50.0  92.5 100.0   55.0   F\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/WebAuthnRegistrationAssign   103    2     1   15   55.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/java-spring/bad/WebAuthnRegistrationAssignme   88  14   13   4   1    5.0   F\n    - SRP: high external call fan-out=59 (>6) (-36.0 pts)\n    - Size: LOC=88 (>25) (-100.0 pts)\n    - Complexity: CC=14 (>5) (-48.0 pts)\n    - Complexity: cognitive=13 (>8) (-12.5 pts)\n    - Complexity: returns=14 (>3) (-44.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\nsamples/java-spring/bad/WebAuthnRegistrationAssignme    4   1    0   1   0   99.2   A\n    - Clean: missing public docstring (-5.0 pts)\n"
+  }
+}

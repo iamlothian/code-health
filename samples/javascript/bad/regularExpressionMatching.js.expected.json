@@ -1,0 +1,39 @@
+{
+  "id": "javascript_regex_matching_complex",
+  "pair_id": "javascript_string_matching_complexity",
+  "scenario_title": "2. String Matching & Pattern Search Complexity (Rabin-Karp vs. Regex Matching)",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "bad",
+  "file_path": "samples/javascript/bad/regularExpressionMatching.js",
+  "is_test": false,
+  "source_dataset": "trekhleb/javascript-algorithms (src/algorithms/string/regular-expression-matching/regularExpressionMatching.js)",
+  "source_url": "https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/string/regular-expression-matching/regularExpressionMatching.js",
+  "license": "MIT",
+  "target_dimension": "complexity",
+  "expected": {
+    "loc": 48,
+    "classes_count": 0,
+    "functions_count": 1,
+    "scores": {
+      "srp": 100.0,
+      "size": 48.5,
+      "complexity": 21.5,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 26.5,
+      "grade": "F"
+    },
+    "required_findings": [
+      "Complexity: CC=13",
+      "Complexity: cognitive=23"
+    ],
+    "all_findings": [
+      "[Func regularExpressionMatching] Size: LOC=46 (>25) (-31.5 pts)",
+      "[Func regularExpressionMatching] Size: nesting depth=5 (>3) (-20.0 pts)",
+      "[Func regularExpressionMatching] Complexity: CC=13 (>5) (-41.0 pts)",
+      "[Func regularExpressionMatching] Complexity: cognitive=23 (>8) (-37.5 pts)"
+    ],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 26.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 48.5 | Complexity: 21.5 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/regularExpressionMatching.js src      48    - 100.0  48.5  21.5 100.0 100.0   26.5   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/regularExpressionMatching.js:   46  13   23   2   5   26.5   F\n    - Size: LOC=46 (>25) (-31.5 pts)\n    - Size: nesting depth=5 (>3) (-20.0 pts)\n    - Complexity: CC=13 (>5) (-41.0 pts)\n    - Complexity: cognitive=23 (>8) (-37.5 pts)\n"
+  }
+}

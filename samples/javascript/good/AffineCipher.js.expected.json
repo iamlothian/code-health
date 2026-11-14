@@ -1,0 +1,31 @@
+{
+  "id": "javascript_affine_cipher_clean",
+  "pair_id": "javascript_cipher_function_size",
+  "scenario_title": "5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder",
+  "language": "javascript",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/javascript/good/AffineCipher.js",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/JavaScript (Ciphers/AffineCipher.js)",
+  "source_url": "https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/AffineCipher.js",
+  "license": "MIT",
+  "target_dimension": "size",
+  "expected": {
+    "loc": 51,
+    "classes_count": 0,
+    "functions_count": 6,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 6\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/AffineCipher.js        src      51    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/good/AffineCipher.js:16 mod          3   1    0   2   0  100.0   A\nsamples/javascript/good/AffineCipher.js:26 inverseMo    5   3    3   2   2  100.0   A\nsamples/javascript/good/AffineCipher.js:39 isCorrect   12   5    3   3   1  100.0   A\nsamples/javascript/good/AffineCipher.js:60 findCharI    3   1    0   1   0  100.0   A\nsamples/javascript/good/AffineCipher.js:72 encrypt     11   4    6   3   3  100.0   A\nsamples/javascript/good/AffineCipher.js:91 decrypt     14   4    6   3   3  100.0   A\n"
+  }
+}

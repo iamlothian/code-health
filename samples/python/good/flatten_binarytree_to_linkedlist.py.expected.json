@@ -1,0 +1,31 @@
+{
+  "id": "python_linked_structure_srp_good",
+  "pair_id": "python_linked_structure_srp",
+  "scenario_title": "7. Linked Data Structure Class Cohesion & Method Count (TheAlgorithms/Python data_structures/)",
+  "language": "python",
+  "framework": "auto",
+  "quality": "good",
+  "file_path": "samples/python/good/flatten_binarytree_to_linkedlist.py",
+  "is_test": false,
+  "source_dataset": "TheAlgorithms/Python (data_structures/binary_tree/flatten_binarytree_to_linkedlist.py)",
+  "source_url": "https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/flatten_binarytree_to_linkedlist.py",
+  "license": "MIT",
+  "target_dimension": "srp",
+  "expected": {
+    "loc": 96,
+    "classes_count": 1,
+    "functions_count": 4,
+    "scores": {
+      "srp": 100.0,
+      "size": 100.0,
+      "complexity": 100.0,
+      "clean": 100.0,
+      "security": 100.0,
+      "composite": 100.0,
+      "grade": "A"
+    },
+    "required_findings": [],
+    "all_findings": [],
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 4\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/flatten_binarytree_to_linkedlist.py src      96    - 100.0 100.0 100.0 100.0 100.0  100.0   A\n\n[CLASSES SCORECARD]\nClass (file:line)                                    LOC  Mth LCOM4   CC  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/flatten_binarytree_to_linkedli     5    1     1    1  100.0   A\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/python/good/flatten_binarytree_to_linkedlist    4   1    0   1   0  100.0   A\nsamples/python/good/flatten_binarytree_to_linkedlist    8   1    0   0   0  100.0   A\nsamples/python/good/flatten_binarytree_to_linkedlist   12   3    2   1   1  100.0   A\nsamples/python/good/flatten_binarytree_to_linkedlist    8   3    3   1   2  100.0   A\n"
+  }
+}
