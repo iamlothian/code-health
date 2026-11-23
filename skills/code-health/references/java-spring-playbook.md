@@ -201,3 +201,11 @@ void testOrderEndpoint(MockMvc mockMvc) throws Exception {
         .andExpect(jsonPath("$.id").value(1));
 }
 ```
+
+---
+
+## 6. Deduplicate Repeated Endpoint Validation & Mapping Logic
+
+- **Finding:** `Clean (DRY): DRY-XXX (type1|type2|type3, N toks, M LOC) L<start>-<end> in <symbol> matches <peer>:<start>-<end> (<peer_symbol>)`
+- *Cause:* Controllers, services, or `*Tests.java` MockMvc integration suites copy-paste authorization guards, DTO mapping boilerplate, or MockMvc request/assertion chains ($\ge 35$ tokens in source; $\ge 55$ tokens in tests).
+- *Fix:* Move repeated mapping/validation blocks into Spring `@Component` mappers or service helpers, and extract reusable `ResultActions` helper methods or `@ParameterizedTest` scenarios for MockMvc tests.

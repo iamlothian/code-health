@@ -19,7 +19,7 @@
       "srp": 82.0,
       "size": 0.0,
       "complexity": 100.0,
-      "clean": 100.0,
+      "clean": 92.4,
       "security": 100.0,
       "composite": 5.0,
       "grade": "F"
@@ -28,9 +28,11 @@
       "Size: LOC=75 (>25)"
     ],
     "all_findings": [
+      "Clean (DRY): DRY-001 (type2, 52 toks, 13 LOC) L13-25 in morse matches samples/javascript/bad/MorseCode.js:26-38 (morse) (-4.0 pts)",
+      "Clean (DRY): duplication_ratio=17.1% (>10.0%) (-3.6 pts)",
       "[Func morse] SRP: high external call fan-out=12 (>6) (-18.0 pts)",
       "[Func morse] Size: LOC=75 (>25) (-100.0 pts)"
     ],
-    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js            src      76    -  82.0   0.0 100.0 100.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js:11 morse           75   3    3   3   2    5.0   F\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\n    - Size: LOC=75 (>25) (-100.0 pts)\n"
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 100.0 | Clean: 92.4 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js            src      76    -  82.0   0.0 100.0  92.4 100.0    5.0   F\n    - Clean (DRY): DRY-001 (type2, 52 toks, 13 LOC) L13-25 in morse matches samples/javascript/bad/MorseCode.js:26-38 (morse) (-4.0 pts)\n    - Clean (DRY): duplication_ratio=17.1% (>10.0%) (-3.6 pts)\n\n[DUPLICATE CODE & DRY SUMMARY]\nDuplicated LOC: 13/76 (17.1%) | DRY Score: 92.4/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)\nID       Type      Sim Scope         LOC Locations\n------------------------------------------------------------------------------------------------\nDRY-001  type2  100.0% intra_file     13 samples/javascript/bad/MorseCode.js:L13-25, samples/javascript/bad/MorseCode.js:L26-38\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/MorseCode.js:11 morse           75   3    3   3   2    5.0   F\n    - SRP: high external call fan-out=12 (>6) (-18.0 pts)\n    - Size: LOC=75 (>25) (-100.0 pts)\n"
   }
 }

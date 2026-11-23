@@ -145,6 +145,7 @@ class IRModule:
     ts_ignore_count: int = 0
     syntax_errors: list[int] = field(default_factory=list)
     directives: list[str] = field(default_factory=list)
+    token_stream: Any = None
 
 
 class MissingNativeParserError(RuntimeError):

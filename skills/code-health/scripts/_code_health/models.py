@@ -4,6 +4,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
+from _code_health.dry_models import (
+    CloneGroup as CloneGroup,
+    CloneLocation as CloneLocation,
+    DrySummary as DrySummary,
+)
+
 
 @dataclass(frozen=True)
 class RubricConfig:
@@ -35,6 +41,17 @@ class RubricConfig:
     max_mid_file_loc: int = 600
     max_ideal_internal_imports: int = 5
     max_ideal_commits: int = 8
+    dry_min_tokens: int = 35
+    dry_min_lines: int = 5
+    dry_min_tokens_test: int = 55
+    dry_min_lines_test: int = 8
+    dry_type3_similarity: float = 0.70
+    dry_max_gap_tokens: int = 12
+    dry_max_ideal_pct_src: float = 10.0
+    dry_max_ideal_pct_test: float = 15.0
+    dry_max_penalty_src: float = 35.0
+    dry_max_penalty_test: float = 25.0
+    dry_exclude_globs: tuple[str, ...] = ()
 
 
 def clamp_score(value: float) -> float:
@@ -154,6 +171,9 @@ class FileReport:
     findings: list[str] = field(default_factory=list)
     classes: list[ClassReport] = field(default_factory=list)
     functions: list[FunctionReport] = field(default_factory=list)
+    duplicated_loc: int = 0
+    duplication_ratio: float = 0.0
+    dry_score: float = 100.0
 
 
 @dataclass
@@ -171,6 +191,7 @@ class CodebaseHealthReport:
     test_scores: DimensionScores
     grade_counts: dict[str, int]
     files: list[FileReport] = field(default_factory=list)
+    dry: DrySummary = field(default_factory=DrySummary)
 
 
 @dataclass(frozen=True)

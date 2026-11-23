@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from _code_health.ast_engine import _bfs_component_count
+from _code_health.dry_tokens import extract_cst_tokens
 from _code_health.ecmascript_ui import (
     BRANCH_LOOP_NODES,
     collect_ui_cst_telemetry,
@@ -373,7 +374,7 @@ def _extract_js_units(
     return classes, functions, imports
 
 
-def parse_javascript_file(file_path: Path, rel_path: str, is_test: bool) -> IRModule:
+def parse_javascript_file(file_path: Path, rel_path: str, is_test: bool, interner: Any = None) -> IRModule:
     """Parse a JavaScript or JSX file into an IRModule using Tree-Sitter."""
     tree_sitter, tree_sitter_javascript = check_javascript_dependencies()
     source_bytes = file_path.read_bytes()
@@ -386,4 +387,7 @@ def parse_javascript_file(file_path: Path, rel_path: str, is_test: bool) -> IRMo
     classes, functions, imports = _extract_js_units(tree.root_node, source_bytes, lines, is_test)
     directives = extract_directives(tree.root_node, source_bytes)
     loc = max(sum(c.loc for c in classes) + sum(f.loc for f in functions), count_effective_loc(tree.root_node, lines))
-    return IRModule(rel_path, "javascript", is_test, loc, imports, classes, functions, "native", has_doc_comment(tree.root_node, lines), directives=directives)
+    mod = IRModule(rel_path, "javascript", is_test, loc, imports, classes, functions, "native", has_doc_comment(tree.root_node, lines), directives=directives)
+    if interner is not None:
+        mod.token_stream = extract_cst_tokens(tree.root_node, source_bytes, mod, interner)
+    return mod

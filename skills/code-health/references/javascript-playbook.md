@@ -92,6 +92,10 @@ This reference provides targeted refactoring patterns for vanilla JavaScript and
 - **Finding: `Clean: missing class docstring`** (`-15.0 pts`) and **`Clean: missing public docstring`** (`-5.0 pts` if `<= 10` LOC, `-10.0 pts` if `> 10` LOC)
   - *Fix:* Add a JSDoc `/** ... */` block immediately above classes, exported functions, and public methods (not `_private` helpers).
 
+- **Finding: `Clean (DRY): DRY-XXX (type1|type2|type3, N toks, M LOC) L<start>-<end> in <symbol> matches <peer>:<start>-<end> (<peer_symbol>)`**
+  - *Cause:* Repeated algorithm loops, validation guards, or Jest/Vitest `it(...)` test pipelines across `.js`/`.jsx`/`.ts`/`.tsx` files in the shared `ecmascript` bucket.
+  - *Fix:* Extract shared pure utilities into a module helper (parameterizing callbacks or comparators) and use `test.each` / `it.each` data tables for repeated test assertions.
+
 ---
 
 ## 5. Security & Boundary Hygiene

@@ -1,0 +1,66 @@
+feature: "005-dry-metrics-support"
+branch: "dry_metrics_support_plan"
+status: "completed"
+current_phase: 7
+completed_tasks:
+  - T001
+  - T002
+  - T003
+  - T004
+  - T005
+  - T006
+  - T007
+  - T008
+  - T009
+  - T010
+  - T011
+  - T012
+  - T013
+  - T014
+  - T015
+  - T016
+  - T017
+  - T018
+  - T019
+  - T020
+  - T021
+  - T022
+  - T023
+  - T024
+  - T025
+  - T026
+  - T027
+  - T028
+  - T029
+  - T030
+  - T031
+  - T032
+  - T033
+  - T034
+  - T035
+  - T036
+  - T037
+  - T038
+  - T039
+  - T040
+awaiting_review: null
+last_verification:
+  full_suite: "517 passed in 22.78s (0 failed, 0 skipped; all unit, integration, polyglot, benchmark, mirror-parity, playbook, and 160-sample/80-pair tests)"
+  benchmark_100_files: "elapsed=1.961s (<2.5s), tracemalloc peak=5.70 MB (<25 MB), files=100, loc=15085, groups=3 (t1=1, t2=1, t3=1), asdict deterministic=True"
+  skill_mirror_parity: "23 files synced byte-for-byte between scripts/ and skills/code-health/scripts/"
+  calibrated_samples: "42 of 160 baseline samples updated across 8 profiles; 80/80 good > bad pair dominance and 80/80 good Grade A verified"
+  dogfood_scripts_score: "95.8/100 (Grade A, 23 files); dry_*.py 5-file average 97.8/100 (Grade A, all >= 96.2)"
+  modified_files_health:
+    "scripts/_code_health/dry_models.py": "86 LOC, 100.0 (Grade A)"
+    "scripts/_code_health/models.py": "213 LOC, 100.0 (Grade A)"
+    "scripts/_code_health/dry_tokens.py": "306 LOC, 96.2 (Grade A)"
+    "scripts/_code_health/ir_models.py": "219 LOC, 100.0 (Grade A)"
+    "scripts/_code_health/java_parser.py": "286 LOC, 97.9 (Grade A before DRY; Phase 5 DRY flags pre-existing cross-parser similarities)"
+    "scripts/_code_health/js_parser.py": "343 LOC, 95.2 (Grade A before DRY; Phase 5 DRY flags pre-existing cross-parser similarities)"
+    "scripts/_code_health/ts_parser.py": "348 LOC, 94.7 (Grade A)"
+    "scripts/_code_health/dry_scoring.py": "333 LOC, 99.4 (Grade A)"
+    "scripts/_code_health/dry_engine.py": "315 LOC, 97.9 (Grade A)"
+    "scripts/_code_health/dry_type3.py": "237 LOC, 96.9 (Grade A)"
+    "scripts/_code_health/module_engine.py": "311 LOC, 95.8 (Grade A)"
+    "scripts/_code_health/reporting.py": "283 LOC, 96.2 (Grade A)"
+    "scripts/code_health.py": "178 LOC, 98.0 (Grade A)"

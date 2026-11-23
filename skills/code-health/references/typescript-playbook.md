@@ -74,6 +74,10 @@ This reference covers TypeScript-specific type-safety, contract, SQL injection, 
 - **Finding: `Clean: missing class docstring`** (`-15.0 pts`) and **`Clean: missing public docstring`** (`-5.0 pts` if `<= 10` LOC, `-10.0 pts` if `> 10` LOC)
   - *Fix:* Add JSDoc (`/** ... */`) above public classes, exported functions, and public methods (including above decorators like `@Component` or `@Injectable`).
 
+- **Finding: `Clean (DRY): DRY-XXX (type1|type2|type3, N toks, M LOC) L<start>-<end> in <symbol> matches <peer>:<start>-<end> (<peer_symbol>)`**
+  - *Cause:* Repeated executable logic across `.ts`/`.tsx`/`.js`/`.jsx` files in the shared `ecmascript` bucket (`interface` and `type` declarations are automatically excluded from duplication checks).
+  - *Fix:* Factor repeated generic transforms, guards, or request builders into typed helper functions (`<T>(...)`) and replace copy-pasted Vitest/Jest tests with `it.each(...)` tables.
+
 ---
 
 ## 5. Security & Boundary Hygiene

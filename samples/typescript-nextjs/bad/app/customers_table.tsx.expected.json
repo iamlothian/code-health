@@ -19,7 +19,7 @@
       "srp": 100.0,
       "size": 0.0,
       "complexity": 100.0,
-      "clean": 90.0,
+      "clean": 86.9,
       "security": 100.0,
       "composite": 5.0,
       "grade": "F"
@@ -28,9 +28,11 @@
       "Size: LOC="
     ],
     "all_findings": [
+      "Clean (DRY): DRY-001 (type3, 89.0%, 57 toks, 12 LOC) L29-40 in CustomersTable matches samples/typescript-nextjs/bad/app/customers_table.tsx:86-97 (CustomersTable) (-3.0 pts)",
+      "Clean (DRY): duplication_ratio=10.2% (>10.0%) (-0.1 pts)",
       "[Func CustomersTable] Size: LOC=114 (>25) (-100.0 pts)",
       "[Func CustomersTable] Clean: missing public docstring (-10.0 pts)"
     ],
-    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  90.0 100.0    5.0   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.ts  114   1    0   1   0    5.0   F\n    - Size: LOC=114 (>25) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 86.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  86.9 100.0    5.0   F\n    - Clean (DRY): DRY-001 (type3, 89.0%, 57 toks, 12 LOC) L29-40 in CustomersTable matches samples/typescript-nextjs/bad/app/customers_table.tsx:86-97 (CustomersTable) (-3.0 pts)\n    - Clean (DRY): duplication_ratio=10.2% (>10.0%) (-0.1 pts)\n\n[DUPLICATE CODE & DRY SUMMARY]\nDuplicated LOC: 12/118 (10.2%) | DRY Score: 96.9/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)\nID       Type      Sim Scope         LOC Locations\n------------------------------------------------------------------------------------------------\nDRY-001  type3   89.0% intra_file     12 samples/typescript-nextjs/bad/app/customers_table.tsx:L29-40, samples/typescript-nextjs/bad/app/customers_table.tsx:L86-97\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-nextjs/bad/app/customers_table.ts  114   1    0   1   0    5.0   F\n    - Size: LOC=114 (>25) (-100.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n"
   }
 }

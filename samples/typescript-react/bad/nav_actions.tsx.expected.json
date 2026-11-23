@@ -19,7 +19,7 @@
       "srp": 100.0,
       "size": 60.0,
       "complexity": 100.0,
-      "clean": 74.0,
+      "clean": 68.5,
       "security": 100.0,
       "composite": 65.0,
       "grade": "D"
@@ -29,10 +29,12 @@
       "Size: LOC="
     ],
     "all_findings": [
+      "Clean (DRY): DRY-001 (type3, 83.1%, 58 toks, 22 LOC) L50-71 in <module> matches samples/typescript-react/bad/nav_actions.tsx:72-93 (<module>) (-3.0 pts)",
+      "Clean (DRY): duplication_ratio=15.0% (>10.0%) (-2.5 pts)",
       "[Func NavActions] Size: LOC=51 (>25) (-40.0 pts)",
       "[Func NavActions] Clean: missing public docstring (-10.0 pts)",
       "[Func NavActions] Clean (React): array index used as JSX key at L133 (-16.0 pts)"
     ],
-    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 60.0 | Complexity: 100.0 | Clean: 74.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/nav_actions.tsx   src     147    - 100.0  60.0 100.0  74.0 100.0   65.0   D\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/nav_actions.tsx:101 Nav   51   1    0   0   0   65.0   D\n    - Size: LOC=51 (>25) (-40.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): array index used as JSX key at L133 (-16.0 pts)\n"
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 60.0 | Complexity: 100.0 | Clean: 68.5 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/nav_actions.tsx   src     147    - 100.0  60.0 100.0  68.5 100.0   65.0   D\n    - Clean (DRY): DRY-001 (type3, 83.1%, 58 toks, 22 LOC) L50-71 in <module> matches samples/typescript-react/bad/nav_actions.tsx:72-93 (<module>) (-3.0 pts)\n    - Clean (DRY): duplication_ratio=15.0% (>10.0%) (-2.5 pts)\n\n[DUPLICATE CODE & DRY SUMMARY]\nDuplicated LOC: 22/147 (15.0%) | DRY Score: 94.5/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)\nID       Type      Sim Scope         LOC Locations\n------------------------------------------------------------------------------------------------\nDRY-001  type3   83.1% intra_file     22 samples/typescript-react/bad/nav_actions.tsx:L50-71, samples/typescript-react/bad/nav_actions.tsx:L72-93\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript-react/bad/nav_actions.tsx:101 Nav   51   1    0   0   0   65.0   D\n    - Size: LOC=51 (>25) (-40.0 pts)\n    - Clean: missing public docstring (-10.0 pts)\n    - Clean (React): array index used as JSX key at L133 (-16.0 pts)\n"
   }
 }

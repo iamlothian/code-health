@@ -13,7 +13,7 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `typescript (nextjs)` | 1. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn) | **GOOD** | [`good/app/nav_links.tsx`](good/app/nav_links.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/dashboard/nav-links.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/nav-links.tsx) | 43 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
 | `typescript (nextjs)` | 1. Next.js Client Navigation Component vs. Oversized Login Form (vercel/next-learn) | **BAD** | [`bad/app/login_form.tsx`](bad/app/login_form.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/login-form.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/login-form.tsx) | 86 | 100.0 | 2.5 | 100.0 | 90.0 | 100.0 | **7.5** | **F** |
 | `typescript (nextjs)` | 2. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn) | **GOOD** | [`good/app/invoices_page.tsx`](good/app/invoices_page.tsx) | [vercel/next-learn (dashboard/final-example/app/dashboard/invoices/page.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/page.tsx) | 40 | 100.0 | 95.5 | 100.0 | 90.0 | 100.0 | **97.4** | **A** |
-| `typescript (nextjs)` | 2. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn) | **BAD** | [`bad/app/customers_table.tsx`](bad/app/customers_table.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx) | 118 | 100.0 | 0.0 | 100.0 | 90.0 | 100.0 | **5.0** | **F** |
+| `typescript (nextjs)` | 2. Next.js Async Server Page vs. Monolithic Customers Table (vercel/next-learn) | **BAD** | [`bad/app/customers_table.tsx`](bad/app/customers_table.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx) | 118 | 100.0 | 0.0 | 100.0 | 86.9 | 100.0 | **5.0** | **F** |
 | `typescript (nextjs)` | 3. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn) | **GOOD** | [`good/app/invoices_error.tsx`](good/app/invoices_error.tsx) | [vercel/next-learn (dashboard/final-example/app/dashboard/invoices/error.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/dashboard/invoices/error.tsx) | 26 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
 | `typescript (nextjs)` | 3. Next.js Error Boundary Component vs. Heavy Revenue Chart Render (vercel/next-learn) | **BAD** | [`bad/app/revenue_chart.tsx`](bad/app/revenue_chart.tsx) | [vercel/next-learn (dashboard/final-example/app/ui/dashboard/revenue-chart.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/dashboard/revenue-chart.tsx) | 48 | 100.0 | 71.5 | 100.0 | 90.0 | 100.0 | **76.5** | **C** |
 | `typescript (nextjs)` | 4. Next.js Safe Product Description Component vs. Raw dangerouslySetInnerHTML Prose (vercel/commerce) | **GOOD** | [`good/app/product_description.tsx`](good/app/product_description.tsx) | [vercel/commerce (components/product/product-description.tsx)](https://github.com/vercel/commerce/blob/main/components/product/product-description.tsx) | 28 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
@@ -23,7 +23,7 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `typescript (nextjs)` | 6. Next.js App Router Dialog Story without Client Hook Leak vs. Missing 'use client' Directive (bulletproof-react) | **GOOD** | [`good/app/confirmation_dialog_stories.tsx`](good/app/confirmation_dialog_stories.tsx) | [alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/dialog/confirmation-dialog/confirmation-dialog.stories.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/dialog/confirmation-dialog/confirmation-dialog.stories.tsx) | 26 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (nextjs)` | 6. Next.js App Router Dialog Story without Client Hook Leak vs. Missing 'use client' Directive (bulletproof-react) | **BAD** | [`bad/app/dialog_stories.tsx`](bad/app/dialog_stories.tsx) | [alan2207/bulletproof-react (apps/nextjs-app/src/components/ui/dialog/dialog.stories.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/components/ui/dialog/dialog.stories.tsx) | 54 | 100.0 | 88.4 | 100.0 | 74.9 | 100.0 | **79.5** | **C** |
 | `typescript (nextjs)` | 7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce) | **GOOD** | [`good/app/robots_route.ts`](good/app/robots_route.ts) | [vercel/commerce (app/robots.ts)](https://github.com/vercel/commerce/blob/main/app/robots.ts) | 12 | 100.0 | 100.0 | 100.0 | 80.0 | 100.0 | **97.0** | **A** |
-| `typescript (nextjs)` | 7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce) | **BAD** | [`bad/app/sitemap_route.ts`](bad/app/sitemap_route.ts) | [vercel/commerce (app/sitemap.ts)](https://github.com/vercel/commerce/blob/main/app/sitemap.ts) | 42 | 73.0 | 86.5 | 100.0 | 90.0 | 100.0 | **78.0** | **C** |
+| `typescript (nextjs)` | 7. Next.js Focused Metadata Route (robots.ts) vs. High Fan-Out Sitemap Route (vercel/commerce) | **BAD** | [`bad/app/sitemap_route.ts`](bad/app/sitemap_route.ts) | [vercel/commerce (app/sitemap.ts)](https://github.com/vercel/commerce/blob/main/app/sitemap.ts) | 42 | 73.0 | 86.5 | 100.0 | 84.9 | 100.0 | **78.0** | **C** |
 | `typescript (nextjs)` | 8. Next.js Cart Trigger Leaf vs. Monolithic Branchy Cart Modal (vercel/commerce) | **GOOD** | [`good/app/open_cart.tsx`](good/app/open_cart.tsx) | [vercel/commerce (components/cart/open-cart.tsx)](https://github.com/vercel/commerce/blob/main/components/cart/open-cart.tsx) | 25 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
 | `typescript (nextjs)` | 8. Next.js Cart Trigger Leaf vs. Monolithic Branchy Cart Modal (vercel/commerce) | **BAD** | [`bad/app/cart_modal.tsx`](bad/app/cart_modal.tsx) | [vercel/commerce (components/cart/modal.tsx)](https://github.com/vercel/commerce/blob/main/components/cart/modal.tsx) | 243 | 83.9 | 10.8 | 75.9 | 82.9 | 100.0 | **15.8** | **F** |
 | `typescript (nextjs)` | 9. Next.js Discussions Container vs. Branchy Comments List Component (bulletproof-react) | **GOOD** | [`good/app/discussions_panel.tsx`](good/app/discussions_panel.tsx) | [alan2207/bulletproof-react (apps/nextjs-app/src/app/app/discussions/_components/discussions.tsx)](https://github.com/alan2207/bulletproof-react/blob/master/apps/nextjs-app/src/app/app/discussions/_components/discussions.tsx) | 25 | 100.0 | 100.0 | 100.0 | 90.0 | 100.0 | **98.5** | **A** |
@@ -115,18 +115,26 @@ samples/typescript-nextjs/good/app/invoices_page.tsx   28   3    0   1   0   97.
 #### Bad Baseline: [`bad/app/customers_table.tsx`](bad/app/customers_table.tsx) ([sidecar JSON](bad/app/customers_table.tsx.expected.json))
 
 - **Upstream Dataset / Benchmark:** [vercel/next-learn (dashboard/final-example/app/ui/customers/table.tsx)](https://github.com/vercel/next-learn/blob/main/dashboard/final-example/app/ui/customers/table.tsx) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 86.9` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+Dimensions -> SRP: 100.0 | Size: 0.0 | Complexity: 100.0 | Clean: 86.9 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  90.0 100.0    5.0   F
+samples/typescript-nextjs/bad/app/customers_table.tsx src     118    - 100.0   0.0 100.0  86.9 100.0    5.0   F
+    - Clean (DRY): DRY-001 (type3, 89.0%, 57 toks, 12 LOC) L29-40 in CustomersTable matches samples/typescript-nextjs/bad/app/customers_table.tsx:86-97 (CustomersTable) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=10.2% (>10.0%) (-0.1 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 12/118 (10.2%) | DRY Score: 96.9/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   89.0% intra_file     12 samples/typescript-nextjs/bad/app/customers_table.tsx:L29-40, samples/typescript-nextjs/bad/app/customers_table.tsx:L86-97
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -369,18 +377,26 @@ samples/typescript-nextjs/good/app/robots_route.ts:3   11   1    0   0   0   97.
 #### Bad Baseline: [`bad/app/sitemap_route.ts`](bad/app/sitemap_route.ts) ([sidecar JSON](bad/app/sitemap_route.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [vercel/commerce (app/sitemap.ts)](https://github.com/vercel/commerce/blob/main/app/sitemap.ts) (`MIT`)
-- **Expected Scorecard:** `Composite 78.0/100 (Grade C)` — `SRP: 73.0` | `Size: 86.5` | `Complexity: 100.0` | `Clean: 90.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 78.0/100 (Grade C)` — `SRP: 73.0` | `Size: 86.5` | `Complexity: 100.0` | `Clean: 84.9` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 78.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 73.0 | Size: 86.5 | Complexity: 100.0 | Clean: 90.0 | Security: 100.0
+Dimensions -> SRP: 73.0 | Size: 86.5 | Complexity: 100.0 | Clean: 84.9 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript-nextjs/bad/app/sitemap_route.ts src      42    -  73.0  86.5 100.0  90.0 100.0   78.0   C
+samples/typescript-nextjs/bad/app/sitemap_route.ts src      42    -  73.0  86.5 100.0  84.9 100.0   78.0   C
+    - Clean (DRY): DRY-001 (type3, 98.0%, 48 toks, 7 LOC) L20-27 in sitemap matches samples/typescript-nextjs/bad/app/sitemap_route.ts:34-39 (sitemap) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=14.3% (>10.0%) (-2.1 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 6/42 (14.3%) | DRY Score: 94.9/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   98.0% intra_file      7 samples/typescript-nextjs/bad/app/sitemap_route.ts:L20-27, samples/typescript-nextjs/bad/app/sitemap_route.ts:L34-39
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd

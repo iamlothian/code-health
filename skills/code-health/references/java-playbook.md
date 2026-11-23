@@ -110,6 +110,10 @@ This reference provides targeted refactoring patterns to resolve deterministic c
     }
     ```
 
+- **Finding: `Clean (DRY): DRY-XXX (type1|type2|type3, N toks, M LOC) L<start>-<end> in <symbol> matches <peer>:<start>-<end> (<peer_symbol>)`**
+  - *Cause:* Duplicated validation, traversal, symmetric left/right branches, or repeated JUnit test bodies across methods or classes ($\ge 35$ tokens / $\ge 5$ lines in source; $\ge 55$ tokens / $\ge 8$ lines in tests).
+  - *Fix:* Extract package-private or static utility helpers, parameterize symmetric operations (e.g., passing a direction/comparator enum or `Function` strategy), and convert repeated `@Test` methods into JUnit 5 `@ParameterizedTest` with `@MethodSource` / `@CsvSource`.
+
 ---
 
 ## 5. Security & Operational Hygiene

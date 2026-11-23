@@ -19,17 +19,17 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `typescript (auto)` | 4. Schema Contract vs. Legacy Error Class Prototype & Cohesion (colinhacks/zod) | **GOOD** | [`good/zod_standard_schema.ts`](good/zod_standard_schema.ts) | [colinhacks/zod (packages/zod/src/v4/core/standard-schema.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/standard-schema.ts) | 78 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (auto)` | 4. Schema Contract vs. Legacy Error Class Prototype & Cohesion (colinhacks/zod) | **BAD** | [`bad/zod_error_legacy.ts`](bad/zod_error_legacy.ts) | [colinhacks/zod (packages/zod/src/v3/ZodError.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v3/ZodError.ts) | 287 | 56.2 | 90.0 | 87.8 | 68.5 | 75.0 | **61.2** | **D** |
 | `typescript (auto)` | 5. JSON Schema Contract Size vs. Monolithic AST Visitor (colinhacks/zod) | **GOOD** | [`good/zod_json_schema.ts`](good/zod_json_schema.ts) | [colinhacks/zod (packages/zod/src/v4/core/json-schema.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/json-schema.ts) | 99 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 5. JSON Schema Contract Size vs. Monolithic AST Visitor (colinhacks/zod) | **BAD** | [`bad/zod_visit.ts`](bad/zod_visit.ts) | [colinhacks/zod (packages/zod/src/v4/core/visit.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/visit.ts) | 168 | 85.0 | 0.0 | 0.0 | 93.0 | 100.0 | **5.0** | **F** |
+| `typescript (auto)` | 5. JSON Schema Contract Size vs. Monolithic AST Visitor (colinhacks/zod) | **BAD** | [`bad/zod_visit.ts`](bad/zod_visit.ts) | [colinhacks/zod (packages/zod/src/v4/core/visit.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/visit.ts) | 168 | 85.0 | 0.0 | 0.0 | 67.2 | 100.0 | **5.0** | **F** |
 | `typescript (auto)` | 6. Schema Definition Typing Hygiene vs. Registry Escape Hatches (colinhacks/zod) | **GOOD** | [`good/zod_zsf.ts`](good/zod_zsf.ts) | [colinhacks/zod (packages/zod/src/v4/core/zsf.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/zsf.ts) | 82 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `typescript (auto)` | 6. Schema Definition Typing Hygiene vs. Registry Escape Hatches (colinhacks/zod) | **BAD** | [`bad/zod_registries.ts`](bad/zod_registries.ts) | [colinhacks/zod (packages/zod/src/v4/core/registries.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/registries.ts) | 80 | 100.0 | 100.0 | 100.0 | 73.3 | 100.0 | **78.3** | **C** |
-| `typescript (auto)` | 7. HTTP Client Constants Cohesion vs. Monolithic Ky Class SRP (sindresorhus/ky) | **GOOD** | [`good/ky_constants.ts`](good/ky_constants.ts) | [sindresorhus/ky (source/core/constants.ts)](https://github.com/sindresorhus/ky/blob/main/source/core/constants.ts) | 95 | 100.0 | 100.0 | 100.0 | 95.5 | 100.0 | **99.3** | **A** |
-| `typescript (auto)` | 7. HTTP Client Constants Cohesion vs. Monolithic Ky Class SRP (sindresorhus/ky) | **BAD** | [`bad/ky_client.ts`](bad/ky_client.ts) | [sindresorhus/ky (source/core/Ky.ts)](https://github.com/sindresorhus/ky/blob/main/source/core/Ky.ts) | 1006 | 22.4 | 0.0 | 15.2 | 79.6 | 100.0 | **5.0** | **F** |
+| `typescript (auto)` | 7. HTTP Client Constants Cohesion vs. Monolithic Ky Class SRP (sindresorhus/ky) | **GOOD** | [`good/ky_constants.ts`](good/ky_constants.ts) | [sindresorhus/ky (source/core/constants.ts)](https://github.com/sindresorhus/ky/blob/main/source/core/constants.ts) | 95 | 100.0 | 100.0 | 100.0 | 88.1 | 100.0 | **98.2** | **A** |
+| `typescript (auto)` | 7. HTTP Client Constants Cohesion vs. Monolithic Ky Class SRP (sindresorhus/ky) | **BAD** | [`bad/ky_client.ts`](bad/ky_client.ts) | [sindresorhus/ky (source/core/Ky.ts)](https://github.com/sindresorhus/ky/blob/main/source/core/Ky.ts) | 1006 | 22.4 | 0.0 | 15.2 | 68.6 | 100.0 | **5.0** | **F** |
 | `typescript (auto)` | 8. HTTP Type Guards vs. Branchy Network Error Classifier (sindresorhus/ky) | **GOOD** | [`good/ky_type_guards.ts`](good/ky_type_guards.ts) | [sindresorhus/ky (source/utils/type-guards.ts)](https://github.com/sindresorhus/ky/blob/main/source/utils/type-guards.ts) | 26 | 100.0 | 100.0 | 100.0 | 97.2 | 100.0 | **99.6** | **A** |
 | `typescript (auto)` | 8. HTTP Type Guards vs. Branchy Network Error Classifier (sindresorhus/ky) | **BAD** | [`bad/ky_is_network_error.ts`](bad/ky_is_network_error.ts) | [sindresorhus/ky (source/utils/is-network-error.ts)](https://github.com/sindresorhus/ky/blob/main/source/utils/is-network-error.ts) | 32 | 100.0 | 100.0 | 51.0 | 90.0 | 100.0 | **56.0** | **F** |
 | `typescript (auto)` | 9. Request Option Helpers vs. High-Complexity Retry Option Normalizer (sindresorhus/ky) | **GOOD** | [`good/ky_options.ts`](good/ky_options.ts) | [sindresorhus/ky (source/utils/options.ts)](https://github.com/sindresorhus/ky/blob/main/source/utils/options.ts) | 40 | 100.0 | 100.0 | 86.4 | 90.0 | 100.0 | **95.8** | **A** |
 | `typescript (auto)` | 9. Request Option Helpers vs. High-Complexity Retry Option Normalizer (sindresorhus/ky) | **BAD** | [`bad/ky_normalize.ts`](bad/ky_normalize.ts) | [sindresorhus/ky (source/utils/normalize.ts)](https://github.com/sindresorhus/ky/blob/main/source/utils/normalize.ts) | 73 | 86.4 | 67.3 | 9.3 | 90.4 | 100.0 | **14.3** | **F** |
 | `typescript (auto)` | 10. Vitest Schema Validation Suite vs. Oversized First-Party Switch Test (colinhacks/zod) | **GOOD** | [`good/zod_validations.test.ts`](good/zod_validations.test.ts) | [colinhacks/zod (packages/zod/src/v4/classic/tests/validations.test.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/classic/tests/validations.test.ts) | 254 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `typescript (auto)` | 10. Vitest Schema Validation Suite vs. Oversized First-Party Switch Test (colinhacks/zod) | **BAD** | [`bad/zod_firstparty.test.ts`](bad/zod_firstparty.test.ts) | [colinhacks/zod (packages/zod/src/v3/tests/firstparty.test.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v3/tests/firstparty.test.ts) | 83 | 100.0 | 55.0 | 0.0 | 60.0 | 100.0 | **5.0** | **F** |
+| `typescript (auto)` | 10. Vitest Schema Validation Suite vs. Oversized First-Party Switch Test (colinhacks/zod) | **BAD** | [`bad/zod_firstparty.test.ts`](bad/zod_firstparty.test.ts) | [colinhacks/zod (packages/zod/src/v3/tests/firstparty.test.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v3/tests/firstparty.test.ts) | 83 | 100.0 | 55.0 | 0.0 | 46.6 | 100.0 | **5.0** | **F** |
 
 ---
 
@@ -303,18 +303,30 @@ samples/typescript/good/zod_json_schema.ts     src      99    - 100.0 100.0 100.
 #### Bad Baseline: [`bad/zod_visit.ts`](bad/zod_visit.ts) ([sidecar JSON](bad/zod_visit.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [colinhacks/zod (packages/zod/src/v4/core/visit.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v4/core/visit.ts) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 85.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 93.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 85.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 67.2` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 85.0 | Size: 0.0 | Complexity: 0.0 | Clean: 93.0 | Security: 100.0
+Dimensions -> SRP: 85.0 | Size: 0.0 | Complexity: 0.0 | Clean: 67.2 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/bad/zod_visit.ts            src     168    -  85.0   0.0   0.0  93.0 100.0    5.0   F
+samples/typescript/bad/zod_visit.ts            src     168    -  85.0   0.0   0.0  67.2 100.0    5.0   F
+    - Clean (DRY): DRY-001 (type3, 100.0%, 71 toks, 12 LOC) L78-89 in visit matches samples/typescript/bad/zod_visit.ts:106-117 (visit), samples/typescript/bad/zod_visit.ts:138-143 (visit) (-6.0 pts)
+    - Clean (DRY): DRY-002 (type2, 63 toks, 9 LOC) L101-109 in visit matches samples/typescript/bad/zod_visit.ts:121-130 (visit), samples/typescript/bad/zod_visit.ts:142-148 (visit) (-8.0 pts)
+    - Clean (DRY): DRY-003 (type2, 65 toks, 10 LOC) L71-80 in visit matches samples/typescript/bad/zod_visit.ts:91-100 (visit) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=25.6% (>10.0%) (-7.8 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 43/168 (25.6%) | DRY Score: 74.2/100 | Clone Groups: 3 (T1: 0, T2: 2, T3: 1 | intra: 3, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3  100.0% intra_file     12 samples/typescript/bad/zod_visit.ts:L78-89, samples/typescript/bad/zod_visit.ts:L106-117, samples/typescript/bad/zod_visit.ts:L138-143
+DRY-002  type2  100.0% intra_file     10 samples/typescript/bad/zod_visit.ts:L101-109, samples/typescript/bad/zod_visit.ts:L121-130, samples/typescript/bad/zod_visit.ts:L142-148
+DRY-003  type2  100.0% intra_file     10 samples/typescript/bad/zod_visit.ts:L71-80, samples/typescript/bad/zod_visit.ts:L91-100
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -401,18 +413,26 @@ samples/typescript/bad/zod_registries.ts:90 registry    3   1    0   0   0   99.
 #### Good Baseline: [`good/ky_constants.ts`](good/ky_constants.ts) ([sidecar JSON](good/ky_constants.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [sindresorhus/ky (source/core/constants.ts)](https://github.com/sindresorhus/ky/blob/main/source/core/constants.ts) (`MIT`)
-- **Expected Scorecard:** `Composite 99.3/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 95.5` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 98.2/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 88.1` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 99.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 95.5 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 98.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 88.1 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/good/ky_constants.ts        src      95    - 100.0 100.0 100.0  95.5 100.0   99.3   A
+samples/typescript/good/ky_constants.ts        src      95    - 100.0 100.0 100.0  88.1 100.0   98.2   A
+    - Clean (DRY): DRY-001 (type2, 62 toks, 16 LOC) L266-282 in <module> matches samples/typescript/good/ky_constants.ts:285-306 (<module>) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=16.8% (>10.0%) (-3.4 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 16/95 (16.8%) | DRY Score: 92.6/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file     16 samples/typescript/good/ky_constants.ts:L266-282, samples/typescript/good/ky_constants.ts:L285-306
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -439,19 +459,30 @@ samples/typescript/good/ky_constants.ts:164 RetryMar    3   1    0   0   0  100.
 #### Bad Baseline: [`bad/ky_client.ts`](bad/ky_client.ts) ([sidecar JSON](bad/ky_client.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [sindresorhus/ky (source/core/Ky.ts)](https://github.com/sindresorhus/ky/blob/main/source/core/Ky.ts) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 22.4` | `Size: 0.0` | `Complexity: 15.2` | `Clean: 79.6` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 22.4` | `Size: 0.0` | `Complexity: 15.2` | `Clean: 68.6` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 49
-Dimensions -> SRP: 22.4 | Size: 0.0 | Complexity: 15.2 | Clean: 79.6 | Security: 100.0
+Dimensions -> SRP: 22.4 | Size: 0.0 | Complexity: 15.2 | Clean: 68.6 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/bad/ky_client.ts            src    1006    -  22.4   0.0  15.2  79.6 100.0    5.0   F
+samples/typescript/bad/ky_client.ts            src    1006    -  22.4   0.0  15.2  68.6 100.0    5.0   F
     - Size: file LOC=1006 (>350) (-100.0 pts)
+    - Clean (DRY): DRY-001 (type3, 89.5%, 67 toks, 9 LOC) L1044-1054 in Ky.<method> matches samples/typescript/bad/ky_client.ts:1076-1088 (Ky.<method>) (-3.0 pts)
+    - Clean (DRY): DRY-002 (type2, 36 toks, 6 LOC) L1073-1080 in Ky.<method> matches samples/typescript/bad/ky_client.ts:1164-1170 (Ky.<method>) (-4.0 pts)
+    - Clean (DRY): DRY-003 (type2, 37 toks, 5 LOC) L1050-1055 in Ky.<method> matches samples/typescript/bad/ky_client.ts:1185-1192 (Ky.<method>) (-4.0 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 21/1006 (2.1%) | DRY Score: 89.0/100 | Clone Groups: 3 (T1: 0, T2: 2, T3: 1 | intra: 3, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   89.5% intra_file     10 samples/typescript/bad/ky_client.ts:L1044-1054, samples/typescript/bad/ky_client.ts:L1076-1088
+DRY-002  type2  100.0% intra_file      6 samples/typescript/bad/ky_client.ts:L1073-1080, samples/typescript/bad/ky_client.ts:L1164-1170
+DRY-003  type2  100.0% intra_file      5 samples/typescript/bad/ky_client.ts:L1050-1055, samples/typescript/bad/ky_client.ts:L1185-1192
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -803,19 +834,27 @@ samples/typescript/good/zod_validations.test.ts:265    18   2    1   0   1  100.
 #### Bad Baseline: [`bad/zod_firstparty.test.ts`](bad/zod_firstparty.test.ts) ([sidecar JSON](bad/zod_firstparty.test.ts.expected.json))
 
 - **Upstream Dataset / Benchmark:** [colinhacks/zod (packages/zod/src/v3/tests/firstparty.test.ts)](https://github.com/colinhacks/zod/blob/main/packages/zod/src/v3/tests/firstparty.test.ts) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 55.0` | `Complexity: 0.0` | `Clean: 60.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 100.0` | `Size: 55.0` | `Complexity: 0.0` | `Clean: 46.6` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 100.0 | Size: 55.0 | Complexity: 0.0 | Clean: 60.0 | Security: 100.0
+Dimensions -> SRP: 100.0 | Size: 55.0 | Complexity: 0.0 | Clean: 46.6 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/typescript/bad/zod_firstparty.test.ts  test     83    - 100.0  55.0   0.0  60.0 100.0    5.0   F
+samples/typescript/bad/zod_firstparty.test.ts  test     83    - 100.0  55.0   0.0  46.6 100.0    5.0   F
     - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)
+    - Clean (DRY): DRY-001 (type2, 126 toks, 28 LOC) L12-39 in test: first party switch matches samples/typescript/bad/zod_firstparty.test.ts:40-67 (test: first party switch) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=33.7% (>15.0%) (-9.4 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 28/83 (33.7%) | DRY Score: 86.6/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file     28 samples/typescript/bad/zod_firstparty.test.ts:L12-39, samples/typescript/bad/zod_firstparty.test.ts:L40-67
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd

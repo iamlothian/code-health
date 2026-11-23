@@ -13,7 +13,7 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `python (auto)` | 1. Shortest-Path Graph Algorithm Complexity & Decomposition (TheAlgorithms/Python graphs/) | **GOOD** | [`good/bellman_ford.py`](good/bellman_ford.py) | [TheAlgorithms/Python (graphs/bellman_ford.py)](https://github.com/TheAlgorithms/Python/blob/master/graphs/bellman_ford.py) | 56 | 100.0 | 100.0 | 97.8 | 86.9 | 100.0 | **97.6** | **A** |
 | `python (auto)` | 1. Shortest-Path Graph Algorithm Complexity & Decomposition (TheAlgorithms/Python graphs/) | **BAD** | [`bad/a_star.py`](bad/a_star.py) | [TheAlgorithms/Python (graphs/a_star.py)](https://github.com/TheAlgorithms/Python/blob/master/graphs/a_star.py) | 118 | 100.0 | 14.0 | 10.5 | 90.0 | 100.0 | **15.5** | **F** |
 | `python (auto)` | 2. Binary Tree Data Structure OOP Design (TheAlgorithms/Python binary_tree/) | **GOOD** | [`good/fenwick_tree.py`](good/fenwick_tree.py) | [TheAlgorithms/Python (data_structures/binary_tree/fenwick_tree.py)](https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/fenwick_tree.py) | 202 | 96.0 | 100.0 | 96.6 | 85.1 | 100.0 | **95.9** | **A** |
-| `python (auto)` | 2. Binary Tree Data Structure OOP Design (TheAlgorithms/Python binary_tree/) | **BAD** | [`bad/red_black_tree.py`](bad/red_black_tree.py) | [TheAlgorithms/Python (data_structures/binary_tree/red_black_tree.py)](https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/red_black_tree.py) | 613 | 49.1 | 0.0 | 25.4 | 65.5 | 100.0 | **5.0** | **F** |
+| `python (auto)` | 2. Binary Tree Data Structure OOP Design (TheAlgorithms/Python binary_tree/) | **BAD** | [`bad/red_black_tree.py`](bad/red_black_tree.py) | [TheAlgorithms/Python (data_structures/binary_tree/red_black_tree.py)](https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/red_black_tree.py) | 613 | 49.1 | 0.0 | 25.4 | 50.5 | 100.0 | **5.0** | **F** |
 | `python (auto)` | 3. Serialization & I/O Security Hygiene (PyCQA/bandit examples/, 19 LOC) | **GOOD** | [`good/urlopen.py`](good/urlopen.py) | [PyCQA/bandit (examples/urlopen.py)](https://github.com/PyCQA/bandit/blob/main/examples/urlopen.py) | 19 | 100.0 | 100.0 | 100.0 | 80.0 | 100.0 | **97.0** | **A** |
 | `python (auto)` | 3. Serialization & I/O Security Hygiene (PyCQA/bandit examples/, 19 LOC) | **BAD** | [`bad/yaml_load.py`](bad/yaml_load.py) | [PyCQA/bandit (examples/yaml_load.py)](https://github.com/PyCQA/bandit/blob/main/examples/yaml_load.py) | 19 | 100.0 | 100.0 | 100.0 | 75.0 | 60.0 | **65.0** | **D** |
 | `python (auto)` | 4. CLI Command & Option Test Suite Hygiene (pallets/click tests/) | **GOOD** | [`good/test_info_dict.py`](good/test_info_dict.py) | [pallets/click (tests/test_info_dict.py)](https://github.com/pallets/click/blob/main/tests/test_info_dict.py) | 322 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
@@ -28,8 +28,8 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `python (auto)` | 8. Stack Expression Notation Conversion Complexity (TheAlgorithms/Python data_structures/stacks/) | **BAD** | [`bad/infix_to_postfix_conversion.py`](bad/infix_to_postfix_conversion.py) | [TheAlgorithms/Python (data_structures/stacks/infix_to_postfix_conversion.py)](https://github.com/TheAlgorithms/Python/blob/master/data_structures/stacks/infix_to_postfix_conversion.py) | 91 | 89.3 | 79.0 | 10.5 | 96.0 | 100.0 | **15.5** | **F** |
 | `python (auto)` | 9. Dynamic Programming Type Annotations & Documentation Hygiene (TheAlgorithms/Python dynamic_programming/) | **GOOD** | [`good/trapped_water.py`](good/trapped_water.py) | [TheAlgorithms/Python (dynamic_programming/trapped_water.py)](https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/trapped_water.py) | 38 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `python (auto)` | 9. Dynamic Programming Type Annotations & Documentation Hygiene (TheAlgorithms/Python dynamic_programming/) | **BAD** | [`bad/floyd_warshall.py`](bad/floyd_warshall.py) | [TheAlgorithms/Python (dynamic_programming/floyd_warshall.py)](https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/floyd_warshall.py) | 72 | 100.0 | 100.0 | 100.0 | 61.0 | 100.0 | **66.0** | **D** |
-| `python (auto)` | 10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/) | **GOOD** | [`good/test_chain.py`](good/test_chain.py) | [pallets/click (tests/test_chain.py)](https://github.com/pallets/click/blob/main/tests/test_chain.py) | 187 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `python (auto)` | 10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/) | **BAD** | [`bad/test_basic.py`](bad/test_basic.py) | [pallets/click (tests/test_basic.py)](https://github.com/pallets/click/blob/main/tests/test_basic.py) | 761 | 100.0 | 21.9 | 100.0 | 72.8 | 100.0 | **26.9** | **F** |
+| `python (auto)` | 10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/) | **GOOD** | [`good/test_chain.py`](good/test_chain.py) | [pallets/click (tests/test_chain.py)](https://github.com/pallets/click/blob/main/tests/test_chain.py) | 187 | 100.0 | 100.0 | 100.0 | 80.2 | 100.0 | **97.0** | **A** |
+| `python (auto)` | 10. Click Command Chain Test Hygiene vs. Duplicated & Oversized Basic Tests (pallets/click tests/) | **BAD** | [`bad/test_basic.py`](bad/test_basic.py) | [pallets/click (tests/test_basic.py)](https://github.com/pallets/click/blob/main/tests/test_basic.py) | 761 | 100.0 | 21.9 | 100.0 | 75.0 | 100.0 | **26.9** | **F** |
 
 ---
 
@@ -143,22 +143,45 @@ samples/python/good/fenwick_tree.py:178 FenwickTree.    2   1    0   1   0  100.
 #### Bad Baseline: [`bad/red_black_tree.py`](bad/red_black_tree.py) ([sidecar JSON](bad/red_black_tree.py.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Python (data_structures/binary_tree/red_black_tree.py)](https://github.com/TheAlgorithms/Python/blob/master/data_structures/binary_tree/red_black_tree.py) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 49.1` | `Size: 0.0` | `Complexity: 25.4` | `Clean: 65.5` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 49.1` | `Size: 0.0` | `Complexity: 25.4` | `Clean: 50.5` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 40
-Dimensions -> SRP: 49.1 | Size: 0.0 | Complexity: 25.4 | Clean: 65.5 | Security: 100.0
+Dimensions -> SRP: 49.1 | Size: 0.0 | Complexity: 25.4 | Clean: 50.5 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/python/bad/red_black_tree.py           src     613    -  49.1   0.0  25.4  65.5 100.0    5.0   F
+samples/python/bad/red_black_tree.py           src     613    -  49.1   0.0  25.4  50.5 100.0    5.0   F
     - Size: file LOC=613 (>350) (-40.8 pts)
     - Clean: missing module docstring (-10.0 pts)
     - Clean: 1 mid-file/late import(s) (-4.0 pts)
-    - Clean: 4 duplicate code block(s) detected (-20.0 pts)
+    - Clean (DRY): DRY-001 (type2, 59 toks, 6 LOC) L223-228 in RedBlackTree._remove_repair matches samples/python/bad/red_black_tree.py:232-237 (RedBlackTree._remove_repair), samples/python/bad/red_black_tree.py:239-247 (RedBlackTree._remove_repair), samples/python/bad/red_black_tree.py:249-257 (RedBlackTree._remove_repair) (-12.0 pts)
+    - Clean (DRY): DRY-002 (type3, 80.0%, 86 toks, 17 LOC) L43-63 in RedBlackTree.rotate_left matches samples/python/bad/red_black_tree.py:65-85 (RedBlackTree.rotate_right) (-3.0 pts)
+    - Clean (DRY): DRY-003 (type1, 46 toks, 8 LOC) L629-637 in test_floor_ceil matches samples/python/bad/red_black_tree.py:645-653 (test_min_max), samples/python/bad/red_black_tree.py:660-665 (test_tree_traversal) (-10.0 pts)
+    - Clean (DRY): DRY-004 (type3, 98.8%, 49 toks, 11 LOC) L372-382 in RedBlackTree.floor matches samples/python/bad/red_black_tree.py:390-400 (RedBlackTree.ceil) (-3.0 pts)
+    - Clean (DRY): DRY-005 (type1, 46 toks, 8 LOC) L570-580 in test_insert matches samples/python/bad/red_black_tree.py:591-599 (test_insert_and_search) (-5.0 pts)
+    - Clean (DRY): DRY-006 (type2, 51 toks, 7 LOC) L261-267 in RedBlackTree._remove_repair matches samples/python/bad/red_black_tree.py:270-276 (RedBlackTree._remove_repair) (-4.0 pts)
+    - Clean (DRY): DRY-007 (type2, 39 toks, 7 LOC) L52-58 in RedBlackTree.rotate_left matches samples/python/bad/red_black_tree.py:74-80 (RedBlackTree.rotate_right) (-4.0 pts)
+    - Clean (DRY): DRY-008 (type1, 89 toks, 6 LOC) L665-670 in test_tree_traversal matches samples/python/bad/red_black_tree.py:676-681 (test_tree_chaining) (-5.0 pts)
+    - Clean (DRY): DRY-009 (type3, 80.0%, 38 toks, 6 LOC) L466-471 in RedBlackTree.preorder_traverse matches samples/python/bad/red_black_tree.py:480-485 (RedBlackTree.postorder_traverse) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=15.2% (>10.0%) (-2.6 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 93/613 (15.2%) | DRY Score: 65.0/100 | Clone Groups: 9 (T1: 3, T2: 3, T3: 3 | intra: 9, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file      9 samples/python/bad/red_black_tree.py:L223-228, samples/python/bad/red_black_tree.py:L232-237, samples/python/bad/red_black_tree.py:L239-247 (+1 more)
+DRY-002  type3   80.0% intra_file     17 samples/python/bad/red_black_tree.py:L43-63, samples/python/bad/red_black_tree.py:L65-85
+DRY-003  type1  100.0% intra_file      8 samples/python/bad/red_black_tree.py:L629-637, samples/python/bad/red_black_tree.py:L645-653, samples/python/bad/red_black_tree.py:L660-665
+DRY-004  type3   98.8% intra_file     11 samples/python/bad/red_black_tree.py:L372-382, samples/python/bad/red_black_tree.py:L390-400
+DRY-005  type1  100.0% intra_file      8 samples/python/bad/red_black_tree.py:L570-580, samples/python/bad/red_black_tree.py:L591-599
+DRY-006  type2  100.0% intra_file      7 samples/python/bad/red_black_tree.py:L261-267, samples/python/bad/red_black_tree.py:L270-276
+DRY-007  type2  100.0% intra_file      7 samples/python/bad/red_black_tree.py:L52-58, samples/python/bad/red_black_tree.py:L74-80
+DRY-008  type1  100.0% intra_file      6 samples/python/bad/red_black_tree.py:L665-670, samples/python/bad/red_black_tree.py:L676-681
+DRY-009  type3   80.0% intra_file      6 samples/python/bad/red_black_tree.py:L466-471, samples/python/bad/red_black_tree.py:L480-485
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -714,18 +737,32 @@ samples/python/bad/floyd_warshall.py:26 Graph.floyd_    5   4    6   0   3  100.
 #### Good Baseline: [`good/test_chain.py`](good/test_chain.py) ([sidecar JSON](good/test_chain.py.expected.json))
 
 - **Upstream Dataset / Benchmark:** [pallets/click (tests/test_chain.py)](https://github.com/pallets/click/blob/main/tests/test_chain.py) (`BSD-3-Clause`)
-- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 97.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 80.2` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 10
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 97.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 10
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 80.2 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/python/good/test_chain.py              test    187    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/python/good/test_chain.py              test    187    - 100.0 100.0 100.0  80.2 100.0   97.0   A
+    - Clean (DRY): DRY-001 (type2, 120 toks, 15 LOC) L68-85 in test_chaining_with_options matches samples/python/good/test_chain.py:107-124 (test_chaining_with_arguments) (-4.0 pts)
+    - Clean (DRY): DRY-002 (type3, 100.0%, 90 toks, 15 LOC) L171-189 in test_args_and_chain matches samples/python/good/test_chain.py:227-245 (test_group_chaining) (-3.0 pts)
+    - Clean (DRY): DRY-003 (type3, 92.3%, 65 toks, 13 LOC) L170-185 in test_args_and_chain matches samples/python/good/test_chain.py:222-237 (test_group_chaining) (-3.0 pts)
+    - Clean (DRY): DRY-004 (type1, 61 toks, 11 LOC) L15-28 in test_basic_chaining matches samples/python/good/test_chain.py:47-63 (test_chaining_help) (-5.0 pts)
+    - Clean (DRY): duplication_ratio=24.6% (>15.0%) (-4.8 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 46/187 (24.6%) | DRY Score: 80.2/100 | Clone Groups: 4 (T1: 1, T2: 1, T3: 2 | intra: 4, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file     15 samples/python/good/test_chain.py:L68-85, samples/python/good/test_chain.py:L107-124
+DRY-002  type3  100.0% intra_file     15 samples/python/good/test_chain.py:L171-189, samples/python/good/test_chain.py:L227-245
+DRY-003  type3   92.3% intra_file     13 samples/python/good/test_chain.py:L170-185, samples/python/good/test_chain.py:L222-237
+DRY-004  type1  100.0% intra_file     11 samples/python/good/test_chain.py:L15-28, samples/python/good/test_chain.py:L47-63
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -745,21 +782,42 @@ samples/python/good/test_chain.py:222 test_group_cha   19   1    0   1   0  100.
 #### Bad Baseline: [`bad/test_basic.py`](bad/test_basic.py) ([sidecar JSON](bad/test_basic.py.expected.json))
 
 - **Upstream Dataset / Benchmark:** [pallets/click (tests/test_basic.py)](https://github.com/pallets/click/blob/main/tests/test_basic.py) (`BSD-3-Clause`)
-- **Expected Scorecard:** `Composite 26.9/100 (Grade F)` — `SRP: 100.0` | `Size: 21.9` | `Complexity: 100.0` | `Clean: 72.8` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 26.9/100 (Grade F)` — `SRP: 100.0` | `Size: 21.9` | `Complexity: 100.0` | `Clean: 75.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 26.9/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 42
-Dimensions -> SRP: 100.0 | Size: 21.9 | Complexity: 100.0 | Clean: 72.8 | Security: 100.0
+Dimensions -> SRP: 100.0 | Size: 21.9 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/python/bad/test_basic.py               test    761    - 100.0  21.9 100.0  72.8 100.0   26.9   F
+samples/python/bad/test_basic.py               test    761    - 100.0  21.9 100.0  75.0 100.0   26.9   F
     - Size: file LOC=761 (>350) (-77.8 pts)
     - Clean: 3 mid-file/late import(s) (-12.0 pts)
-    - Clean: 3 duplicate code block(s) detected (-15.0 pts)
+    - Clean (DRY): DRY-001 (type3, 86.5%, 89 toks, 12 LOC) L519-533 in test_choice_option matches samples/python/bad/test_basic.py:540-554 (test_choice_argument), samples/python/bad/test_basic.py:564-581 (test_choice_argument_enum), samples/python/bad/test_basic.py:598-612 (test_choice_argument_custom_type) (-9.0 pts)
+    - Clean (DRY): DRY-002 (type3, 90.5%, 97 toks, 12 LOC) L866-880 in test_version_option_resolves_import_name_to_distribution matches samples/python/bad/test_basic.py:885-907 (test_version_option_ambiguous_import_name_errors), samples/python/bad/test_basic.py:914-930 (test_version_option_unknown_package_errors) (-6.0 pts)
+    - Clean (DRY): DRY-003 (type3, 75.0%, 86 toks, 9 LOC) L199-209 in test_string_option matches samples/python/bad/test_basic.py:220-232 (test_int_option), samples/python/bad/test_basic.py:250-260 (test_uuid_option), samples/python/bad/test_basic.py:273-283 (test_float_option) (-9.0 pts)
+    - Clean (DRY): DRY-004 (type3, 81.2%, 77 toks, 10 LOC) L786-797 in test_hidden_command matches samples/python/bad/test_basic.py:800-816 (test_hidden_group) (-3.0 pts)
+    - Clean (DRY): DRY-005 (type2, 90 toks, 12 LOC) L515-528 in test_choice_option matches samples/python/bad/test_basic.py:536-549 (test_choice_argument) (-4.0 pts)
+    - Clean (DRY): DRY-006 (type3, 81.2%, 68 toks, 8 LOC) L670-680 in test_datetime_argument_optional_metavar matches samples/python/bad/test_basic.py:819-835 (test_summary_line) (-3.0 pts)
+    - Clean (DRY): DRY-007 (type3, 93.1%, 72 toks, 8 LOC) L683-691 in test_datetime_option_default matches samples/python/bad/test_basic.py:710-718 (test_datetime_option_custom) (-3.0 pts)
+    - Clean (DRY): DRY-008 (type3, 71.6%, 61 toks, 8 LOC) L71-85 in test_param_squatting_help_option_name matches samples/python/bad/test_basic.py:775-783 (test_hidden_option) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=18.1% (>15.0%) (-1.6 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 138/761 (18.1%) | DRY Score: 75.0/100 | Clone Groups: 8 (T1: 0, T2: 1, T3: 7 | intra: 8, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   86.5% intra_file     15 samples/python/bad/test_basic.py:L519-533, samples/python/bad/test_basic.py:L540-554, samples/python/bad/test_basic.py:L564-581 (+1 more)
+DRY-002  type3   90.5% intra_file     15 samples/python/bad/test_basic.py:L866-880, samples/python/bad/test_basic.py:L885-907, samples/python/bad/test_basic.py:L914-930
+DRY-003  type3   75.0% intra_file     11 samples/python/bad/test_basic.py:L199-209, samples/python/bad/test_basic.py:L220-232, samples/python/bad/test_basic.py:L250-260 (+1 more)
+DRY-004  type3   81.2% intra_file     14 samples/python/bad/test_basic.py:L786-797, samples/python/bad/test_basic.py:L800-816
+DRY-005  type2  100.0% intra_file     12 samples/python/bad/test_basic.py:L515-528, samples/python/bad/test_basic.py:L536-549
+DRY-006  type3   81.2% intra_file     10 samples/python/bad/test_basic.py:L670-680, samples/python/bad/test_basic.py:L819-835
+DRY-007  type3   93.1% intra_file      8 samples/python/bad/test_basic.py:L683-691, samples/python/bad/test_basic.py:L710-718
+DRY-008  type3   71.6% intra_file      8 samples/python/bad/test_basic.py:L71-85, samples/python/bad/test_basic.py:L775-783
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd

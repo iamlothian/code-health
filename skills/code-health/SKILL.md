@@ -46,12 +46,13 @@ python <path-to-skill>/scripts/code_health.py src --lang typescript --fail-under
 # 4. Multi-language repository scan with Git churn analysis
 python <path-to-skill>/scripts/code_health.py src tests --format console
 
-# 5. Language or framework profile override
+# 5. Language, framework, or DRY override
 python <path-to-skill>/scripts/code_health.py src --lang java --framework spring-boot --no-git
 python <path-to-skill>/scripts/code_health.py src --lang javascript --no-git
 python <path-to-skill>/scripts/code_health.py src --lang typescript --framework react --no-git
 python <path-to-skill>/scripts/code_health.py src --framework nextjs --no-git
 python <path-to-skill>/scripts/code_health.py src --framework angular --no-git
+python <path-to-skill>/scripts/code_health.py src --no-dry --no-git
 
 # 6. Export JSON and Markdown scorecards
 python <path-to-skill>/scripts/code_health.py src tests --json-out scorecard.json --markdown-out HEALTH.md
@@ -86,6 +87,7 @@ The analyzer automatically detects language and framework context without requir
 Override automatic detection when necessary:
 - `--lang {auto,python,java,javascript,js,typescript,ts}`: Restrict discovery to a specific language.
 - `--framework {auto,spring-boot,react,nextjs,angular,none}`: Force or disable framework rules (e.g., `--framework none` for vanilla Java/JS/TS).
+- `--no-dry`: Disable intra-file and cross-file duplicate code (DRY) detection and Clean Code DRY penalties.
 
 ---
 
@@ -139,6 +141,9 @@ The analyzer outputs:
      - `Complexity: cognitive=14 (>8) (-15.0 pts)`
      - `SRP: mixes 3 concerns (filesystem_io, presentation, serialization) (-12.0 pts)`
      - `Clean: missing return type annotation (-10.0 pts)`
+5. **Duplicate Code & DRY Summary Table:**
+   - Rendered when clone groups are detected (`[DUPLICATE CODE & DRY SUMMARY]` in console, `## Duplicate Code & DRY Findings` in Markdown, and the `dry` summary plus per-file `duplicated_loc`, `duplication_ratio`, and `dry_score` fields in JSON).
+   - Lists `DRY-001..DRY-NNN` with clone type (`type1`, `type2`, `type3`), similarity percentage, scope (`intra_file` or `cross_file`), LOC, and matching `file:Lstart-end (symbol)` occurrences.
 
 ### Grade Scale
 

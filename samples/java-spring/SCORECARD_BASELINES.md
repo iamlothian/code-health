@@ -14,22 +14,22 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `java (spring-boot)` | 1. Multi-Endpoint PetClinic REST Controller Layering (spring-petclinic-microservices, ~44 LOC) | **BAD** | [`bad/PetResource.java`](bad/PetResource.java) | [spring-petclinic/spring-petclinic-microservices (customers/web/PetResource.java)](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetResource.java) | 48 | 58.7 | 100.0 | 100.0 | 94.3 | 100.0 | **63.7** | **D** |
 | `java (spring-boot)` | 2. JDBC SQL Query Endpoint: Parameterized vs String Concatenation (OWASP WebGoat sqlinjection/) | **GOOD** | [`good/Servers.java`](good/Servers.java) | [OWASP WebGoat (sqlinjection/mitigation/Servers.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java) | 46 | 100.0 | 98.5 | 100.0 | 77.5 | 100.0 | **96.2** | **A** |
 | `java (spring-boot)` | 2. JDBC SQL Query Endpoint: Parameterized vs String Concatenation (OWASP WebGoat sqlinjection/) | **BAD** | [`bad/SqlInjectionLesson8.java`](bad/SqlInjectionLesson8.java) | [OWASP WebGoat (sqlinjection/introduction/SqlInjectionLesson8.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java) | 104 | 90.4 | 94.0 | 97.6 | 77.0 | 60.0 | **65.0** | **D** |
-| `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **GOOD** | [`good/PetControllerTests.java`](good/PetControllerTests.java) | [spring-projects/spring-petclinic (owner/PetControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java) | 193 | 100.0 | 100.0 | 100.0 | 92.0 | 100.0 | **98.8** | **A** |
-| `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **BAD** | [`bad/OwnerControllerTests.java`](bad/OwnerControllerTests.java) | [spring-projects/spring-petclinic (owner/OwnerControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java) | 224 | 60.0 | 90.4 | 100.0 | 91.8 | 100.0 | **65.0** | **D** |
+| `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **GOOD** | [`good/PetControllerTests.java`](good/PetControllerTests.java) | [spring-projects/spring-petclinic (owner/PetControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java) | 193 | 100.0 | 100.0 | 100.0 | 75.0 | 100.0 | **96.2** | **A** |
+| `java (spring-boot)` | 3. Spring Boot @WebMvcTest Controller Test Suite Hygiene (spring-petclinic owner/, ~208 LOC) | **BAD** | [`bad/OwnerControllerTests.java`](bad/OwnerControllerTests.java) | [spring-projects/spring-petclinic (owner/OwnerControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java) | 224 | 60.0 | 90.4 | 100.0 | 75.0 | 100.0 | **65.0** | **D** |
 | `java (spring-boot)` | 4. Spring Security & JWT Service Dependency Injection (spring-boot-realworld-example-app, ~38 LOC) | **GOOD** | [`good/DefaultJwtService.java`](good/DefaultJwtService.java) | [gothinkster/spring-boot-realworld-example-app (infrastructure/service/DefaultJwtService.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/infrastructure/service/DefaultJwtService.java) | 34 | 97.8 | 100.0 | 100.0 | 80.0 | 100.0 | **96.3** | **A** |
 | `java (spring-boot)` | 4. Spring Security & JWT Service Dependency Injection (spring-boot-realworld-example-app, ~38 LOC) | **BAD** | [`bad/JwtTokenFilter.java`](bad/JwtTokenFilter.java) | [gothinkster/spring-boot-realworld-example-app (api/security/JwtTokenFilter.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/api/security/JwtTokenFilter.java) | 42 | 88.0 | 100.0 | 100.0 | 59.0 | 100.0 | **64.0** | **D** |
 | `java (spring-boot)` | 5. Spring Boot REST API Controller Layering (spring-boot-realworld-example-app api/, ~38 LOC) | **GOOD** | [`good/ArticlesApi.java`](good/ArticlesApi.java) | [gothinkster/spring-boot-realworld-example-app (api/ArticlesApi.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/api/ArticlesApi.java) | 37 | 100.0 | 100.0 | 100.0 | 76.7 | 100.0 | **96.5** | **A** |
-| `java (spring-boot)` | 5. Spring Boot REST API Controller Layering (spring-boot-realworld-example-app api/, ~38 LOC) | **BAD** | [`bad/ArticleFavoriteApi.java`](bad/ArticleFavoriteApi.java) | [gothinkster/spring-boot-realworld-example-app (api/ArticleFavoriteApi.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/api/ArticleFavoriteApi.java) | 39 | 54.0 | 100.0 | 100.0 | 78.3 | 100.0 | **59.0** | **F** |
+| `java (spring-boot)` | 5. Spring Boot REST API Controller Layering (spring-boot-realworld-example-app api/, ~38 LOC) | **BAD** | [`bad/ArticleFavoriteApi.java`](bad/ArticleFavoriteApi.java) | [gothinkster/spring-boot-realworld-example-app (api/ArticleFavoriteApi.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/api/ArticleFavoriteApi.java) | 39 | 54.0 | 100.0 | 100.0 | 71.6 | 100.0 | **59.0** | **F** |
 | `java (spring-boot)` | 6. Spring JDBC Query Parameterization vs SQL String Concatenation (OWASP WebGoat sqlinjection/advanced/) | **GOOD** | [`good/SqlInjectionLesson6b.java`](good/SqlInjectionLesson6b.java) | [OWASP WebGoat (sqlinjection/advanced/SqlInjectionLesson6b.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java) | 36 | 99.0 | 100.0 | 100.0 | 78.3 | 100.0 | **96.4** | **A** |
 | `java (spring-boot)` | 6. Spring JDBC Query Parameterization vs SQL String Concatenation (OWASP WebGoat sqlinjection/advanced/) | **BAD** | [`bad/SqlInjectionChallenge.java`](bad/SqlInjectionChallenge.java) | [OWASP WebGoat (sqlinjection/advanced/SqlInjectionChallenge.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java) | 60 | 84.0 | 97.5 | 100.0 | 76.7 | 60.0 | **65.0** | **D** |
-| `java (spring-boot)` | 7. WebAuthn Endpoint Decomposition vs Oversized Handler Method (OWASP WebGoat webauthn/, ~110 LOC) | **GOOD** | [`good/GoatBankCeremonyEndpoints.java`](good/GoatBankCeremonyEndpoints.java) | [OWASP WebGoat (webauthn/GoatBankCeremonyEndpoints.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/GoatBankCeremonyEndpoints.java) | 119 | 87.6 | 98.9 | 100.0 | 97.1 | 100.0 | **95.6** | **A** |
+| `java (spring-boot)` | 7. WebAuthn Endpoint Decomposition vs Oversized Handler Method (OWASP WebGoat webauthn/, ~110 LOC) | **GOOD** | [`good/GoatBankCeremonyEndpoints.java`](good/GoatBankCeremonyEndpoints.java) | [OWASP WebGoat (webauthn/GoatBankCeremonyEndpoints.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/GoatBankCeremonyEndpoints.java) | 119 | 87.6 | 98.9 | 100.0 | 81.2 | 100.0 | **93.2** | **A** |
 | `java (spring-boot)` | 7. WebAuthn Endpoint Decomposition vs Oversized Handler Method (OWASP WebGoat webauthn/, ~110 LOC) | **BAD** | [`bad/WebAuthnRegistrationAssignment.java`](bad/WebAuthnRegistrationAssignment.java) | [OWASP WebGoat (webauthn/WebAuthnRegistrationAssignment.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/WebAuthnRegistrationAssignment.java) | 103 | 82.0 | 50.0 | 50.0 | 92.5 | 100.0 | **55.0** | **F** |
 | `java (spring-boot)` | 8. WebAuthn Codec Decomposition vs High-Complexity Authentication Handler (OWASP WebGoat webauthn/) | **GOOD** | [`good/Cbor.java`](good/Cbor.java) | [OWASP WebGoat (webauthn/Cbor.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/Cbor.java) | 175 | 97.9 | 97.4 | 100.0 | 94.3 | 100.0 | **97.9** | **A** |
 | `java (spring-boot)` | 8. WebAuthn Codec Decomposition vs High-Complexity Authentication Handler (OWASP WebGoat webauthn/) | **BAD** | [`bad/WebAuthnSecurityKeyAssignment.java`](bad/WebAuthnSecurityKeyAssignment.java) | [OWASP WebGoat (webauthn/WebAuthnSecurityKeyAssignment.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/WebAuthnSecurityKeyAssignment.java) | 89 | 82.0 | 52.5 | 61.2 | 92.5 | 100.0 | **57.5** | **F** |
 | `java (spring-boot)` | 9. Spring MVC Controller Cohesion & LCOM4 (spring-projects/spring-petclinic, ~44 LOC) | **GOOD** | [`good/VetController.java`](good/VetController.java) | [spring-projects/spring-petclinic (vet/VetController.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/java/org/springframework/samples/petclinic/vet/VetController.java) | 37 | 80.0 | 100.0 | 100.0 | 95.0 | 100.0 | **93.2** | **A** |
 | `java (spring-boot)` | 9. Spring MVC Controller Cohesion & LCOM4 (spring-projects/spring-petclinic, ~44 LOC) | **BAD** | [`bad/VisitController.java`](bad/VisitController.java) | [spring-projects/spring-petclinic (owner/VisitController.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/java/org/springframework/samples/petclinic/owner/VisitController.java) | 50 | 54.0 | 100.0 | 100.0 | 95.0 | 100.0 | **59.0** | **F** |
 | `java (spring-boot)` | 10. JUnit 5 Spring Test Assertions & Injection Hygiene (realworld vs petclinic-microservices) | **GOOD** | [`good/DefaultJwtServiceTest.java`](good/DefaultJwtServiceTest.java) | [gothinkster/spring-boot-realworld-example-app (infrastructure/service/DefaultJwtServiceTest.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/test/java/io/spring/infrastructure/service/DefaultJwtServiceTest.java) | 27 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `java (spring-boot)` | 10. JUnit 5 Spring Test Assertions & Injection Hygiene (realworld vs petclinic-microservices) | **BAD** | [`bad/ApiGatewayControllerTest.java`](bad/ApiGatewayControllerTest.java) | [spring-petclinic/spring-petclinic-microservices (boundary/web/ApiGatewayControllerTest.java)](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/main/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java) | 60 | 100.0 | 100.0 | 100.0 | 62.0 | 100.0 | **67.0** | **D** |
+| `java (spring-boot)` | 10. JUnit 5 Spring Test Assertions & Injection Hygiene (realworld vs petclinic-microservices) | **BAD** | [`bad/ApiGatewayControllerTest.java`](bad/ApiGatewayControllerTest.java) | [spring-petclinic/spring-petclinic-microservices (boundary/web/ApiGatewayControllerTest.java)](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/main/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java) | 60 | 100.0 | 100.0 | 100.0 | 43.2 | 100.0 | **48.2** | **F** |
 
 ---
 
@@ -200,18 +200,28 @@ samples/java-spring/bad/SqlInjectionLesson8.java:41     5   1    0   2   0   99.
 #### Good Baseline: [`good/PetControllerTests.java`](good/PetControllerTests.java) ([sidecar JSON](good/PetControllerTests.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [spring-projects/spring-petclinic (owner/PetControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/PetControllerTests.java) (`Apache-2.0`)
-- **Expected Scorecard:** `Composite 98.8/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 92.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 96.2/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 75.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 98.8/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 5
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 92.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 96.2/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 5
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java-spring/good/PetControllerTests.java test    193    - 100.0 100.0 100.0  92.0 100.0   98.8   A
+samples/java-spring/good/PetControllerTests.java test    193    - 100.0 100.0 100.0  75.0 100.0   96.2   A
+    - Clean (DRY): DRY-001 (type3, 83.1%, 113 toks, 12 LOC) L110-121 in PetControllerTests.ProcessCreationFormHasErrors.processCreationFormWithBlankName matches samples/java-spring/good/PetControllerTests.java:126-134 (PetControllerTests.ProcessCreationFormHasErrors.processCreationFormWithDuplicateName), samples/java-spring/good/PetControllerTests.java:136-147 (PetControllerTests.ProcessCreationFormHasErrors.processCreationFormWithMissingPetType), samples/java-spring/good/PetControllerTests.java:156-163 (PetControllerTests.ProcessCreationFormHasErrors.processCreationFormWithInvalidBirthDate) (+5 more) (-24.0 pts)
+    - Clean (DRY): DRY-002 (type3, 98.5%, 68 toks, 9 LOC) L97-105 in PetControllerTests.processCreationFormSuccess matches samples/java-spring/good/PetControllerTests.java:191-199 (PetControllerTests.processUpdateFormSuccess), samples/java-spring/good/PetControllerTests.java:201-212 (PetControllerTests.processUpdateFormWithSameName) (-6.0 pts)
+    - Clean (DRY): duplication_ratio=50.8% (>15.0%) (-17.9 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 98/193 (50.8%) | DRY Score: 75.0/100 | Clone Groups: 2 (T1: 0, T2: 0, T3: 2 | intra: 2, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   83.1% intra_file     12 samples/java-spring/good/PetControllerTests.java:L110-121, samples/java-spring/good/PetControllerTests.java:L126-134, samples/java-spring/good/PetControllerTests.java:L136-147 (+6 more)
+DRY-002  type3   98.5% intra_file      9 samples/java-spring/good/PetControllerTests.java:L97-105, samples/java-spring/good/PetControllerTests.java:L191-199, samples/java-spring/good/PetControllerTests.java:L201-212
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -232,18 +242,28 @@ samples/java-spring/good/PetControllerTests.java:201    8   1    0   0   0  100.
 #### Bad Baseline: [`bad/OwnerControllerTests.java`](bad/OwnerControllerTests.java) ([sidecar JSON](bad/OwnerControllerTests.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [spring-projects/spring-petclinic (owner/OwnerControllerTests.java)](https://github.com/spring-projects/spring-petclinic/blob/main/src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java) (`Apache-2.0`)
-- **Expected Scorecard:** `Composite 65.0/100 (Grade D)` — `SRP: 60.0` | `Size: 90.4` | `Complexity: 100.0` | `Clean: 91.8` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 65.0/100 (Grade D)` — `SRP: 60.0` | `Size: 90.4` | `Complexity: 100.0` | `Clean: 75.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 65.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 20
-Dimensions -> SRP: 60.0 | Size: 90.4 | Complexity: 100.0 | Clean: 91.8 | Security: 100.0
+Dimensions -> SRP: 60.0 | Size: 90.4 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java-spring/bad/OwnerControllerTests.java test    224    -  60.0  90.4 100.0  91.8 100.0   65.0   D
+samples/java-spring/bad/OwnerControllerTests.java test    224    -  60.0  90.4 100.0  75.0 100.0   65.0   D
+    - Clean (DRY): DRY-001 (type3, 74.0%, 113 toks, 10 LOC) L114-123 in OwnerControllerTests.processCreationFormSuccess matches samples/java-spring/bad/OwnerControllerTests.java:125-134 (OwnerControllerTests.processCreationFormHasErrors), samples/java-spring/bad/OwnerControllerTests.java:142-149 (OwnerControllerTests.processCreationFormRejectsCityLongerThanColumn), samples/java-spring/bad/OwnerControllerTests.java:157-164 (OwnerControllerTests.processCreationFormRejectsAddressLongerThanColumn) (+3 more) (-18.0 pts)
+    - Clean (DRY): DRY-002 (type3, 81.8%, 212 toks, 12 LOC) L237-248 in OwnerControllerTests.initUpdateOwnerForm matches samples/java-spring/bad/OwnerControllerTests.java:283-296 (OwnerControllerTests.showOwner) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=32.1% (>15.0%) (-8.6 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 72/224 (32.1%) | DRY Score: 75.0/100 | Clone Groups: 2 (T1: 0, T2: 0, T3: 2 | intra: 2, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   74.0% intra_file     13 samples/java-spring/bad/OwnerControllerTests.java:L114-123, samples/java-spring/bad/OwnerControllerTests.java:L125-134, samples/java-spring/bad/OwnerControllerTests.java:L142-149 (+4 more)
+DRY-002  type3   81.8% intra_file     14 samples/java-spring/bad/OwnerControllerTests.java:L237-248, samples/java-spring/bad/OwnerControllerTests.java:L283-296
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -390,18 +410,26 @@ samples/java-spring/good/ArticlesApi.java:40 Article    7   1    0   3   0   99.
 #### Bad Baseline: [`bad/ArticleFavoriteApi.java`](bad/ArticleFavoriteApi.java) ([sidecar JSON](bad/ArticleFavoriteApi.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [gothinkster/spring-boot-realworld-example-app (api/ArticleFavoriteApi.java)](https://github.com/gothinkster/spring-boot-realworld-example-app/blob/master/src/main/java/io/spring/api/ArticleFavoriteApi.java) (`MIT`)
-- **Expected Scorecard:** `Composite 59.0/100 (Grade F)` — `SRP: 54.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 78.3` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 59.0/100 (Grade F)` — `SRP: 54.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 71.6` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 59.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 3
-Dimensions -> SRP: 54.0 | Size: 100.0 | Complexity: 100.0 | Clean: 78.3 | Security: 100.0
+Dimensions -> SRP: 54.0 | Size: 100.0 | Complexity: 100.0 | Clean: 71.6 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java-spring/bad/ArticleFavoriteApi.java src      39    -  54.0 100.0 100.0  78.3 100.0   59.0   F
+samples/java-spring/bad/ArticleFavoriteApi.java src      39    -  54.0 100.0 100.0  71.6 100.0   59.0   F
+    - Clean (DRY): DRY-001 (type2, 38 toks, 6 LOC) L29-34 in ArticleFavoriteApi.favoriteArticle matches samples/java-spring/bad/ArticleFavoriteApi.java:39-44 (ArticleFavoriteApi.unfavoriteArticle) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=15.4% (>10.0%) (-2.7 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 6/39 (15.4%) | DRY Score: 93.3/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file      6 samples/java-spring/bad/ArticleFavoriteApi.java:L29-34, samples/java-spring/bad/ArticleFavoriteApi.java:L39-44
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -502,18 +530,28 @@ samples/java-spring/bad/SqlInjectionChallenge.java:4    3   1    0   1   0   99.
 #### Good Baseline: [`good/GoatBankCeremonyEndpoints.java`](good/GoatBankCeremonyEndpoints.java) ([sidecar JSON](good/GoatBankCeremonyEndpoints.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [OWASP WebGoat (webauthn/GoatBankCeremonyEndpoints.java)](https://github.com/WebGoat/WebGoat/blob/main/src/main/java/org/owasp/webgoat/lessons/webauthn/GoatBankCeremonyEndpoints.java) (`GPL-2.0`)
-- **Expected Scorecard:** `Composite 95.6/100 (Grade A)` — `SRP: 87.6` | `Size: 98.9` | `Complexity: 100.0` | `Clean: 97.1` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 93.2/100 (Grade A)` — `SRP: 87.6` | `Size: 98.9` | `Complexity: 100.0` | `Clean: 81.2` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 95.6/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7
-Dimensions -> SRP: 87.6 | Size: 98.9 | Complexity: 100.0 | Clean: 97.1 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 93.2/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 7
+Dimensions -> SRP: 87.6 | Size: 98.9 | Complexity: 100.0 | Clean: 81.2 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java-spring/good/GoatBankCeremonyEndpoints.java src     119    -  87.6  98.9 100.0  97.1 100.0   95.6   A
+samples/java-spring/good/GoatBankCeremonyEndpoints.java src     119    -  87.6  98.9 100.0  81.2 100.0   93.2   A
+    - Clean (DRY): DRY-001 (type3, 86.4%, 91 toks, 11 LOC) L66-76 in GoatBankCeremonyEndpoints.authenticationOptions matches samples/java-spring/good/GoatBankCeremonyEndpoints.java:91-103 (GoatBankCeremonyEndpoints.simulateCreate), samples/java-spring/good/GoatBankCeremonyEndpoints.java:118-130 (GoatBankCeremonyEndpoints.simulateGet) (-6.0 pts)
+    - Clean (DRY): DRY-002 (type2, 36 toks, 6 LOC) L95-100 in GoatBankCeremonyEndpoints.simulateCreate matches samples/java-spring/good/GoatBankCeremonyEndpoints.java:122-127 (GoatBankCeremonyEndpoints.simulateGet) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=21.9% (>10.0%) (-5.9 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 26/119 (21.9%) | DRY Score: 84.1/100 | Clone Groups: 2 (T1: 0, T2: 1, T3: 1 | intra: 2, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   86.4% intra_file     13 samples/java-spring/good/GoatBankCeremonyEndpoints.java:L66-76, samples/java-spring/good/GoatBankCeremonyEndpoints.java:L91-103, samples/java-spring/good/GoatBankCeremonyEndpoints.java:L118-130
+DRY-002  type2  100.0% intra_file      6 samples/java-spring/good/GoatBankCeremonyEndpoints.java:L95-100, samples/java-spring/good/GoatBankCeremonyEndpoints.java:L122-127
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -766,18 +804,28 @@ samples/java-spring/good/DefaultJwtServiceTest.java:    6   1    0   0   0  100.
 #### Bad Baseline: [`bad/ApiGatewayControllerTest.java`](bad/ApiGatewayControllerTest.java) ([sidecar JSON](bad/ApiGatewayControllerTest.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [spring-petclinic/spring-petclinic-microservices (boundary/web/ApiGatewayControllerTest.java)](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/main/spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java) (`Apache-2.0`)
-- **Expected Scorecard:** `Composite 67.0/100 (Grade D)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 62.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 48.2/100 (Grade F)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 43.2` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 67.0/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 2
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 62.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 48.2/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 1 | Functions/Methods: 2
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 43.2 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java-spring/bad/ApiGatewayControllerTest.java test     60    - 100.0 100.0 100.0  62.0 100.0   67.0   D
+samples/java-spring/bad/ApiGatewayControllerTest.java test     60    - 100.0 100.0 100.0  43.2 100.0   48.2   F
+    - Clean (DRY): DRY-001 (type1, 83 toks, 12 LOC) L39-50 in ApiGatewayControllerTest.getOwnerDetails_withAvailableVisitsService matches samples/java-spring/bad/ApiGatewayControllerTest.java:71-82 (ApiGatewayControllerTest.getOwnerDetails_withServiceError) (-5.0 pts)
+    - Clean (DRY): DRY-002 (type3, 87.4%, 87 toks, 11 LOC) L53-64 in ApiGatewayControllerTest.getOwnerDetails_withAvailableVisitsService matches samples/java-spring/bad/ApiGatewayControllerTest.java:82-94 (ApiGatewayControllerTest.getOwnerDetails_withServiceError) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=36.7% (>15.0%) (-10.8 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 22/60 (36.7%) | DRY Score: 81.2/100 | Clone Groups: 2 (T1: 1, T2: 0, T3: 1 | intra: 2, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type1  100.0% intra_file     12 samples/java-spring/bad/ApiGatewayControllerTest.java:L39-50, samples/java-spring/bad/ApiGatewayControllerTest.java:L71-82
+DRY-002  type3   87.4% intra_file     11 samples/java-spring/bad/ApiGatewayControllerTest.java:L53-64, samples/java-spring/bad/ApiGatewayControllerTest.java:L82-94
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd

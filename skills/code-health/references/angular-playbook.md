@@ -111,4 +111,5 @@ Use these concrete fixes when refactoring large Angular components:
 2. **Trim method fan-out (`> 6` distinct external calls per method):** Group repeated snackbar/i18n/dialog calls behind a notification helper service so `ngOnInit` / `submit` coordinate `<= 6` calls cleanly.
 3. **Add JSDoc (`/** ... */`) and return types on non-constructor methods:** Add `/** ... */` and `: void` / `: Observable<T>` on `ngOnInit`, event handlers, and helpers (`missing public docstring` costs `-6.0 pts` per method in modules).
 4. **Replace `any` with explicit interfaces and remove `var`:** Typed component models and strict equality eliminate remaining TypeScript `Clean` penalties (`TypeScript Playbook`).
+5. **Resolve `Clean (DRY): DRY-XXX (type1|type2|type3, ...)` findings:** Move duplicated form/filter pipelines, HTTP error handlers, and subscription setup out of sibling `@Component` classes into injectable `@Injectable` services or shared standalone pipes, and use helper builders inside `*.spec.ts` files.
 

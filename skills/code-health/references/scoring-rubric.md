@@ -29,7 +29,7 @@ $$\text{Composite Score} = \begin{cases} \min(\text{Weighted Score},\; S_{\min} 
 | **SRP & Cohesion ($S_{\text{SRP}}$)** | **30%** | Single responsibility, concern domain isolation, external call fan-out, boolean flag parameters, layering violations, and class LCOM4. |
 | **Size & Readability ($S_{\text{Size}}$)** | **25%** | Effective non-blank, non-comment lines of code (LOC), parameter count, and maximum nesting depth. |
 | **Complexity & Control Flow ($S_{\text{Complexity}}$)** | **20%** | Cyclomatic complexity (CC), cognitive complexity (CogC), and return statement count. |
-| **Clean Code & Maintainability ($S_{\text{Clean}}$)** | **15%** | Type annotations, TS type safety, docstrings/JSDoc/Javadoc, exception & DI hygiene, UI hook/lifecycle hygiene, and test assertion quality. |
+| **Clean Code & Maintainability ($S_{\text{Clean}}$)** | **15%** | Type annotations, TS type safety, docstrings/JSDoc/Javadoc, exception & DI hygiene, UI hook/lifecycle hygiene, test assertion quality, and duplicate code / DRY metrics (Type-1/2/3). |
 | **Security & Boundary Hygiene ($S_{\text{Security}}$)** | **10%** | SQL injection, unsafe execution/deserialization, XSS/DOM sinks, client/server boundaries, subprocess safety, path confinement, and transactional Git mutations. |
 
 ### Letter Grade Scale
@@ -245,7 +245,7 @@ $$\text{File Dimension} = \sum \left( \frac{\text{LOC}_u}{\text{LOC}_{\text{tota
 5. **Clean Code:**
    - Missing file/module docstring (Python source files): **-10.0 pts**.
    - Mid-file / late imports (imports after line 60 or inside functions, excluding `TYPE_CHECKING`): **-4.0 pts** each (capped at -20.0 pts).
-   - Duplicate code blocks ($\ge 6$ identical AST statements repeated): **-5.0 pts** each (capped at -25.0 pts).
+   - Duplicate code & DRY deductions (Type-1 exact, Type-2 parameterized, Type-3 near-miss clones; see Section 6): severity-weighted block penalties (**-5.0 pts** Type-1, **-4.0 pts** Type-2, **-3.0 pts** Type-3) plus duplication density penalty above ideal ratio ($10\%$ source / $15\%$ test), capped at **-35.0 pts** for source files and **-25.0 pts** for test files (test files with pre-DRY $S_{\text{Clean}} \ge 75.0$ floor at $75.0$).
    - Unclaimed `@ts-ignore` / `@ts-nocheck` directives at module scope: **-10.0 pts** each (capped at -20.0 pts).
 6. **Git History Signals (when Git is enabled):**
    - Commit Churn: $> 8$ commits touching the file deducts **-2.0 pts** per commit over 8 (capped at -25.0 pts).
@@ -253,3 +253,38 @@ $$\text{File Dimension} = \sum \left( \frac{\text{LOC}_u}{\text{LOC}_{\text{tota
    - Multi-Feature Churn: File touched across $\ge 4$ distinct `feat(...)` commits deducts **-10.0 pts**.
 7. **Empty `__init__.py` Exemption:**
    - Python files named `__init__.py` with no executable statements and $\le 10$ lines automatically receive **100.0 (Grade A)** across all dimensions.
+
+---
+
+## 6. Multi-Language Duplicate Code & DRY Metrics
+
+Multi-language clone detection evaluates intra-file and cross-file duplication across **Python**, **Java**, and a shared **ECMAScript** bucket (`.js`, `.jsx`, `.mjs`, `.cjs`, `.ts`, `.tsx`, `.mts`, `.cts`) using single-pass compact token streams (`--no-dry` opts out cleanly).
+
+### 6.1 Clone Taxonomy & Detection Pipeline
+1. **Type-1 (Exact Token Clones):** Identical normalized token sequences and identical raw lexemes, ignoring comments, docstrings, whitespace, and non-executable declarations. Detected via Rabin-Karp rolling hashes + Winnowing (`K=16`, `W=10`).
+2. **Type-2 (Parameterized / Alpha-Renamed Clones):** Structurally identical token streams allowing renamed identifiers and changed literals, verified with strict 1-to-1 identifier bijection within each candidate span.
+3. **Type-3 (Near-Miss / Gapped Clones):** Detected via two complementary passes:
+   - Contiguous Type-2 seed gap stitching (`dry_max_gap_tokens = 12`).
+   - SourcererCC-style prefix-filtered block comparison using FNV-1a statement/3-gram shingles and token-weighted `SequenceMatcher` similarity ($\ge 0.70$ default `dry_type3_similarity`).
+
+### 6.2 Scopes & Partition Isolation
+- **Strict Partitioning:** Comparisons never cross `(is_test, language_bucket)` boundaries. Source files (`src <-> src`) and test files (`test <-> test`) are analyzed strictly within their respective partitions, while JavaScript and TypeScript files share the `ecmascript` partition so duplicated `.js`/`.tsx` logic is caught.
+- **Scopes & Overlapping Cluster Resolution:** Subsumed overlaps ($\ge 0.75$) and identical-location variants collapse deterministically into `DRY-001..DRY-NNN` groups via union-find spatial snapping ($\text{IoU} \ge 0.65$ or high containment). Cross-file groups (`cross_file`) bill all matching locations; intra-file groups (`intra_file`) bill only redundant copies ($N - 1$).
+
+### 6.3 Source vs. Test Thresholds & Clean Code Deduction Formula
+| Parameter | Source Code (`src`) | Test Suites (`tests`) |
+| :--- | :---: | :---: |
+| Minimum Token Length | `dry_min_tokens = 35` | `dry_min_tokens_test = 55` |
+| Minimum Distinct Lines | `dry_min_lines = 5` | `dry_min_lines_test = 8` |
+| Ideal Duplication Ratio | `dry_max_ideal_pct_src = 10.0%` | `dry_max_ideal_pct_test = 15.0%` |
+| Max Clean Code DRY Cap | `dry_max_penalty_src = 35.0 pts` | `dry_max_penalty_test = 25.0 pts` |
+
+$$\text{DRY Penalty} = \min\!\left(\text{Cap},\; \sum_{g} w_{\text{type}(g)} \cdot \text{billed\_occs}(g) + 0.5 \cdot \max\!\left(0,\; \text{duplication\_ratio} - \text{ideal\_pct}\right)\right)$$
+
+- Severity weights per billed occurrence: **-5.0 pts** (`type1`), **-4.0 pts** (`type2`), **-3.0 pts** (`type3`).
+- $\text{duplication\_ratio} = 100 \cdot \text{duplicated\_loc} / \text{total\_loc}$ (interval-merged per file so overlapping matches never double-count lines), and $\text{dry\_score} = \text{clamp}(100.0 - \text{DRY Penalty})$.
+- **Test-Suite Ceiling Protection:** Test files with pre-DRY $S_{\text{Clean}} \ge 75.0$ floor their post-DRY Clean score at `75.0` (avoiding the `< 75.0` worst-dimension cliff), and static module-level fixture/data tables outside test functions are excluded when the file contains test blocks.
+
+### 6.4 Non-Executable & Generated Code Exclusions
+- **Non-Executable Exclusions:** Comments, docstrings/JSDoc/Javadoc, `import`/`package` declarations, Python type annotations (parameter, return, and bare variable annotations), and TypeScript `interface` / `type` alias / ambient declarations are stripped prior to tokenization so shared boilerplate imports or interfaces never inflate duplication metrics.
+- **Generated File Auto-Skip:** Automatically skips files matching `*_pb2.py`, `*_pb2_grpc.py`, `*.generated.*`, `*.gen.*`, `*_pb.*`, `*.pb.*`, files carrying `@generated`, `DO NOT EDIT`, `AUTO-GENERATED`, or `Generated by` within the first 15 lines, classes annotated with `@Generated`, and user globs specified in `dry_exclude_globs`.

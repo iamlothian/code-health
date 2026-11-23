@@ -11,23 +11,23 @@ Each scenario pairs a **Good** and **Bad** file solving the **same problem or pe
 | Profile | Scenario | Quality | Sample File | Dataset Source | LOC | SRP | Size | Comp | Clean | Sec | Score | Grade |
 | :--- | :--- | :---: | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | :---: |
 | `java (none)` | 1. Competitive Programming Contest Class Structure (Same Problem: Codeforces 1575D) | **GOOD** | [`good/DivisibleByTwentyFiveClean.java`](good/DivisibleByTwentyFiveClean.java) | [DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #57)](https://huggingface.co/datasets/deepmind/code_contests) | 132 | 100.0 | 100.0 | 100.0 | 75.0 | 100.0 | **96.2** | **A** |
-| `java (none)` | 1. Competitive Programming Contest Class Structure (Same Problem: Codeforces 1575D) | **BAD** | [`bad/DivisibleByTwentyFiveGodClass.java`](bad/DivisibleByTwentyFiveGodClass.java) | [DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #45)](https://huggingface.co/datasets/deepmind/code_contests) | 611 | 0.0 | 0.0 | 0.0 | 94.1 | 100.0 | **5.0** | **F** |
+| `java (none)` | 1. Competitive Programming Contest Class Structure (Same Problem: Codeforces 1575D) | **BAD** | [`bad/DivisibleByTwentyFiveGodClass.java`](bad/DivisibleByTwentyFiveGodClass.java) | [DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #45)](https://huggingface.co/datasets/deepmind/code_contests) | 611 | 0.0 | 0.0 | 0.0 | 59.1 | 100.0 | **5.0** | **F** |
 | `java (none)` | 2. Method Complexity & Control Flow (Same Problem: Codeforces 1575D) | **GOOD** | [`good/DivisibleByTwentyFiveModular.java`](good/DivisibleByTwentyFiveModular.java) | [DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #46)](https://huggingface.co/datasets/deepmind/code_contests) | 79 | 100.0 | 96.5 | 93.3 | 76.7 | 100.0 | **94.3** | **A** |
 | `java (none)` | 2. Method Complexity & Control Flow (Same Problem: Codeforces 1575D) | **BAD** | [`bad/DivisibleByTwentyFiveBranchy.java`](bad/DivisibleByTwentyFiveBranchy.java) | [DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #32)](https://huggingface.co/datasets/deepmind/code_contests) | 42 | 100.0 | 79.0 | 39.5 | 75.0 | 100.0 | **44.5** | **F** |
-| `java (none)` | 3. Linked List Data Structure Cohesion & Method Count (TheAlgorithms/Java lists/, ~250 LOC) | **GOOD** | [`good/DoublyLinkedList.java`](good/DoublyLinkedList.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java) | 234 | 96.6 | 99.2 | 93.1 | 99.4 | 100.0 | **97.3** | **A** |
+| `java (none)` | 3. Linked List Data Structure Cohesion & Method Count (TheAlgorithms/Java lists/, ~250 LOC) | **GOOD** | [`good/DoublyLinkedList.java`](good/DoublyLinkedList.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java) | 234 | 96.6 | 99.2 | 93.1 | 77.4 | 100.0 | **94.0** | **A** |
 | `java (none)` | 3. Linked List Data Structure Cohesion & Method Count (TheAlgorithms/Java lists/, ~250 LOC) | **BAD** | [`bad/SinglyLinkedList.java`](bad/SinglyLinkedList.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/SinglyLinkedList.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/SinglyLinkedList.java) | 281 | 15.7 | 66.7 | 50.2 | 98.9 | 100.0 | **20.7** | **F** |
 | `java (none)` | 4. Block & Classical Cipher Implementation Size (TheAlgorithms/Java ciphers/) | **GOOD** | [`good/AffineCipher.java`](good/AffineCipher.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/AffineCipher.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/AffineCipher.java) | 37 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `java (none)` | 4. Block & Classical Cipher Implementation Size (TheAlgorithms/Java ciphers/) | **BAD** | [`bad/Blowfish.java`](bad/Blowfish.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/Blowfish.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/Blowfish.java) | 1149 | 99.0 | 0.0 | 100.0 | 98.9 | 100.0 | **5.0** | **F** |
+| `java (none)` | 4. Block & Classical Cipher Implementation Size (TheAlgorithms/Java ciphers/) | **BAD** | [`bad/Blowfish.java`](bad/Blowfish.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/Blowfish.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/Blowfish.java) | 1149 | 99.0 | 0.0 | 100.0 | 63.9 | 100.0 | **5.0** | **F** |
 | `java (none)` | 5. Ring & Sliding Window Buffer Cohesion & Attribute Count (TheAlgorithms/Java buffers/) | **GOOD** | [`good/CircularBuffer.java`](good/CircularBuffer.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/buffers/CircularBuffer.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/buffers/CircularBuffer.java) | 55 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `java (none)` | 5. Ring & Sliding Window Buffer Cohesion & Attribute Count (TheAlgorithms/Java buffers/) | **BAD** | [`bad/SlidingWindowAggregator.java`](bad/SlidingWindowAggregator.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/buffers/SlidingWindowAggregator.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/buffers/SlidingWindowAggregator.java) | 177 | 8.9 | 100.0 | 83.5 | 99.0 | 100.0 | **13.9** | **F** |
 | `java (none)` | 6. Graph Traversal & Path Complexity (TheAlgorithms/Java graph/) | **GOOD** | [`good/TarjanBridges.java`](good/TarjanBridges.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/graph/TarjanBridges.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/graph/TarjanBridges.java) | 57 | 100.0 | 100.0 | 98.0 | 100.0 | 100.0 | **99.6** | **A** |
 | `java (none)` | 6. Graph Traversal & Path Complexity (TheAlgorithms/Java graph/) | **BAD** | [`bad/HierholzerEulerianPath.java`](bad/HierholzerEulerianPath.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/graph/HierholzerEulerianPath.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/graph/HierholzerEulerianPath.java) | 188 | 97.0 | 92.5 | 47.7 | 94.3 | 100.0 | **52.7** | **F** |
 | `java (none)` | 7. Mathematical Utility Javadocs & Cohesion (TheAlgorithms/Java maths/) | **GOOD** | [`good/ChineseRemainderTheorem.java`](good/ChineseRemainderTheorem.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/ChineseRemainderTheorem.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/ChineseRemainderTheorem.java) | 42 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `java (none)` | 7. Mathematical Utility Javadocs & Cohesion (TheAlgorithms/Java maths/) | **BAD** | [`bad/DistanceFormula.java`](bad/DistanceFormula.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/DistanceFormula.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/DistanceFormula.java) | 35 | 70.0 | 100.0 | 100.0 | 79.0 | 100.0 | **75.0** | **C** |
+| `java (none)` | 7. Mathematical Utility Javadocs & Cohesion (TheAlgorithms/Java maths/) | **BAD** | [`bad/DistanceFormula.java`](bad/DistanceFormula.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/DistanceFormula.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/DistanceFormula.java) | 35 | 70.0 | 100.0 | 100.0 | 71.4 | 100.0 | **75.0** | **C** |
 | `java (none)` | 8. String Algorithm Single-Responsibility Cohesion (TheAlgorithms/Java strings/) | **GOOD** | [`good/PermuteString.java`](good/PermuteString.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/PermuteString.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/PermuteString.java) | 27 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `java (none)` | 8. String Algorithm Single-Responsibility Cohesion (TheAlgorithms/Java strings/) | **BAD** | [`bad/Anagrams.java`](bad/Anagrams.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/Anagrams.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/Anagrams.java) | 87 | 31.5 | 100.0 | 100.0 | 100.0 | 100.0 | **36.5** | **F** |
-| `java (none)` | 9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/) | **GOOD** | [`good/BSTRecursive.java`](good/BSTRecursive.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java) | 73 | 100.0 | 99.2 | 98.0 | 99.4 | 100.0 | **99.3** | **A** |
-| `java (none)` | 9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/) | **BAD** | [`bad/RedBlackBST.java`](bad/RedBlackBST.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java) | 308 | 87.8 | 49.4 | 43.8 | 91.5 | 100.0 | **48.8** | **F** |
+| `java (none)` | 8. String Algorithm Single-Responsibility Cohesion (TheAlgorithms/Java strings/) | **BAD** | [`bad/Anagrams.java`](bad/Anagrams.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/Anagrams.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/Anagrams.java) | 87 | 31.5 | 100.0 | 100.0 | 68.2 | 100.0 | **36.5** | **F** |
+| `java (none)` | 9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/) | **GOOD** | [`good/BSTRecursive.java`](good/BSTRecursive.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java) | 73 | 100.0 | 99.2 | 98.0 | 96.4 | 100.0 | **98.9** | **A** |
+| `java (none)` | 9. Binary Search Tree Implementation Size & Complexity (TheAlgorithms/Java trees/) | **BAD** | [`bad/RedBlackBST.java`](bad/RedBlackBST.java) | [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java) | 308 | 87.8 | 49.4 | 43.8 | 71.0 | 100.0 | **48.8** | **F** |
 | `java (none)` | 10. JUnit 5 Sorting Test Suite Assertion Hygiene (TheAlgorithms/Java sorts/ tests) | **GOOD** | [`good/BubbleSortTest.java`](good/BubbleSortTest.java) | [TheAlgorithms/Java (src/test/java/com/thealgorithms/sorts/BubbleSortTest.java)](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/sorts/BubbleSortTest.java) | 148 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
 | `java (none)` | 10. JUnit 5 Sorting Test Suite Assertion Hygiene (TheAlgorithms/Java sorts/ tests) | **BAD** | [`bad/InsertionSortTest.java`](bad/InsertionSortTest.java) | [TheAlgorithms/Java (src/test/java/com/thealgorithms/sorts/InsertionSortTest.java)](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/sorts/InsertionSortTest.java) | 160 | 60.0 | 100.0 | 100.0 | 89.5 | 100.0 | **65.0** | **D** |
 
@@ -69,19 +69,55 @@ samples/java/good/DivisibleByTwentyFiveClean.java:9    11   2    1   1   1   98.
 #### Bad Baseline: [`bad/DivisibleByTwentyFiveGodClass.java`](bad/DivisibleByTwentyFiveGodClass.java) ([sidecar JSON](bad/DivisibleByTwentyFiveGodClass.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [DeepMind code_contests (test split, Problem 1575_D. Divisible by Twenty-Five, Solution #45)](https://huggingface.co/datasets/deepmind/code_contests) (`CC-BY-4.0`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 0.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 94.1` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 0.0` | `Size: 0.0` | `Complexity: 0.0` | `Clean: 59.1` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 69
-Dimensions -> SRP: 0.0 | Size: 0.0 | Complexity: 0.0 | Clean: 94.1 | Security: 100.0
+Dimensions -> SRP: 0.0 | Size: 0.0 | Complexity: 0.0 | Clean: 59.1 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/bad/DivisibleByTwentyFiveGodClass.java src     611    -   0.0   0.0   0.0  94.1 100.0    5.0   F
+samples/java/bad/DivisibleByTwentyFiveGodClass.java src     611    -   0.0   0.0   0.0  59.1 100.0    5.0   F
     - Size: file LOC=611 (>350) (-40.2 pts)
+    - Clean (DRY): DRY-001 (type1, 90 toks, 14 LOC) L631-645 in Main.prime matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:646-660 (Main.prime) (-5.0 pts)
+    - Clean (DRY): DRY-002 (type2, 39 toks, 6 LOC) L364-369 in Main.max matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:371-376 (Main.min), samples/java/bad/DivisibleByTwentyFiveGodClass.java:378-383 (Main.max), samples/java/bad/DivisibleByTwentyFiveGodClass.java:385-390 (Main.min) (-12.0 pts)
+    - Clean (DRY): DRY-003 (type1, 55 toks, 11 LOC) L608-618 in Main.hash matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:620-630 (Main.tree) (-5.0 pts)
+    - Clean (DRY): DRY-004 (type3, 88.7%, 53 toks, 11 LOC) L502-515 in Main.power matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:523-535 (Main.power) (-3.0 pts)
+    - Clean (DRY): DRY-005 (type1, 94 toks, 9 LOC) L433-441 in Main.fill matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:456-464 (Main.fill) (-5.0 pts)
+    - Clean (DRY): DRY-006 (type3, 73.8%, 35 toks, 6 LOC) L283-288 in Main.input matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:290-295 (Main.inputL), samples/java/bad/DivisibleByTwentyFiveGodClass.java:297-302 (Main.inputS) (-6.0 pts)
+    - Clean (DRY): DRY-007 (type3, 87.0%, 60 toks, 8 LOC) L232-239 in Main.upper matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:249-256 (Main.lower) (-3.0 pts)
+    - Clean (DRY): DRY-008 (type1, 75 toks, 7 LOC) L405-411 in Main.suffix matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:412-418 (Main.suffix) (-5.0 pts)
+    - Clean (DRY): DRY-009 (type1, 65 toks, 7 LOC) L391-397 in Main.prefix matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:398-404 (Main.prefix) (-5.0 pts)
+    - Clean (DRY): DRY-010 (type1, 65 toks, 7 LOC) L426-432 in Main.fill matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:449-455 (Main.fill) (-5.0 pts)
+    - Clean (DRY): DRY-011 (type3, 84.9%, 59 toks, 7 LOC) L319-326 in Main.reverse matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:329-336 (Main.reverse) (-3.0 pts)
+    - Clean (DRY): DRY-012 (type1, 53 toks, 7 LOC) L78-84 in Main.go matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:91-97 (Main.go) (-5.0 pts)
+    - Clean (DRY): DRY-013 (type3, 98.8%, 47 toks, 7 LOC) L577-583 in Main.sort matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:588-594 (Main.sort) (-3.0 pts)
+    - Clean (DRY): DRY-014 (type2, 40 toks, 6 LOC) L199-204 in Main.sum matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:210-215 (Main.sum1) (-4.0 pts)
+    - Clean (DRY): DRY-015 (type3, 71.1%, 38 toks, 6 LOC) L269-274 in Main.copy matches samples/java/bad/DivisibleByTwentyFiveGodClass.java:276-281 (Main.copy) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=22.3% (>10.0%) (-6.1 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 136/611 (22.3%) | DRY Score: 65.0/100 | Clone Groups: 15 (T1: 7, T2: 2, T3: 6 | intra: 15, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type1  100.0% intra_file     14 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L631-645, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L646-660
+DRY-002  type2  100.0% intra_file      6 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L364-369, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L371-376, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L378-383 (+1 more)
+DRY-003  type1  100.0% intra_file     11 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L608-618, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L620-630
+DRY-004  type3   88.7% intra_file     11 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L502-515, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L523-535
+DRY-005  type1  100.0% intra_file      9 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L433-441, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L456-464
+DRY-006  type3   73.8% intra_file      6 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L283-288, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L290-295, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L297-302
+DRY-007  type3   87.0% intra_file      8 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L232-239, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L249-256
+DRY-008  type1  100.0% intra_file      7 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L405-411, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L412-418
+DRY-009  type1  100.0% intra_file      7 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L391-397, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L398-404
+DRY-010  type1  100.0% intra_file      7 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L426-432, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L449-455
+DRY-011  type3   84.9% intra_file      7 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L319-326, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L329-336
+DRY-012  type1  100.0% intra_file      7 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L78-84, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L91-97
+DRY-013  type3   98.8% intra_file      7 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L577-583, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L588-594
+DRY-014  type2  100.0% intra_file      6 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L199-204, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L210-215
+DRY-015  type3   71.1% intra_file      6 samples/java/bad/DivisibleByTwentyFiveGodClass.java:L269-274, samples/java/bad/DivisibleByTwentyFiveGodClass.java:L276-281
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -322,18 +358,34 @@ samples/java/bad/DivisibleByTwentyFiveBranchy.java:6   39  14   13   1   1   44.
 #### Good Baseline: [`good/DoublyLinkedList.java`](good/DoublyLinkedList.java) ([sidecar JSON](good/DoublyLinkedList.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/lists/DoublyLinkedList.java) (`MIT`)
-- **Expected Scorecard:** `Composite 97.3/100 (Grade A)` — `SRP: 96.6` | `Size: 99.2` | `Complexity: 93.1` | `Clean: 99.4` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 94.0/100 (Grade A)` — `SRP: 96.6` | `Size: 99.2` | `Complexity: 93.1` | `Clean: 77.4` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 97.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 3 | Functions/Methods: 19
-Dimensions -> SRP: 96.6 | Size: 99.2 | Complexity: 93.1 | Clean: 99.4 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 94.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 3 | Functions/Methods: 19
+Dimensions -> SRP: 96.6 | Size: 99.2 | Complexity: 93.1 | Clean: 77.4 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/good/DoublyLinkedList.java        src     234    -  96.6  99.2  93.1  99.4 100.0   97.3   A
+samples/java/good/DoublyLinkedList.java        src     234    -  96.6  99.2  93.1  77.4 100.0   94.0   A
+    - Clean (DRY): DRY-001 (type3, 86.8%, 76 toks, 11 LOC) L131-143 in Link.main matches samples/java/good/DoublyLinkedList.java:148-153 (Link.main) (-3.0 pts)
+    - Clean (DRY): DRY-002 (type2, 45 toks, 11 LOC) L260-272 in LinkOperations.deleteHead matches samples/java/good/DoublyLinkedList.java:279-290 (LinkOperations.deleteTail) (-4.0 pts)
+    - Clean (DRY): DRY-003 (type2, 47 toks, 10 LOC) L309-318 in LinkOperations.delete matches samples/java/good/DoublyLinkedList.java:351-360 (LinkOperations.deleteNode) (-4.0 pts)
+    - Clean (DRY): DRY-004 (type3, 78.4%, 51 toks, 8 LOC) L140-150 in Link.main matches samples/java/good/DoublyLinkedList.java:155-163 (Link.main) (-3.0 pts)
+    - Clean (DRY): DRY-005 (type2, 40 toks, 8 LOC) L66-73 in DoublyLinkedList.display matches samples/java/good/DoublyLinkedList.java:78-85 (DoublyLinkedList.displayBackwards) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=17.9% (>10.0%) (-4.0 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 42/234 (17.9%) | DRY Score: 78.0/100 | Clone Groups: 5 (T1: 0, T2: 3, T3: 2 | intra: 5, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   86.8% intra_file     11 samples/java/good/DoublyLinkedList.java:L131-143, samples/java/good/DoublyLinkedList.java:L148-153
+DRY-002  type2  100.0% intra_file     11 samples/java/good/DoublyLinkedList.java:L260-272, samples/java/good/DoublyLinkedList.java:L279-290
+DRY-003  type2  100.0% intra_file     10 samples/java/good/DoublyLinkedList.java:L309-318, samples/java/good/DoublyLinkedList.java:L351-360
+DRY-004  type3   78.4% intra_file      8 samples/java/good/DoublyLinkedList.java:L140-150, samples/java/good/DoublyLinkedList.java:L155-163
+DRY-005  type2  100.0% intra_file      8 samples/java/good/DoublyLinkedList.java:L66-73, samples/java/good/DoublyLinkedList.java:L78-85
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -470,19 +522,31 @@ samples/java/good/AffineCipher.java:58 AffineCipher.   20   5    4   1   1  100.
 #### Bad Baseline: [`bad/Blowfish.java`](bad/Blowfish.java) ([sidecar JSON](bad/Blowfish.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Java (src/main/java/com/thealgorithms/ciphers/Blowfish.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/ciphers/Blowfish.java) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 99.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 98.9` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 99.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 63.9` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 9
-Dimensions -> SRP: 99.0 | Size: 0.0 | Complexity: 100.0 | Clean: 98.9 | Security: 100.0
+Dimensions -> SRP: 99.0 | Size: 0.0 | Complexity: 100.0 | Clean: 63.9 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/bad/Blowfish.java                 src    1149    -  99.0   0.0 100.0  98.9 100.0    5.0   F
+samples/java/bad/Blowfish.java                 src    1149    -  99.0   0.0 100.0  63.9 100.0    5.0   F
     - Size: file LOC=1149 (>350) (-100.0 pts)
+    - Clean (DRY): DRY-001 (type2, 1030 toks, 516 LOC) L15-530 in <module> matches samples/java/bad/Blowfish.java:531-1046 (<module>) (-4.0 pts)
+    - Clean (DRY): DRY-002 (type2, 50 toks, 25 LOC) L16-40 in <module> matches samples/java/bad/Blowfish.java:41-65 (<module>), samples/java/bad/Blowfish.java:66-90 (<module>) (-8.0 pts)
+    - Clean (DRY): DRY-003 (type3, 94.7%, 66 toks, 9 LOC) L1209-1219 in Blowfish.encrypt matches samples/java/bad/Blowfish.java:1233-1243 (Blowfish.decrypt) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=50.0% (>10.0%) (-20.0 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 575/1149 (50.0%) | DRY Score: 65.0/100 | Clone Groups: 3 (T1: 0, T2: 2, T3: 1 | intra: 3, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file    516 samples/java/bad/Blowfish.java:L15-530, samples/java/bad/Blowfish.java:L531-1046
+DRY-002  type2  100.0% intra_file     25 samples/java/bad/Blowfish.java:L16-40, samples/java/bad/Blowfish.java:L41-65, samples/java/bad/Blowfish.java:L66-90
+DRY-003  type3   94.7% intra_file      9 samples/java/bad/Blowfish.java:L1209-1219, samples/java/bad/Blowfish.java:L1233-1243
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -718,18 +782,26 @@ samples/java/good/ChineseRemainderTheorem.java:55 Ch   21   4    3   2   1  100.
 #### Bad Baseline: [`bad/DistanceFormula.java`](bad/DistanceFormula.java) ([sidecar JSON](bad/DistanceFormula.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Java (src/main/java/com/thealgorithms/maths/DistanceFormula.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/DistanceFormula.java) (`MIT`)
-- **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 70.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 79.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 70.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 71.4` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 5
-Dimensions -> SRP: 70.0 | Size: 100.0 | Complexity: 100.0 | Clean: 79.0 | Security: 100.0
+Dimensions -> SRP: 70.0 | Size: 100.0 | Complexity: 100.0 | Clean: 71.4 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/bad/DistanceFormula.java          src      35    -  70.0 100.0 100.0  79.0 100.0   75.0   C
+samples/java/bad/DistanceFormula.java          src      35    -  70.0 100.0 100.0  71.4 100.0   75.0   C
+    - Clean (DRY): DRY-001 (type2, 43 toks, 6 LOC) L18-25 in DistanceFormula.hammingDistance matches samples/java/bad/DistanceFormula.java:33-40 (DistanceFormula.minkowskiDistance) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=17.1% (>10.0%) (-3.6 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 6/35 (17.1%) | DRY Score: 92.4/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file      6 samples/java/bad/DistanceFormula.java:L18-25, samples/java/bad/DistanceFormula.java:L33-40
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -788,18 +860,28 @@ samples/java/good/PermuteString.java:82 PermuteStrin    7   1    0   3   0  100.
 #### Bad Baseline: [`bad/Anagrams.java`](bad/Anagrams.java) ([sidecar JSON](bad/Anagrams.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Java (src/main/java/com/thealgorithms/strings/Anagrams.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/strings/Anagrams.java) (`MIT`)
-- **Expected Scorecard:** `Composite 36.5/100 (Grade F)` — `SRP: 31.5` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 36.5/100 (Grade F)` — `SRP: 31.5` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 68.2` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 36.5/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 6
-Dimensions -> SRP: 31.5 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+Dimensions -> SRP: 31.5 | Size: 100.0 | Complexity: 100.0 | Clean: 68.2 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/bad/Anagrams.java                 src      87    -  31.5 100.0 100.0 100.0 100.0   36.5   F
+samples/java/bad/Anagrams.java                 src      87    -  31.5 100.0 100.0  68.2 100.0   36.5   F
+    - Clean (DRY): DRY-001 (type2, 142 toks, 18 LOC) L76-93 in Anagrams.areAnagramsByCountingCharsSingleArray matches samples/java/bad/Anagrams.java:133-150 (Anagrams.areAnagramsBySingleFreqArray) (-4.0 pts)
+    - Clean (DRY): DRY-002 (type1, 60 toks, 6 LOC) L26-31 in Anagrams.areAnagramsBySorting matches samples/java/bad/Anagrams.java:76-82 (Anagrams.areAnagramsByCountingCharsSingleArray), samples/java/bad/Anagrams.java:104-109 (Anagrams.areAnagramsUsingHashMap), samples/java/bad/Anagrams.java:133-139 (Anagrams.areAnagramsBySingleFreqArray) (-15.0 pts)
+    - Clean (DRY): duplication_ratio=35.6% (>10.0%) (-12.8 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 31/87 (35.6%) | DRY Score: 68.2/100 | Clone Groups: 2 (T1: 1, T2: 1, T3: 0 | intra: 2, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file     18 samples/java/bad/Anagrams.java:L76-93, samples/java/bad/Anagrams.java:L133-150
+DRY-002  type1  100.0% intra_file      7 samples/java/bad/Anagrams.java:L26-31, samples/java/bad/Anagrams.java:L76-82, samples/java/bad/Anagrams.java:L104-109 (+1 more)
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -827,18 +909,25 @@ samples/java/bad/Anagrams.java:48 Anagrams.areAnagra   17   5    4   2   1  100.
 #### Good Baseline: [`good/BSTRecursive.java`](good/BSTRecursive.java) ([sidecar JSON](good/BSTRecursive.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/BSTRecursive.java) (`MIT`)
-- **Expected Scorecard:** `Composite 99.3/100 (Grade A)` — `SRP: 100.0` | `Size: 99.2` | `Complexity: 98.0` | `Clean: 99.4` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 98.9/100 (Grade A)` — `SRP: 100.0` | `Size: 99.2` | `Complexity: 98.0` | `Clean: 96.4` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 99.3/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 8
-Dimensions -> SRP: 100.0 | Size: 99.2 | Complexity: 98.0 | Clean: 99.4 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 98.9/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 8
+Dimensions -> SRP: 100.0 | Size: 99.2 | Complexity: 98.0 | Clean: 96.4 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/good/BSTRecursive.java            src      73    - 100.0  99.2  98.0  99.4 100.0   99.3   A
+samples/java/good/BSTRecursive.java            src      73    - 100.0  99.2  98.0  96.4 100.0   98.9   A
+    - Clean (DRY): DRY-001 (type3, 90.8%, 51 toks, 6 LOC) L49-54 in BSTRecursive.delete matches samples/java/good/BSTRecursive.java:88-93 (BSTRecursive.insert) (-3.0 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 6/73 (8.2%) | DRY Score: 97.0/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   90.8% intra_file      6 samples/java/good/BSTRecursive.java:L49-54, samples/java/good/BSTRecursive.java:L88-93
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd
@@ -865,18 +954,34 @@ samples/java/good/BSTRecursive.java:140 BSTRecursive    8   2    1   1   1  100.
 #### Bad Baseline: [`bad/RedBlackBST.java`](bad/RedBlackBST.java) ([sidecar JSON](bad/RedBlackBST.java.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/Java (src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java)](https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/datastructures/trees/RedBlackBST.java) (`MIT`)
-- **Expected Scorecard:** `Composite 48.8/100 (Grade F)` — `SRP: 87.8` | `Size: 49.4` | `Complexity: 43.8` | `Clean: 91.5` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 48.8/100 (Grade F)` — `SRP: 87.8` | `Size: 49.4` | `Complexity: 43.8` | `Clean: 71.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 48.8/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 1 | Functions/Methods: 13
-Dimensions -> SRP: 87.8 | Size: 49.4 | Complexity: 43.8 | Clean: 91.5 | Security: 100.0
+Dimensions -> SRP: 87.8 | Size: 49.4 | Complexity: 43.8 | Clean: 71.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/java/bad/RedBlackBST.java              src     308    -  87.8  49.4  43.8  91.5 100.0   48.8   F
+samples/java/bad/RedBlackBST.java              src     308    -  87.8  49.4  43.8  71.0 100.0   48.8   F
+    - Clean (DRY): DRY-001 (type3, 92.5%, 161 toks, 24 LOC) L137-160 in RedBlackBST.rotateLeft matches samples/java/bad/RedBlackBST.java:162-186 (RedBlackBST.rotateRight) (-3.0 pts)
+    - Clean (DRY): DRY-002 (type2, 78 toks, 12 LOC) L142-153 in RedBlackBST.rotateLeft matches samples/java/bad/RedBlackBST.java:167-179 (RedBlackBST.rotateRight) (-4.0 pts)
+    - Clean (DRY): DRY-003 (type2, 57 toks, 9 LOC) L100-109 in RedBlackBST.fixTree matches samples/java/bad/RedBlackBST.java:117-125 (RedBlackBST.fixTree) (-4.0 pts)
+    - Clean (DRY): DRY-004 (type2, 36 toks, 8 LOC) L153-160 in RedBlackBST.rotateLeft matches samples/java/bad/RedBlackBST.java:179-186 (RedBlackBST.rotateRight) (-4.0 pts)
+    - Clean (DRY): DRY-005 (type2, 40 toks, 6 LOC) L300-307 in RedBlackBST.insertDemo matches samples/java/bad/RedBlackBST.java:319-324 (RedBlackBST.deleteDemo) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=13.0% (>10.0%) (-1.5 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 40/308 (13.0%) | DRY Score: 79.5/100 | Clone Groups: 5 (T1: 0, T2: 4, T3: 1 | intra: 5, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   92.5% intra_file     24 samples/java/bad/RedBlackBST.java:L137-160, samples/java/bad/RedBlackBST.java:L162-186
+DRY-002  type2  100.0% intra_file     12 samples/java/bad/RedBlackBST.java:L142-153, samples/java/bad/RedBlackBST.java:L167-179
+DRY-003  type2  100.0% intra_file      9 samples/java/bad/RedBlackBST.java:L100-109, samples/java/bad/RedBlackBST.java:L117-125
+DRY-004  type2  100.0% intra_file      8 samples/java/bad/RedBlackBST.java:L153-160, samples/java/bad/RedBlackBST.java:L179-186
+DRY-005  type2  100.0% intra_file      6 samples/java/bad/RedBlackBST.java:L300-307, samples/java/bad/RedBlackBST.java:L319-324
 
 [CLASSES SCORECARD]
 Class (file:line)                                    LOC  Mth LCOM4   CC  Score Grd

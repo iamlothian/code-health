@@ -19,17 +19,19 @@
       "srp": 100.0,
       "size": 100.0,
       "complexity": 100.0,
-      "clean": 70.0,
+      "clean": 59.7,
       "security": 100.0,
-      "composite": 75.0,
-      "grade": "C"
+      "composite": 64.7,
+      "grade": "D"
     },
     "required_findings": [
       "21 assertions in single test (>8)"
     ],
     "all_findings": [
+      "Clean (DRY): DRY-001 (type2, 92 toks, 9 LOC) L5-15 in test: should create knapsack item and count its total weight and value matches samples/javascript/bad/KnapsackItem.test.js:25-33 (test: should create knapsack item and count its total weight and value) (-4.0 pts)",
+      "Clean (DRY): duplication_ratio=27.6% (>15.0%) (-6.3 pts)",
       "[Func test: should create knapsack item and count its total weight and value] Clean (Test): 21 assertions in single test (>8) (-30.0 pts)"
     ],
-    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js    test     29    - 100.0 100.0 100.0  70.0 100.0   75.0   C\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js:4 test:    26   1    0   0   0   75.0   C\n    - Clean (Test): 21 assertions in single test (>8) (-30.0 pts)\n"
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 64.7/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 59.7 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js    test     29    - 100.0 100.0 100.0  59.7 100.0   64.7   D\n    - Clean (DRY): DRY-001 (type2, 92 toks, 9 LOC) L5-15 in test: should create knapsack item and count its total weight and value matches samples/javascript/bad/KnapsackItem.test.js:25-33 (test: should create knapsack item and count its total weight and value) (-4.0 pts)\n    - Clean (DRY): duplication_ratio=27.6% (>15.0%) (-6.3 pts)\n\n[DUPLICATE CODE & DRY SUMMARY]\nDuplicated LOC: 8/29 (27.6%) | DRY Score: 89.7/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)\nID       Type      Sim Scope         LOC Locations\n------------------------------------------------------------------------------------------------\nDRY-001  type2  100.0% intra_file      9 samples/javascript/bad/KnapsackItem.test.js:L5-15, samples/javascript/bad/KnapsackItem.test.js:L25-33\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/KnapsackItem.test.js:4 test:    26   1    0   0   0   75.0   C\n    - Clean (Test): 21 assertions in single test (>8) (-30.0 pts)\n"
   }
 }

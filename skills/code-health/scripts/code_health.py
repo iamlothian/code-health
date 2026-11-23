@@ -28,8 +28,11 @@ from _code_health.ir_models import MissingNativeParserError  # noqa: E402
 from _code_health.models import (  # noqa: E402
     AnalysisContext,
     ClassReport,
+    CloneGroup,
+    CloneLocation,
     CodebaseHealthReport,
     DimensionScores,
+    DrySummary,
     FileReport,
     FunctionReport,
     GitFileStats,
@@ -48,9 +51,12 @@ from _code_health.reporting import CodeHealthRunner, ScorecardFormatter  # noqa:
 __all__ = [
     "AnalysisContext",
     "ClassReport",
+    "CloneGroup",
+    "CloneLocation",
     "CodeHealthRunner",
     "CodebaseHealthReport",
     "DimensionScores",
+    "DrySummary",
     "FileReport",
     "FunctionReport",
     "GitFileStats",
@@ -99,7 +105,8 @@ def analyze_file(
 def analyze_paths(paths: list[Path], repo_root: Path | None = None, **kwargs: Any) -> CodebaseHealthReport:
     """Analyze target files or directories and return a CodebaseHealthReport."""
     git_mode = "git" if kwargs.get("use_git", True) else "no-git"
-    return CodeHealthRunner(repo_root=repo_root, config=kwargs.get("config"), git_mode=git_mode).run(paths)
+    dry_mode = "dry" if kwargs.get("use_dry", True) else "no-dry"
+    return CodeHealthRunner(repo_root=repo_root, config=kwargs.get("config"), git_mode=git_mode, dry_mode=dry_mode).run(paths)
 
 
 def _parse_config_text(raw: str, suffix: str) -> dict[str, Any]:
@@ -115,7 +122,10 @@ def _load_custom_config(config_path: Path | None) -> RubricConfig:
         return RubricConfig()
     data = _parse_config_text(config_path.read_text(encoding="utf-8"), config_path.suffix)
     valid = RubricConfig.__dataclass_fields__
-    return RubricConfig(**dict(filter(lambda kv: kv[0] in valid, data.items())))
+    filtered = {k: v for k, v in data.items() if k in valid}
+    if isinstance(filtered.get("dry_exclude_globs"), list):
+        filtered["dry_exclude_globs"] = tuple(str(x) for x in filtered["dry_exclude_globs"])
+    return RubricConfig(**filtered)
 
 
 def _build_arg_parser() -> argparse.ArgumentParser:
@@ -126,6 +136,7 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--min-grade", choices=["A", "B", "C", "D", "F"], default=None, help="Filter at or below grade.")
     parser.add_argument("--symbol", default=None, help="Filter classes/functions matching substring.")
     parser.add_argument("--no-git", action="store_true", help="Skip git log analysis for instant AST checks.")
+    parser.add_argument("--no-dry", action="store_true", help="Skip duplicate code and DRY clone detection.")
     parser.add_argument("--json-out", type=Path, default=None, help="Write full JSON scorecard to path.")
     parser.add_argument("--markdown-out", type=Path, default=None, help="Write Markdown scorecard to path.")
     parser.add_argument("--config", type=Path, default=None, help="Optional JSON/TOML config file.")
@@ -172,6 +183,7 @@ def main(argv: list[str] | None = None) -> int:
     cwd = Path.cwd()
     targets = _resolve_targets(args.paths, cwd)
     git_mode = "no-git" if args.no_git else "git"
+    dry_mode = "no-dry" if args.no_dry else "dry"
     lang = None if args.lang == "auto" else args.lang
     framework = None if args.framework == "auto" else args.framework
     try:
@@ -181,6 +193,7 @@ def main(argv: list[str] | None = None) -> int:
             git_mode,
             lang_override=lang,
             framework_override=framework,
+            dry_mode=dry_mode,
         ).run(targets)
     except MissingNativeParserError as err:
         if args.format == "json":

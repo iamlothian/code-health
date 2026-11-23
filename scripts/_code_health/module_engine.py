@@ -15,6 +15,13 @@ from _code_health.ast_engine import (
     docstring_lines,
     has_exempt_base,
 )
+from _code_health.dry_engine import (
+    DryAnalyzer,
+    PyTokenMeta,
+    TokenInterner,
+    apply_dry_metrics,
+    extract_python_tokens,
+)
 from _code_health.ir_scorer import UniversalIRScorer
 from _code_health.models import (
     AnalysisContext,
@@ -52,7 +59,14 @@ class _ModuleMetrics:
     fn_cnt: int
     imp_cnt: int
     mid_imp: int
-    dup_blocks: int
+    gstat: GitFileStats | None
+
+
+@dataclass(frozen=True, slots=True)
+class _TargetMeta:
+    resolved: Path
+    rel_path: str
+    is_test: bool
     gstat: GitFileStats | None
 
 
@@ -157,19 +171,25 @@ def _extract_module_imports(tree: ast.Module, internal_packages: set[str]) -> tu
     return internal, mid
 
 
-def _detect_duplicate_blocks(tree: ast.Module) -> int:
-    """Count repeated sequences of >= 6 normalized AST statements within a module."""
-    windows: dict[tuple[str, ...], int] = defaultdict(int)
-    bodies = [getattr(n, "body", None) for n in ast.walk(tree)]
-    for body in (b for b in bodies if isinstance(b, list) and len(b) >= 6):
-        dumped = [ast.dump(s, annotate_fields=True, include_attributes=False) for s in body if not isinstance(s, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))]
-        for i in range(max(0, len(dumped) - 5)):
-            windows[tuple(dumped[i : i + 6])] += 1
-    return sum(cnt - 1 for cnt in windows.values() if cnt > 1)
+def _fn_bound(node: ast.FunctionDef | ast.AsyncFunctionDef, prefix: str = "") -> tuple[str, int, int, int]:
+    end = getattr(node, "end_lineno", node.lineno) or node.lineno
+    qual = f"{prefix}.{node.name}" if prefix else node.name
+    return qual, node.lineno, end, end - node.lineno + 1
+
+
+def _py_block_bounds(tree: ast.Module) -> tuple[tuple[str, int, int, int], ...]:
+    """Return bounded (qualname, start_line, end_line, loc) spans for functions and methods."""
+    bounds: list[tuple[str, int, int, int]] = []
+    for node in tree.body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            bounds.append(_fn_bound(node))
+        elif isinstance(node, ast.ClassDef):
+            bounds.extend(_fn_bound(c, node.name) for c in node.body if isinstance(c, (ast.FunctionDef, ast.AsyncFunctionDef)))
+    return tuple(bounds)
 
 
 class ModuleAnalyzer:
-    """Evaluates a Python module/file across AST units, duplicate blocks, imports, and git churn."""
+    """Evaluates a Python module/file across AST units, imports, DRY, and git churn."""
 
     def __init__(
         self,
@@ -188,39 +208,57 @@ class ModuleAnalyzer:
         self.framework_override = framework_override
 
     def analyze(self, file_path: Path) -> FileReport:
-        """Analyze a single Python, Java, or JavaScript file and return its FileReport."""
+        """Analyze a single Python, Java, JS, or TS file including local intra-file DRY."""
+        return self.analyze_with_stream(file_path, run_local_dry=True)[0]
+
+    def analyze_with_stream(
+        self, file_path: Path, interner: object = None, run_local_dry: bool = True
+    ) -> tuple[FileReport, object]:
+        """Analyze a file and optionally extract its normalized DRY token stream."""
         resolved = file_path.resolve()
         rel_path = resolved.relative_to(self.repo_root).as_posix() if resolved.is_relative_to(self.repo_root) else resolved.name
         is_test = is_test_file_path(rel_path)
         gstat = self.git_stats.get(rel_path) if self.git_stats else None
-
+        meta = _TargetMeta(resolved, rel_path, is_test, gstat)
+        active_interner = interner if interner is not None else (TokenInterner(self.cfg.dry_exclude_globs) if run_local_dry else None)
         if resolved.suffix.lower() in _NATIVE_PARSERS:
-            return self._analyze_native(resolved, rel_path, is_test, gstat)
+            report, stream = self._analyze_native(meta, active_interner)
+        else:
+            report, stream = self._analyze_python(meta, active_interner)
+        if run_local_dry and stream is not None:
+            per_file, _ = DryAnalyzer(self.cfg).analyze([stream])  # type: ignore[list-item]
+            if report.file_path in per_file:
+                report = apply_dry_metrics(report, per_file[report.file_path], self.cfg)
+        return report, stream
 
-        raw_text = resolved.read_text(encoding="utf-8", errors="replace")
+    def _analyze_python(self, meta: _TargetMeta, interner: object) -> tuple[FileReport, object]:
+        raw_text = meta.resolved.read_text(encoding="utf-8", errors="replace")
         lines = raw_text.splitlines()
-        tree = ast.parse(raw_text, filename=rel_path)
-
-        if self._is_empty_init(resolved.name, tree, lines):
-            return FileReport(rel_path, is_test, 0, [], 0, 0, gstat, DimensionScores.from_raw((100, 100, 100, 100, 100), self.cfg))
-
-        classes, functions, non_exempt_cls = self._analyze_units(tree, lines, rel_path, is_test)
+        tree = ast.parse(raw_text, filename=meta.rel_path)
+        if self._is_empty_init(meta.resolved.name, tree, lines):
+            return FileReport(meta.rel_path, meta.is_test, 0, [], 0, 0, meta.gstat, DimensionScores.from_raw((100, 100, 100, 100, 100), self.cfg)), None
+        classes, functions, non_exempt_cls = self._analyze_units(tree, lines, meta.rel_path, meta.is_test)
         loc = count_effective_loc(tree, lines)
         int_imports, mid_imports = _extract_module_imports(tree, self.internal_packages)
-        dup_blocks = _detect_duplicate_blocks(tree)
-        m_info = _ModuleMetrics(tree, loc, is_test, non_exempt_cls, len(functions), len(int_imports), mid_imports, dup_blocks, gstat)
+        m_info = _ModuleMetrics(tree, loc, meta.is_test, non_exempt_cls, len(functions), len(int_imports), mid_imports, meta.gstat)
         mod_scores, findings = self._score_module(m_info)
         scores = self._blend_scores(mod_scores, classes, functions)
-        return FileReport(rel_path, is_test, loc, int_imports, dup_blocks, mid_imports, gstat, scores, findings, classes, functions)
+        stream = None
+        if isinstance(interner, TokenInterner):
+            stream = extract_python_tokens(tree, raw_text, PyTokenMeta(meta.rel_path, meta.is_test, loc, _py_block_bounds(tree)), interner)
+        report = FileReport(meta.rel_path, meta.is_test, loc, int_imports, 0, mid_imports, meta.gstat, scores, findings, classes, functions)
+        return report, stream
 
-    def _analyze_native(self, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None) -> FileReport:
-        mod_path, fn_name = _NATIVE_PARSERS[resolved.suffix.lower()]
+    def _analyze_native(self, meta: _TargetMeta, interner: object = None) -> tuple[FileReport, object]:
+        mod_path, fn_name = _NATIVE_PARSERS[meta.resolved.suffix.lower()]
         parse_fn = getattr(importlib.import_module(mod_path), fn_name)
-        return self._score_ir_module(parse_fn(resolved, rel_path, is_test), resolved, rel_path, is_test, gstat)
+        ir_mod = parse_fn(meta.resolved, meta.rel_path, meta.is_test, interner=interner)
+        stream = getattr(ir_mod, "token_stream", None)
+        setattr(ir_mod, "token_stream", None)
+        return self._score_ir_module(ir_mod, meta), stream
 
-    def _score_ir_module(
-        self, ir_mod: object, resolved: Path, rel_path: str, is_test: bool, gstat: GitFileStats | None
-    ) -> FileReport:
+    def _score_ir_module(self, ir_mod: object, meta: _TargetMeta) -> FileReport:
+        resolved, rel_path, is_test, gstat = meta.resolved, meta.rel_path, meta.is_test, meta.gstat
         syntax_errs = getattr(ir_mod, "syntax_errors", [])
         loc = ir_mod.loc  # type: ignore[attr-defined]
         if syntax_errs:
@@ -288,8 +326,7 @@ class ModuleAnalyzer:
         no_doc = int(not m.is_test) * int(ast.get_docstring(m.tree) is None)
         p_doc, f_doc = penalty_item(no_doc, 10.0, "Clean: missing module docstring")
         p_mid, f_mid = penalty_item(m.mid_imp, 4.0, f"Clean: {m.mid_imp} mid-file/late import(s)", cap=20.0)
-        p_dup, f_dup = penalty_item(m.dup_blocks, 5.0, f"Clean: {m.dup_blocks} duplicate code block(s) detected", cap=25.0)
-        return (srp, 100.0 - p_loc, 100.0 - p_doc - p_mid - p_dup), f_srp + f_loc + f_doc + f_mid + f_dup
+        return (srp, 100.0 - p_loc, 100.0 - p_doc - p_mid), f_srp + f_loc + f_doc + f_mid
 
     def _score_module_srp(self, m: _ModuleMetrics) -> tuple[float, list[str]]:
         src_mult = int(not m.is_test)

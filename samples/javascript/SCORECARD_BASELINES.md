@@ -19,17 +19,17 @@ Each sample file `<filename>` has a matching `<filename>.expected.json` sidecar 
 | `javascript (auto)` | 4. Range-Query Tree OOP Cohesion (FenwickTree vs. SegmentTree) | **GOOD** | [`good/FenwickTree.js`](good/FenwickTree.js) | [TheAlgorithms/JavaScript (Trees/FenwickTree.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Trees/FenwickTree.js) | 27 | 100.0 | 100.0 | 100.0 | 90.7 | 100.0 | **98.6** | **A** |
 | `javascript (auto)` | 4. Range-Query Tree OOP Cohesion (FenwickTree vs. SegmentTree) | **BAD** | [`bad/SegmentTree.js`](bad/SegmentTree.js) | [TheAlgorithms/JavaScript (Data-Structures/Tree/SegmentTree.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Data-Structures/Tree/SegmentTree.js) | 42 | 70.0 | 100.0 | 100.0 | 90.8 | 100.0 | **75.0** | **C** |
 | `javascript (auto)` | 5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder | **GOOD** | [`good/AffineCipher.js`](good/AffineCipher.js) | [TheAlgorithms/JavaScript (Ciphers/AffineCipher.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/AffineCipher.js) | 51 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (auto)` | 5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder | **BAD** | [`bad/MorseCode.js`](bad/MorseCode.js) | [TheAlgorithms/JavaScript (Ciphers/MorseCode.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/MorseCode.js) | 76 | 82.0 | 0.0 | 100.0 | 100.0 | 100.0 | **5.0** | **F** |
+| `javascript (auto)` | 5. Cipher Encoding Helper Decomposition vs. Monolithic Encoder | **BAD** | [`bad/MorseCode.js`](bad/MorseCode.js) | [TheAlgorithms/JavaScript (Ciphers/MorseCode.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/MorseCode.js) | 76 | 82.0 | 0.0 | 100.0 | 92.4 | 100.0 | **5.0** | **F** |
 | `javascript (auto)` | 6. Sorting Algorithm Decomposition vs. Monolithic IntroSort | **GOOD** | [`good/QuickSortRecursive.js`](good/QuickSortRecursive.js) | [TheAlgorithms/JavaScript (Sorts/QuickSortRecursive.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/QuickSortRecursive.js) | 30 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (auto)` | 6. Sorting Algorithm Decomposition vs. Monolithic IntroSort | **BAD** | [`bad/IntroSort.js`](bad/IntroSort.js) | [TheAlgorithms/JavaScript (Sorts/IntroSort.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/IntroSort.js) | 182 | 85.0 | 28.3 | 28.7 | 100.0 | 100.0 | **33.3** | **F** |
+| `javascript (auto)` | 6. Sorting Algorithm Decomposition vs. Monolithic IntroSort | **BAD** | [`bad/IntroSort.js`](bad/IntroSort.js) | [TheAlgorithms/JavaScript (Sorts/IntroSort.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/IntroSort.js) | 182 | 85.0 | 28.3 | 28.7 | 94.9 | 100.0 | **33.3** | **F** |
 | `javascript (auto)` | 7. Graph Traversal Concern Separation & External Call Fan-Out | **GOOD** | [`good/depthFirstSearch.js`](good/depthFirstSearch.js) | [trekhleb/javascript-algorithms (src/algorithms/graph/depth-first-search/depthFirstSearch.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/depth-first-search/depthFirstSearch.js) | 33 | 100.0 | 100.0 | 97.6 | 100.0 | 100.0 | **99.5** | **A** |
 | `javascript (auto)` | 7. Graph Traversal Concern Separation & External Call Fan-Out | **BAD** | [`bad/eulerianPath.js`](bad/eulerianPath.js) | [trekhleb/javascript-algorithms (src/algorithms/graph/eulerian-path/eulerianPath.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/eulerian-path/eulerianPath.js) | 52 | 67.0 | 60.0 | 79.0 | 100.0 | 100.0 | **65.0** | **D** |
-| `javascript (auto)` | 8. Numerical Math Algorithm Cyclomatic & Cognitive Complexity | **GOOD** | [`good/FigurateNumber.js`](good/FigurateNumber.js) | [TheAlgorithms/JavaScript (Maths/FigurateNumber.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/FigurateNumber.js) | 41 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
+| `javascript (auto)` | 8. Numerical Math Algorithm Cyclomatic & Cognitive Complexity | **GOOD** | [`good/FigurateNumber.js`](good/FigurateNumber.js) | [TheAlgorithms/JavaScript (Maths/FigurateNumber.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/FigurateNumber.js) | 41 | 100.0 | 100.0 | 100.0 | 86.8 | 100.0 | **98.0** | **A** |
 | `javascript (auto)` | 8. Numerical Math Algorithm Cyclomatic & Cognitive Complexity | **BAD** | [`bad/SimpsonIntegration.js`](bad/SimpsonIntegration.js) | [TheAlgorithms/JavaScript (Maths/SimpsonIntegration.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/SimpsonIntegration.js) | 38 | 100.0 | 82.0 | 39.5 | 92.0 | 100.0 | **44.5** | **F** |
-| `javascript (auto)` | 9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite) | **GOOD** | [`good/Knapsack.test.js`](good/Knapsack.test.js) | [trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js) | 127 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (auto)` | 9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite) | **BAD** | [`bad/KnapsackItem.test.js`](bad/KnapsackItem.test.js) | [trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js) | 29 | 100.0 | 100.0 | 100.0 | 70.0 | 100.0 | **75.0** | **C** |
-| `javascript (auto)` | 10. Graph Algorithm Test Suite Decomposition & Test Function Size | **GOOD** | [`good/articulationPoints.test.js`](good/articulationPoints.test.js) | [trekhleb/javascript-algorithms (src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js) | 190 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | **100.0** | **A** |
-| `javascript (auto)` | 10. Graph Algorithm Test Suite Decomposition & Test Function Size | **BAD** | [`bad/breadthFirstSearch.test.js`](bad/breadthFirstSearch.test.js) | [trekhleb/javascript-algorithms (src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js) | 146 | 100.0 | 70.0 | 100.0 | 100.0 | 100.0 | **75.0** | **C** |
+| `javascript (auto)` | 9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite) | **GOOD** | [`good/Knapsack.test.js`](good/Knapsack.test.js) | [trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js) | 127 | 100.0 | 100.0 | 100.0 | 75.0 | 100.0 | **96.2** | **A** |
+| `javascript (auto)` | 9. BDD Unit Test Assertion Density & Hygiene (Knapsack Suite) | **BAD** | [`bad/KnapsackItem.test.js`](bad/KnapsackItem.test.js) | [trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js) | 29 | 100.0 | 100.0 | 100.0 | 59.7 | 100.0 | **64.7** | **D** |
+| `javascript (auto)` | 10. Graph Algorithm Test Suite Decomposition & Test Function Size | **GOOD** | [`good/articulationPoints.test.js`](good/articulationPoints.test.js) | [trekhleb/javascript-algorithms (src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js) | 190 | 100.0 | 100.0 | 100.0 | 75.0 | 100.0 | **96.2** | **A** |
+| `javascript (auto)` | 10. Graph Algorithm Test Suite Decomposition & Test Function Size | **BAD** | [`bad/breadthFirstSearch.test.js`](bad/breadthFirstSearch.test.js) | [trekhleb/javascript-algorithms (src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js) | 146 | 100.0 | 70.0 | 100.0 | 75.0 | 100.0 | **75.0** | **C** |
 
 ---
 
@@ -347,18 +347,26 @@ samples/javascript/good/AffineCipher.js:91 decrypt     14   4    6   3   3  100.
 #### Bad Baseline: [`bad/MorseCode.js`](bad/MorseCode.js) ([sidecar JSON](bad/MorseCode.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Ciphers/MorseCode.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Ciphers/MorseCode.js) (`MIT`)
-- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 82.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 5.0/100 (Grade F)` — `SRP: 82.0` | `Size: 0.0` | `Complexity: 100.0` | `Clean: 92.4` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+Dimensions -> SRP: 82.0 | Size: 0.0 | Complexity: 100.0 | Clean: 92.4 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/bad/MorseCode.js            src      76    -  82.0   0.0 100.0 100.0 100.0    5.0   F
+samples/javascript/bad/MorseCode.js            src      76    -  82.0   0.0 100.0  92.4 100.0    5.0   F
+    - Clean (DRY): DRY-001 (type2, 52 toks, 13 LOC) L13-25 in morse matches samples/javascript/bad/MorseCode.js:26-38 (morse) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=17.1% (>10.0%) (-3.6 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 13/76 (17.1%) | DRY Score: 92.4/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file     13 samples/javascript/bad/MorseCode.js:L13-25, samples/javascript/bad/MorseCode.js:L26-38
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -398,18 +406,26 @@ samples/javascript/good/QuickSortRecursive.js:45 par   18   3    3   3   2  100.
 #### Bad Baseline: [`bad/IntroSort.js`](bad/IntroSort.js) ([sidecar JSON](bad/IntroSort.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Sorts/IntroSort.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Sorts/IntroSort.js) (`MIT`)
-- **Expected Scorecard:** `Composite 33.3/100 (Grade F)` — `SRP: 85.0` | `Size: 28.3` | `Complexity: 28.7` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 33.3/100 (Grade F)` — `SRP: 85.0` | `Size: 28.3` | `Complexity: 28.7` | `Clean: 94.9` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 33.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3
-Dimensions -> SRP: 85.0 | Size: 28.3 | Complexity: 28.7 | Clean: 100.0 | Security: 100.0
+Dimensions -> SRP: 85.0 | Size: 28.3 | Complexity: 28.7 | Clean: 94.9 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/bad/IntroSort.js            src     182    -  85.0  28.3  28.7 100.0 100.0   33.3   F
+samples/javascript/bad/IntroSort.js            src     182    -  85.0  28.3  28.7  94.9 100.0   33.3   F
+    - Clean (DRY): DRY-001 (type3, 71.1%, 126 toks, 26 LOC) L250-275 in demo1 matches samples/javascript/bad/IntroSort.js:282-307 (demo2) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=14.3% (>10.0%) (-2.1 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 26/182 (14.3%) | DRY Score: 94.9/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   71.1% intra_file     26 samples/javascript/bad/IntroSort.js:L250-275, samples/javascript/bad/IntroSort.js:L282-307
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -488,18 +504,26 @@ samples/javascript/bad/eulerianPath.js:9 eulerianPat   51   9   10   1   2   65.
 #### Good Baseline: [`good/FigurateNumber.js`](good/FigurateNumber.js) ([sidecar JSON](good/FigurateNumber.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [TheAlgorithms/JavaScript (Maths/FigurateNumber.js)](https://github.com/TheAlgorithms/JavaScript/blob/master/Maths/FigurateNumber.js) (`MIT`)
-- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 98.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 86.8` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 98.0/100 (Grade A) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 4
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 86.8 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/good/FigurateNumber.js      src      41    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/FigurateNumber.js      src      41    - 100.0 100.0 100.0  86.8 100.0   98.0   A
+    - Clean (DRY): DRY-001 (type3, 81.8%, 66 toks, 5 LOC) L18-22 in isTriangular matches samples/javascript/good/FigurateNumber.js:34-38 (isTetrahedral), samples/javascript/good/FigurateNumber.js:49-53 (isPentatope) (-6.0 pts)
+    - Clean (DRY): duplication_ratio=24.4% (>10.0%) (-7.2 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 10/41 (24.4%) | DRY Score: 86.8/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   81.8% intra_file      5 samples/javascript/good/FigurateNumber.js:L18-22, samples/javascript/good/FigurateNumber.js:L34-38, samples/javascript/good/FigurateNumber.js:L49-53
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -543,18 +567,30 @@ samples/javascript/bad/SimpsonIntegration.js:24 inte   37  14   13   4   3   44.
 #### Good Baseline: [`good/Knapsack.test.js`](good/Knapsack.test.js) ([sidecar JSON](good/Knapsack.test.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/Knapsack.test.js) (`MIT`)
-- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 96.2/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 75.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 96.2/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/good/Knapsack.test.js       test    127    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/Knapsack.test.js       test    127    - 100.0 100.0 100.0  75.0 100.0   96.2   A
+    - Clean (DRY): DRY-001 (type3, 92.3%, 156 toks, 13 LOC) L5-21 in test: should solve 0/1 knapsack problem matches samples/javascript/good/Knapsack.test.js:26-42 (test: should solve 0/1 knapsack problem regardless of items order), samples/javascript/good/Knapsack.test.js:47-63 (test: should solve 0/1 knapsack problem with impossible items set), samples/javascript/good/Knapsack.test.js:70-86 (test: should solve 0/1 knapsack problem with all equal weights) (+2 more) (-15.0 pts)
+    - Clean (DRY): DRY-002 (type1, 104 toks, 9 LOC) L115-124 in test: should solve unbound knapsack problem with items in stock matches samples/javascript/good/Knapsack.test.js:138-147 (test: should solve unbound knapsack problem with items in stock and max weight more than sum of all items) (-5.0 pts)
+    - Clean (DRY): DRY-003 (type2, 114 toks, 8 LOC) L106-113 in test: should solve unbound knapsack problem matches samples/javascript/good/Knapsack.test.js:154-161 (test: should solve unbound knapsack problem with items in stock and max weight more than sum of all items) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=61.4% (>15.0%) (-23.2 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 78/127 (61.4%) | DRY Score: 75.0/100 | Clone Groups: 3 (T1: 1, T2: 1, T3: 1 | intra: 3, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   92.3% intra_file     13 samples/javascript/good/Knapsack.test.js:L5-21, samples/javascript/good/Knapsack.test.js:L26-42, samples/javascript/good/Knapsack.test.js:L47-63 (+3 more)
+DRY-002  type1  100.0% intra_file      9 samples/javascript/good/Knapsack.test.js:L115-124, samples/javascript/good/Knapsack.test.js:L138-147
+DRY-003  type2  100.0% intra_file      8 samples/javascript/good/Knapsack.test.js:L106-113, samples/javascript/good/Knapsack.test.js:L154-161
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -571,18 +607,26 @@ samples/javascript/good/Knapsack.test.js:138 test: s   20   1    0   0   0  100.
 #### Bad Baseline: [`bad/KnapsackItem.test.js`](bad/KnapsackItem.test.js) ([sidecar JSON](bad/KnapsackItem.test.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [trekhleb/javascript-algorithms (src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/knapsack-problem/__test__/KnapsackItem.test.js) (`MIT`)
-- **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 70.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 64.7/100 (Grade D)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 59.7` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 70.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 64.7/100 (Grade D) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 59.7 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/bad/KnapsackItem.test.js    test     29    - 100.0 100.0 100.0  70.0 100.0   75.0   C
+samples/javascript/bad/KnapsackItem.test.js    test     29    - 100.0 100.0 100.0  59.7 100.0   64.7   D
+    - Clean (DRY): DRY-001 (type2, 92 toks, 9 LOC) L5-15 in test: should create knapsack item and count its total weight and value matches samples/javascript/bad/KnapsackItem.test.js:25-33 (test: should create knapsack item and count its total weight and value) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=27.6% (>15.0%) (-6.3 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 8/29 (27.6%) | DRY Score: 89.7/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type2  100.0% intra_file      9 samples/javascript/bad/KnapsackItem.test.js:L5-15, samples/javascript/bad/KnapsackItem.test.js:L25-33
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -598,18 +642,34 @@ samples/javascript/bad/KnapsackItem.test.js:4 test:    26   1    0   0   0   75.
 #### Good Baseline: [`good/articulationPoints.test.js`](good/articulationPoints.test.js) ([sidecar JSON](good/articulationPoints.test.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [trekhleb/javascript-algorithms (src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/articulation-points/__test__/articulationPoints.test.js) (`MIT`)
-- **Expected Scorecard:** `Composite 100.0/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 96.2/100 (Grade A)` — `SRP: 100.0` | `Size: 100.0` | `Complexity: 100.0` | `Clean: 75.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
-CODE HEALTH SCORECARD | Score: 100.0/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7
-Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+CODE HEALTH SCORECARD | Score: 96.2/100 (Grade A) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 7
+Dimensions -> SRP: 100.0 | Size: 100.0 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/good/articulationPoints.test.js test    190    - 100.0 100.0 100.0 100.0 100.0  100.0   A
+samples/javascript/good/articulationPoints.test.js test    190    - 100.0 100.0 100.0  75.0 100.0   96.2   A
+    - Clean (DRY): DRY-001 (type3, 70.1%, 258 toks, 9 LOC) L7-17 in test: should find articulation points in simple graph matches samples/javascript/good/articulationPoints.test.js:20-29 (test: should find articulation points in simple graph), samples/javascript/good/articulationPoints.test.js:31-54 (test: should find articulation points in simple graph with back edge), samples/javascript/good/articulationPoints.test.js:56-82 (test: should find articulation points in simple graph with back edge #2) (+6 more) (-27.0 pts)
+    - Clean (DRY): DRY-002 (type2, 60 toks, 12 LOC) L101-114 in test: should find articulation points in graph matches samples/javascript/good/articulationPoints.test.js:143-156 (test: should find articulation points in graph starting with articulation root vertex), samples/javascript/good/articulationPoints.test.js:212-225 (test: should find articulation points in yet another graph #2) (-8.0 pts)
+    - Clean (DRY): DRY-003 (type3, 86.0%, 100 toks, 14 LOC) L138-153 in test: should find articulation points in graph starting with articulation root vertex matches samples/javascript/good/articulationPoints.test.js:173-188 (test: should find articulation points in yet another graph #1) (-3.0 pts)
+    - Clean (DRY): DRY-004 (type1, 69 toks, 9 LOC) L84-92 in test: should find articulation points in graph matches samples/javascript/good/articulationPoints.test.js:126-134 (test: should find articulation points in graph starting with articulation root vertex), samples/javascript/good/articulationPoints.test.js:197-206 (test: should find articulation points in yet another graph #2) (-10.0 pts)
+    - Clean (DRY): DRY-005 (type3, 96.7%, 91 toks, 13 LOC) L61-76 in test: should find articulation points in simple graph with back edge #2 matches samples/javascript/good/articulationPoints.test.js:97-111 (test: should find articulation points in graph) (-3.0 pts)
+    - Clean (DRY): duplication_ratio=92.1% (>15.0%) (-38.6 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 175/190 (92.1%) | DRY Score: 75.0/100 | Clone Groups: 5 (T1: 1, T2: 1, T3: 3 | intra: 5, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   70.1% intra_file     30 samples/javascript/good/articulationPoints.test.js:L7-17, samples/javascript/good/articulationPoints.test.js:L20-29, samples/javascript/good/articulationPoints.test.js:L31-54 (+7 more)
+DRY-002  type2  100.0% intra_file     12 samples/javascript/good/articulationPoints.test.js:L101-114, samples/javascript/good/articulationPoints.test.js:L143-156, samples/javascript/good/articulationPoints.test.js:L212-225
+DRY-003  type3   86.0% intra_file     14 samples/javascript/good/articulationPoints.test.js:L138-153, samples/javascript/good/articulationPoints.test.js:L173-188
+DRY-004  type1  100.0% intra_file      9 samples/javascript/good/articulationPoints.test.js:L84-92, samples/javascript/good/articulationPoints.test.js:L126-134, samples/javascript/good/articulationPoints.test.js:L197-206
+DRY-005  type3   96.7% intra_file     13 samples/javascript/good/articulationPoints.test.js:L61-76, samples/javascript/good/articulationPoints.test.js:L97-111
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd
@@ -626,18 +686,36 @@ samples/javascript/good/articulationPoints.test.js:1   30   1    0   0   0  100.
 #### Bad Baseline: [`bad/breadthFirstSearch.test.js`](bad/breadthFirstSearch.test.js) ([sidecar JSON](bad/breadthFirstSearch.test.js.expected.json))
 
 - **Upstream Dataset / Benchmark:** [trekhleb/javascript-algorithms (src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js)](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/graph/breadth-first-search/__test__/breadthFirstSearch.test.js) (`MIT`)
-- **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 100.0` | `Size: 70.0` | `Complexity: 100.0` | `Clean: 100.0` | `Security: 100.0`
+- **Expected Scorecard:** `Composite 75.0/100 (Grade C)` — `SRP: 100.0` | `Size: 70.0` | `Complexity: 100.0` | `Clean: 75.0` | `Security: 100.0`
 
 ```text
 ================================================================================================
 CODE HEALTH SCORECARD | Score: 75.0/100 (Grade C) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 2
-Dimensions -> SRP: 100.0 | Size: 70.0 | Complexity: 100.0 | Clean: 100.0 | Security: 100.0
+Dimensions -> SRP: 100.0 | Size: 70.0 | Complexity: 100.0 | Clean: 75.0 | Security: 100.0
 ================================================================================================
 
 [FILES SCORECARD]
 File                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd
 ------------------------------------------------------------------------------------------------
-samples/javascript/bad/breadthFirstSearch.test.js test    146    - 100.0  70.0 100.0 100.0 100.0   75.0   C
+samples/javascript/bad/breadthFirstSearch.test.js test    146    - 100.0  70.0 100.0  75.0 100.0   75.0   C
+    - Clean (DRY): DRY-001 (type3, 90.1%, 343 toks, 35 LOC) L51-90 in test: should perform BFS operation on graph matches samples/javascript/bad/breadthFirstSearch.test.js:136-173 (test: should allow to create custom vertex visiting logic) (-3.0 pts)
+    - Clean (DRY): DRY-002 (type1, 269 toks, 33 LOC) L7-46 in test: should perform BFS operation on graph matches samples/javascript/bad/breadthFirstSearch.test.js:92-131 (test: should allow to create custom vertex visiting logic) (-5.0 pts)
+    - Clean (DRY): DRY-003 (type2, 109 toks, 12 LOC) L57-69 in test: should perform BFS operation on graph matches samples/javascript/bad/breadthFirstSearch.test.js:74-86 (test: should perform BFS operation on graph) (-4.0 pts)
+    - Clean (DRY): DRY-004 (type2, 93 toks, 11 LOC) L142-153 in test: should allow to create custom vertex visiting logic matches samples/javascript/bad/breadthFirstSearch.test.js:158-169 (test: should allow to create custom vertex visiting logic) (-4.0 pts)
+    - Clean (DRY): DRY-005 (type2, 81 toks, 11 LOC) L51-63 in test: should perform BFS operation on graph matches samples/javascript/bad/breadthFirstSearch.test.js:136-148 (test: should allow to create custom vertex visiting logic) (-4.0 pts)
+    - Clean (DRY): DRY-006 (type2, 73 toks, 8 LOC) L68-76 in test: should perform BFS operation on graph matches samples/javascript/bad/breadthFirstSearch.test.js:152-160 (test: should allow to create custom vertex visiting logic) (-4.0 pts)
+    - Clean (DRY): duplication_ratio=53.4% (>15.0%) (-19.2 pts)
+
+[DUPLICATE CODE & DRY SUMMARY]
+Duplicated LOC: 78/146 (53.4%) | DRY Score: 75.0/100 | Clone Groups: 6 (T1: 1, T2: 4, T3: 1 | intra: 6, cross: 0)
+ID       Type      Sim Scope         LOC Locations
+------------------------------------------------------------------------------------------------
+DRY-001  type3   90.1% intra_file     35 samples/javascript/bad/breadthFirstSearch.test.js:L51-90, samples/javascript/bad/breadthFirstSearch.test.js:L136-173
+DRY-002  type1  100.0% intra_file     33 samples/javascript/bad/breadthFirstSearch.test.js:L7-46, samples/javascript/bad/breadthFirstSearch.test.js:L92-131
+DRY-003  type2  100.0% intra_file     12 samples/javascript/bad/breadthFirstSearch.test.js:L57-69, samples/javascript/bad/breadthFirstSearch.test.js:L74-86
+DRY-004  type2  100.0% intra_file     11 samples/javascript/bad/breadthFirstSearch.test.js:L142-153, samples/javascript/bad/breadthFirstSearch.test.js:L158-169
+DRY-005  type2  100.0% intra_file     11 samples/javascript/bad/breadthFirstSearch.test.js:L51-63, samples/javascript/bad/breadthFirstSearch.test.js:L136-148
+DRY-006  type2  100.0% intra_file      8 samples/javascript/bad/breadthFirstSearch.test.js:L68-76, samples/javascript/bad/breadthFirstSearch.test.js:L152-160
 
 [FUNCTIONS & METHODS SCORECARD]
 Symbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd

@@ -127,3 +127,12 @@ Flagged sinks: `dangerouslySetInnerHTML`, `innerHTML`, `outerHTML`, `document.wr
 
 **Fix:** Render structured JSX nodes (`{comment.body}`), use a safe Markdown-to-React component library without raw HTML injection, or replace imperative `innerHTML` mutations with declarative JSX children. See [md_preview.tsx](../../../samples/typescript-react/bad/md_preview.tsx) vs. [discussion_view.tsx](../../../samples/typescript-react/good/discussion_view.tsx).
 
+---
+
+## 5. Deduplicate Repeated Component Effects & JSX Patterns
+
+**Finding:** `Clean (DRY): DRY-XXX (type1|type2|type3, N toks, M LOC) L<start>-<end> in <symbol> matches <peer>:<start>-<end> (<peer_symbol>)`
+
+- *Cause:* Sibling components or tables duplicate state/fetch lifecycle logic, event handlers, or repeating JSX subtrees across `.tsx`/`.jsx` files (`>= 35` runtime tokens in source; `>= 55` tokens in tests).
+- *Fix:* Extract shared hook sequences into custom `use*` hooks, extract repeating JSX structures into parameterized presentational components, and consolidate repeated Testing Library specs with `test.each`.
+

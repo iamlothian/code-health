@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from _code_health.dry_tokens import extract_cst_tokens
 from _code_health.ecmascript_ui import (
     BRANCH_LOOP_NODES,
     collect_ui_cst_telemetry,
@@ -386,15 +387,15 @@ def _extract_ts_units(root: Any, ctx: _TSCtx) -> tuple[list[IRClass], list[IRFun
     return classes, functions, imports, count_unclaimed_ts_ignores(root, ctx.bytes, ctx.claimed)
 
 
-def parse_typescript_file(file_path: Path, rel_path: str, is_test: bool) -> IRModule:
+def parse_typescript_file(file_path: Path, rel_path: str, is_test: bool, interner: Any = None) -> IRModule:
     """Parse a TypeScript or TSX file into an IRModule using Tree-Sitter."""
     tree_sitter, tree_sitter_typescript = check_typescript_dependencies()
     source_bytes = file_path.read_bytes()
     lines = source_bytes.decode("utf-8", errors="replace").splitlines()
     lang_fn = tree_sitter_typescript.language_tsx if file_path.suffix.lower() == ".tsx" else tree_sitter_typescript.language_typescript
     tree = tree_sitter.Parser(tree_sitter.Language(lang_fn())).parse(source_bytes)
-    ctx = _TSCtx(source_bytes, lines, is_test, set())
-    classes, functions, imports, mod_ignores = _extract_ts_units(tree.root_node, ctx)
-    directives = extract_directives(tree.root_node, source_bytes)
+    classes, functions, imports, mod_ignores = _extract_ts_units(tree.root_node, _TSCtx(source_bytes, lines, is_test, set()))
     loc = max(sum(c.loc for c in classes) + sum(f.loc for f in functions), count_effective_loc(tree.root_node, lines))
-    return IRModule(rel_path, "typescript", is_test, loc, imports, classes, functions, "native", has_doc_comment(tree.root_node, lines), ts_ignore_count=mod_ignores, syntax_errors=collect_syntax_errors(tree.root_node), directives=directives)
+    mod = IRModule(rel_path, "typescript", is_test, loc, imports, classes, functions, "native", has_doc_comment(tree.root_node, lines), ts_ignore_count=mod_ignores, syntax_errors=collect_syntax_errors(tree.root_node), directives=extract_directives(tree.root_node, source_bytes))
+    mod.token_stream = extract_cst_tokens(tree.root_node, source_bytes, mod, interner) if interner and not mod.syntax_errors else None
+    return mod

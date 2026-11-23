@@ -19,7 +19,7 @@
       "srp": 100.0,
       "size": 55.0,
       "complexity": 0.0,
-      "clean": 60.0,
+      "clean": 46.6,
       "security": 100.0,
       "composite": 5.0,
       "grade": "F"
@@ -31,10 +31,12 @@
     ],
     "all_findings": [
       "Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)",
+      "Clean (DRY): DRY-001 (type2, 126 toks, 28 LOC) L12-39 in test: first party switch matches samples/typescript/bad/zod_firstparty.test.ts:40-67 (test: first party switch) (-4.0 pts)",
+      "Clean (DRY): duplication_ratio=33.7% (>15.0%) (-9.4 pts)",
       "[Func test: first party switch] Size: LOC=80 (>40) (-45.0 pts)",
       "[Func test: first party switch] Complexity: CC=37 (>5) (-100.0 pts)",
       "[Func test: first party switch] Clean (Test): test has 0 assertions (-30.0 pts)"
     ],
-    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 55.0 | Complexity: 0.0 | Clean: 60.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_firstparty.test.ts  test     83    - 100.0  55.0   0.0  60.0 100.0    5.0   F\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_firstparty.test.ts:7 test   80  37    1   0   1    5.0   F\n    - Size: LOC=80 (>40) (-45.0 pts)\n    - Complexity: CC=37 (>5) (-100.0 pts)\n    - Clean (Test): test has 0 assertions (-30.0 pts)\n"
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 5.0/100 (Grade F) | Files: 1 (src: 0, test: 1) | Classes: 0 | Functions/Methods: 1\nDimensions -> SRP: 100.0 | Size: 55.0 | Complexity: 0.0 | Clean: 46.6 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_firstparty.test.ts  test     83    - 100.0  55.0   0.0  46.6 100.0    5.0   F\n    - Clean (TS): 1 '@ts-ignore'/'@ts-nocheck' directive(s) suppress compiler checks (-10.0 pts)\n    - Clean (DRY): DRY-001 (type2, 126 toks, 28 LOC) L12-39 in test: first party switch matches samples/typescript/bad/zod_firstparty.test.ts:40-67 (test: first party switch) (-4.0 pts)\n    - Clean (DRY): duplication_ratio=33.7% (>15.0%) (-9.4 pts)\n\n[DUPLICATE CODE & DRY SUMMARY]\nDuplicated LOC: 28/83 (33.7%) | DRY Score: 86.6/100 | Clone Groups: 1 (T1: 0, T2: 1, T3: 0 | intra: 1, cross: 0)\nID       Type      Sim Scope         LOC Locations\n------------------------------------------------------------------------------------------------\nDRY-001  type2  100.0% intra_file     28 samples/typescript/bad/zod_firstparty.test.ts:L12-39, samples/typescript/bad/zod_firstparty.test.ts:L40-67\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/typescript/bad/zod_firstparty.test.ts:7 test   80  37    1   0   1    5.0   F\n    - Size: LOC=80 (>40) (-45.0 pts)\n    - Complexity: CC=37 (>5) (-100.0 pts)\n    - Clean (Test): test has 0 assertions (-30.0 pts)\n"
   }
 }

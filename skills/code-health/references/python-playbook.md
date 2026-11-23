@@ -92,9 +92,9 @@ This reference provides targeted refactoring patterns to resolve deterministic c
 - **Finding (Tests): `Clean (Test): X assertions in single test (>8)`**
   - *Cause:* End-to-end and contract tests frequently chain 15–30 assertions in a single test, triggering heavy penalty deductions (-3.0 pts per assertion > 8).
   - *Fix:* Split large multi-step workflows into focused test functions, or decompose into chronological sub-step verification helpers that test $\le 8$ assertions each.
-- **Finding (Tests): `Clean: duplicate code block(s) detected` (-5.0 pts)**
-  - *Cause:* Re-declaring repetitive mock data, payloads, or setup blocks across test cases ($\ge 6$ identical AST statements).
-  - *Fix:* Consolidate repeated test fixture data, mock payloads, or setup boilerplate into reusable helper functions or parameterized pytest fixtures.
+- **Finding: `Clean (DRY): DRY-XXX (type1|type2|type3, N toks, M LOC) L<start>-<end> in <symbol> matches <peer>:<start>-<end> (<peer_symbol>)`**
+  - *Cause:* Exact (`type1`), identifier/literal-renamed (`type2`), or gapped/near-miss (`type3`) duplicated logic meeting thresholds ($\ge 35$ tokens / $\ge 5$ lines in source files; $\ge 55$ tokens / $\ge 8$ lines inside test functions).
+  - *Fix:* Extract shared domain validators, parsers, or formatters into a reusable helper function (parameterized by changing inputs/callbacks). In test suites, consolidate repeated multi-step setup/assert workflows into `@pytest.mark.parametrize` or focused verification helpers while keeping test cases self-contained (`tests/` ignores module-level static fixture data when test functions are present).
 
 ---
 

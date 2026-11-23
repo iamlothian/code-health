@@ -19,7 +19,7 @@
       "srp": 85.0,
       "size": 28.3,
       "complexity": 28.7,
-      "clean": 100.0,
+      "clean": 94.9,
       "security": 100.0,
       "composite": 33.3,
       "grade": "F"
@@ -28,6 +28,8 @@
       "Size: LOC=129 (>25)"
     ],
     "all_findings": [
+      "Clean (DRY): DRY-001 (type3, 71.1%, 126 toks, 26 LOC) L250-275 in demo1 matches samples/javascript/bad/IntroSort.js:282-307 (demo2) (-3.0 pts)",
+      "Clean (DRY): duplication_ratio=14.3% (>10.0%) (-2.1 pts)",
       "[Func introsort] SRP: high external call fan-out=13 (>6) (-21.0 pts)",
       "[Func introsort] Size: LOC=129 (>25) (-100.0 pts)",
       "[Func introsort] Complexity: CC=34 (>5) (-100.0 pts)",
@@ -36,6 +38,6 @@
       "[Func demo1] Size: LOC=26 (>25) (-1.5 pts)",
       "[Func demo2] Size: LOC=26 (>25) (-1.5 pts)"
     ],
-    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 33.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 85.0 | Size: 28.3 | Complexity: 28.7 | Clean: 100.0 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js            src     182    -  85.0  28.3  28.7 100.0 100.0   33.3   F\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js:18 introsort      129  34   34   2   2    5.0   F\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Size: LOC=129 (>25) (-100.0 pts)\n    - Complexity: CC=34 (>5) (-100.0 pts)\n    - Complexity: cognitive=34 (>8) (-65.0 pts)\n    - Complexity: returns=16 (>3) (-52.0 pts)\nsamples/javascript/bad/IntroSort.js:250 demo1          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\nsamples/javascript/bad/IntroSort.js:282 demo2          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\n"
+    "rendered_console": "================================================================================================\nCODE HEALTH SCORECARD | Score: 33.3/100 (Grade F) | Files: 1 (src: 1, test: 0) | Classes: 0 | Functions/Methods: 3\nDimensions -> SRP: 85.0 | Size: 28.3 | Complexity: 28.7 | Clean: 94.9 | Security: 100.0\n================================================================================================\n\n[FILES SCORECARD]\nFile                                           Kind    LOC  Git   SRP  Size  Comp   Cln   Sec  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js            src     182    -  85.0  28.3  28.7  94.9 100.0   33.3   F\n    - Clean (DRY): DRY-001 (type3, 71.1%, 126 toks, 26 LOC) L250-275 in demo1 matches samples/javascript/bad/IntroSort.js:282-307 (demo2) (-3.0 pts)\n    - Clean (DRY): duplication_ratio=14.3% (>10.0%) (-2.1 pts)\n\n[DUPLICATE CODE & DRY SUMMARY]\nDuplicated LOC: 26/182 (14.3%) | DRY Score: 94.9/100 | Clone Groups: 1 (T1: 0, T2: 0, T3: 1 | intra: 1, cross: 0)\nID       Type      Sim Scope         LOC Locations\n------------------------------------------------------------------------------------------------\nDRY-001  type3   71.1% intra_file     26 samples/javascript/bad/IntroSort.js:L250-275, samples/javascript/bad/IntroSort.js:L282-307\n\n[FUNCTIONS & METHODS SCORECARD]\nSymbol (file:line)                                    LOC  CC  Cog Prm Nst  Score Grd\n------------------------------------------------------------------------------------------------\nsamples/javascript/bad/IntroSort.js:18 introsort      129  34   34   2   2    5.0   F\n    - SRP: high external call fan-out=13 (>6) (-21.0 pts)\n    - Size: LOC=129 (>25) (-100.0 pts)\n    - Complexity: CC=34 (>5) (-100.0 pts)\n    - Complexity: cognitive=34 (>8) (-65.0 pts)\n    - Complexity: returns=16 (>3) (-52.0 pts)\nsamples/javascript/bad/IntroSort.js:250 demo1          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\nsamples/javascript/bad/IntroSort.js:282 demo2          26   5    5   0   2   99.6   A\n    - Size: LOC=26 (>25) (-1.5 pts)\n"
   }
 }

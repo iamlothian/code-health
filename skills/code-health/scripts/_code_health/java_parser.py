@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from _code_health.ast_engine import _bfs_component_count
+from _code_health.dry_tokens import extract_cst_tokens
 
 from _code_health.ir_models import (
     IRAnnotation,
@@ -320,7 +321,7 @@ def _extract_java_classes(root: Any, source_bytes: bytes, lines: list[str], is_t
     return classes
 
 
-def parse_java_file(file_path: Path, rel_path: str, is_test: bool) -> IRModule:
+def parse_java_file(file_path: Path, rel_path: str, is_test: bool, interner: Any = None) -> IRModule:
     """Parse a Java file into an IRModule using Tree-Sitter."""
     tree_sitter, tree_sitter_java = check_java_dependencies()
     source_bytes = file_path.read_bytes()
@@ -332,4 +333,7 @@ def parse_java_file(file_path: Path, rel_path: str, is_test: bool) -> IRModule:
 
     classes = _extract_java_classes(tree.root_node, source_bytes, lines, is_test)
     loc = sum(c.loc for c in classes) or max(1, len(lines))
-    return IRModule(rel_path, "java", is_test, loc, [], classes, [], "native")
+    mod = IRModule(rel_path, "java", is_test, loc, [], classes, [], "native")
+    if interner is not None:
+        mod.token_stream = extract_cst_tokens(tree.root_node, source_bytes, mod, interner)
+    return mod

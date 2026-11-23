@@ -104,4 +104,5 @@ Applies to `dangerouslySetInnerHTML`, `innerHTML`, `outerHTML`, `document.write`
 ## 4. Inherited React & TypeScript Patterns in Next.js
 - Split heavy table/chart/form route modules (`login_form.tsx`, `customers_table.tsx`, `revenue_chart.tsx`) by extracting formatting helpers and Server Action / API fetch functions out of UI components so `render_ui` does not mix with `network_io` or `storage_io`.
 - Remember JSDoc comments (`/** ... */`) on exported helpers/hooks and explicit parameter/return types on non-JSX TypeScript helpers (`TypeScript Playbook`).
+- **Finding: `Clean (DRY): DRY-XXX (type1|type2|type3, ...)`:** Deduplicate repeated Server Action validation, data-fetching wrappers, and shared Client Component leaf patterns into focused server utilities (`lib/`) or reusable UI components while respecting `'use client'` / `'use server'` boundaries.
 
